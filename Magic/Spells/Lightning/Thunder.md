@@ -1,0 +1,1 @@
+Summons a thunder storm that strikes down a powerful lightning strike.

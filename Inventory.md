@@ -1,0 +1,15 @@
+In this game, players start with no inherent inventory slots, relying instead on gear to provide storage. The only default slots available are armor/clothing slots, one bag slot, and two hand slots. Among these, only the hand slots are unrestricted, allowing players to carry any item. To expand their inventory, players must equip items such as specific armor, clothing, pouches, or backpacks, each contributing additional slots.
+To simplify inventory management, all slots from equipped items are displayed as a single unified grid, similar to inventory systems in other games. However, slots are grouped and outlined with colored borders to indicate which item or gear they belong to, ensuring clarity while maintaining ease of use.
+# Pouches
+Pouches are small storage containers that offer a few extra inventory slots, specifically designed for lightweight and small items such as food, coins, or arrows. Players must equip certain items, like belts or pants, to unlock dedicated pouch slots. While limited in capacity, pouches are convenient for quick access to essentials.
+# Bags and Backpacks
+Players can equip one bag or backpack in their backpack slot, providing the bulk of their inventory space. Early-game backpacks offer minimal slots, but as players progress, they can craft or purchase larger and more efficient options. Some backpacks come with trade-offs; for example, additional storage space might reduce movement speed, while others may reduce the weight of items stored inside.
+# Magic Pouches and Magic Backpacks
+Advanced, magical versions of pouches and backpacks exist as rare and valuable items. These magic pouches and magic backpacks offer significantly more slots than their standard counterparts and reduce the weight of items stored inside. However, they are extremely expensive to craft or purchase, making them a prized possession for experienced players.
+# Item Box Spell
+Players specializing in magic can unlock the Item Box spell, a unique storage solution. The Item Box acts as a personal, magical chest that only the caster can access, similar to an "ender chest" in Minecraft. Items stored in the Item Box are not lost upon death and do not contribute to the player’s weight, making it an invaluable tool for mages. More details on the Item Box spell can be found in the Spells section.
+# Weight and Strength
+While players can fill their inventory slots as much as they desire, each item has a weight value that stacks. A visible weight stat tracks how heavily burdened the player is. The amount of weight a player can carry is determined by their Strength stat:
+Increasing Strength allows players to carry more weight without penalties.
+Exceeding the weight limit slows the player down, and if the limit is significantly surpassed, the player becomes immobile.
+This system encourages thoughtful management of gear and items, while the integration of weight-based limitations and specialized storage options adds depth and strategic choices to inventory management.

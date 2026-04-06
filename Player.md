@@ -1,0 +1,7 @@
+Players can choose from three distinct races to play as: Humans, Elves, or Dwarves. Each race comes with its own unique starting stats, benefits, and character models, offering diverse playstyles and abilities to suit different preferences.
+Humans: Balanced in their attributes, humans are versatile and adaptable, making them suitable for a variety of playstyles.
+Elves: Known for their agility and affinity with magic, elves excel in precision, speed, and mystical abilities.
+Dwarves: Tough and resilient, dwarves are masters of crafting and melee combat, with higher strength and durability.
+As players explore the world and engage in activities such as slaying creatures, crafting items, or constructing buildings, they earn experience points (XP). Accumulating XP allows players to level up, marking their growth and progress.
+Upon reaching a new level, players are rewarded with a stat point, which they can allocate to improve one of their character’s stats. This system provides the flexibility to customize and enhance specific aspects of their character, such as strength, agility, intelligence, or endurance, enabling players to tailor their build to their preferred playstyle.
+Whether you choose the adaptability of humans, the magical finesse of elves, or the raw strength of dwarves, the game’s progression system ensures that your character grows alongside your achievements, providing a satisfying sense of advancement and personalization.
