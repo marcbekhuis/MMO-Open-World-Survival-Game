@@ -1,8 +1,78 @@
-In this game, all humanoid structures—whether built by NPCs or players—are created using the same building system. This allows players to construct settlements resembling those of elven, human, or dwarven NPCs. Additionally, NPC settlements are destructible, an essential feature for gameplay mechanics like raids, which are detailed in the Raids section of this document.
-The building system evolves alongside player progression and adapts to various environments. Players begin with rudimentary structures, such as stick-woven huts, and unlock more durable materials and advanced designs as they progress, such as reinforced stone buildings. However, environmental challenges must also be addressed: structures designed for temperate climates may not offer sufficient protection in extreme environments, like freezing tundras or scorching deserts. To thrive, players can construct climate-adapted building variants optimized for these conditions.
-A durability multiplier system ensures that structures gain durability relative to the load they support. This system applies to all building components:
-Each structure gains a durability multiplier proportional to the number of other structures stacked on top of it.
-For instance, a foundation supporting 10 walls will receive a durability multiplier of 10. The first wall on top of the foundation (with 9 walls stacked above it) will receive a multiplier of 9, the next wall 8, and so on.
-This dynamic scaling system ensures that load-bearing structures are more resistant to damage, discouraging attackers from targeting specific points to cause catastrophic collapses.
-To prevent exploitation, such as stacking unnecessary components solely to increase durability, the system incorporates a structural integrity mechanic. Each structure has a finite amount of support it can provide, which diminishes as additional layers are added. Once a structure’s support limit is reached, no further components can be placed. This balances creativity and functionality while encouraging strategic building designs.
-By combining durability scaling and integrity management, this building system offers players the freedom to construct elaborate and realistic structures while maintaining gameplay balance and preventing common exploits.
+# Building System
+
+## Core Philosophy
+
+All humanoid structures—player-built and NPC-built—use the **same construction system**. This unified approach lets players:
+
+- Build settlements with Elven, Human, or Dwarven style
+- Reuse design principles across player and NPC structures
+- Create hybrid communities and unique architectural styles
+- Attack and destroy enemy settlements during raids
+
+---
+
+## Progression & Materials
+
+### Early Game
+- Simple stick and thatch structures
+- Quick to construct
+- Low durability but easy to repair
+
+### Mid Game
+- Wooden walls, stone foundations, defensive barriers
+- Improved durability and aesthetic variety
+- Greater resilience against weather and attacks
+
+### Late Game
+- Reinforced stone keeps, towers, and marketplaces
+- Advanced building materials and magical fortifications
+- Customizable strongholds with layered defenses
+
+---
+
+## Environmental Adaptation
+
+Buildings must match the biome or suffer penalties.
+
+| Biome | Challenge | Adaptive Solution |
+|---|---|---|
+| Frozen Tundra | Cold, ice, snow loads | Insulated structures, heated foundations |
+| Scorching Desert | Heat, sandstorms | Reflective surfaces, hardened walls |
+| Rainforest | Rain, rot, dense foliage | Elevated platforms, treated wood |
+| Mountain Range | Avalanches, exposed cliffs | Reinforced anchoring, wind-resistant design |
+| Swamp | Flooding, decay | Raised floor systems, waterproof materials |
+
+---
+
+## Durability & Support
+
+### Load-Based Durability
+
+Structure durability increases with supported load:
+
+- A foundation supporting many components gains a high durability multiplier
+- Upper layers receive proportionate strength based on support weight
+- This encourages realistic, load-bearing architecture
+
+### Structural Integrity
+
+- Each piece has finite support capacity
+- Adding too many layers eventually prevents further construction
+- Prevents exploitative stacking for durability
+- Encourages thoughtful base design and balanced builds
+
+### Strategic Building
+
+- Tall, narrow towers are powerful but vulnerable
+- Strong foundations create more damage-resistant bases
+- Environmental factors influence placement and material choice
+- Defense and aesthetics both matter
+
+---
+
+## Building in Practice
+
+- **Solo players** build compact, efficient outposts
+- **Small teams** construct defensive encampments and craft hubs
+- **Large groups** establish cities, guild halls, and fortresses
+- **Endgame structures** serve as permanent territory and status markers

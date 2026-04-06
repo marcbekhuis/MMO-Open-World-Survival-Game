@@ -1,7 +1,61 @@
-Players can choose from three distinct races to play as: Humans, Elves, or Dwarves. Each race comes with its own unique starting stats, benefits, and character models, offering diverse playstyles and abilities to suit different preferences.
-Humans: Balanced in their attributes, humans are versatile and adaptable, making them suitable for a variety of playstyles.
-Elves: Known for their agility and affinity with magic, elves excel in precision, speed, and mystical abilities.
-Dwarves: Tough and resilient, dwarves are masters of crafting and melee combat, with higher strength and durability.
-As players explore the world and engage in activities such as slaying creatures, crafting items, or constructing buildings, they earn experience points (XP). Accumulating XP allows players to level up, marking their growth and progress.
-Upon reaching a new level, players are rewarded with a stat point, which they can allocate to improve one of their character’s stats. This system provides the flexibility to customize and enhance specific aspects of their character, such as strength, agility, intelligence, or endurance, enabling players to tailor their build to their preferred playstyle.
-Whether you choose the adaptability of humans, the magical finesse of elves, or the raw strength of dwarves, the game’s progression system ensures that your character grows alongside your achievements, providing a satisfying sense of advancement and personalization.
+# Player Progression
+
+## Playable Races
+
+Choose from three distinct races, each with unique starting stats, cultural flavor, and playstyle advantages.
+
+### 🧑 Humans
+**The Adaptable**
+- Balanced attributes in all areas
+- Versatile for melee, magic, or hybrid builds
+- Ideal for players who prefer flexibility
+
+### 🧝 Elves
+**The Arcane Sprinters**
+- High agility and magical affinity
+- Excel at ranged combat and spellcasting
+- Natural advantages in stealth and precision
+
+### 🧔 Dwarves
+**The Stalwart Craftsmen**
+- High strength and resilience
+- Exceptional melee damage and durability
+- Excellent at crafting and heavy armor use
+
+---
+
+## Progression System
+
+### Experience & Leveling
+
+Players earn XP through:
+- Slaying creatures and bosses
+- Crafting weapons, armor, and structures
+- Completing quests and objectives
+- Defending settlements or leading raids
+- Exploring new locations and secrets
+
+### Stat Point Allocation
+
+Each level grants a **stat point** that can be invested in core attributes:
+
+| Stat | Effect |
+|---|---|
+| **Strength** | Melee power, carry capacity, physical toughness |
+| **Agility** | Movement speed, evasion, attack speed |
+| **Intelligence** | Spell power, mana, magic resistance |
+| **Endurance** | Health, stamina, damage resistance |
+| **Wisdom** | Regeneration, perception, status effect resistance |
+
+### Customization & Respec
+
+- Players can specialize in combat, crafting, magic, or survival
+- Progression is designed to support hybrid builds
+- Respec options are available at dedicated NPCs for a cost
+- Builds evolve to reflect player choices and roleplay
+
+---
+
+## Character Growth
+
+Growth is not just mechanical; it is narrative. Your race, stats, and choices shape how the world sees you and what challenges you can confidently face.

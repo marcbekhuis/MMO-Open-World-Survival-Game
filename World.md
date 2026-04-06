@@ -1,5 +1,50 @@
-The world of this game is vast beyond imagination, so expansive that even a well-prepared group would need several hours to journey from one end to the other. This sprawling landscape is brimming with diversity, featuring a wide array of biomes, intricate cave systems, and mysterious deep oceans, each offering unique challenges and wonders to discover.
-Towering mountains stretch high into the sky, their jagged peaks blanketed with snow, while rivers cascade from hidden springs deep within the mountains, winding their way through endless meadows and forests before finally reaching the vast, open oceans. These oceans, dark and foreboding, conceal untold secrets—submerged ruins, hidden caves, and monstrous sea creatures that patrol the depths.
-High above the surface, magical floating islands drift through the sky, their lush greenery and ancient ruins untouched by the world below. Waterfalls cascade from their edges, tumbling back to the surface in shimmering streams, creating a spectacle that defies the laws of nature. These mystical islands beckon the boldest adventurers to uncover their secrets, though reaching them is no small feat.
-From arid deserts to enchanted forests, icy tundras to vibrant jungles, every biome is uniquely detailed and alive, filled with its own ecosystems, resources, and mysteries to uncover. Underground, a labyrinth of caves stretches deep into the earth, illuminated by glowing crystals and bioluminescent flora, offering treasures for those brave enough to face the dangers within.
-This richly detailed world offers endless opportunities for exploration, inviting players to chart their own paths and uncover the hidden wonders that lie beyond the horizon. Whether you're climbing mountains, sailing across oceans, or finding a way to the magical islands above, every corner of the world is waiting to be explored.
+# World Design
+
+## Overview
+
+The world is vast and seamless, designed for long-form exploration and emergent storytelling. A single journey can span hours, with discovery and danger around every turn.
+
+## Key Features
+
+- **Expansive Biomes**: From deserts to jungles, mountains to floating islands
+- **Seamless Travel**: No instanced loading between major regions
+- **Dynamic Ecosystems**: Wildlife, weather, and environmental events shape gameplay
+- **Hidden Secrets**: Submerged ruins, cavern systems, and magical anomalies
+- **Vertical Depth**: Sky islands above, ocean depths below, and layered underground zones
+
+---
+
+## Biome Variety
+
+The world is made up of distinct biomes, each described in detail in the `Biomes/` folder.
+
+- [Ancient Forest](Biomes/Ancient-forest.md)
+- [Bambo Jungle](Biomes/Bambo-jungle.md)
+- [Floating Islands](Biomes/Floating-islands.md)
+- [Forest](Biomes/Forest.md)
+- [Jungle](Biomes/Jungle.md)
+- [Mesa](Biomes/Mesa.md)
+- [Mountain Range](Biomes/Mountain-range.md)
+- [Plains](Biomes/Plains.md)
+- [Swamp](Biomes/Swamp.md)
+
+---
+
+## Exploration & Discovery
+
+- Players uncover new areas through travel, quests, and map skills
+- Biome-specific challenges encourage adaptive strategies
+- Hidden lore and environmental storytelling reward careful observation
+- Express routes, portals, and flight unlock advanced access later in the game
+
+---
+
+## World Feel
+
+The world is alive:
+- Wildlife reacts to danger and players
+- NPC settlements maintain routines and trade routes
+- Weather systems affect combat, travel, and survival
+- Landmarks and ruins create memorable locations
+
+Whether a player is climbing summits, sailing stormy seas, or exploring floating islands, the world is designed to feel rich, cohesive, and full of possibility.

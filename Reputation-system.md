@@ -1,27 +1,77 @@
-Reputation in the game dynamically evolves based on player actions, influencing how NPCs and settlements interact with the player:
-Localized and Global Reputation:
-# Localized Reputation:
-Each NPC and settlement tracks a unique reputation score for the player. Actions such as aiding an NPC or attacking a settlement directly impact this score.
-Global Reputation:
-If a player’s reputation is consistently high or low across multiple settlements, it can affect how unknown settlements or NPCs perceive them. For example:
-A player with a good reputation may receive hospitality or trade offers from NPCs they’ve never met.
-A player with a bad reputation may be denied entry or attacked on sight in new settlements.
-# How to Gain Reputation:
-Good Reputation:
-Defending settlements from raids.
-Completing quests and trades with NPCs.
-Assisting NPCs in danger or providing valuable resources.
-Bad Reputation:
-Attacking or raiding settlements.
-Killing NPCs or stealing resources.
-Avoiding justice for prolonged periods.
-# Consequences of Reputation:
-Good Reputation Benefits:
-Discounts on trade and services.
-Easier access to exclusive items or quests.
-Positive recognition from NPC factions.
-Bad Reputation Penalties:
-Denied entry or services in settlements.
-NPCs attacking on sight.
-Bounties issued by settlements, offering rewards for the player’s capture or death.
-By balancing good and bad reputation, players have the freedom to shape their identity in the game world, becoming a hero, a villain, or something in between.
+# Reputation System
+
+## Overview
+
+Reputation evolves dynamically based on player actions and shapes how NPCs, settlements, and factions respond.
+
+---
+
+## Reputation Types
+
+### 📍 Local Reputation
+- Each faction or settlement tracks a unique score for the player
+- Positive actions build trust and unlock benefits
+- Negative actions damage relationships and invite hostility
+
+### 🌍 Global Reputation
+- Consistent behavior influences how unknown settlements perceive you
+- Good reputation opens new trade and travel options
+- Poor reputation causes warning, refusal, or aggression from strangers
+
+---
+
+## How Reputation Changes
+
+### Good Reputation
+- Defend settlements from raids
+- Complete quests and honor agreements
+- Trade fairly and support local economies
+- Assist NPCs in danger
+- Provide materials and services to communities
+
+### Bad Reputation
+- Attack or raid settlements
+- Kill NPCs or steal resources
+- Avoid justice and flee from the law
+- Betray allies and sabotage trade routes
+
+---
+
+## Reputation Effects
+
+### Benefits of Good Reputation
+| Benefit | Effect |
+|---|---|
+| Trade discounts | Reduced prices at friendly settlements |
+| Exclusive quests | Access rare missions and storylines |
+| Special rewards | Unique items and bonuses |
+| Ally support | NPC defenders or escorts in combat |
+| Safe passage | Protected travel through allied territory |
+
+### Penalties of Bad Reputation
+| Penalty | Effect |
+|---|---|
+| Entry denied | Target settlements block access |
+| Hostile NPCs | Attacked on sight by guards or hunters |
+| Services refused | No trade, healing, or lodging |
+| Active bounties | Rewards offered for capture or death |
+| Faction raids | NPC attacks triggered on your base |
+
+---
+
+## Mixed Reputation
+
+- Be a hero in one region and a villain in another
+- Use faction tensions to your advantage
+- Create political intrigue and roleplay opportunities
+- Maintain relationships with some groups while opposing others
+
+---
+
+## Strategic Depth
+
+Reputation is a long-term resource:
+- Actions have persistent consequences
+- Redemption is possible but costly
+- Reputation affects world access, economics, and conflict
+- Player identity is shaped by choices and legacy

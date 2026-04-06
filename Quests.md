@@ -1,18 +1,105 @@
-NPCs will offer players a variety of quests, providing engaging tasks and rewarding gameplay. Completing these quests will grant players valuable rewards, such as experience points, items, gold, or even unique skills.
-Types of Quests
-Quests will come in many forms, catering to different playstyles and encouraging exploration and teamwork. Examples include:
-Gathering Resources: Players are tasked with collecting specific resources like herbs, ores, or rare materials. These quests are ideal for those who enjoy exploring the world and harvesting its riches.
-Monster Hunting: Players must defeat a set number of monsters or a specific powerful creature. These combat-oriented quests reward bravery and skill in battle.
-NPC Escort Missions: Protect an NPC as they travel through dangerous areas, ensuring their safety while fending off threats from creatures or rival players. These quests test both strategy and teamwork.
-Structure Defense: Defend an NPC structure, such as a village or an outpost, from waves of attacking creatures or even other players. Success will depend on coordination, resourcefulness, and tactical planning.
-Dynamic Quest Rewards
-Rewards are tailored to the type and difficulty of the quest, ensuring players are fairly compensated for their efforts. Rewards may include:
-Experience Points: Boosting the player's level progression.
-Gold or Currency: Usable for trading or purchasing items.
-Equipment and Items: Weapons, armor, consumables, or crafting materials.
-Unique Unlocks: Rare abilities, cosmetics, or reputation boosts with specific NPC factions.
-Quest Availability
-Quests will vary depending on the location and context. For example:
-In bustling cities, quests may focus on trade and local issues.
-In dangerous wilderness areas, quests will lean more toward combat and exploration.
-Special event quests may arise during world events, like defending against a massive invasion or participating in a festival.
+# Quest System
+
+## Overview
+
+NPCs offer dynamic quests providing engaging tasks and rewarding gameplay. Quest completion grants valuable progression—experience, items, gold, skills, and reputation.
+
+---
+
+## Quest Types
+
+Quests cater to diverse playstyles and encourage exploration and teamwork:
+
+### 🔍 Gathering Resources
+Collect specific materials across the world.
+
+- Herbs, ores, rare components
+- Ideal for explorers and resource hunters
+- Unlock gathering locations and secrets
+- Suitable for solo or small groups
+
+### ⚔️ Monster Hunting
+Defeat creatures or bosses to claim victory.
+
+- Slay a certain number of monsters
+- Defeat a specific powerful creature
+- Combat-focused rewards
+- Scales in difficulty and solo/group difficulty
+
+### 👥 NPC Escort Missions
+Protect NPCs through dangerous territory.
+
+- Guide NPCs from point A to B safely
+- Defend against creature attacks
+- Protect from rival player interference
+- Tests strategy and teamwork
+- Interactive dialogue and choices
+
+### 🏰 Structure Defense
+Repel waves of invaders attacking settlements.
+
+- Defend outposts, villages, or strongholds
+- Face creature waves and/or rival players
+- Tactical positioning and resource management
+- Scales with settlement importance
+- Group coordination essential
+
+### 🎭 Event Quests
+Special limited-time quests that impact the world.
+
+- Massive invasions and world bosses
+- Seasonal festivals and celebrations
+- Faction wars and political intrigue
+- PvP tournaments and contests
+- Unique rewards available only during events
+
+---
+
+## Quest Rewards
+
+Rewards scale with quest difficulty and type:
+
+| Reward Type | Examples |
+|---|---|
+| **Experience** | XP for leveling and progression |
+| **Currency** | Gold/coin for trading and purchasing |
+| **Equipment** | Weapons, armor, accessories |
+| **Materials** | Crafting components, resources |
+| **Unlocks** | Rare abilities, cosmetics, mounts |
+| **Reputation** | Faction standing, NPC relationships |
+
+---
+
+## Dynamic Quest Availability
+
+Quests vary by location and world state:
+
+**Urban Settlements**
+- Trade and commerce quests
+- Local disputes and politics
+- Merchant support missions
+- Rare items and valuables
+
+**Wilderness Areas**
+- Combat and monster hunting
+- Resource gathering
+- Exploration and discovery
+- Survival challenges
+
+**Sea & Sky**
+- Ocean exploration
+- Pirate/merchant encounters
+- Flying creature hunts
+- Island colonization
+
+**Dungeons & Caves**
+- Artifact recovery
+- Monster extermination
+- Ancient ruin exploration
+- Treasure hunting
+
+**Dynamic Events**
+- World invasions
+- Natural disasters
+- NPC conflicts
+- Resource booms and shortages

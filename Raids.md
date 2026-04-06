@@ -1,19 +1,56 @@
-# NPC Settlements
-NPC settlements are vulnerable to attacks from both players and NPC raiders, creating large-scale dynamic events that impact the game world:
-Player-Initiated Raids:
-Players can attack NPC settlements to loot resources and items. Successful raids allow attackers to plunder whatever they can carry, but at the cost of their reputation.
-NPC-Initiated Raids:
-NPC raiders may also attack settlements. These events visibly damage the settlement, and penalties are applied, such as reduced productivity and trade availability.
-Defending NPC Settlements:
-Players not hostile to the attacked settlement can choose to defend it. Rewards for successful defense are scaled based on the settlement's size and importance.
-Rebuilding Process:
-Following a raid, settlements need time to rebuild their structures and infrastructure. During this period, trade routes, blacksmith services, and general utility of the settlement are significantly reduced, impacting all players who rely on them.
-# Player Bases
-Both NPCs and players can raid player-built bases, introducing risks and consequences tied to player reputation and choices:
-Player-Versus-Player Raids:
-Player bases are always open to PvP attacks. Raiders can loot items and cause structural damage.
-NPC-Initiated Raids:
-NPCs will occasionally raid player bases, often with devastating results. The nature of these raids depends on the player’s reputation:
-Normal Raiders: Attack without specific cause.
-Faction Raids: Triggered when players develop a bad reputation with NPC settlements, causing them to organize attacks.
-The impact of raids—whether NPC or player-driven—requires players to invest in defense mechanisms and strategic positioning of their bases.
+# Raids & Conquest
+
+## NPC Settlement Raids
+Settlements are dynamic targets for both player and NPC aggression, creating emergent world events.
+
+### Player-Initiated Raids
+- Attack NPC settlements to loot resources and valuables
+- Loot is limited by what players can carry during escape
+- Reputation loss with the affected faction is a key cost
+- Larger settlements require more coordination and stronger defenses
+- Successful raids can trigger faction retaliation and bounties
+
+### NPC-Initiated Raids
+- NPC factions may raid settlements due to conflict or resource pressure
+- Damage reduces production, trade, and services
+- Defending players can earn rewards and reputation gains
+- Raid intensity scales with settlement importance and faction power
+
+### Settlement Defense
+- Players who are friendly with a settlement can join defenses
+- Defense rewards scale with the size and status of the settlement
+- Coordinated defense can protect infrastructure and reduce long-term penalties
+- NPC defenders and player allies both contribute to success
+
+### Recovery & Rebuilding
+- Raided settlements require time and resources to recover
+- Damaged services such as blacksmiths and traders may temporarily close
+- Rebuilding can be accelerated through player quests and donations
+- Recovered settlements may shift faction attitudes depending on outcomes
+
+---
+
+## Player Base Raids
+Player-built bases are always vulnerable, adding persistent risk and strategic urgency.
+
+### PvP Raids
+- Rival players can attack bases at any time in open zones
+- Objectives include stealing loot, damaging structures, and weakening defenders
+- Strong base design can slow or repel attackers
+- Raids encourage group defense, alliances, and watch systems
+
+### NPC Faction Raids
+- NPC forces may attack a player base based on reputation
+- Low reputation increases raid frequency and strength
+- High-value bases attract more organized assaults
+- Defenses must adapt to both player and NPC strategies
+
+---
+
+## Strategic Implications
+
+- Base placement matters: chokepoints, elevation, and escape routes are critical
+- Hidden storage and deception are valuable defensive tactics
+- Reputation management reduces raid risk and improves support
+- Strong defenses discourage opportunistic attackers
+- Raid outcomes shape regional power and player history
