@@ -1,56 +1,29 @@
-# MMO Open-World Survival Game
+For a long time I have had the idea for an extreemly large scale open world game that lets players do what ever they want. The game will allow players to play the game as a survival game, gathering resources, leveling and building. or they can play the game as an RPG by doing quests, leveling, trading and staying in NPC housing.
 
-> An expansive fantasy sandbox where hundreds of players coexist in a persistent world of unimaginable scale. Shape your destiny as a hero, villain, or something entirely your own.
+The game will feature a server clustering system to allow for 100s or even 1000s of players to play on what seamlessly looks like one large world, where they can interact and fight with each other.
 
-## 🎮 Core Vision
+Both PVP and PVE will be featured in the game clans of 100s of players will be able to fight for resources and attack each others bases, Fight large scale battles on open fields with tamed mounts.
 
-This is a full-featured fantasy MMO combining:
-- **Survival Gameplay**: Establish settlements, hire NPCs, tame creatures, wage wars
-- **RPG Elements**: Questing, trading, crafting, progressing through a dynamic world
-- **Player Freedom**: Every action shapes the world and your legacy
+The game will have subscribtion based monitization to allow for the games planned large scale of content even when it fails to aquire a constant stream of new players to fund the game.
 
-## 🌍 The World
+Unreal engine 5 will be used as the games engine because of its large number of build in features for making a realistic game.
 
-A vast, seamless world featuring:
-- Diverse biomes from arid deserts to enchanted forests
-- Floating islands suspended in the sky
-- Deep ocean systems and underground caverns
-- Hundreds of fantasy creatures and ecosystems
-- Dynamic NPC settlements and AI-driven events
+Players spawn in one of several [capital cities](Structures/Capital.md) around the map, if a player desires to be in a different [capital city](Structures/Capital.md) they can use the large portal in the center of the city to go to a different city if their friends started there. When players uses these teleporters they lose their inventory. 
 
-## 🛠️ Technical Excellence
+Performance and bug fixes will be priorised over new features in the game, community feedback will also be taken as one of the bigest driving points in the game.
 
-**Built on Unreal Engine 5** for:
-- Highly realistic graphics rivaling AAA titles
-- Cutting-edge server clustering technology (similar to Star Citizen and Atlas)
-- **Seamless multiplayer for 100s-1000s of players** on a single region without instancing
-- Persistence and dynamic world changes
+# Content
+- [World Design](World.md)
+- [Creatures](Creatures.md)
+- [Player Progression](Player.md)
+- [Inventory System](Inventory.md)
+- [Quest System](Quests.md)
+- [Building System](Building-system.md)
+- [Reputation System](Reputation-system.md)
+- [Raids](Raids.md)
+- [Magic](Magic.md)
+- [Skills](Skills.md)
+- [Structures](Structures.md)
+- [Server Architecture](Server-architecture.md)
 
-## 💰 Model & Development
-
-- **Subscription-based** for sustainable, continuous development
-- Long-term vision focused on quality over rapid player acquisition
-- Community-driven development
-
-## 📖 Documentation
-
-For comprehensive design details, explore:
-- [World Design](World.md) - Biomes, geography, and exploration
-- [Biomes](Biomes/Ancient-forest.md) - Detailed biome concepts and regional design
-- [Creatures](Creatures.md) - Wildlife, monsters, and ecosystem behavior
-- [Player Progression](Player.md) - Races, leveling, and character customization
-- [Inventory System](Inventory.md) - Storage, equipment, and weight mechanics
-- [Quest System](Quests.md) - Quest types and rewards
-- [Building System](Building-system.md) - Construction, durability, and environmental adaptation
-- [Reputation System](Reputation-system.md) - NPC relations and faction dynamics
-- [Raids & PvP](Raids.md) - Conquest, settlement attacks, and consequences
-- [Magic & Spells](Magic/Spells/Misc/Item-box.md) - Arcane systems, unique spells, and progression
-- [Skills](Skills/Combat.md) - Player abilities, combat techniques, and expertise
-- [Structures](Structures/Dungeons.md) - Settlements, dungeons, and architecture
-- [Server Architecture](Server-architecture.md) - Technical infrastructure overview
-
-## 🎯 Join Us
-
-If this vision inspires you and you'd like to contribute or learn more, join our community on **[Discord](https://discord.gg/PCP4quFVwE)**.
-
-Together, we can turn this ambitious dream into reality.
+Join the [Discord](https://discord.gg/PCP4quFVwE) if you are interested in the game or would like to join the development team so that this game might one day become a reality.
