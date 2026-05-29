@@ -3,3 +3,9 @@ Smaller, harvestable mana crystals can be found scattered across the floating is
 Each floating island is unique, ranging in size from small fragments to expansive land masses with lush vegetation and cascading waterfalls that evaporate into mist before ever reaching the ground below. The biome is home to various creatures, including the majestic Flying Leviathans, which rely on the magical energy of the islands for survival during their early life stages.
 Accessing the floating islands is a challenge in itself, requiring ingenuity and careful planning. Players must rely on climbing, grappling hooks, or taming flying creatures to traverse the biome.
 The Floating Islands biome offers a sense of wonder and discovery, balancing breathtaking beauty with strategic challenges, making it an unforgettable part of the game world.
+
+Fauna & interactions
+
+- Flying Leviathans — slow, majestic sky-whales bound to the islands by mana (see [Flying leviathan](../Creatures/Flying-leviathan.md))
+
+See also: [Creatures index](../Creatures.md)

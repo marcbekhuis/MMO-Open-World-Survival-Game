@@ -2,3 +2,9 @@ The Bamboo Spider is a large and deadly predator that lurks within the dense bam
 Patient and calculating, the Bamboo Spider lies in wait, remaining motionless for long periods until unsuspecting prey wanders too close. When an opportunity presents itself, it strikes with astonishing speed and precision, using its powerful limbs to immobilize its victim before delivering a fatal blow. Its ambush tactics and stealthy nature make it a formidable threat, especially for those unfamiliar with its telltale signs.
 The Bamboo Spider’s natural camouflage is so effective that even experienced adventurers may struggle to spot it among the dense bamboo stalks. However, small clues, such as subtle movements or the eerie stillness of the forest, can serve as warnings to the observant.
 This creature adds an element of suspense and danger to the bamboo forests, forcing players to remain vigilant and cautious as they navigate this biome. For those who learn to recognize its presence, the Bamboo Spider becomes a challenge of wit and awareness rather than sheer power.
+
+Habitats
+
+- Most commonly encountered in the Bamboo Jungle and riverine clearings (see [Bambo Jungle](../Biomes/Bambo-jungle.md)).
+
+See also: [Creatures index](../Creatures.md)

@@ -2,3 +2,9 @@ Birds in the game serve as dynamic indicators of the world’s events, enhancing
 When danger arises, birds react instinctively, flying away in flocks toward the sky. This behavior can signal nearby threats, such as approaching enemies, predators, or other disturbances. Players who learn to read these cues can gain a tactical advantage, avoiding ambushes or preparing for conflict.
 Certain bird species, such as crows, add another layer of environmental storytelling. These scavengers are often seen flocking to corpses and battlefields, feasting on scraps of meat from the fallen. Their presence can help players identify recent conflicts, abandoned areas, or spots where predators may still lurk.
 Through their natural and reactive behaviors, birds contribute to the game's ecosystem, providing visual and auditory feedback that keeps the world feeling alive and interconnected.
+
+Habitats
+
+- Common across Forests, Plains, and Jungles. See [Forest](../Biomes/Forest.md), [Plains](../Biomes/Plains.md), and [Jungle](../Biomes/Jungle.md).
+
+See also: [Creatures index](../Creatures.md)

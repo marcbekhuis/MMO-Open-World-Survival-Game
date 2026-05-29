@@ -1,19 +1,24 @@
-For a long time I have had the idea for an extreemly large scale open world game that lets players do what ever they want. The game will allow players to play the game as a survival game, gathering resources, leveling and building. or they can play the game as an RPG by doing quests, leveling, trading and staying in NPC housing.
+Project overview
 
-The game will feature a server clustering system to allow for 100s or even 1000s of players to play on what seamlessly looks like one large world, where they can interact and fight with each other.
+This repository captures the design and systems for a large-scale, persistent open-world survival RPG. The project centers on a single seamless world that supports both survival-oriented play (resource gathering, base-building, and survival mechanics) and RPG-style progression (quests, trading, character growth).
 
-Both PVP and PVE will be featured in the game clans of 100s of players will be able to fight for resources and attack each others bases, Fight large scale battles on open fields with tamed mounts.
+Key goals
+- Seamless exploration across diverse biomes and vertical layers (underground, surface, and floating islands)
+- Scalable server architecture to support hundreds or thousands of concurrent players
+- Meaningful PvE and PvP systems, including base raids and large-scale conflicts
+- Deep player progression with craft, skills, magic, and social mechanics
 
-The game will have subscribtion based monitization to allow for the games planned large scale of content even when it fails to aquire a constant stream of new players to fund the game.
+Engine & monetization
+- Primary engine: Unreal Engine 5 (chosen for its rendering and large-world tooling)
+- Monetization model (design placeholder): subscription to support ongoing development and large-scale persistent infrastructure
 
-Unreal engine 5 will be used as the games engine because of its large number of build in features for making a realistic game.
+Player experience
+- Players begin in a capital city appropriate to their chosen race and may pursue survival, crafting, exploration, or story-driven gameplay.
+- Capital cities include large portals that can transfer players between cities; using these portals has a deliberate gameplay cost to balance convenience (see Structures/Capital.md).
 
-Players spawn in one of several [capital cities](Structures/Capital.md) around the map, if a player desires to be in a different [capital city](Structures/Capital.md) they can use the large portal in the center of the city to go to a different city if their friends started there. When players uses these teleporters they lose their inventory. 
-
-Performance and bug fixes will be priorised over new features in the game, community feedback will also be taken as one of the bigest driving points in the game.
-
-# Content
+Documentation index
 - [World Design](World.md)
+- [Biomes](Biomes/Ancient-forest.md)
 - [Creatures](Creatures.md)
 - [Player Progression](Player.md)
 - [Inventory System](Inventory.md)
@@ -26,4 +31,8 @@ Performance and bug fixes will be priorised over new features in the game, commu
 - [Structures](Structures.md)
 - [Server Architecture](Server-architecture.md)
 
-Join the [Discord](https://discord.gg/PCP4quFVwE) if you are interested in the game or would like to join the development team so that this game might one day become a reality.
+Contributing & community
+- Join the development discussion on Discord: https://discord.gg/PCP4quFVwE
+
+Notes
+- This documentation is a living design document. Many sections are placeholders or sketches that will be expanded as the design matures. Files marked with TODO comments indicate places where your feedback or additional detail would be especially helpful.

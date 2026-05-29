@@ -3,3 +3,11 @@ The atmosphere of the Ancient Forest is one of serene mystery. The air is thick 
 Elves, skilled warriors and mages, are among the forest’s guardians. They build their homes high in the treetops, their architecture blending seamlessly with the natural surroundings. Wary of outsiders, they act as both defenders and stewards of the forest. Alongside the elves are treants, ancient, tree-like creatures that embody the forest’s spirit. These slow-moving but immensely powerful beings punish those who dare desecrate the forest, ensuring its preservation against any threat.
 The Ancient Forest is a place of great opportunity for exploration. Its sprawling terrain hides ancient ruins, secret caves, and treetop pathways that beckon adventurers. Rare and magical resources can be found scattered throughout the forest, but harvesting them recklessly risks provoking the wrath of its protectors. Players navigating the forest may need to earn the trust of its inhabitants or carefully tread its dense and labyrinthine landscape to avoid angering the treants or the wildlife that call it home.
 This biome offers a mix of beauty, challenge, and danger, drawing players into its ancient and otherworldly allure while testing their respect for its natural order.
+
+Fauna & notable encounters
+
+- Treants — guardians of the wood (see [Treant](../Creatures/Treant.md))
+(../Creatures/Ancient-deer.md))
+- Birds — environmental cues and scavengers (see [Birds](../Creatures/Birds.md))
+
+See also: [Creatures index](../Creatures.md)

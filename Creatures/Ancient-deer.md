@@ -11,3 +11,13 @@ The rarity and allure of the Ancient Deer lie not only in their striking appeara
 A Vision of the Wild
 To see an Ancient Deer is to encounter a living legend. Their glowing antlers, faintly pulsing with blue mana, seem to channel the very essence of the frozen wilderness, while their silvery coats allow them to vanish effortlessly into the snow. Their watchful eyes, glowing faintly with intelligence, remind any observer of the delicate balance between beauty and power.
 These creatures, inspired by the mythical Morozova’s stag, serve as a bridge between the fantastical and the natural, a reminder of the awe-inspiring magic that lies just beyond human reach. For those lucky—or daring—enough to witness them, the memory lingers, a fleeting glimpse of a world untamed and untouchable.
+
+Story Hook
+
+Late one winter night, a lone hunter stumbled into a clearing and found the herd standing like pale sentinels beneath the aurora. One of the stags locked eyes with him; the hunter swore it spoke in a voice like wind over ice. Whether a blessing or a warning, the encounter changed the hunter—he abandoned his traps and later became the steward of a protected hollow where the herd still returns.
+
+Habitats
+
+- Found in high-altitude and cold regions such as the Mountain Range and the Plains' northern reaches (see [Mountain Range](../Biomes/Mountain-range.md)
+
+See also: [Creatures index](../Creatures.md)
