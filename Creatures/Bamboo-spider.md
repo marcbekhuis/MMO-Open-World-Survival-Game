@@ -5,6 +5,6 @@ This creature adds an element of suspense and danger to the bamboo forests, forc
 
 Habitats
 
-- Most commonly encountered in the Bamboo Jungle and riverine clearings (see [Bambo Jungle](../Biomes/Bambo-jungle.md)).
+- Most commonly encountered in the Bamboo Jungle and riverine clearings (see [Bamboo Jungle](../Biomes/Bamboo-jungle.md)).
 
 See also: [Creatures index](../Creatures.md)

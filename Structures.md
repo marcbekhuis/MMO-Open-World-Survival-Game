@@ -6,7 +6,7 @@ Settlement types
 
 - **Capital cities** — Major hubs for trade, travel, and character spawns. See [Capital cities](Structures/Capital.md).
 - **Human settlements** — Towns and villages scaled by population and services. See [Human settlements](Structures/Human-settlements.md).
-- **Elven settlements** — Tree-integrated communities focused on harmony with nature. See [Elfen settlements](Structures/Elfen-settlements.md).
+- **Elven settlements** — Tree-integrated communities focused on harmony with nature. See [Elven settlements](Structures/Elven-settlements.md).
 - **Dwarven settlements** — Stone-hewn cities and forge-centers with unique crafting resources. See [Dwarven settlements](Structures/Dwarven-settlements.md).
 - **Dungeons & Ruins** — Ancient, often instanced-feeling structures that hide treasures and challenges. See [Dungeons](Structures/Dungeons.md).
 

@@ -61,11 +61,11 @@ All inventory slots display in a **single unified grid** for easy management. Sl
 
 ### How It Works
 
-✓ All items have weight values that **stack**
+✓ All items have a weight in kilograms (kg) that **stacks**
 
-✓ A visible weight stat displays your current burden
+✓ A visible weight stat displays your current burden in kilograms
 
-✓ Weight capacity scales with your **Strength stat**
+✓ Weight capacity, also measured in kilograms, scales with your **Strength stat**
 
 ### Strength Impact
 

@@ -1,4 +1,4 @@
-Bambo Jungle
+Bamboo Jungle
 
 The Bamboo Jungle is a dense, vertical biome dominated by towering bamboo groves. Its tall, cylindrical trunks create narrow sightlines and natural vertical pathways that favor stealth and ambush tactics.
 
@@ -19,4 +19,4 @@ Hazards
 - Ambush zones and concealed traps
 - Slippery terrain near river-fed clearings
 
-<!-- TODO: Add a named village or point-of-interest and any special crafting recipe ingredient unique to Bambo Jungle. Example helpful input: "Add the Sky-Pillar Village and 'Silkroot' as a crafting reagent". -->
+<!-- TODO: Add a named village or point-of-interest and any special crafting recipe ingredient unique to Bamboo Jungle. Example helpful input: "Add the Sky-Pillar Village and 'Silkroot' as a crafting reagent". -->

@@ -30,6 +30,8 @@ Documentation index
 - [Skills](Skills.md)
 - [Structures](Structures.md)
 - [Server Architecture](Server-architecture.md)
+- [Server Architecture (Technical)](<Server-architecture (Technical).md>)
+- [Dynamic Culling & Render Distance](Dynamic-culling-and-render-distance.md)
 
 Contributing & community
 - Join the development discussion on Discord: https://discord.gg/PCP4quFVwE

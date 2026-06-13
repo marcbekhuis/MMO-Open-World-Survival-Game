@@ -1,3 +1,3 @@
-Playes can create multi named setting profiles these allow players to easily switch between settings by configuring profiels with completely different setting for example one optimised for use in combat, one default profiel, a cinematic profiel to make screenshots. The settings in these profiles are no different then in any other game.
+Players can create multi named setting profiles these allow players to easily switch between settings by configuring profiles with completely different setting for example one optimised for use in combat, one default profile, a cinematic profile to make screenshots. The settings in these profiles are no different than in any other game.
 
 The audio settings are divided in as many different layers as possible so that the player can fine tune the audio to their desire.

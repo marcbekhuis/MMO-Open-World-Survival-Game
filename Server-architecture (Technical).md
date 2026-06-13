@@ -297,7 +297,7 @@ void UYourReplicationGraph::InitGlobalGraphNodes()
 
 ### 5.3 Per-Entity Visibility Radius
 
-This maps directly to the spec's "Entity Visibility Radius" concept. Each actor class defines its own `NetCullDistanceSquared`, which the Grid node respects:
+This maps directly to the spec's "Entity Visibility Radius" concept. Each actor class defines its own `NetCullDistanceSquared` — the square of the maximum distance from a client's viewpoint at which the actor is relevant — which the Grid node respects. The values below are *resting* baselines for stationary or slow actors; the adaptive system in section 5.4 scales them upward at runtime as an entity accelerates:
 
 ```cpp
 // In your actor constructor (C++)
@@ -337,6 +337,83 @@ Register your custom graph in `DefaultEngine.ini`:
 ReplicationDriverClassName="/Script/YourGame.YourReplicationGraph"
 ```
 
+### 5.4 Adaptive, Velocity-Aware Cull Distance
+
+The baselines above are static per class, but the [Dynamic culling & adaptive render distance](Dynamic-culling-and-render-distance.md) design calls for a radius that grows and stretches forward as an entity speeds up. UE5 net relevancy is fundamentally **radial** — it tests the straight-line distance between the actor and the connection's view position — so there is no built-in directional cull. The architecture realizes the design in two layers: a speed-scaled radial cull that every entity uses, and an optional directional refinement for the cases that need it.
+
+The speed-scaled layer runs on the authoritative server and rewrites the actor's `NetCullDistanceSquared` from its velocity each tick:
+
+```cpp
+// UAdaptiveNetCullComponent — ticks on the server (authority) only.
+void UAdaptiveNetCullComponent::TickComponent(float DeltaTime, /*...*/)
+{
+    AActor* Owner = GetOwner();
+    const float Speed = Owner->GetVelocity().Size(); // cm/s
+
+    // BaseRadius is the resting value from 5.3. ModeFactor encodes the three
+    // categories: 0 = stationary, ~1 = ground movement, ~3 = flying movement.
+    const float LookAheadSeconds = 1.5f;
+    float Radius = BaseRadius + Speed * LookAheadSeconds * ModeFactor;
+    Radius = FMath::Clamp(Radius, BaseRadius, MaxRadius);
+
+    const float NewCullSq = Radius * Radius;
+    if (!FMath::IsNearlyEqual(NewCullSq, Owner->NetCullDistanceSquared, 1.0f))
+    {
+        Owner->NetCullDistanceSquared = NewCullSq;
+
+        // A custom Replication Graph caches cull distance in the actor's global
+        // info; push the new value so the grid re-buckets the actor next gather.
+        if (UReplicationGraph* RepGraph = GetServerRepGraph())
+        {
+            FGlobalActorReplicationInfo& Info =
+                RepGraph->GetGlobalActorReplicationInfoMap().Get(Owner);
+            Info.Settings.SetCullDistanceSquared(NewCullSq);
+        }
+    }
+}
+```
+
+**Runtime-change caveats.** With default replication (no Replication Graph), a relevancy change only takes effect once the actor's channel is closed and reopened, which makes per-tick updates impractical — so the Replication Graph path above is strongly preferred. The stock `UBasicReplicationGraph` deliberately does **not** support changing `NetCullDistanceSquared` per actor at runtime; treat it as an example only, and have your custom graph re-cache the cull distance (and re-bucket the actor in `UReplicationGraphNode_GridSpatialization2D`) whenever the value changes.
+
+The speed-scaled radius grows symmetrically, which is robust but slightly wasteful behind a fast mover. For a true forward-elongated volume, add a directional relevancy check in your custom node that biases the effective radius by how closely the viewer lies along the entity's heading:
+
+```cpp
+// Approximate an elongated volume: full radius ahead, base radius to the sides/rear.
+bool UYourGridNode::IsRelevantTo(const FVector& ViewLocation, const AActor* Entity) const
+{
+    const FVector ToViewer = ViewLocation - Entity->GetActorLocation();
+    const float   Distance = ToViewer.Size();
+    const FVector Velocity = Entity->GetVelocity();
+
+    if (Velocity.IsNearlyZero())
+        return Distance <= BaseRadius;
+
+    // 1.0 when the viewer is directly ahead of the entity, 0.0 to the sides/behind.
+    const float Ahead = FMath::Clamp(
+        FVector::DotProduct(ToViewer.GetSafeNormal(), Velocity.GetSafeNormal()),
+        0.0f, 1.0f);
+
+    const float EffectiveRadius = FMath::Lerp(BaseRadius, ForwardRadius, Ahead);
+    return Distance <= EffectiveRadius;
+}
+```
+
+### 5.5 Client-Side Render Distance
+
+Server relevancy decides what a client is *told about*; the client still applies its own draw-distance culling to what it already has. Mirror the same three categories on the client so the visual fade matches the network behavior, and always clamp the client's draw distance at or below the entity's server relevancy radius — a client can never draw an entity that was never replicated to it.
+
+Per-primitive draw distance is set at runtime with `UPrimitiveComponent::SetMaxDrawDistance`, which updates the component's `CullDistance`:
+
+```cpp
+// On the owning client, scale a primitive's draw distance with its owner's speed.
+const float Draw = FMath::Min(
+    BaseDraw + OwnerSpeed * 1.5f * ModeFactor,  // mirror the server's look-ahead
+    ServerRelevancyRadius);                      // never exceed what was replicated
+PrimitiveComp->SetMaxDrawDistance(Draw);
+```
+
+For static, non-replicated set dressing — rocks, props, foliage — prefer **Cull Distance Volumes**, which assign size-based draw distances to actors in a level with no per-frame logic. Reserve the dynamic `SetMaxDrawDistance` path for the moving entities that actually benefit from it, such as a Flying Leviathan fading in early as it crosses open sky.
+
 ---
 
 ## 6. Cross-Region Entity Synchronization
@@ -370,10 +447,23 @@ void URegionManagerComponent::TickVisibilityBroadcast(float DeltaTime)
 {
     for (AActor* Entity : GetSimulatedEntities())
     {
-        float VisRadius = FMath::Sqrt(Entity->NetCullDistanceSquared);
+        // VisRadius already reflects the adaptive, velocity-scaled cull
+        // distance maintained in section 5.4.
+        const float   VisRadius = FMath::Sqrt(Entity->NetCullDistanceSquared);
+        const FVector Location  = Entity->GetActorLocation();
+
+        // Bias the test volume forward along velocity so a fast entity overlaps
+        // the neighbouring region — and seeds its ghost there — earlier, which
+        // is what gives the seamless handoff in section 7 its lead time.
+        const FVector Velocity    = Entity->GetVelocity();
+        const FVector ForwardBias = Velocity.IsNearlyZero()
+            ? FVector::ZeroVector
+            : Velocity.GetSafeNormal() * (VisRadius * 0.5f);
+
+        const FVector Center = Location + ForwardBias;
         FBox EntityBounds(
-            Entity->GetActorLocation() - FVector(VisRadius),
-            Entity->GetActorLocation() + FVector(VisRadius));
+            Center - FVector(VisRadius),
+            Center + FVector(VisRadius));
 
         // Check which neighboring regions overlap this bounding box
         TArray<FRegionID> OverlapRegions = RegionGrid.GetOverlappingRegions(EntityBounds);
@@ -716,6 +806,10 @@ This is enabled by default in UE5.1+ open world templates.
 - [World Partition Documentation — UE5.7](https://dev.epicgames.com/documentation/en-us/unreal-engine/world-partition-in-unreal-engine)
 - [World Partition Server Streaming — Epic Knowledge Base](https://dev.epicgames.com/community/learning/knowledge-base/Xdj9/unreal-engine-world-partition-server-streaming)
 - [Replication Graph Documentation — UE5.7](https://dev.epicgames.com/documentation/en-us/unreal-engine/replication-graph-in-unreal-engine)
+- [UReplicationGraphNode_GridSpatialization2D — API Reference](https://docs.unrealengine.com/5.3/en-US/API/Plugins/ReplicationGraph/UReplicationGraphNode_GridSpatia-/)
+- [Actor Relevancy and Priority (NetCullDistanceSquared) — Multiplayer Compendium](https://cedric-neukirchen.net/docs/multiplayer-compendium/actor-relevancy-and-priority/)
+- [SetMaxDrawDistance — UE5 Blueprint API](https://dev.epicgames.com/documentation/en-us/unreal-engine/BlueprintAPI/LOD/SetMaxDrawDistance)
+- [Cull Distance Volumes in Unreal Engine — UE5.7](https://dev.epicgames.com/documentation/en-us/unreal-engine/cull-distance-volumes-in-unreal-engine)
 - [Travelling in Multiplayer — UE5 Docs](https://dev.epicgames.com/documentation/en-us/unreal-engine/travelling-in-multiplayer-in-unreal-engine)
 - [AWS GameLift + UE5 Dedicated Server Guide](https://aws.amazon.com/blogs/gametech/unreal-engine-5-dedicated-server-development-with-amazon-gamelift-anywhere/)
 - [OmniMesh — Battle-tested MMO networking for UE5](https://starvault.se/omnimesh-mmo-networking-unreal-engine-5/)

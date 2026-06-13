@@ -19,7 +19,7 @@ The world is vast and seamless, designed for long-form exploration and emergent 
 The world is made up of distinct biomes, each described in detail in the `Biomes/` folder.
 
 - [Ancient Forest](Biomes/Ancient-forest.md)
-- [Bambo Jungle](Biomes/Bambo-jungle.md)
+- [Bamboo Jungle](Biomes/Bamboo-jungle.md)
 - [Floating Islands](Biomes/Floating-islands.md)
 - [Forest](Biomes/Forest.md)
 - [Jungle](Biomes/Jungle.md)

@@ -13,4 +13,4 @@ Role in the world
 - Common mid-tier enemies for low- to mid-level players.
 - Sources of crafting components, low-grade trade goods, and quest hooks.
 
-Goblins are about 1,40 meters talls, ferocious, skinny. They perform raids on small towns and early/low tier player bases. They will attack any humanoids that they consider weak enough that they will win to collect their items for use.
+Goblins are about 1,40 meters tall, ferocious, skinny. They perform raids on small towns and early/low tier player bases. They will attack any humanoids that they consider weak enough that they will win to collect their items for use.
