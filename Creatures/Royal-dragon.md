@@ -1,6 +1,6 @@
 # Royal Dragon
 
-The Royal Dragon is a proud, highly intelligent dragon species marked by red-gold scales and crown-like horns. Its head stands roughly as high as a human, but its presence should feel far larger than its raw size: this creature behaves like a monarch of its territory, not a wandering beast.
+The Royal Dragon is a proud, highly intelligent dragon species marked by red-gold scales and crown-like horns. Its head is roughly as high as a human.
 
 ## Behaviour
 
@@ -11,10 +11,6 @@ Royal Dragons are often found alone or with a lifelong partner. A bonded pair sh
 ## Gameplay Role
 
 The Royal Dragon works best as a high-prestige encounter tied to reputation, territory, and player restraint. Players may be asked to observe it, steal from its lair, negotiate passage through its domain, or prove themselves before it accepts combat. Defeating one should be rare and consequential, while earning its tolerance can become a story in itself.
-
-## Story Hook
-
-A settlement built near dragon territory might ask players to recover tribute stolen by raiders before the Royal Dragon decides the settlement broke an old pact. The challenge is not only finding the thieves, but preventing a proud creature from interpreting delay as insult.
 
 ## Continue Reading
 

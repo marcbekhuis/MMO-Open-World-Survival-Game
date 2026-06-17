@@ -16,7 +16,7 @@ NPC mages can use Nature Growth around starting cities during peak activity to p
 
 ## Upgrade Directions
 
-Nature Growth can specialize in several directions. Focused growth narrows the radius so each node receives more restoration strength. Wide renewal expands the area but weakens individual restoration. Selective growth prioritizes plants, timber, herbs, or another resource category. Efficient channel reduces mana cost when the spell is cast in healthy natural environments.
+Nature Growth can specialize in several directions. Focused growth narrows the radius so each node receives more restoration strength. Wide renewal expands the area but weakens individual restoration. Efficient channel reduces mana cost when the spell is cast in healthy natural environments.
 
 ## Continue Reading
 

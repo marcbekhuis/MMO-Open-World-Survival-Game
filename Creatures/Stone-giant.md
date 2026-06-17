@@ -3,6 +3,8 @@ Rather than relying on swords, adventurers find that a sturdy pickaxe proves mos
 While cannons and catapults can damage these towering behemoths, the precision offered by a pickaxe remains the most reliable method of delivering a killing blow. Adventurers can climb, use grappling hooks, or even build makeshift platforms on the giant’s body to ascend and reach its vulnerable heart. However, the creature fiercely resists these tactics, trying to crush the structures on its surface and swat away anyone attempting to scale it.
 Stone Giants roam in search of mana crystals, battling one another for survival and leaving trails of devastation behind them as they trample anything in their path. Over time, older giants become covered in moss, grass, and bushes, and in the case of truly ancient specimens, even entire trees can grow upon their backs, adding to their imposing, otherworldly presence.
 
+Stone giants life in the mountain range biome.
+
 ## Continue Reading
 
 See also: [Creatures index](../Creatures.md), [Mountain Range](../Biomes/Mountain-range.md), and [Building System](../Building-system.md).

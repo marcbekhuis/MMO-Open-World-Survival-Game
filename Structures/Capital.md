@@ -1,6 +1,6 @@
 # Capital Cities
 
-Capital cities are the principal hubs in the world: political, economic, and social centres where players commonly spawn, trade, train, and organize. Each capital supports high-level services and acts as a regional anchor for travel and progression.
+Capital cities are the principal hubs in the world: political, economic, and social centres where players spawn, trade, train, and organize. Each capital supports high-level services and acts as a regional anchor for travel and progression.
 
 ## Key Characteristics
 

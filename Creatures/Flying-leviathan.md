@@ -11,4 +11,3 @@ However, their survival is intricately tied to the floating islands. During gest
 Flying Leviathans are more than just creatures; they are living monuments to the power of magic, offering players a unique opportunity to explore and utilize their potential while respecting the delicate balance of their existence.
 
 See also: [Creatures index](../Creatures.md)
-Flying Leviathans are more than just creatures; they are living monuments to the power of magic, offering players a unique opportunity to explore and utilize their potential while respecting the delicate balance of their existence.
