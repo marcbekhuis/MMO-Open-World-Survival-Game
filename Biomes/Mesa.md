@@ -1,4 +1,24 @@
-The Mesa biome forms a rugged border around the desert, characterized by its towering plateaus, steep cliffs, and deep canyons. While not as scorching or barren as the desert it encloses, the mesa is still a harsh and unforgiving environment, with limited water sources and a sparse vegetation of hardy shrubs and cacti.
-This region supports only a handful of settlements, primarily inhabited by outcasts and wanderers from various races. These communities band together to survive in the mesa’s harsh conditions, creating a melting pot of cultures and stories. The settlements often appear perched on plateaus or nestled in canyons, using the natural formations as protection from the elements and potential threats.
-Rich in metallic resources, the mesa is a hub for miners and blacksmiths seeking valuable ores like copper, iron, and even rarer materials hidden deep within the canyon walls. However, mining these resources is not without peril, as the biome is home to a few dragon species, which are known to inhabit the cliffs and caverns. These dragons are formidable creatures, guarding their territories fiercely and adding a dangerous layer to the mesa's already challenging environment.
-The Mesa offers both opportunities and dangers, serving as a haven for the resourceful and a trial for those unprepared for its rugged beauty.
+# Mesa Biome
+
+The Mesa biome forms a rugged border around desert regions, defined by towering plateaus, steep cliffs, dry basins, and deep canyons. It is not as scorching or barren as the deepest desert, but limited water and sparse vegetation still make travel demanding.
+
+## Features
+
+- Tall rock formations that create natural landmarks and ambush points.
+- Canyon roads, rope bridges, cliffside paths, and exposed mining trails.
+- Valuable metal deposits, including copper, iron, and rarer veins hidden in canyon walls.
+- Small settlements built by outcasts, prospectors, traders, and wanderers from multiple cultures.
+
+## Hazards
+
+- Heat, dehydration, sudden dust storms, and long stretches without shelter.
+- Cliff predators, territorial dragon species, and raiders who know the canyon routes.
+- Dangerous mining sites where cave-ins, unstable ledges, and monster lairs overlap.
+
+## Design Role
+
+The Mesa should feel like an opportunity-rich borderland. It offers valuable ore and defensible settlement locations, but players must plan water, routes, and extraction carefully. Its mixed communities create strong quest hooks: mining disputes, caravan protection, hidden outlaw camps, and fragile alliances between people who have nowhere else to go.
+
+## Continue Reading
+
+See also: [Royal dragon](../Creatures/Royal-dragon.md), [Structures](../Structures.md), and [Building System](../Building-system.md).

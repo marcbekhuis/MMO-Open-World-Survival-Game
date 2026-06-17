@@ -16,3 +16,7 @@ Item Preservation: Unlock a unique attribute that prevents food and other perish
 Gameplay Impact
 The Item Box is an essential tool for late-game players, particularly those focused on magic. It provides strategic advantages, such as safe storage during dangerous expeditions, freedom from weight constraints, and the ability to preserve critical resources like food. However, its mana cost and limitations ensure that it remains balanced, requiring players to make thoughtful decisions about what to store and when to access it.
 This system adds depth and versatility to inventory management, offering a rewarding feature for players who commit to advancing their magical capabilities.
+
+## Continue Reading
+
+See also: [Magic](../../../Magic.md), [Inventory](../../../Inventory.md), and [Player Progression](../../../Player.md).

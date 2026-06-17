@@ -2,44 +2,24 @@
 
 ## Overview
 
-Reputation evolves dynamically based on player actions and shapes how NPCs, settlements, and factions respond.
-
----
+Reputation evolves dynamically based on player actions and shapes how NPCs, settlements, and factions respond. It should behave like a long-term social memory for the world, connecting quests, raids, trade, travel, and settlement access.
 
 ## Reputation Types
 
-### 📍 Local Reputation
-- Each faction or settlement tracks a unique score for the player
-- Positive actions build trust and unlock benefits
-- Negative actions damage relationships and invite hostility
+Local reputation is tracked by individual factions, settlements, or regions. Helping a town, defending its people, completing agreements, and supporting its economy builds trust there. Theft, murder, raids, betrayal, and unresolved crimes damage that relationship and can invite hostility.
 
-### 🌍 Global Reputation
-- Consistent behavior influences how unknown settlements perceive you
-- Good reputation opens new trade and travel options
-- Poor reputation causes warning, refusal, or aggression from strangers
-
----
+Global reputation represents the broader pattern of a player's behaviour. Unknown settlements may not know every detail of a character's past, but they can still react to rumours, faction reports, visible titles, bounties, and public achievements. A helpful player may gain easier access to trade and travel, while a notorious raider may be warned, refused, watched, or attacked.
 
 ## How Reputation Changes
 
-### Good Reputation
-- Defend settlements from raids
-- Complete quests and honor agreements
-- Trade fairly and support local economies
-- Assist NPCs in danger
-- Provide materials and services to communities
+Good reputation comes from defending settlements, completing quests, honouring agreements, trading fairly, assisting NPCs in danger, and providing materials or services to communities. Bad reputation comes from attacking settlements, killing NPCs, stealing resources, fleeing justice, betraying allies, and sabotaging trade routes.
 
-### Bad Reputation
-- Attack or raid settlements
-- Kill NPCs or steal resources
-- Avoid justice and flee from the law
-- Betray allies and sabotage trade routes
-
----
+These changes should not all be equal. A small theft should not carry the same consequence as destroying a village forge, and a single helpful delivery should not erase a long record of violence. Reputation should recover slowly enough that choices matter, while still leaving room for redemption.
 
 ## Reputation Effects
 
-### Benefits of Good Reputation
+### Benefits Of Good Reputation
+
 | Benefit | Effect |
 |---|---|
 | Trade discounts | Reduced prices at friendly settlements |
@@ -48,7 +28,8 @@ Reputation evolves dynamically based on player actions and shapes how NPCs, sett
 | Ally support | NPC defenders or escorts in combat |
 | Safe passage | Protected travel through allied territory |
 
-### Penalties of Bad Reputation
+### Penalties Of Bad Reputation
+
 | Penalty | Effect |
 |---|---|
 | Entry denied | Target settlements block access |
@@ -57,21 +38,14 @@ Reputation evolves dynamically based on player actions and shapes how NPCs, sett
 | Active bounties | Rewards offered for capture or death |
 | Faction raids | NPC attacks triggered on your base |
 
----
-
 ## Mixed Reputation
 
-- Be a hero in one region and a villain in another
-- Use faction tensions to your advantage
-- Create political intrigue and roleplay opportunities
-- Maintain relationships with some groups while opposing others
-
----
+Players can be heroes in one region and villains in another. This allows faction tension, political intrigue, smuggling, mercenary work, and roleplay without flattening every action into a single morality score. Maintaining some relationships while burning others should be viable, but costly.
 
 ## Strategic Depth
 
-Reputation is a long-term resource:
-- Actions have persistent consequences
-- Redemption is possible but costly
-- Reputation affects world access, economics, and conflict
-- Player identity is shaped by choices and legacy
+Reputation is a long-term resource. It affects access, prices, safety, faction support, settlement hostility, raid risk, and player identity. Redemption should be possible, but it should require visible effort: restitution, dangerous service, diplomacy, or proof that the player has changed sides.
+
+## Continue Reading
+
+Continue with [Quests](Quests.md), [Raids](Raids.md), and [Structures](Structures.md).

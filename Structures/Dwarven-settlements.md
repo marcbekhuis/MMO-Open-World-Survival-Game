@@ -1,4 +1,19 @@
-The dwarves have built their grand cities by carving them into the very stone of the earth, showcasing their unmatched craftsmanship and engineering prowess. Some of these cities are nestled into the sides of towering mountains, their entrances marked by massive stone gates adorned with intricate carvings and runes. Others are hidden deep underground, sprawling through vast cave networks illuminated by glowing crystals, lava flows, and expertly crafted lanterns.
-At the heart of every dwarven settlement lies its forge, a testament to their reputation as master smiths. These massive forges are not only the lifeblood of their cities but also symbols of their ingenuity and dedication to their craft. Here, dwarves create everything from finely detailed jewelry to legendary weapons and armor, using rare ores and materials harvested from the depths of the earth.
-The architecture of dwarven settlements is a blend of functionality and artistry, with towering stone pillars, vaulted ceilings, and walls etched with the history and heritage of their people. Their homes, workshops, and marketplaces are carefully carved into the stone, creating a sense of permanence and security.
-Players who choose to play as dwarves will start their adventure in one of these mighty cities, surrounded by the bustling forges, the sound of hammer striking anvil, and the warmth of the deep earth. In these settlements, players can accept quests from NPCs, trade for rare materials and crafted items, and even learn unique crafting techniques that reflect the dwarves’ unparalleled expertise.
+# Dwarven Settlements
+
+Dwarven settlements are carved into mountain walls, cliff faces, and deep underground chambers. They should communicate permanence, engineering skill, defensive discipline, and a culture built around craft.
+
+## Architecture
+
+Entrances are marked by heavy gates, carved stone, runes, guarded bridges, and tunnel mouths wide enough for carts and siege materials. Inside, vaulted halls, pillar forests, ore lifts, reservoirs, glowing crystals, lava channels, and layered workshops make the settlement feel both functional and monumental.
+
+## Forge Economy
+
+At the heart of every major dwarven settlement is a forge district. These forges support weapons, armour, tools, jewelry, construction components, and rare material refinement. They should also create strong reasons for other players to visit dwarven territory, trade for crafted goods, or seek specialists.
+
+## Starting Experience
+
+Players who choose dwarves begin near deep gates, forge halls, training pits, and mining routes. Early quests can teach endurance, heavy armour, mining, crafting, tunnel navigation, and the importance of preparation before entering exposed mountain passes or deep caves.
+
+## Continue Reading
+
+See also: [Structures index](../Structures.md), [Mountain Range](../Biomes/Mountain-range.md), and [Building System](../Building-system.md).

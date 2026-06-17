@@ -1,56 +1,25 @@
-# Raids & Conquest
+# Raids And Conquest
 
 ## NPC Settlement Raids
-Settlements are dynamic targets for both player and NPC aggression, creating emergent world events.
 
-### Player-Initiated Raids
-- Attack NPC settlements to loot resources and valuables
-- Loot is limited by what players can carry during escape
-- Reputation loss with the affected faction is a key cost
-- Larger settlements require more coordination and stronger defenses
-- Successful raids can trigger faction retaliation and bounties
+Settlements are dynamic targets for both player and NPC aggression, creating emergent world events that connect combat, reputation, trade, and rebuilding.
 
-### NPC-Initiated Raids
-- NPC factions may raid settlements due to conflict or resource pressure
-- Damage reduces production, trade, and services
-- Defending players can earn rewards and reputation gains
-- Raid intensity scales with settlement importance and faction power
+When players raid an NPC settlement, the objective is usually to steal resources, damage infrastructure, free prisoners, seize a strategic position, or weaken a hostile faction. The reward is limited by what the raiders can carry away and by whether they survive the escape. The cost is social as much as mechanical: the affected faction may reduce reputation, post bounties, close services, strengthen patrols, or retaliate against player bases.
 
-### Settlement Defense
-- Players who are friendly with a settlement can join defenses
-- Defense rewards scale with the size and status of the settlement
-- Coordinated defense can protect infrastructure and reduce long-term penalties
-- NPC defenders and player allies both contribute to success
+NPC factions can also raid settlements because of war, hunger, territorial pressure, revenge, or resource scarcity. Damage to a settlement should temporarily affect production, trade, guards, and services, giving nearby players a reason to intervene. Friendly players can join the defense and earn reputation, rewards, and local trust by protecting key NPCs, gates, workshops, or supply stores.
 
-### Recovery & Rebuilding
-- Raided settlements require time and resources to recover
-- Damaged services such as blacksmiths and traders may temporarily close
-- Rebuilding can be accelerated through player quests and donations
-- Recovered settlements may shift faction attitudes depending on outcomes
-
----
+After a raid, recovery should take time. Damaged services such as blacksmiths, traders, and storage facilities may close until repairs are completed. Players can accelerate rebuilding through quests, material donations, escort work, and defense against follow-up attacks. The outcome should influence faction attitudes and make regional history visible.
 
 ## Player Base Raids
-Player-built bases are always vulnerable, adding persistent risk and strategic urgency.
 
-### PvP Raids
-- Rival players can attack bases at any time in open zones
-- Objectives include stealing loot, damaging structures, and weakening defenders
-- Strong base design can slow or repel attackers
-- Raids encourage group defense, alliances, and watch systems
+Player-built bases are always part of the risk landscape, especially in open or contested zones. PvP raids can focus on stealing loot, damaging structures, weakening defenders, or forcing a rival group to relocate. Strong base design, watch systems, alliances, hidden storage, terrain control, and escape routes all matter.
 
-### NPC Faction Raids
-- NPC forces may attack a player base based on reputation
-- Low reputation increases raid frequency and strength
-- High-value bases attract more organized assaults
-- Defenses must adapt to both player and NPC strategies
-
----
+NPC faction raids can target player bases when reputation, location, wealth, or previous aggression makes the base a threat. Low reputation should increase raid frequency and intensity, while high-value bases may draw more organized assaults. Defenders need to adapt to both human attackers and NPC forces, because each creates different pressure.
 
 ## Strategic Implications
 
-- Base placement matters: chokepoints, elevation, and escape routes are critical
-- Hidden storage and deception are valuable defensive tactics
-- Reputation management reduces raid risk and improves support
-- Strong defenses discourage opportunistic attackers
-- Raid outcomes shape regional power and player history
+Raids should make territory feel alive without making every structure disposable. Base placement, chokepoints, elevation, concealment, supply access, and local reputation all shape risk. A raid outcome can change regional power, interrupt trade, create revenge quests, and become part of the history players tell about the world.
+
+## Continue Reading
+
+Continue with [Building System](Building-system.md), [Reputation System](Reputation-system.md), and [Structures](Structures.md).

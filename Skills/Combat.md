@@ -1,13 +1,19 @@
-Combat skills allow players to perform powerful special attacks or defensive maneuvers, tailored to the weapon or item they are wielding. Similar to magic spells, these skills can be leveled up over time, enhancing their effectiveness and versatility.
-Skill Progression and Upgrades
-As players use combat skills, they gain experience, which allows them to level up these abilities. Leveling up a skill offers opportunities to improve specific attributes, such as:
-Speed: Reducing the time it takes to execute the skill.
-Strength: Increasing the damage or impact of the skill.
-Cooldown: Decreasing the waiting time between skill uses.
-Duration: Extending the effect of skills like stuns, shields, or status effects.
-Range: Increasing the distance or area of effect for certain skills.
-This customization system enables players to tailor their combat skills to match their preferred playstyle, whether they favor quick, precise attacks or slower, high-damage strikes.
-Unlocking New Skills
-New combat skills become available as players level up their existing abilities. Once a skill reaches a specific level, it can unlock advanced techniques or entirely new moves, encouraging players to invest time in mastering their combat repertoire.
-Balancing Combat
-These combat skills are designed to ensure that non-magic users have equally exciting and powerful options for combat. By focusing on weapon-based abilities, players who prefer physical combat can compete on equal footing with magic users, creating a balanced and engaging combat system for all playstyles.
+# Combat Skills
+
+Combat skills allow players to perform weapon-based attacks, defensive maneuvers, movement techniques, and role-specific actions. They give non-magic characters the same depth of expression that spellcasters receive through [Magic](../Magic.md), while still leaving room for hybrid builds.
+
+## Progression And Upgrades
+
+Combat skills gain experience through use. As a skill levels, players can improve attributes such as execution speed, impact, cooldown, duration, range, stamina efficiency, or secondary effects. These upgrades should create trade-offs: a heavy shield bash might gain stronger stagger at the cost of longer recovery, while a fast dagger skill might favour low cooldown over raw damage.
+
+## Unlocking Techniques
+
+New combat techniques become available when related skills reach meaningful thresholds. A player who practises sword attacks may unlock parries, ripostes, and cleaving strikes. A spear user might gain bracing, reach control, and anti-mount options. Defensive builds can unlock guard, taunt, interception, and formation tools.
+
+## Combat Roles
+
+Combat skills should support multiple identities: agile skirmishers, shield-bearing defenders, heavy weapon bruisers, ranged hunters, mounted fighters, and battlefield support. None of these roles should depend only on damage numbers; positioning, timing, terrain, stamina, and equipment weight all matter.
+
+## Continue Reading
+
+See also: [Skills overview](../Skills.md), [Player Progression](../Player.md), and [Inventory](../Inventory.md).

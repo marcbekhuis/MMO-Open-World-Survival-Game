@@ -1,4 +1,19 @@
-The settlements of the elves are a breathtaking fusion of nature and craftsmanship, seamlessly integrated into the ancient forest. These towns and cities are often located within or around colossal trees, some of which rival mountains in size. Many elven cities are carved directly into these massive trees, forming intricate dwellings, halls, and towers within their trunks and branches. As the population and housing needs of the elves grew, additional structures were built around the trees, creating sprawling settlements that blend harmoniously with the surrounding forest.
-Smaller elven settlements, on the other hand, often resemble what one might expect from human villages, hidden deep within the dense undergrowth. These secluded towns are built with natural materials, camouflaged among the foliage, and protected by the magic of the forest. They are less grand than the towering tree cities but still retain the elegance and mystical charm that define elven architecture.
-In elven settlements, players can interact with NPCs to accept quests, trade items, and connect with others. The available quests are often tied to the elves' strong bond with nature and their role as guardians of the ancient forest, involving tasks such as protecting the forest from invaders, gathering rare herbs.
-Players who choose to play as the elven race will begin their journey in one of the largest elven cities, surrounded by towering trees and immersed in the serene yet mysterious atmosphere of the ancient forest. From these starting points, players will gain access to the elves' vast knowledge, unique crafting opportunities, and magic tied to the natural world.
+# Elven Settlements
+
+Elven settlements are a fusion of nature and craftsmanship, often integrated into ancient forests rather than imposed on top of them. Their cities can rise through colossal trees, with dwellings, halls, bridges, archives, and gardens woven through trunks and branches.
+
+## Settlement Scale
+
+The largest elven cities should feel vertical and serene, but never empty. Canopy platforms, root-level markets, hidden libraries, moonlit gardens, and nature-magic sanctuaries create distinct layers of activity. Smaller settlements can be secluded forest villages camouflaged among dense undergrowth and protected by natural barriers or subtle magic.
+
+## Quest And Crafting Role
+
+Elven quests often connect to stewardship, observation, and the balance of the forest: protecting groves, calming awakened guardians, gathering rare herbs, tracing corruption, or negotiating with spirits and neighbouring settlements. Crafting opportunities should favour light materials, bows, herbalism, nature magic, and tools that support stealth or travel.
+
+## Starting Experience
+
+Players who choose elves begin in one of the largest forest cities, surrounded by towering trees and quiet routes into the ancient woodland. Their early experience should teach vertical navigation, careful movement, ranged combat, and the value of reading environmental cues.
+
+## Continue Reading
+
+See also: [Structures index](../Structures.md), [Ancient Forest](../Biomes/Ancient-forest.md), and [Magic](../Magic.md).

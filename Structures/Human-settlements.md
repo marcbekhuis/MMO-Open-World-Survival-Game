@@ -1,3 +1,19 @@
-Scattered across the world are human villages and cities of various sizes, with the largest among them known as capital cities. These bustling hubs serve as starting points for players who choose to play as the human race. In these towns, players can trade, accept quests, and team up with other adventurers.
-Capital cities also house teleport stones, which players can use to instantly travel to other capital cities. However, teleporting comes at a cost: players lose all their items when using these stones. This system is designed to allow players to quickly join friends who may have started their journey in a different city, as traveling between capitals on foot could take a new player over an hour.
-Regardless of size, every settlement offers NPCs who provide quests tailored to the location and its unique needs. Quest types and rewards will vary based on the settlement’s size and surroundings. Similarly, trading opportunities scale with the size of the settlement—the larger the town, the greater the variety of items available for trade.
+# Human Settlements
+
+Human settlements range from roadside villages to fortified towns and capital-scale cities. They should feel adaptable, practical, and socially busy, reflecting a culture that survives by trade, alliance, engineering, and flexible use of local materials.
+
+## Settlement Scale
+
+Small villages provide basic repairs, food, local quests, and a place to hear rumours about nearby threats. Towns add workshops, markets, guards, storage, trainers, and guild contacts. The largest cities act as starting hubs for human players and connect to capital-level trade and portal infrastructure.
+
+## Travel And Portals
+
+Capital cities house teleport stones or portals that can transfer players to other capitals. This exists to help friends reunite across distant starts, but the cost should be meaningful enough that portals do not replace ordinary travel or trade. Losing carried items, paying a high fee, or accepting cooldowns are all possible balancing tools.
+
+## Quest And Trade Role
+
+Human settlements should offer quests tied to their surroundings: caravan protection, road repair, monster pressure, bandit activity, crop failure, missing scouts, and diplomatic errands. Trading opportunities scale with settlement size and local economy, so a farming village, river town, mining road, and capital bazaar all feel different.
+
+## Continue Reading
+
+See also: [Structures index](../Structures.md), [Capital cities](Capital.md), and [Reputation System](../Reputation-system.md).

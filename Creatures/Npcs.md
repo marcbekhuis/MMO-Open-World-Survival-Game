@@ -1,30 +1,23 @@
-
 # Non-Player Characters (NPCs)
 
-NPCs are humanoid characters that reuse the player 3D models (dwarves, elves, and humans). They populate settlements and travel the world to create the illusion of living civilizations.
+NPCs are humanoid characters that reuse the player 3D models for dwarves, elves, and humans. They populate settlements and travel the world to create the impression of living civilizations with routines, services, needs, and conflicts.
 
-## Roles & Behavior
+## Roles And Behavior
 
-- Merchants: travel between cities and settlements, transporting goods (items, livestock, or even other NPCs). Merchants may request escort missions from players to ensure their cargo arrives safely.
-- Guards: knights and archers defend settlements. Their equipment and combat strength scale with a city's size and overall power.
-- City Mages: responsible for protective and maintenance magic. They may cast the spell [Nature growth](../Magic/Spells/Earth/Nature-growth.md) to replenish local resources when player activity over-harvests an area, ensuring fair resource availability.
-- Civilians: farmers, bartenders, musicians/bards, blacksmiths, traders, weavers, butchers, builders and similar occupations perform visible, purposeful tasks that make settlements feel alive.
-- Children: child NPCs run, play, and interact with other NPCs and players, adding life to urban areas.
+Merchants travel between cities and settlements while transporting goods, livestock, or even other NPCs. Their routes naturally create escort quests, ambush events, trade opportunities, and rumours about regional danger. Guards, including knights and archers, defend settlements, with equipment and combat strength scaling alongside a city's size and power. City mages handle protective and maintenance magic; they may cast [Nature Growth](../Magic/Spells/Earth/Nature-growth.md) to restore over-harvested local resources around crowded starting areas. Civilians such as farmers, bartenders, musicians, blacksmiths, traders, weavers, butchers, and builders perform visible tasks that make settlements feel lived in. Child NPCs can add life to urban areas through safe, non-combat routines and interactions.
 
-## Interaction and Gameplay
+## Interaction And Gameplay
 
-- NPCs can offer quests (escort, protection, delivery, trading) and services (vendors, crafting stations, trainers).
-- Merchant NPCs are a primary source of escort missions and trade routes; their itineraries can create dynamic world events (convoys, ambushes, trade hubs).
-- Guard and mage NPCs establish safe zones and influence player behavior around settlements.
+NPCs provide quests, escort requests, protection work, delivery jobs, trading tasks, vendors, crafting stations, trainers, and settlement services. Merchant itineraries can generate dynamic world events such as convoys, trade hubs, and ambushes, while guards and mages define safe zones and influence player behaviour around settlements.
 
-## Design & Implementation Notes
+## Design And Implementation Notes
 
-- Use player-compatible 3D models to reduce art overhead while allowing visual variety through armor, clothing, and accessories.
-- Give NPCs schedules and visible task animations (e.g., farming, smithing, tending livestock) to increase immersion.
-- City population and NPC behavior should scale with city size — more guards, tougher defenses, and additional services in larger settlements.
-- Ensure resource-restoration mechanics (like `Nature growth`) are balanced and have cooldowns to prevent abuse.
+Using player-compatible 3D models reduces art overhead while still allowing visual variety through armour, clothing, accessories, posture, and animation sets. NPC schedules and visible task animations should scale with settlement size, so larger towns feel busier, better defended, and more service-rich. Resource-restoration mechanics such as Nature Growth need cooldowns and limits so they support crowded areas without being exploitable.
 
 ## Example Content Sources
 
-- See the `Nature growth` spell for resource-restoration behaviour: [Nature growth](../Magic/Spells/Earth/Nature-growth.md)
+The [Nature Growth](../Magic/Spells/Earth/Nature-growth.md) spell describes the resource-restoration behaviour city mages can use around starting areas.
 
+## Continue Reading
+
+See also: [Creatures index](../Creatures.md), [Structures](../Structures.md), and [Quests](../Quests.md).

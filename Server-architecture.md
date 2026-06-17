@@ -47,3 +47,7 @@ The architecture borrows proven large-scale MMO ideas and layers on a custom vis
 ## 8. One-paragraph summary
 
 The game uses a distributed cluster server architecture in which the world is divided into 1 km² simulation regions. A Master Server manages routing, persistence, and dynamic load balancing, while multiple Cluster Unit Servers simulate gameplay across regions in parallel. Servers exchange only visibility-relevant data, using a per-entity render distance that is velocity-aware and directional, so that players and AI in different regions perceive and interact with one another and so that fast-moving entities are synchronised early enough for region handoffs to stay seamless.
+
+## Continue Reading
+
+Continue with [Server Architecture (Technical)](<Server-architecture (Technical).md>), [Server Settings](Server-settings.md), and [Dynamic Culling & Render Distance](Dynamic-culling-and-render-distance.md).

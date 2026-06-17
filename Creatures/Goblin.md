@@ -1,16 +1,15 @@
-Goblins
+# Goblins
 
 Goblins are opportunistic humanoids that thrive at the edges of civilization. They form loose tribes and scavenger bands, frequently raiding outposts, ambushing caravans, and scavenging ruins for valuables.
 
-Behavior
+## Behavior
 
-- Pack-oriented skirmish tactics using crude traps and short-range weapons.
-- Opportunistic looting: they prefer to fight only when they have an advantage.
-- Some goblin tribes specialize in tinkering and trade in cobbled-together mechanical items.
+Goblins fight as pack-oriented skirmishers, using crude traps, short-range weapons, terrain, and surprise rather than honourable confrontation. They prefer to attack only when they believe they have an advantage, and they retreat quickly if the situation turns against them. Some tribes specialize in tinkering and trade with cobbled-together mechanical items, which can make them useful contacts as well as threats.
 
-Role in the world
+## Role In The World
 
-- Common mid-tier enemies for low- to mid-level players.
-- Sources of crafting components, low-grade trade goods, and quest hooks.
+Goblins are common low- to mid-tier enemies and recurring sources of crafting components, low-grade trade goods, settlement trouble, and quest hooks. They stand about 1,40 meters tall, with lean frames and ferocious survival instincts. Their raids on small towns and early player bases are usually motivated by theft: they attack targets they consider weak enough to overwhelm, then carry off tools, food, weapons, and anything else their tribe can use.
 
-Goblins are about 1,40 meters tall, ferocious, skinny. They perform raids on small towns and early/low tier player bases. They will attack any humanoids that they consider weak enough that they will win to collect their items for use.
+## Continue Reading
+
+See also: [Creatures index](../Creatures.md), [Raids](../Raids.md), and [Reputation System](../Reputation-system.md).

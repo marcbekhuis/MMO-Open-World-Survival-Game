@@ -1,17 +1,27 @@
-Capital cities
+# Capital Cities
 
-Capital cities are the principal hubs in the world: political, economic, and social centers where players commonly spawn, trade, and organize. Each capital supports high-level services and acts as a regional anchor for travel and progression.
+Capital cities are the principal hubs in the world: political, economic, and social centres where players commonly spawn, trade, train, and organize. Each capital supports high-level services and acts as a regional anchor for travel and progression.
 
-Key characteristics
+## Key Characteristics
 
-- **Spawn & Onboarding**: Capitals host race-specific starting zones, tutorials, and early-quest hubs.
-- **Trade & Services**: High-tier merchants, specialty crafting stations, and banking or storage services.
-- **Transport & Travel**: Major portals and teleportation infrastructure connect capitals; using cross-capital portals may impose gameplay costs to balance convenience.
-- **Social Spaces**: Guild halls, auction houses, and public event stages.
+Capitals host race-specific starting areas, tutorials, trainers, and early quest hubs. They concentrate high-tier merchants, specialty crafting stations, banking, storage, auction systems, and faction representatives. Major portals connect capitals, but cross-capital travel should carry a meaningful cost so long-distance movement and local trade remain valuable. Guild halls, markets, taverns, public event areas, and announcement boards make capitals natural meeting points.
 
-Design notes
+## Cultural Starting Hubs
 
-- Capital design should emphasize verticality and memorable landmarks to serve as navigation anchors.
-- Each capital should have one unique feature (for example: a grand library, an orbital observatory, a floating market, or a legendary forge).
+The human capital should introduce flexibility and trade. Its first districts can include a central bazaar, a militia yard, basic crafting workshops, and road gates that lead toward lower-risk wilderness.
 
-<!-- TODO: Provide canonical capital names, one unique landmark per capital, and any race-specific starting mechanics you want tied to each city. Example helpful input: "Human capital: Aldenport — central bazaar & portal plaza; Elven capital: Larethorn — treetop archives; Dwarven capital: Khar-Drun — Grand Forge." -->
+The elven capital should introduce vertical movement, nature magic, stealth, and environmental awareness. Early quests can send players through canopy paths, root-level gardens, and protected groves before they enter the deeper forest.
+
+The dwarven capital should introduce crafting, mining, endurance, and defensive play. New players can begin near forge halls, training pits, ore lifts, and tunnel gates that lead into mountain passes or cave networks.
+
+## Portal Cost
+
+Capital portals exist mainly to help friends reunite across distant starts and to prevent the early game from trapping players apart for too long. The cost should be strong enough that portals do not replace travel as the normal way to move goods, scout territory, or project military power. Losing carried items, paying a significant fee, or accepting a temporary travel cooldown are all viable balancing tools; the final choice should support the economy and avoid encouraging players to use portals as risk-free logistics.
+
+## Landmark Guidance
+
+Each capital should have at least one dominant landmark that players can use for navigation and memory. Examples include a human portal plaza surrounded by guild banners, an elven archive grown into the crown of an ancient tree, or a dwarven grand forge visible from multiple terraces. These landmarks do not need fixed names yet; their purpose is to make each capital instantly recognizable in play.
+
+## Continue Reading
+
+See also: [Structures index](../Structures.md), [Human settlements](Human-settlements.md), [Elven settlements](Elven-settlements.md), and [Dwarven settlements](Dwarven-settlements.md).

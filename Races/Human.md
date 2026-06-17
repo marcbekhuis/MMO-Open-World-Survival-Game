@@ -1,0 +1,1 @@
+Humans are the adaptable baseline, with balanced attributes that support melee, magic, crafting, or hybrid builds. Based on where a human puts their focus on they can become great at any one specialisation it may just take a little longer and more effort then any of the other two races do in their races specialisations.

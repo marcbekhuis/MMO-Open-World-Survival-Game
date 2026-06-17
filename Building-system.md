@@ -2,37 +2,15 @@
 
 ## Core Philosophy
 
-All humanoid structures—player-built and NPC-built—use the **same construction system**. This unified approach lets players:
+All humanoid structures, whether player-built or NPC-built, use the same construction system. This makes architecture part of the shared world language: players can build with human, elven, or dwarven styles, combine influences into hybrid settlements, understand NPC structures through the same rules that govern their own bases, and attack or defend buildings during raids without needing a separate ruleset.
 
-- Build settlements with Elven, Human, or Dwarven style
-- Reuse design principles across player and NPC structures
-- Create hybrid communities and unique architectural styles
-- Attack and destroy enemy settlements during raids
+## Progression And Materials
 
----
-
-## Progression & Materials
-
-### Early Game
-- Simple stick and thatch structures
-- Quick to construct
-- Low durability but easy to repair
-
-### Mid Game
-- Wooden walls, stone foundations, defensive barriers
-- Improved durability and aesthetic variety
-- Greater resilience against weather and attacks
-
-### Late Game
-- Reinforced stone keeps, towers, and marketplaces
-- Advanced building materials and magical fortifications
-- Customizable strongholds with layered defenses
-
----
+Early construction uses simple stick, thatch, hide, and rough timber pieces. These structures are quick to build and easy to repair, but they offer limited protection against weather, creatures, and raids. Mid-game construction introduces stronger wooden walls, stone foundations, defensive barriers, workshops, and more durable roofing, giving groups enough resilience to hold a frontier position. Late-game construction expands into reinforced stone keeps, towers, markets, guild halls, and magical fortifications that can become lasting symbols of territory and status.
 
 ## Environmental Adaptation
 
-Buildings must match the biome or suffer penalties.
+Buildings must suit their biome or suffer penalties. A design that works in dry plains may rot in rain-heavy jungle, collapse under mountain snow, or flood in a swamp. This makes material choice and location part of settlement strategy rather than decoration.
 
 | Biome | Challenge | Adaptive Solution |
 |---|---|---|
@@ -42,37 +20,16 @@ Buildings must match the biome or suffer penalties.
 | Mountain Range | Avalanches, exposed cliffs | Reinforced anchoring, wind-resistant design |
 | Swamp | Flooding, decay | Raised floor systems, waterproof materials |
 
----
+## Durability And Support
 
-## Durability & Support
+Structure durability increases with supported load. A foundation carrying many connected components gains a stronger durability role, while upper layers receive proportional support based on the weight and stability below them. This encourages believable load-bearing architecture and rewards thoughtful base layouts.
 
-### Load-Based Durability
+Each building piece has finite support capacity. Adding too many unsupported layers eventually prevents further construction, which limits exploitative stacking and keeps defensive design readable. Tall, narrow towers can be useful for sightlines and defense, but they remain vulnerable if their foundations are exposed. Broad, well-supported structures are harder to breach but require more materials and more space.
 
-Structure durability increases with supported load:
+## Building In Practice
 
-- A foundation supporting many components gains a high durability multiplier
-- Upper layers receive proportionate strength based on support weight
-- This encourages realistic, load-bearing architecture
+Solo players should be able to maintain compact outposts, hidden cabins, and efficient crafting shelters. Small teams can build defensive encampments, resource depots, and frontier workshops. Large groups can establish guild halls, fortified towns, marketplaces, and layered keeps that become permanent landmarks and conflict targets.
 
-### Structural Integrity
+## Continue Reading
 
-- Each piece has finite support capacity
-- Adding too many layers eventually prevents further construction
-- Prevents exploitative stacking for durability
-- Encourages thoughtful base design and balanced builds
-
-### Strategic Building
-
-- Tall, narrow towers are powerful but vulnerable
-- Strong foundations create more damage-resistant bases
-- Environmental factors influence placement and material choice
-- Defense and aesthetics both matter
-
----
-
-## Building in Practice
-
-- **Solo players** build compact, efficient outposts
-- **Small teams** construct defensive encampments and craft hubs
-- **Large groups** establish cities, guild halls, and fortresses
-- **Endgame structures** serve as permanent territory and status markers
+Continue with [Structures](Structures.md), [Raids](Raids.md), and [Inventory](Inventory.md).

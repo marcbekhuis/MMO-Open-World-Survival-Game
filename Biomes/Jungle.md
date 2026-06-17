@@ -1,23 +1,27 @@
-Jungle
+# Jungle
 
-The Jungle biome is a dense, humid, layered ecosystem of towering trees, vines, and tangled undergrowth. It rewards careful navigation and offers high biodiversity, including rare plant species and hidden ruins.
+The Jungle biome is a dense, humid, layered ecosystem of towering trees, vines, and tangled undergrowth. It rewards careful navigation and offers high biodiversity, including rare plant species, hidden ruins, and territorial creatures.
 
-Features
+## Features
 
-- Multi-layered vertical exploration: canopy paths, understory, and riverine corridors.
-- Rich resource nodes: medicinal plants, hardwood, and rare pigments.
-- High creature diversity and territorial predators.
+- Multi-layered vertical exploration through canopy paths, understory routes, river corridors, and root networks.
+- Rich resource nodes such as medicinal plants, hardwood, rare pigments, and spell reagents.
+- High creature diversity, with many animals using sound, colour, or camouflage as warning signs.
+- Ancient stonework partly swallowed by roots and rainfall.
 
-Fauna
+## Hazards
 
-- Bamboo Spider (near river groves and reed beds) — see [Bamboo spider](../Creatures/Bamboo-spider.md)
-- Birds — environmental cues and watchers (see [Birds](../Creatures/Birds.md))
+- Ambush predators, poisonous flora, and disorienting terrain.
+- High humidity that affects equipment durability.
+- Flooded paths and fast river crossings during storms.
 
-See also: [Creatures index](../Creatures.md)
+## Signature Landmark
 
-Hazards
+The jungle should contain a major overgrown temple or stepped ruin that acts as both navigation landmark and dungeon entrance. Its outer terraces can support solo exploration, while deeper sealed chambers create group content tied to traps, plant growth, and old magic.
+## Fauna
 
-- Ambush predators, poisonous flora, and disorienting terrain
-- High humidity that affects equipment durability
+- [Birds](../Creatures/Birds.md) as environmental cues, watchers, and alarm signals.
 
-<!-- TODO: Provide a signature dungeon or landmark for the Jungle, and any unique flora or fauna you want emphasized. Example helpful input: "Jungle heart: The Sunken Temple; unique flora: Glowvine, a reagent for light-based spells." -->
+## Continue Reading
+
+See also: [Creatures index](../Creatures.md), [Bamboo Jungle](Bamboo-jungle.md), and [Magic](../Magic.md).

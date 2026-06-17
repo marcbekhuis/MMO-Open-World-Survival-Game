@@ -1,5 +1,23 @@
-This spell is designed to regenerate all natural resources within its area of effect, allowing players to replenish vital materials in the game world. However, the efficiency of the spell depends on the tier and resistance of the resources it targets.
-Higher-Tier Resources: The rarer and more valuable a resource, the greater its resistance to the regrowth spell. These high-tier resources require more spell strength to fully regenerate, adding an element of strategy and challenge to resource management.
-Spell Strength Distribution: The spell's total strength is evenly distributed among all resources within its radius. The amount of strength a specific resource receives determines how much it regrows. For example, a small cluster of basic resources may fully regenerate, while a large area with rare resources may see only partial regrowth, depending on the spell's overall strength.
-To maintain balance and ensure fairness, NPC mages are stationed around starting cities. These mages use the resource regrowth spell during peak player activity to replenish materials in heavily harvested areas. By doing so, they help ensure that all players, especially those in densely populated zones, have access to enough resources to progress in their journey.
-This spell not only serves as a valuable tool for players who learn it but also plays a crucial role in the ecosystem of the game, preventing resource scarcity and encouraging players to explore and strategize in their harvesting efforts.
+# Nature Growth
+
+Nature Growth is an earth-aligned spell that regenerates natural resources within its area of effect. It supports gathering, settlement recovery, and ecological balance, but it should not allow players to create infinite high-tier materials without effort.
+
+## Resource Resistance
+
+Each resource has a resistance value based on rarity, tier, and ecological importance. Common plants and basic wood can regrow quickly, while rare ores, ancient trees, magical herbs, and boss-linked materials require much more spell strength. This keeps the spell useful without removing the value of exploration.
+
+## Strength Distribution
+
+The spell's total strength is distributed across all eligible resources within its radius. A small cluster of basic resources may fully recover, while a wide area containing rare nodes may only partially regenerate. Players can therefore improve results by choosing the right location, narrowing the target area, or specializing the spell through upgrades.
+
+## World Use
+
+NPC mages can use Nature Growth around starting cities during peak activity to prevent early resource exhaustion. This supports new players in crowded areas while preserving scarcity in remote, dangerous, or high-tier regions.
+
+## Upgrade Directions
+
+Nature Growth can specialize in several directions. Focused growth narrows the radius so each node receives more restoration strength. Wide renewal expands the area but weakens individual restoration. Selective growth prioritizes plants, timber, herbs, or another resource category. Efficient channel reduces mana cost when the spell is cast in healthy natural environments.
+
+## Continue Reading
+
+See also: [Magic](../../../Magic.md), [Forest](../../../Biomes/Forest.md), and [Skills](../../../Skills.md).

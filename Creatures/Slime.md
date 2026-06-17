@@ -41,3 +41,7 @@ Player Interaction:
 Slimes cannot be tamed, but players can influence their growth and evolution.
 Players can strategically raise and guide a slime, especially toward becoming an Aggressive Slime, to weaponize them indirectly.
 
+## Continue Reading
+
+See also: [Creatures index](../Creatures.md), [Magic](../Magic.md), and [Inventory](../Inventory.md).
+

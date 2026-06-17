@@ -1,0 +1,1 @@
+Dwarves favour strength, resilience, melee durability, heavy armour, and crafting. While dwarfs lack almost any afinity for magic, they have gained in their craftsman ship they are masters of crafting magic items that make up for their lack in magic. A dwarfs strength combined with a strong magic weapon allows them to challange a mage. 

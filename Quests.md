@@ -2,104 +2,39 @@
 
 ## Overview
 
-NPCs offer dynamic quests providing engaging tasks and rewarding gameplay. Quest completion grants valuable progression—experience, items, gold, skills, and reputation.
-
----
+NPCs offer dynamic quests that give structure to exploration, combat, trade, settlement life, and faction conflict. Quest completion can grant experience, currency, equipment, materials, unlocks, and reputation, but the stronger purpose is to pull players into the world and give their actions context.
 
 ## Quest Types
 
-Quests cater to diverse playstyles and encourage exploration and teamwork:
+Gathering quests ask players to collect herbs, ore, rare components, salvage, or creature materials from specific environments. They are well suited to explorers, crafters, and small groups because they teach resource locations while creating reasons to travel through dangerous territory.
 
-### 🔍 Gathering Resources
-Collect specific materials across the world.
+Monster hunting quests focus on defeating creatures, bosses, or disruptive packs. They can range from solo predator control near a village to coordinated hunts against regional threats. Rewards should favour combat progression, trophies, materials, and local reputation.
 
-- Herbs, ores, rare components
-- Ideal for explorers and resource hunters
-- Unlock gathering locations and secrets
-- Suitable for solo or small groups
+NPC escort missions send players across dangerous routes with merchants, messengers, pilgrims, refugees, or specialists. These quests test route planning, defensive positioning, dialogue choices, and the ability to react when creatures, bandits, weather, or rival players interfere.
 
-### ⚔️ Monster Hunting
-Defeat creatures or bosses to claim victory.
+Structure defense quests ask players to protect outposts, villages, caravansaries, gates, shrines, or strongholds. They work best when the defended place has visible value: a blacksmith who will reopen after the attack, a bridge that keeps trade moving, or a settlement whose reputation rewards improve if it survives.
 
-- Slay a certain number of monsters
-- Defeat a specific powerful creature
-- Combat-focused rewards
-- Scales in difficulty and solo/group difficulty
-
-### 👥 NPC Escort Missions
-Protect NPCs through dangerous territory.
-
-- Guide NPCs from point A to B safely
-- Defend against creature attacks
-- Protect from rival player interference
-- Tests strategy and teamwork
-- Interactive dialogue and choices
-
-### 🏰 Structure Defense
-Repel waves of invaders attacking settlements.
-
-- Defend outposts, villages, or strongholds
-- Face creature waves and/or rival players
-- Tactical positioning and resource management
-- Scales with settlement importance
-- Group coordination essential
-
-### 🎭 Event Quests
-Special limited-time quests that impact the world.
-
-- Massive invasions and world bosses
-- Seasonal festivals and celebrations
-- Faction wars and political intrigue
-- PvP tournaments and contests
-- Unique rewards available only during events
-
----
+Event quests cover world invasions, seasonal celebrations, faction wars, natural disasters, resource booms, political incidents, and world bosses. These quests can temporarily reshape travel routes, settlement services, market prices, and player priorities.
 
 ## Quest Rewards
 
-Rewards scale with quest difficulty and type:
+Rewards scale with difficulty, distance, risk, and social consequence.
 
 | Reward Type | Examples |
 |---|---|
 | **Experience** | XP for leveling and progression |
-| **Currency** | Gold/coin for trading and purchasing |
-| **Equipment** | Weapons, armor, accessories |
-| **Materials** | Crafting components, resources |
+| **Currency** | Gold or coin for trading and purchasing |
+| **Equipment** | Weapons, armour, accessories |
+| **Materials** | Crafting components and resources |
 | **Unlocks** | Rare abilities, cosmetics, mounts |
-| **Reputation** | Faction standing, NPC relationships |
-
----
+| **Reputation** | Faction standing and NPC relationships |
 
 ## Dynamic Quest Availability
 
-Quests vary by location and world state:
+Quest availability should depend on location and world state. Urban settlements naturally produce trade requests, local disputes, merchant support work, and service recovery quests. Wilderness areas create hunting, gathering, exploration, survival, and rescue tasks. Sea and sky regions support ocean travel, piracy, merchant encounters, flying creature hunts, and island colonization. Dungeons and caves focus on artifact recovery, ancient ruin exploration, monster extermination, and treasure hunting.
 
-**Urban Settlements**
-- Trade and commerce quests
-- Local disputes and politics
-- Merchant support missions
-- Rare items and valuables
+Dynamic events should interrupt the normal rhythm. A storm can strand traders, a faction war can close a road, a resource boom can draw miners and raiders, and a world invasion can pull nearby settlements into a shared defense.
 
-**Wilderness Areas**
-- Combat and monster hunting
-- Resource gathering
-- Exploration and discovery
-- Survival challenges
+## Continue Reading
 
-**Sea & Sky**
-- Ocean exploration
-- Pirate/merchant encounters
-- Flying creature hunts
-- Island colonization
-
-**Dungeons & Caves**
-- Artifact recovery
-- Monster extermination
-- Ancient ruin exploration
-- Treasure hunting
-
-**Dynamic Events**
-- World invasions
-- Natural disasters
-- NPC conflicts
-- Resource booms and shortages
+Continue with [Reputation System](Reputation-system.md), [World Design](World.md), and [Dungeons](Structures/Dungeons.md).

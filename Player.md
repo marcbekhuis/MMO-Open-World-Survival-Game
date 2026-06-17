@@ -2,38 +2,15 @@
 
 ## Playable Races
 
-Choose from three distinct races, each with unique starting stats, cultural flavor, and playstyle advantages.
+Players choose from three broad playable races, each with a clear playstyle identity without locking the character into a single role. Humans are the adaptable baseline, with balanced attributes that support melee, magic, crafting, or hybrid builds. Elves lean toward agility, precision, stealth, ranged combat, and magical affinity. Dwarves favour strength, resilience, melee durability, heavy armour, and crafting.
 
-### 🧑 Humans
-**The Adaptable**
-- Balanced attributes in all areas
-- Versatile for melee, magic, or hybrid builds
-- Ideal for players who prefer flexibility
-
-### 🧝 Elves
-**The Arcane Sprinters**
-- High agility and magical affinity
-- Excel at ranged combat and spellcasting
-- Natural advantages in stealth and precision
-
-### 🧔 Dwarves
-**The Stalwart Craftsmen**
-- High strength and resilience
-- Exceptional melee damage and durability
-- Excellent at crafting and heavy armor use
-
----
+Race should shape the opening feel of the character and the player's cultural starting point, but it should not permanently close off major playstyles. A dwarven mage, elven smith, or human specialist should remain viable if the player invests in the right stats, skills, and equipment.
 
 ## Progression System
 
-### Experience & Leveling
+### Experience And Leveling
 
-Players earn XP through:
-- Slaying creatures and bosses
-- Crafting weapons, armor, and structures
-- Completing quests and objectives
-- Defending settlements or leading raids
-- Exploring new locations and secrets
+Players earn experience through the major activities the game wants to support: defeating creatures and bosses, crafting equipment and structures, completing quests, defending settlements, leading raids, exploring new locations, and discovering secrets. This keeps advancement connected to the full survival RPG loop rather than only to combat.
 
 ### Stat Point Allocation
 
@@ -47,15 +24,14 @@ Each level grants a **stat point** that can be invested in core attributes:
 | **Endurance** | Health, stamina, damage resistance |
 | **Wisdom** | Regeneration, perception, status effect resistance |
 
-### Customization & Respec
+### Customization And Respec
 
-- Players can specialize in combat, crafting, magic, or survival
-- Progression is designed to support hybrid builds
-- Respec options are available at dedicated NPCs for a cost
-- Builds evolve to reflect player choices and roleplay
-
----
+Progression should support combat specialists, crafters, mages, survivalists, traders, explorers, and hybrids. Respec options can exist through dedicated NPCs or costly services, but changing a build should feel like a meaningful decision rather than a frictionless menu action. Over time, a character's build should reflect both mechanical choices and the story of what that player has spent time doing.
 
 ## Character Growth
 
-Growth is not just mechanical; it is narrative. Your race, stats, and choices shape how the world sees you and what challenges you can confidently face.
+Growth is not just mechanical; it is narrative. Race, stats, skills, reputation, and player choices shape how the world responds and what challenges a character can confidently face.
+
+## Continue Reading
+
+Continue with [Skills](Skills.md), [Magic](Magic.md), and [Reputation System](Reputation-system.md).

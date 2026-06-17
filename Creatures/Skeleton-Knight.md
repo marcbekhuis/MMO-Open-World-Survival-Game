@@ -1,0 +1,1 @@
+These are the knight types of skeletal creatures that live in the dungeons they are kept alive by the dungeon as soon as they take one step outside of the dungeon they fail apart into a pile of bones.

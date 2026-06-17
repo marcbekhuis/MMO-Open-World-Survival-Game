@@ -1,0 +1,1 @@
+Elves lean toward agility, precision, stealth, ranged combat, and magical affinity. What elfs lost in their combat strength they have more then gain in their skill with magic, a strong elven mage could easiely wipe an unprepared army of soldiers.

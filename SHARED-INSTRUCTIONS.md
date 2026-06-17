@@ -6,6 +6,8 @@ This file provides shared repository guidance for AI coding assistants working i
 
 This repository is a living game-design document for a large-scale, persistent open-world survival RPG built on Unreal Engine 5. It contains only Markdown — there is no source code, build system, linter, or test suite, so working here means writing, expanding, and cross-linking design notes rather than running commands. The starting point for any orientation is [README.md](README.md), the canonical index that links out to every top-level system document; when you add a new system doc, add it to that index.
 
+When the user asks to "improve this game design document," treat the request as applying to the repository as a whole, not just to a single file. Make a coordinated pass across the Markdown files: strengthen weak sections, fill suitable TODO placeholders with generic design prose when possible, improve cross-links, and keep the documents consistent with one another.
+
 ## Scope and level of detail
 
 These documents are a vision and design guide for a compelling large-scale game, not a production bible that pins down every name and number. The aim is to convey how a system should feel and why it works, so the writing can and should stay relatively generic: it does not need canonical proper names, and capital cities, NPCs, regions, factions, and items can be described by role and archetype rather than christened. Prefer an illustrative example such as "a dwarven forge-capital carved into a mountainside" over committing to a fixed roster like "the city of Khar-Drun." Existing concrete names are fine to keep, but new content should avoid manufacturing a rigid, named, step-by-step specification of exactly what the game must contain — favour the guiding idea over the exhaustive checklist.
@@ -37,6 +39,8 @@ When you fill one in, replace the entire TODO comment with the finished content.
 ## Writing style
 
 Prose is the default. Write in a professional, systems-design voice with complete sentences and connected paragraphs, the same register found throughout [Server-architecture.md](Server-architecture.md) and the creature and biome files. Reserve bullet points for genuine enumerations — discrete lists of features, hazards, or fauna — and prefer a sentence or short paragraph anywhere a bullet would merely restate a single idea. When a section starts to read as a stack of one-line bullets, fold it back into prose.
+
+Avoid bullet points where they are not needed or useful. During improvement passes, refactor unnecessary bullet lists into prose so the design reads like a cohesive document rather than notes. Do not use emojis, and remove any existing emojis encountered while improving files.
 
 When improving an existing file, you may expand on the ideas already present so long as the additions stay aligned with the document's purpose, tone, and established level of specificity. Add a small story, encounter, or player-facing vignette section wherever it fits the subject naturally, especially in creature files and other documents that benefit from showing how the idea appears in play.
 

@@ -31,3 +31,7 @@ Cartographers have a unique role in the game, offering both utility and prestige
 Example Use Case
 A player is attempting to find a rare dungeon hidden deep in a dense forest. Without a detailed map, they would need to search blindly, risking danger and wasting time. However, a skilled cartographer has crafted a detailed map item marking the dungeon entrance, nearby hazards, and resource deposits. The adventurer purchases the map, saving time and gaining a strategic advantage.
 This system not only enhances immersion but also adds a layer of strategy, economy, and individuality to the game world. Players will come to value not just what they discover but also the role they play in documenting and sharing the world’s secrets.
+
+## Continue Reading
+
+See also: [Skills overview](../../Skills.md), [World Design](../../World.md), and [Quests](../../Quests.md).

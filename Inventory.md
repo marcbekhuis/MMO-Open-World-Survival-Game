@@ -1,81 +1,34 @@
-# Inventory & Storage System
+# Inventory And Storage System
 
 ## Design Philosophy
 
-Inventory is **gear-driven**: players start with no inventory slots and must equip items to expand storage. This creates meaningful equipment choices and prevents unlimited carrying capacity.
+Inventory is gear-driven: players start with no general-purpose inventory slots and must equip items to expand storage. This creates meaningful equipment choices, prevents unlimited carrying capacity, and ties loot decisions to character build, travel plans, and risk.
 
-### Default Slots
+## Default Capacity
 
-- **Armor/Clothing Slots**: Various slots for protective gear
-- **Bag Slot**: Primary storage container (equipped item)
-- **Hand Slots (×2)**: Unrestricted slots for any item type
+Every character has equipment slots for armour and clothing, one primary bag slot, and two unrestricted hand slots. The bag slot is the main source of portable storage, while hand slots allow a player to carry or manipulate items even before they have proper containers.
 
-## Unified Inventory Grid
-
-All inventory slots display in a **single unified grid** for easy management. Slots are color-coded and outlined to show which equipment provides each slot, maintaining clarity and organization.
-
----
+All inventory slots appear in a single unified grid for easy management. Slot colour, outline, or grouping should show which equipped item provides each slot, so players can understand what will happen if they remove a bag, belt, or piece of clothing.
 
 ## Storage Options
 
-### 📦 Pouches
-**Purpose**: Small storage containers for lightweight items
+Pouches are small storage containers for lightweight essentials such as food, coins, arrows, reagents, or tools. They provide limited convenience rather than bulk capacity and usually come from belts, pants, bandoliers, or similar gear.
 
-- Provide a few extra inventory slots
-- Designed for quick-access essentials: food, coins, arrows
-- Unlocked by equipping belts, pants, or similar gear
-- Limited capacity by design
+Bags and backpacks are the primary storage containers. Only one main bag or backpack can be equipped at a time, with early versions offering modest capacity and late-game versions scaling significantly. Larger backpacks should create trade-offs through weight, movement penalties, durability concerns, or reduced combat convenience.
 
-### 🎒 Bags & Backpacks
-**Purpose**: Primary storage containers providing bulk inventory space
+Magic pouches and magic backpacks are rare endgame storage upgrades. They can offer more slots, reduced effective item weight, special durability, or minor stat properties, but their crafting cost and rarity should keep them valuable rather than ordinary.
 
-- Only one bag/backpack can be equipped at a time
-- Early-game options offer minimal slots; late-game options scale significantly
-- **Trade-offs matter**: More storage may reduce movement speed or increase weight
-- High-progression backpacks may have special bonuses (weight reduction, damage resist, etc.)
-- Craftable and purchasable at various progression tiers
+The [Item Box](Magic/Spells/Misc/Item-box.md) spell is mage-exclusive personal storage. It acts like a magical private chest that only the caster can access, protects stored items from death loss, and removes those items from normal carry weight. Its mana cost, drain, slot limits, and upgrade requirements keep it powerful without making physical storage irrelevant.
 
-### ✨ Magic Pouches & Magic Backpacks
-**Purpose**: Rare, powerful storage upgrades for endgame players
+## Weight And Strength Mechanics
 
-- Offer significantly more slots than standard versions
-- **Weight reduction bonus**: Items weigh less when stored
-- Extremely expensive to craft or purchase
-- Prized possessions for veterans
-- May have other special properties (stat bonuses, durability, etc.)
-
-### 🎁 Item Box Spell (Mage-Exclusive)
-**Purpose**: Personal, magical storage—exclusive to mages
-
-- Acts as a personal magical chest (similar to Minecraft's Ender Chest)
-- Only the caster can access their Item Box
-- **Death advantage**: Items are NOT lost on death
-- **No weight penalty**: Stored items don't contribute to overall burden
-- Invaluable for endgame mages managing rare loot
-
-*See [Magic Spells](Magic/Spells/Misc/Item-box.md) for detailed spell mechanics.*
-
----
-
-## Weight & Strength Mechanics
-
-### How It Works
-
-✓ All items have a weight in kilograms (kg) that **stacks**
-
-✓ A visible weight stat displays your current burden in kilograms
-
-✓ Weight capacity, also measured in kilograms, scales with your **Strength stat**
-
-### Strength Impact
+All items have weight measured in kilograms, and stacked items combine their weight. The interface should show current burden and maximum carrying capacity clearly. Capacity scales with the Strength stat, so characters built for heavy armour, hauling, mining, or group logistics can carry more without becoming immobile.
 
 | Strength Increase | Effect |
 |---|---|
 | +1 | Carry capacity increases |
 | High | Minimal penalties for extra weight |
 | Very High | Superhuman carrying potential |
-
-### Weight Penalties
 
 | Status | Effect |
 |---|---|
@@ -84,10 +37,10 @@ All inventory slots display in a **single unified grid** for easy management. Sl
 | **Over Limit** | Noticeable slowdown |
 | **Severely Overweight** | Risk of becoming immobile |
 
-### Strategic Depth
+## Strategic Depth
 
-The weight system creates meaningful decisions:
-- Prioritize what loot to keep vs. abandon during raids
-- Choose between powerful but heavy gear or light mobility options
-- Invest Strength points as a tank/carry-focused build
-- Use storage items strategically to manage bulk
+The weight system should make players choose what to keep, abandon, hide, sell, or transport later. Heavy armour, rare ore, siege supplies, food, treasure, and spare weapons all compete for capacity. This gives Strength investment, storage gear, pack planning, and settlement logistics real value, especially during raids and long expeditions.
+
+## Continue Reading
+
+Continue with [Player Progression](Player.md), [Building System](Building-system.md), and [Item Box](Magic/Spells/Misc/Item-box.md).
