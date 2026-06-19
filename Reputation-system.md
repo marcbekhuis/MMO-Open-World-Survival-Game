@@ -12,7 +12,7 @@ Global reputation represents the broader pattern of a player's behaviour. Unknow
 
 ## How Reputation Changes
 
-Good reputation comes from defending settlements, completing quests, honouring agreements, trading fairly, assisting NPCs in danger, and providing materials or services to communities. Bad reputation comes from attacking settlements, killing NPCs, stealing resources, fleeing justice, betraying allies, and sabotaging trade routes.
+Good reputation comes from defending settlements, completing quests, honouring agreements, trading fairly, assisting NPCs in danger, and providing materials or services to communities. Bad reputation comes from attacking settlements, killing NPCs, stealing resources, fleeing justice, betraying allies, and sabotaging trade routes. The same social memory governs open-world killings, which is why the lawless player-versus-player combat of [Conflict and PvP](Conflict-and-pvp.md) still carries a price.
 
 These changes should not all be equal. A small theft should not carry the same consequence as destroying a village forge, and a single helpful delivery should not erase a long record of violence. Reputation should recover slowly enough that choices matter, while still leaving room for redemption.
 

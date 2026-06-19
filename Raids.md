@@ -12,13 +12,13 @@ After a raid, recovery should take time. Damaged services such as blacksmiths, t
 
 ## Player Base Raids
 
-Player-built bases are always part of the risk landscape, especially in open or contested zones. PvP raids can focus on stealing loot, damaging structures, weakening defenders, or forcing a rival group to relocate. Strong base design, watch systems, alliances, hidden storage, terrain control, and escape routes all matter.
+Player-built bases are always part of the risk landscape, especially in open or contested zones. PvP raids can focus on stealing loot, damaging structures, weakening defenders, or forcing a rival group to relocate. They are the organized end of the open conflict described in [Conflict and PvP](Conflict-and-pvp.md). Strong base design, watch systems, alliances, hidden storage, terrain control, and escape routes all matter.
 
 NPC faction raids can target player bases when reputation, location, wealth, or previous aggression makes the base a threat. Low reputation should increase raid frequency and intensity, while high-value bases may draw more organized assaults. Defenders need to adapt to both human attackers and NPC forces, because each creates different pressure.
 
 ## Strategic Implications
 
-Raids should make territory feel alive without making every structure disposable. Base placement, chokepoints, elevation, concealment, supply access, and local reputation all shape risk. A raid outcome can change regional power, interrupt trade, create revenge quests, and become part of the history players tell about the world.
+Raids should make territory feel alive without making every structure disposable. Base placement, chokepoints, elevation, concealment, supply access, and local reputation all shape risk. A raid outcome can change regional power, interrupt the trade routes of [Economy and Trade](Economy.md), create revenge quests, and become part of the history players tell about the world.
 
 ## Continue Reading
 

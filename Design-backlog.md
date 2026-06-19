@@ -6,7 +6,13 @@ This is a working file, not part of the design proper. It carries context betwee
 
 Proposals that have been approved, or are worth keeping, but have not yet been written into a document. Record enough detail to act on later and note the target file. Clear an entry once its content lands in the design.
 
-_Nothing parked here yet._
+These system areas were identified as gaps during the content-and-tone session and are still missing their own treatment:
+
+- **Survival meters** (new `Survival.md`). [Content and Tone](Content-and-tone.md) commits to food, fatigue, and the hazards of the world as the survival pressures and rules out a substance or addiction meter, but the exact meters (hunger, rest, temperature and exposure, and possibly disease) and how punishing they are still need to be decided and written.
+- **Crafting system** (new `Crafting.md` hub). Gathering-to-crafting is referenced by [Economy and Trade](Economy.md) and the [Skills](Skills.md) artisan lines but has no hub document covering recipes, stations, quality tiers, and how crafted goods feed the player economy.
+- **Guilds and factions** (new dedicated document). Guilds, alliances, and territory control are referenced across [Conflict and PvP](Conflict-and-pvp.md), [Raids](Raids.md), and the [Reputation System](Reputation-system.md) but have no home of their own.
+- **Weather, time, and seasons** (new dedicated document). Day and night, weather, and seasonal change are mentioned in [World Design](World.md) and the biomes but are not specced, and they interact with survival meters, combat, and travel.
+- **Travel and mounts** (expand around [Taming and Control](Taming-and-control.md)). Mounts, sailing, climbing, flight, and portals could be drawn together into one travel document rather than staying scattered.
 
 ## Open questions
 
@@ -18,7 +24,7 @@ _Nothing parked here yet._
 
 Choices intentionally left open for now, each with a short note on why, so a later session does not reopen them by accident or mistake them for settled.
 
-_Nothing parked here yet._
+- **Substances stay flavour-only.** Alcohol and narcotics are world texture, not a mechanical subsystem, per [Content and Tone](Content-and-tone.md). A future pass could give intoxication real buffs, debuffs, or an addiction loop, but that is a deliberate decision to revisit, not a gap to fill in passing.
 
 ## Continue Reading
 

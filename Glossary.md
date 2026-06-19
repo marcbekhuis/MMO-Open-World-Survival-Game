@@ -12,6 +12,8 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Landmark** — a dominant, recognizable feature that anchors navigation and memory within a place, letting players orient themselves and describe routes.
 
+**Frontier** — the deep, dangerous wilderness opened to the realms in the present age and contested throughout the game, the stage on which the central conflict plays out. See [Setting and lore](Setting-and-lore.md) and [Conflict and PvP](Conflict-and-pvp.md).
+
 ## Settlements and structures
 
 **Capital / capital city** — a principal, race-appropriate hub where players spawn, train, trade, and organize, and the safe anchor for early progression. See [Capital cities](Structures/Capital.md).
@@ -25,6 +27,16 @@ This glossary defines the recurring archetype terms the design relies on, so the
 **Portal** — a costly fast-travel link between capitals, priced so that ordinary travel and trade remain the normal way to move goods and project power. See [Capital cities](Structures/Capital.md).
 
 **Dungeon** — a contained, hazard-dense site that concentrates risk and reward away from the open world. See [Dungeons](Structures/Dungeons.md).
+
+## Conflict, loss, and economy
+
+**Safe city** — a capital or spawn city held by NPC guards strong enough to suppress player aggression within its bounds, serving as a haven for respawn, trade, crafting, and training. See [Conflict and PvP](Conflict-and-pvp.md).
+
+**Full loot** — the rule that a player killed by another player leaves a corpse the victor may strip entirely, equipped gear included. See [Death and loss](Death-and-loss.md).
+
+**Corpse run** — the trip a player makes back to their corpse to recover what they dropped on death, before the recovery window closes or another player reaches it first. See [Death and loss](Death-and-loss.md).
+
+**Sink** — any mechanism that permanently removes currency or goods from the economy, such as repair, upkeep, taxes, tolls, and loss on death, used to counter the inflation a persistent world would otherwise suffer. See [Economy and trade](Economy.md).
 
 ## Server and technical
 

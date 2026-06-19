@@ -39,7 +39,7 @@ All items have weight measured in kilograms, and stacked items combine their wei
 
 ## Strategic Depth
 
-The weight system should make players choose what to keep, abandon, hide, sell, or transport later. Heavy armour, rare ore, siege supplies, food, treasure, and spare weapons all compete for capacity. This gives Strength investment, storage gear, pack planning, and settlement logistics real value, especially during raids and long expeditions.
+The weight system should make players choose what to keep, abandon, hide, sell, or transport later. Heavy armour, rare ore, siege supplies, food, treasure, and spare weapons all compete for capacity. This gives Strength investment, storage gear, pack planning, and settlement logistics real value, especially during raids and long expeditions. Because everything carried is also everything at risk under [Death and Loss](Death-and-loss.md), and because most of it eventually moves through the player markets of [Economy and Trade](Economy.md), packing for a journey is as much an economic decision as a logistical one.
 
 ## Continue Reading
 

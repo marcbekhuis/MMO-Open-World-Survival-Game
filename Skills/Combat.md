@@ -14,6 +14,10 @@ New combat techniques become available when related skills reach meaningful thre
 
 Combat skills should support multiple identities: agile skirmishers, shield-bearing defenders, heavy weapon bruisers, ranged hunters, mounted fighters, and battlefield support. None of these roles should depend only on damage numbers; positioning, timing, terrain, stamina, and equipment weight all matter.
 
+## Brutality And Finishers
+
+Combat is meant to feel brutal and consequential, in line with the game's [Content and Tone](../Content-and-tone.md). Heavy, well-timed blows wound visibly, and killing strikes can resolve as weapon-appropriate finishers: a two-handed cleave that dismembers, a thrust that drops an enemy where it stands. Skill and positioning are rewarded with decisive, readable outcomes rather than a health bar quietly ticking to zero. Access to finishers and the force of impacts scale with the relevant skill, tying the spectacle back into [progression](../Player.md), while players who prefer a lower-intensity presentation can scale gore down in [Player Settings](../Player-settings.md) without changing how a fight actually resolves.
+
 ## Continue Reading
 
 See also: [Skills overview](../Skills.md), [Player Progression](../Player.md), and [Inventory](../Inventory.md).

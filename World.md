@@ -2,7 +2,7 @@
 
 ## Overview
 
-The world is vast and seamless, designed for long-form exploration and emergent storytelling. A single journey can span hours, with discovery and danger around every turn. The design should support expansive biomes, seamless travel between major regions, dynamic ecosystems, hidden secrets, and vertical depth across underground spaces, surface wilderness, oceans, mountains, and floating islands.
+The world is vast and seamless, designed for long-form exploration and emergent storytelling. A single journey can span hours, with discovery and danger around every turn. The design should support expansive biomes, seamless travel between major regions, dynamic ecosystems, hidden secrets, and vertical depth across underground spaces, surface wilderness, oceans, mountains, and floating islands. This page concerns the shape of that world; for its history, cosmology, and the central conflict that gives it meaning, see [Setting and Lore](Setting-and-lore.md).
 
 ## Biome Variety
 

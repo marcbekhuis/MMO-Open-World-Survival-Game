@@ -1,6 +1,6 @@
 # Magic
 
-Magic is divided into distinct elements such as water, fire, earth, wind, light, lightning, and other specialized schools. Players begin with a small set of basic spells so every caster has something useful to practise immediately, but long-term strength comes from repeated use, upgrade choices, and unlocking advanced spell relationships.
+Magic is divided into distinct elements such as water, fire, earth, wind, light, lightning, and other specialized schools. Players begin with a small set of basic spells so every caster has something useful to practise immediately, but long-term strength comes from repeated use, upgrade choices, and unlocking advanced spell relationships. Where this power comes from is a question of [Setting and Lore](Setting-and-lore.md): magic wells from the living world itself rather than from the distant gods, which is why it runs strongest in wild, leyline-rich places.
 
 ## Spell Progression
 

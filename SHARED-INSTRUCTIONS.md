@@ -38,6 +38,10 @@ When a concept grows large enough to deserve its own focused treatment, create a
 
 Every file should read as part of one document written by one hand, not a patchwork of mismatched styles. Follow the same build-up throughout: an `#` title, then a short opening paragraph that says what the subject is and why it matters, then themed `##` sections that develop it in prose from the general to the specific. Each file closes its readable content with a related-links or `Continue Reading` section and ends with the `Draft` appendix described below. Some domains layer a recognizable specialization on top of this shape — creature files carry a `Story Hook` section before their backlink, for instance — and new files in a domain should mirror the pattern their neighbours already use. When you touch a file that has drifted from this structure, bring it back into line as part of the edit, aligning its headings, ordering, and voice with the rest of the repository.
 
+## Workflow and templates
+
+The standards in this file describe how the writing should read; for the *process* of doing the work — orienting before you edit, running a decision-driven design session, adding a new document, and verifying links and structure before handing back — follow the workflow and copy the file templates kept in `.claude/skills/design-doc/`. In Claude Code that directory is a skill that loads on demand; for any other assistant, its [`SKILL.md`](.claude/skills/design-doc/SKILL.md) and [`references/templates.md`](.claude/skills/design-doc/references/templates.md) read as a plain process reference and a set of starting templates. That skill operationalizes these instructions and does not replace them: this file remains the authority on house style.
+
 ## Draft sections
 
 Every design document ends with a `## Draft` section as its final appendix, placed below the related-links section, in this form:
@@ -66,13 +70,21 @@ The server design is split across two documents that must not be conflated. [Ser
 
 The link structure between files is load-bearing and should be preserved whenever you add or move content. Every Markdown file in the game-design document should close its readable content with a short related-links or continue-reading section that points to one or more different files the reader could open next, with the `Draft` appendix following as the file's final section. Detail files still link back to their index with a closing line such as `See also: [Creatures index](../Creatures.md)`, and every index links outward to each detail file it owns. Cross-references between domains are bidirectional: a biome lists its fauna and links to each creature file (for example `[Treant](../Creatures/Treant.md)`), and the reciprocal link from creature back to biome is expected in turn. Always use relative paths, with detail files in subfolders reaching top-level docs through `../`.
 
+## Avoid repeating information
+
+Say each thing once. When the same fact or piece of context would fit in several sections, decide where it truly belongs and state it there. Where two passages must each touch the same point, keep them consistent so they never drift into contradiction, and update both in the same edit when the underlying detail changes. When the shared topic is large enough to stand on its own, move it into its own file, give it the focused treatment it deserves, and replace the scattered mentions with a short reference and a link to that file. The aim is a single source of truth for every idea, reached through links rather than restated from memory, so the documents never fall out of step with one another.
+
 ## Writing style
 
 The document should be easy to read and professional. Prose is the default: write in a systems-design voice with complete sentences and connected paragraphs, the same register found throughout [Server-architecture.md](Server-architecture.md) and the creature and biome files. Reserve bullet points for genuine enumerations — discrete lists of features, hazards, or fauna — and prefer a sentence or short paragraph anywhere a bullet would merely restate a single idea. When a section starts to read as a stack of one-line bullets, fold it back into prose. During improvement passes, refactor unnecessary bullet lists into prose so the design reads like a cohesive document rather than notes. Do not use emojis, and remove any existing emojis encountered while improving files.
 
+Above all, the prose should read as though a person wrote it. Vary sentence rhythm and length, let paragraphs breathe, and avoid the tells of machine writing — formulaic openers, mechanical signposting, hedging filler, and the same few connective phrases repeated throughout. A reader should never be able to point at a passage and tell that a tool produced it.
+
 When improving an existing file, you may expand on the ideas already present so long as the additions stay aligned with the document's purpose, tone, and established level of specificity. Add a small story, encounter, or player-facing vignette wherever it fits the subject naturally, especially in creature files and other documents that benefit from showing how the idea appears in play.
 
 Whenever the text names another document in the repository, render that reference as a clickable relative link rather than plain text. A mention of the building system should read as [Building system](Building-system.md), a reference to a creature as [Treant](Creatures/Treant.md), and so on, so the web of documents stays navigable from any page.
+
+Anything the text points to outside the repository should carry a clickable link too. When you reference an external source — an engine feature, tool, vendor, article, standard, or video — put the link behind the words rather than naming the source in bare text, and prefer the authoritative origin, such as official documentation or the vendor's own page, over a second-hand mention.
 
 Measurements follow European and metric conventions. Use a comma as the decimal separator in prose (a goblin stands `1,40 meters` tall, not `1.40`), express distance in metric units (metres and kilometres), and give weight in kilograms. The one exception is fenced code: snippets in [Server-architecture (Technical).md](<Server-architecture (Technical).md>) keep their language-native formatting, so C++ float literals such as `150000.0f` and the comments beside them stay as written.
 

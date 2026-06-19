@@ -4,7 +4,7 @@
 
 Players choose from three broad playable races, each with a clear playstyle identity without locking the character into a single role. Humans are the adaptable baseline, with balanced attributes that support melee, magic, crafting, or hybrid builds. Elves lean toward agility, precision, stealth, ranged combat, and magical affinity. Dwarves favour strength, resilience, melee durability, heavy armour, and crafting.
 
-Race should shape the opening feel of the character and the player's cultural starting point, but it should not permanently close off major playstyles. A dwarven mage, elven smith, or human specialist should remain viable if the player invests in the right stats, skills, and equipment.
+Race should shape the opening feel of the character and the player's cultural starting point, but it should not permanently close off major playstyles. A dwarven mage, elven smith, or human specialist should remain viable if the player invests in the right stats, skills, and equipment. How a character is first created and brought into the world is covered in [New Player Experience](New-player-experience.md).
 
 ## Progression System
 

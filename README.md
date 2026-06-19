@@ -18,7 +18,7 @@ The intended experience is a survival game with MMO scale and RPG depth. Moment-
 
 ## Core Player Loop
 
-Players begin in a race-appropriate capital city where they can learn basic systems, meet vendors and trainers, accept early quests, and use costly portal travel between major hubs. From there, the loop expands outward:
+Players begin in a race-appropriate capital city where they can [learn the game's basic systems](New-player-experience.md), meet vendors and trainers, accept early quests, and use costly portal travel between major hubs. From there, the loop expands outward:
 
 1. Prepare gear, supplies, party roles, and route information.
 2. Travel into the wilderness to gather resources, hunt creatures, explore landmarks, or pursue quests.
@@ -50,20 +50,30 @@ The design should support cooperation without making it mandatory for every acti
 
 The game targets Unreal Engine 5 and assumes a distributed server model designed for a seamless persistent world. The conceptual networking model lives in [Server Architecture](Server-architecture.md), while implementation-oriented notes live separately in [Server Architecture (Technical)](<Server-architecture (Technical).md>). Rendering and synchronization decisions should stay aligned with [Dynamic Culling & Render Distance](Dynamic-culling-and-render-distance.md), especially for fast-moving creatures, flying entities, and large outdoor spaces.
 
-The monetization model is currently framed as a subscription-oriented approach, mainly to support ongoing development, live operations, and persistent infrastructure. The design should continue to avoid pay-to-win pressure, especially in systems tied to combat power, resource control, or territorial advantage.
+The game is funded by a single subscription, with no box price and nothing that affects power ever offered for sale, and it is built for PC first with consoles kept within reach for later. The full reasoning, including the strict no-pay-to-win stance, is set out in [Monetization and Platforms](Monetization.md).
 
 ## Documentation Index
 
 - [World Design](World.md)
+- [Setting and Lore](Setting-and-lore.md)
+- [Content and Tone](Content-and-tone.md)
+- [Art Direction](Art-direction.md)
+- [Audio Direction](Audio-direction.md)
+- [UI and HUD](UI-and-HUD.md)
 - [Biomes](Biomes/Ancient-forest.md)
 - [Creatures](Creatures.md)
 - [Player Progression](Player.md)
+- [New Player Experience](New-player-experience.md)
 - [Player Settings](Player-settings.md)
+- [Accessibility](Accessibility.md)
 - [Inventory System](Inventory.md)
+- [Economy and Trade](Economy.md)
+- [Death and Loss](Death-and-loss.md)
 - [Quest System](Quests.md)
 - [Building System](Building-system.md)
 - [Reputation System](Reputation-system.md)
 - [Raids](Raids.md)
+- [Conflict and PvP](Conflict-and-pvp.md)
 - [Magic](Magic.md)
 - [Skills](Skills.md)
 - [Structures](Structures.md)
@@ -71,6 +81,7 @@ The monetization model is currently framed as a subscription-oriented approach, 
 - [Server Architecture](Server-architecture.md)
 - [Server Architecture (Technical)](<Server-architecture (Technical).md>)
 - [Dynamic Culling & Render Distance](Dynamic-culling-and-render-distance.md)
+- [Monetization and Platforms](Monetization.md)
 - [Glossary](Glossary.md)
 
 ## Contributing And Community
