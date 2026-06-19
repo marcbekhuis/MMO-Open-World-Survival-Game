@@ -1,0 +1,1 @@
+A scorching hot area of this world where the heat of the sun is your biggest enemy, rolling dunes as far as the eye can see with no water in sight home to some large insects and sandworms, this barren wasteland is a place most humans try to avoid.
