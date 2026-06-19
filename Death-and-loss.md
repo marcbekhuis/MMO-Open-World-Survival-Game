@@ -16,7 +16,7 @@ The catch is that the world is not the only thing that may find the body. In con
 
 ## Dying to Another Player
 
-When the killer is another player, the gloves come off: the victor may strip the corpse completely. This is full loot, everything carried and everything worn, and it is the central stake of the open world. It is the reason the frontier's first rule is never to carry what you are not prepared to lose, the reason a laden merchant or a richly geared raider is a target worth hunting, and the engine that keeps gear genuinely valuable, since anything that can be won can also be lost. What changes hands this way does not vanish from the world but recirculates through it, feeding the player-run markets of [Economy and Trade](Economy.md).
+When the killer is another player, the gloves come off: the victor may strip the corpse completely. This is full loot, everything carried and everything worn, and it is the central stake of the open world. It is the reason the frontier's first rule is never to carry what you are not prepared to lose, the reason a laden merchant or a richly geared raider is a target worth hunting, and the engine that keeps gear genuinely valuable, since anything that can be won can also be lost. What changes hands this way does not vanish from the world but recirculates through it, feeding the markets of [Economy and Trade](Economy.md).
 
 Full loot is deliberately harsh, and the design does not pretend otherwise. Its counterweights are the safe cities and reputation consequences set out in [Conflict and PvP](Conflict-and-pvp.md), the player's own freedom to decide how much to risk on any given outing, and the storage systems that let wealth be banked rather than worn into a fight.
 

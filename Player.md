@@ -26,7 +26,7 @@ Each level grants a **stat point** that can be invested in core attributes:
 
 ### Customization And Respec
 
-Progression should support combat specialists, crafters, mages, survivalists, traders, explorers, and hybrids. Respec options can exist through dedicated NPCs or costly services, but changing a build should feel like a meaningful decision rather than a frictionless menu action. Over time, a character's build should reflect both mechanical choices and the story of what that player has spent time doing.
+Progression should support combat specialists, crafters, mages, survivalists, traders, explorers, and hybrids. It should equally support players who opt out of whole survival activities: a city-dwelling merchant or adventurer who never builds a base or crafts an item, living entirely by trade and combat, is a first-class way to play rather than a handicap, in line with the play-your-way principle reflected in [Economy and Trade](Economy.md). Respec options can exist through dedicated NPCs or costly services, but changing a build should feel like a meaningful decision rather than a frictionless menu action. Over time, a character's build should reflect both mechanical choices and the story of what that player has spent time doing.
 
 ## Character Growth
 

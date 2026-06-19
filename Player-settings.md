@@ -1,6 +1,6 @@
 # Player Settings
 
-Player settings should support both comfort and situational play. Because the game includes long travel, combat, building, screenshots, social spaces, and large-scale events, players should be able to save multiple named profiles and switch between them quickly.
+Player settings should support both comfort and situational play. Because the game includes long travel, combat, building, screenshots, social spaces, and large-scale events, players should be able to save multiple named profiles and switch between them quickly. The game's first-person view is fixed, so the camera options players tune are field of view, view-bob, and similar comfort settings rather than a switch to third person; the perspective itself is covered in [UI and HUD](UI-and-HUD.md).
 
 ## Setting Profiles
 
