@@ -44,3 +44,7 @@ The weight system should make players choose what to keep, abandon, hide, sell, 
 ## Continue Reading
 
 Continue with [Player Progression](Player.md), [Building System](Building-system.md), and [Item Box](Magic/Spells/Misc/Item-box.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

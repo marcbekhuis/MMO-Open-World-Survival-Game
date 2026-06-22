@@ -21,3 +21,7 @@ Nature Growth can specialize in several directions. Focused growth narrows the r
 ## Continue Reading
 
 See also: [Magic](../../../Magic.md), [Forest](../../../Biomes/Forest.md), and [Skills](../../../Skills.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

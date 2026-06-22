@@ -21,3 +21,7 @@ Until production load testing produces real numbers, this document should use ra
 ## Continue Reading
 
 Continue with [Server Architecture](Server-architecture.md), [Server Architecture (Technical)](<Server-architecture (Technical).md>), and [Dynamic Culling & Render Distance](Dynamic-culling-and-render-distance.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

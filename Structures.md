@@ -31,3 +31,7 @@ These capitals can later receive canonical names, but their gameplay identity is
 ## Continue Reading
 
 Continue with [Capital cities](Structures/Capital.md), [Building System](Building-system.md), and [World Design](World.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

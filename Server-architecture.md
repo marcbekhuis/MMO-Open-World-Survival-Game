@@ -51,3 +51,7 @@ The game uses a distributed cluster server architecture in which the world is di
 ## Continue Reading
 
 Continue with [Server Architecture (Technical)](<Server-architecture (Technical).md>), [Server Settings](Server-settings.md), and [Dynamic Culling & Render Distance](Dynamic-culling-and-render-distance.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

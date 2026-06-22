@@ -15,3 +15,7 @@ The Royal Dragon works best as a high-prestige encounter tied to reputation, ter
 ## Continue Reading
 
 See also: [Creatures index](../Creatures.md), [Mesa](../Biomes/Mesa.md), and [Reputation System](../Reputation-system.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

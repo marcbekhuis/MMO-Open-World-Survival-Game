@@ -22,4 +22,8 @@ Raids should make territory feel alive without making every structure disposable
 
 ## Continue Reading
 
-Continue with [Building System](Building-system.md), [Reputation System](Reputation-system.md), and [Structures](Structures.md).
+Continue with [Building System](Building-system.md), [Reputation System](Reputation-system.md), [Guilds and Factions](Guilds-and-factions.md), and [Structures](Structures.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

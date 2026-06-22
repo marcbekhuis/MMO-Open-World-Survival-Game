@@ -17,3 +17,7 @@ Increasing power should raise mana cost, casting time, or environmental risk. In
 ## Continue Reading
 
 See also: [Magic](../../../Magic.md) and [Nature Growth](../Earth/Nature-growth.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

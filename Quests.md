@@ -38,3 +38,7 @@ Dynamic events should interrupt the normal rhythm. A storm can strand traders, a
 ## Continue Reading
 
 Continue with [Reputation System](Reputation-system.md), [World Design](World.md), and [Dungeons](Structures/Dungeons.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

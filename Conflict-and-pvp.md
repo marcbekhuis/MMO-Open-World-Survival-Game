@@ -16,7 +16,7 @@ Lawless does not mean consequence-free. Where the guard's reach ends, the social
 
 ## From Ambush to Conquest
 
-Open-world PvP is the individual layer of a larger contest. What begins as a roadside ambush scales up through the organized warfare of [Raids and Conquest](Raids.md), where groups assault settlements and player bases to seize resources, break rivals, or take ground, and territory won or lost there feeds back into the standing, alliances, and enmities the reputation system tracks. A guild that holds a stretch of frontier holds its trade and its dangers alike. Whatever is taken across all of this, from a single corpse to a sacked storehouse, is governed by the rules in [Death and Loss](Death-and-loss.md) and flows onward into the [economy](Economy.md).
+Open-world PvP is the individual layer of a larger contest. What begins as a roadside ambush scales up through the organized warfare of [Raids and Conquest](Raids.md), where groups assault settlements and player bases to seize resources, break rivals, or take ground, and territory won or lost there feeds back into the standing, alliances, and enmities the reputation system tracks. A [guild](Guilds-and-factions.md) that holds a stretch of frontier holds its trade and its dangers alike. Whatever is taken across all of this, from a single corpse to a sacked storehouse, is governed by the rules in [Death and Loss](Death-and-loss.md) and flows onward into the [economy](Economy.md).
 
 ## Continue Reading
 

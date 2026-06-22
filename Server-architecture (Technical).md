@@ -813,3 +813,7 @@ This is enabled by default in UE5.1+ open world templates.
 - [Travelling in Multiplayer — UE5 Docs](https://dev.epicgames.com/documentation/en-us/unreal-engine/travelling-in-multiplayer-in-unreal-engine)
 - [AWS GameLift + UE5 Dedicated Server Guide](https://aws.amazon.com/blogs/gametech/unreal-engine-5-dedicated-server-development-with-amazon-gamelift-anywhere/)
 - [OmniMesh — Battle-tested MMO networking for UE5](https://starvault.se/omnimesh-mmo-networking-unreal-engine-5/)
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

@@ -12,8 +12,12 @@ Creatures define the living pressure of the world. They are enemies, resources, 
 - [Kraken](Creatures/Kraken.md)
 - [NPCs](Creatures/Npcs.md)
 - [Royal dragon](Creatures/Royal-dragon.md)
+- [Sandworm](Creatures/Sandworm.md)
+- [Skeleton Archer](Creatures/Skeleton-Archer.md)
+- [Skeleton Knight](Creatures/Skeleton-Knight.md)
 - [Slime](Creatures/Slime.md)
 - [Stone giant](Creatures/Stone-giant.md)
+- [Titan turtle](Creatures/Titan-turtle.md)
 - [Treant](Creatures/Treant.md)
 - [Wolf](Creatures/Wolf.md)
 
@@ -24,3 +28,7 @@ Creature design should connect behaviour, biome, and reward. A forest predator s
 ## Continue Reading
 
 Continue with [World Design](World.md), [Biomes](Biomes/Ancient-forest.md), and [Reputation System](Reputation-system.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

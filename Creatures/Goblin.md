@@ -12,4 +12,8 @@ Goblins are common low- to mid-tier enemies and recurring sources of crafting co
 
 ## Continue Reading
 
-See also: [Creatures index](../Creatures.md), [Raids](../Raids.md), and [Reputation System](../Reputation-system.md).
+See also: [Creatures index](../Creatures.md), the [Forest](../Biomes/Forest.md) whose edges they raid, [Raids](../Raids.md), and [Reputation System](../Reputation-system.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

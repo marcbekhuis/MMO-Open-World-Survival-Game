@@ -23,3 +23,7 @@ The client uses it as a draw-distance budget, deciding how far away a mesh is re
 This behaviour is part of the world's server design rather than a standalone rendering tweak. The conceptual rules live alongside the visibility model in [Server-architecture.md](Server-architecture.md) under *Entity Visibility Radius*, and the concrete Unreal Engine 5 implementation is documented in [Server-architecture (Technical)](<Server-architecture (Technical).md>). The technical guide covers adaptive `NetCullDistanceSquared`, directional relevancy, velocity-extended cross-region broadcast, and matching client-side `SetMaxDrawDistance`.
 
 See also: [Server architecture spec](Server-architecture.md) and [Server architecture technical guide](<Server-architecture (Technical).md>).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

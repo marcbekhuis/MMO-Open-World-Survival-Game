@@ -28,6 +28,14 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Dungeon** — a contained, hazard-dense site that concentrates risk and reward away from the open world. See [Dungeons](Structures/Dungeons.md).
 
+## Organisations and society
+
+**Faction** — an NPC-run power in the world, whether a realm, a settlement, a sworn order, or a wild dominion, whose attitude toward a player is tracked as standing. See [Guilds and factions](Guilds-and-factions.md) and the [Reputation system](Reputation-system.md).
+
+**Guild** — a player-run organisation with a shared name, membership, and home structure, ranging from a small band to a territory-holding power. See [Guilds and factions](Guilds-and-factions.md).
+
+**Realm** — one of the three great peoples whose heartlands the players come from, the human, elven, and dwarven powers expanding into the frontier. See [Races](Races.md) and [Setting and lore](Setting-and-lore.md).
+
 ## Conflict, loss, and economy
 
 **Safe city** — a capital or spawn city held by NPC guards strong enough to suppress player aggression within its bounds, serving as a haven for respawn, trade, crafting, and training. See [Conflict and PvP](Conflict-and-pvp.md).

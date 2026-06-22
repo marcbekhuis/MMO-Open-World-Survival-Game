@@ -22,7 +22,7 @@ The world is dark and does not look away from cruelty. Slavery, torture, massacr
 
 ## Substances and Vice
 
-Drink and narcotics are part of the texture of an adult world without being a mechanical subsystem. Taverns serve real ale, frontier apothecaries and back-alley dealers trade in worse, and dialogue and lore treat intoxication and addiction honestly rather than coyly. These things stay flavour: they colour places, characters, and stories, but they grant no buffs or debuffs and drive no addiction loop, so the survival meters a player has to manage are food, fatigue, and the hazards of the world rather than a craving bar.
+Drink and narcotics are part of the texture of an adult world without being a mechanical subsystem. Taverns serve real ale, frontier apothecaries and back-alley dealers trade in worse, and dialogue and lore treat intoxication and addiction honestly rather than coyly. These things stay flavour: they colour places, characters, and stories, but they grant no buffs or debuffs and drive no addiction loop, so the survival pressures a player has to manage are the food, fatigue, and hazards of [Survival](Survival.md) rather than a craving bar.
 
 ## Player Comfort and Content Controls
 

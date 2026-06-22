@@ -16,4 +16,8 @@ Human settlements should offer quests tied to their surroundings: caravan protec
 
 ## Continue Reading
 
-See also: [Structures index](../Structures.md), [Capital cities](Capital.md), and [Reputation System](../Reputation-system.md).
+See also: [Human](../Races/Human.md), [Structures index](../Structures.md), [Capital cities](Capital.md), and [Reputation System](../Reputation-system.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

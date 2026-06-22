@@ -16,4 +16,8 @@ Players who choose dwarves begin near deep gates, forge halls, training pits, an
 
 ## Continue Reading
 
-See also: [Structures index](../Structures.md), [Mountain Range](../Biomes/Mountain-range.md), and [Building System](../Building-system.md).
+See also: [Dwarf](../Races/Dwarf.md), [Structures index](../Structures.md), [Mountain Range](../Biomes/Mountain-range.md), and [Building System](../Building-system.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

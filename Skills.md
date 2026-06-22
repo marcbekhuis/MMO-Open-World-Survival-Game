@@ -7,8 +7,8 @@ Skills define active and passive abilities learned through use, training, and in
 - [Combat](Skills/Combat.md) - Weapon handling, defensive maneuvers, battlefield movement, and role-specific techniques.
 - **Magic** - Spellcasting disciplines and elemental mastery. See [Magic](Magic.md) for spell progression and upgrade rules.
 - **Gathering** - Resource-focused skills such as logging, mining, harvesting, skinning, fishing, and salvage.
-- **Artisan** - Crafting, refinement, construction support, repair, and specialist production. See [Cartography](Skills/Artisan/Cartography.md) for an example artisan-adjacent utility skill.
-- **Survival** - Navigation, campcraft, weather resistance, cooking, tracking, and wilderness preparation.
+- **Artisan** - Crafting, refinement, construction support, repair, and specialist production. See [Crafting](Crafting.md) for the production system these skills feed, and [Cartography](Skills/Artisan/Cartography.md) for an example artisan-adjacent utility skill.
+- **Survival** - Navigation, campcraft, weather resistance, cooking, tracking, and wilderness preparation. See [Survival](Survival.md) for the pressures these skills answer.
 - **Taming and handling** - Long-term interaction with trainable animals, mounts, pack creatures, or utility companions where the design supports them.
 - **Social and trade** - Bartering, reputation benefits, settlement services, and guild-facing utility that improves non-combat play.
 
@@ -25,3 +25,7 @@ No single skill family should be mandatory for all players. Combat specialists n
 ## Continue Reading
 
 Continue with [Combat](Skills/Combat.md), [Cartography](Skills/Artisan/Cartography.md), [Magic](Magic.md), and [Player Progression](Player.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

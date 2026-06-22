@@ -2,7 +2,7 @@
 
 ## Overview
 
-Reputation evolves dynamically based on player actions and shapes how NPCs, settlements, and factions respond. It should behave like a long-term social memory for the world, connecting quests, raids, trade, travel, and settlement access.
+Reputation evolves dynamically based on player actions and shapes how NPCs, settlements, and the [factions and guilds](Guilds-and-factions.md) of the world respond. It should behave like a long-term social memory for the world, connecting quests, raids, trade, travel, and settlement access.
 
 ## Reputation Types
 
@@ -49,3 +49,7 @@ Reputation is a long-term resource. It affects access, prices, safety, faction s
 ## Continue Reading
 
 Continue with [Quests](Quests.md), [Raids](Raids.md), and [Structures](Structures.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

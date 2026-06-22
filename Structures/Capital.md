@@ -25,3 +25,7 @@ Each capital should have at least one dominant landmark that players can use for
 ## Continue Reading
 
 See also: [Structures index](../Structures.md), [Human settlements](Human-settlements.md), [Elven settlements](Elven-settlements.md), and [Dwarven settlements](Dwarven-settlements.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

@@ -21,3 +21,7 @@ Combat is meant to feel brutal and consequential, in line with the game's [Conte
 ## Continue Reading
 
 See also: [Skills overview](../Skills.md), [Player Progression](../Player.md), and [Inventory](../Inventory.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

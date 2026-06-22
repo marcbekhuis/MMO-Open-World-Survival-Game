@@ -16,4 +16,8 @@ Players who choose elves begin in one of the largest forest cities, surrounded b
 
 ## Continue Reading
 
-See also: [Structures index](../Structures.md), [Ancient Forest](../Biomes/Ancient-forest.md), and [Magic](../Magic.md).
+See also: [Elf](../Races/Elf.md), [Structures index](../Structures.md), [Ancient Forest](../Biomes/Ancient-forest.md), and [Magic](../Magic.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

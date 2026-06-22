@@ -33,3 +33,7 @@ Solo players should be able to maintain compact outposts, hidden cabins, and eff
 ## Continue Reading
 
 Continue with [Structures](Structures.md), [Raids](Raids.md), and [Inventory](Inventory.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

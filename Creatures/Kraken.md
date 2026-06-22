@@ -23,3 +23,7 @@ A coastal settlement might ask players to recover cargo from wreckage left after
 ## Continue Reading
 
 See also: [Creatures index](../Creatures.md), [World Design](../World.md), and [Raids](../Raids.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

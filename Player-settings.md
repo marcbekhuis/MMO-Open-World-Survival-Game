@@ -19,3 +19,7 @@ Because the game's default presentation is deliberately intense, described in fu
 ## Continue Reading
 
 Continue with [Player Progression](Player.md), [Content and Tone](Content-and-tone.md), and [Dynamic Culling & Render Distance](Dynamic-culling-and-render-distance.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

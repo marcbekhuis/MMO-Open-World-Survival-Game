@@ -21,3 +21,7 @@ The [Nature Growth](../Magic/Spells/Earth/Nature-growth.md) spell describes the 
 ## Continue Reading
 
 See also: [Creatures index](../Creatures.md), [Structures](../Structures.md), and [Quests](../Quests.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->
