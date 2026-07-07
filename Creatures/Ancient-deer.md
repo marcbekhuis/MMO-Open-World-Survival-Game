@@ -1,15 +1,29 @@
-Inspired by Morozova’s stag from the Shadow and Bone series, Ancient Deer are majestic, magical creatures that inhabit the remote tundras of the wild. These elusive beings, towering at a shoulder height of nearly 3 meters, blend seamlessly into their snowy habitats, their presence more often felt than seen.
-Their rugged coats, thick and well-suited to the bitter cold, shimmer faintly in hues of white and silver. Tracing beneath the fur, faint veins of glowing blue mana pulse gently, giving the appearance of rivers of energy flowing just beneath the surface. Their antlers, large and sprawling, bear delicate cracks through which this mana escapes, casting a subtle blue glow. The effect is understated yet mesmerizing, a quiet testament to the magic they wield.
-Habitat and Behavior
-Ancient Deer thrive in the harshest climates, preferring isolated, snow-covered landscapes far from human interference. They live in small, tight-knit herds, moving through their environment with a grace that belies their size. Their connection to their habitat is profound; they can summon snowstorms to shroud their presence, using the elements not as a weapon of devastation but as a tool of survival.
-Though generally peaceful and cautious, they are highly protective of their herds. When threatened, they turn to their mastery of wind and ice magic to confuse and deter aggressors. Snow might whip into sudden flurries, and icy barriers could rise unexpectedly to block a predator’s path. These displays are as much a warning as a defense, showcasing their resourcefulness and command of the elements.
-Abilities and Strengths
-While not overly reliant on brute strength, Ancient Deer are no less formidable. Their antlers, strong and sharp, can be used effectively in combat if necessary, and their sheer size can be intimidating. However, it is their magical abilities that truly define them.
-They excel in creating controlled bursts of snowstorms, effectively cloaking their movements or disorienting attackers. Ice magic allows them to create temporary shields or obstacles, and sharp gusts of wind can push back threats. These abilities make them highly adaptive in defending themselves and their herds without resorting to unnecessary violence.
-Rarity and Allure
-The rarity and allure of the Ancient Deer lie not only in their striking appearance but in the magical essence imbued in their bodies. Their antlers, infused with mana, are sought after as components for crafting enchanted weapons or artifacts. Their thick fur, shimmering with traces of magic, is prized for creating protective cloaks and garments. This has made them a target for hunters and adventurers, though their elusiveness and the difficulty of subduing them ensure they remain a rare prize.
-A Vision of the Wild
-To see an Ancient Deer is to encounter a living legend. Their glowing antlers, faintly pulsing with blue mana, seem to channel the very essence of the frozen wilderness, while their silvery coats allow them to vanish effortlessly into the snow. Their watchful eyes, glowing faintly with intelligence, remind any observer of the delicate balance between beauty and power.
-These creatures, inspired by the mythical Morozova’s stag, serve as a bridge between the fantastical and the natural, a reminder of the awe-inspiring magic that lies just beyond human reach. For those lucky—or daring—enough to witness them, the memory lingers, a fleeting glimpse of a world untamed and untouchable.
+# Ancient Deer
 
-See also: [Creatures index](../Creatures.md)
+Inspired by Morozova's stag from the Shadow and Bone series, Ancient Deer are majestic, magical creatures that haunt the remote tundras of the wild. Towering at a shoulder height of nearly 3 metres, they blend so completely into their snowbound country that their presence is more often felt than seen, and to come upon one is to encounter a living legend rather than a quarry.
+
+## Appearance
+
+Their rugged coats are thick against the bitter cold and shimmer faintly in hues of white and silver. Beneath the fur, faint veins of glowing blue mana pulse gently, like rivers of energy flowing just under the skin, and their large, sprawling antlers bear delicate cracks through which that mana escapes as a subtle blue glow. The effect is understated and mesmerising, a quiet testament to the magic they carry, and their watchful eyes glow faintly with an intelligence that unsettles anyone who meets them.
+
+## Habitat and Behaviour
+
+Ancient Deer thrive in the harshest climates, preferring the isolated, snow-covered reaches of the [Tundra](../Biomes/Tundra.md), far from human interference. They live in small, tight-knit herds and move through their environment with a grace that belies their size, their bond with the land so deep that they can summon snowstorms to shroud their presence, using the elements not to devastate but to survive. Generally peaceful and cautious, they turn fiercely protective when their herd is threatened, answering aggression with wind and ice rather than antler and hoof: snow whips into sudden flurries, and barriers of ice rise to block a predator's path. These displays are as much warning as defence, and a wise traveller takes the hint.
+
+## Abilities
+
+Though not reliant on brute strength, an Ancient Deer is far from defenceless. Its antlers are strong and sharp enough to be turned on an attacker, and its size alone can intimidate, but it is the magic that defines it. They conjure controlled bursts of snowstorm to cloak their movements or disorient pursuers, raise temporary shields and obstacles of ice, and drive back threats with sharp gusts of wind. The result is a creature superbly adapted to protecting itself and its herd without ever needing to resort to slaughter.
+
+## Rarity and Allure
+
+The allure of the Ancient Deer lies not only in its striking form but in the magic worked into its body. Its mana-infused antlers are prized as components for enchanted weapons and artefacts, and its shimmering fur is sought for protective cloaks and garments, which has made the creature a target for hunters and adventurers alike. Their elusiveness and the sheer difficulty of bringing one down keep them rare, so that an Ancient Deer remains a fleeting glimpse of a world untamed rather than a reliable harvest.
+
+## Story Hook
+
+A renowned artificer puts out word that a commission, an heirloom weapon for a frontier lord, requires the mana-rich antler of an Ancient Deer, and the bounty is enough to fund a season's expedition into the deep tundra. The hunt that follows is the easy part to describe and the hard part to live: the herd cannot be approached without rousing its storms, and a player who tracks it long enough is forced to decide whether a living legend is worth killing for a price, or whether a shed antler found in the snow, harder to come by but bloodless, is the prize they would rather carry home.
+
+See also: [Creatures index](../Creatures.md) and the [Tundra](../Biomes/Tundra.md) it haunts.
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

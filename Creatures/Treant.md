@@ -1,17 +1,25 @@
-Treants are living, humanoid tree creatures that embody the spirit of the forest, varying greatly in size and shape. The smallest Treants stand barely a meter tall, while the largest can reach an imposing height of eight meters. Their bark-covered bodies and natural camouflaging abilities allow them to blend seamlessly into forest canopies and trunks, making them nearly indistinguishable from ordinary trees.
+# Treant
 
-Story Hook
+Treants are living, humanoid tree creatures that embody the spirit of the forest, varying enormously in size and shape. The smallest stand barely a metre tall, while the largest reach an imposing eight metres. Their bark-covered bodies and natural camouflage let them blend into canopies and trunks until they are nearly indistinguishable from ordinary trees, so a grove a player has walked through a dozen times can turn out to have been watching them the whole time.
 
-Legend holds that a single sapling grew from a rune-seed planted by a long-dead druid. Over generations the sapling learned to remember the names of those who tended it, and eventually became the first treant. Villagers still leave small tokens at the base of the oldest groves in hopes of earning the forest’s favor.
+## Behaviour
 
-Typically neutral and peaceful, Treants only become aggressive when provoked—either by direct attacks against themselves or by harm inflicted on the trees and plants of their forest. They are fierce protectors of their environment, and their retaliation is swift and relentless.
+Treants are typically neutral and peaceful, and they become aggressive only when provoked, either by a direct attack or by harm done to the trees and plants of their forest. They are fierce protectors of their environment, and once roused their retaliation is swift and relentless. This makes them less a monster to hunt than a consequence to avoid: a player who logs, burns, or clears carelessly in treant country is choosing a fight, while one who treads lightly can pass among them unharmed.
 
-When forced into combat, Treants demonstrate exceptional versatility. They can rapidly extend their wooden limbs to pierce enemies or sweep entire groups off their feet. Smaller Treants are highly agile, using their flexible branches to increase speed or swing effortlessly between trees. In contrast, larger Treants act as powerful tanks, with their thick bark providing immense durability and their massive strength allowing them to overpower foes in prolonged battles.
+## Combat and Magic
 
-Treants are not only physical combatants but also wielders of earth magic, which they use to reshape their forest and repair damage caused by intruders. This magic allows them to grow back plants, reinforce their surroundings, and even create natural obstacles to hinder their enemies. Their deep connection to the forest and their ability to command its growth make Treants both awe-inspiring guardians and formidable adversaries, capable of turning the tide of battle in defense of their sacred domain.
+When forced to fight, treants are remarkably versatile. They extend their wooden limbs to pierce enemies or sweep whole groups off their feet, and size determines role: the smaller ones are highly agile, using flexible branches to gain speed and swing between trees, while the largest act as living siege-engines, their thick bark giving immense durability and their strength letting them overpower foes in a prolonged battle. They are also wielders of earth magic, which they use to reshape and repair the forest, growing back felled plants, reinforcing their surroundings, and raising natural obstacles to hinder intruders. That command over growth is what makes a treant so dangerous on its own ground; the longer a fight runs in its forest, the more the terrain itself turns against the attacker.
 
-Habitats
+## Habitat
 
-- Primarily found in the Ancient Forest (see [Ancient Forest](../Biomes/Ancient-forest.md)).
+Treants are found chiefly in the [Ancient Forest](../Biomes/Ancient-forest.md), the oldest and most magic-steeped of the woodlands, where the largest and most ancient specimens take root.
 
-See also: [Creatures index](../Creatures.md)
+## Story Hook
+
+Legend holds that a single sapling grew from a rune-seed planted by a long-dead druid. Over generations it learned to remember the names of those who tended it, and eventually became the first treant. Villagers still leave small tokens at the base of the oldest groves in hope of earning the forest's favour, and a player who does the same may find a guardian willing to let them pass where others are turned back.
+
+See also: [Creatures index](../Creatures.md) and the [Ancient Forest](../Biomes/Ancient-forest.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

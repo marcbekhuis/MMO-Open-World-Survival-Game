@@ -1,1 +1,17 @@
-These are the archer types of skeletal creatures that live in the dungeons they are kept alive by the dungeon as soon as they take one step outside of the dungeon they fail apart into a pile of bones.
+# Skeleton Archer
+
+Skeleton Archers are the ranged half of the undead garrison that holds the world's [Dungeons](../Structures/Dungeons.md). Like the [Skeleton Knight](Skeleton-Knight.md) they stand beside, they are sustained by the dungeon itself and bound to it absolutely: a skeleton archer that crosses the threshold into open air falls apart into a pile of bones. They exist only in the dark, and they exist to make the dark harder to move through.
+
+## Behaviour
+
+A skeleton archer is a positioning threat rather than a brawler. It takes high ground, ledges, and the far ends of long halls, raining arrows down a corridor to soften a party before its melee counterparts close, and it punishes players who fixate on the enemy in front of them while ignoring the line of fire from above. Fragile in melee and easily destroyed once reached, the archer's whole value is in being hard to reach, which turns a dungeon fight into a problem of cover, angles, and order of engagement: break the line of sight, close the distance, or take the archers down first and accept the punishment on the way in. Left untouched while a party deals with the knights, a handful of archers can decide an encounter from across the room.
+
+## Story Hook
+
+Deep in one dungeon, a gallery of archers stands ranked along a balcony above a hall with no visible stair, loosing at anything that enters and never running short of arrows. The way up is the puzzle, and the players who solve it find that the archers were guarding the route rather than the room, and that whatever lies beyond the balcony was worth posting a wall of the dead to keep the living from reaching.
+
+See also: [Creatures index](../Creatures.md), the [Skeleton Knight](Skeleton-Knight.md) that fights beside it, and the [Dungeons](../Structures/Dungeons.md) that bind them.
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

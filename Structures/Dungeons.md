@@ -6,6 +6,10 @@ Dungeons are ancient, indestructible superstructures that defy ordinary architec
 
 Dungeons provide concentrated challenge inside a game that otherwise emphasizes open-world travel. They should feel dangerous and rewarding without replacing the wilderness. Outdoor creatures may be larger or more disruptive, but dungeons create tighter pressure through traps, navigation, resource attrition, scripted encounters, and escalating depth.
 
+## Impossible Interiors
+
+A dungeon's defining trait is that its inside does not obey its outside. Some hold levels that defy all logic, opening into spaces that feel like open country, a forest or a plain complete with its own sky and sealed off from the world above, where it can be the dead of night on a dungeon floor while the sun is high on the surface. Others bend space and gravity: shifting mazes that rearrange themselves at set intervals and can strand explorers for hours, or floors where the ground curves overhead so a player looks up to see another standing on what is, to them, the floor. Reaching the lowest or highest level of a great dungeon can take hours or even days. The direction a dungeon runs is itself a warning, since some climb and others descend, and the two breed different things: dungeons that rise tend toward angelic, light-aligned creatures, while those that delve fill with demonic, dark-aligned things, among them the bound undead garrisons of [Skeleton Knights](../Creatures/Skeleton-Knight.md) and [Skeleton Archers](../Creatures/Skeleton-Archer.md) that hold the lower halls.
+
 ## Progression
 
 The deeper players venture into a dungeon, the more valuable the rewards should become. Early rooms can support solo scouting, lore discovery, and light combat. Lower levels should demand preparation, party roles, keys, environmental tools, or knowledge earned elsewhere in the world.
@@ -16,6 +20,8 @@ Dungeons can reward players with rare materials, spell clues, faction relics, cr
 
 ## Continue Reading
 
-See also: [Structures index](../Structures.md), [Quests](../Quests.md), and [Magic](../Magic.md).
+See also: [Structures index](../Structures.md), [Quests](../Quests.md), [Magic](../Magic.md), and the [Skeleton Knight](../Creatures/Skeleton-Knight.md) and [Skeleton Archer](../Creatures/Skeleton-Archer.md) that garrison the dark.
 
-Some dungeons contain levels that defy all logic seeming like you are standing outside in a forst or plain with its own sky that is separete from the outside world, it can be night in this dungeon level world while its the middle of the day outside. Some dungeon levels/floors might have mazes that move around in constant intervals which can get players stuck for hours. Exploring a dungeon should take hours or even days to get the lowest or heights floor. Some dungeon go upwards with their floors/level while others go down. The direction in which a dungeon goes gives a hint to want type of creatures can await, while dungeons that have floors going higher will have more angelic and light type creatures. Dungeons going downwards with their floors have more demonic and dark type creatures. Dungeons should be structures that seem to defy all logic in the world. Dungeon could have floors that bend gravity having the ground spiral which allows a player to look up and see the ground where another player might stand and also looking up causing confusion.
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

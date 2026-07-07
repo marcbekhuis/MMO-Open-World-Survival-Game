@@ -2,9 +2,7 @@
 
 ## Playable Races
 
-Players choose from three broad playable races, each with a clear playstyle identity without locking the character into a single role. Humans are the adaptable baseline, with balanced attributes that support melee, magic, crafting, or hybrid builds. Elves lean toward agility, precision, stealth, ranged combat, and magical affinity. Dwarves favour strength, resilience, melee durability, heavy armour, and crafting.
-
-Race should shape the opening feel of the character and the player's cultural starting point, but it should not permanently close off major playstyles. A dwarven mage, elven smith, or human specialist should remain viable if the player invests in the right stats, skills, and equipment. How a character is first created and brought into the world is covered in [New Player Experience](New-player-experience.md).
+Players choose from three playable races, each with a clear playstyle identity without locking the character into a single role: the adaptable human, the agile and magically gifted elf, and the resilient, forge-bred dwarf. Race shapes the opening feel of a character and their cultural starting point, but it sets a lean rather than a ceiling, so a dwarven mage, an elven smith, or a human master of any one craft all remain viable with the right investment. The full treatment of each race, its strengths, its homeland, and how it plays against type, lives in [Races](Races.md); the stats and skills below are where a character grows beyond what their race gave them at birth. How a character is first created and brought into the world is covered in [New Player Experience](New-player-experience.md).
 
 ## Progression System
 
@@ -35,3 +33,7 @@ Growth is not just mechanical; it is narrative. Race, stats, skills, reputation,
 ## Continue Reading
 
 Continue with [Skills](Skills.md), [Magic](Magic.md), and [Reputation System](Reputation-system.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

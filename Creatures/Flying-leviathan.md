@@ -1,13 +1,21 @@
-The Flying Leviathan is a majestic, whale-like creature that soars gracefully through the skies of the Floating Islands biome. These enormous beings are a testament to the magical energies of the world, capable of flying indefinitely without ever needing to rest on the ground. Their ability to remain aloft is attributed to the unique mana crystals found in the floating islands, which resonate with a specific mana frequency. Over time, the leviathans’ bodies have adapted to this energy, enabling them to defy gravity.
+# Flying Leviathan
 
-Story Hook
+The Flying Leviathan is a majestic, whale-like creature that soars through the skies of the [Floating Islands](../Biomes/Floating-islands.md), a living testament to the magical energies of the world. These enormous beings can stay aloft indefinitely, never needing to land, a feat owed to the mana crystals of the floating islands: their bodies have adapted over generations to resonate with that specific mana frequency, and on it they simply defy gravity. To see one drift across the high sky is to understand at a glance how strange and how charged the upper world is.
 
-When the first Skywrights attempted to tether a young leviathan, the creature answered them with a song of low, rumbling tones. The Skywrights abandoned their plans, and instead learned to read the leviathan's migrations as heralds of shifting mana flows. A small shrine on a remote island still honors the bond between sky and maker.
+## Behaviour
 
-Flying Leviathans are not swift fliers. Their movements are slow and deliberate, making them a peaceful yet awe-inspiring presence in the skies. These creatures are so massive that small structures can be built on their backs, turning them into mobile bases or transport hubs for those resourceful enough to tame or coexist with them.
+Flying Leviathans are slow and deliberate fliers, peaceful by nature and awe-inspiring rather than threatening. Their sheer scale makes them more landscape than animal: small structures can be raised on their backs, turning a leviathan into a mobile base or a transport hub for anyone resourceful enough to tame one or to live alongside it. For a player who has reached the floating islands, a leviathan is among the most coveted prizes in the world, both as the grandest of the flying mounts described in [Travel and Mounts](../Travel-and-mounts.md) and as a foundation for the kind of aerial foothold the [Building System](../Building-system.md) makes possible.
 
-However, their survival is intricately tied to the floating islands. During gestation and early maturation, a Flying Leviathan’s offspring must remain within this biome, where the concentrated mana sustains their development. If an immature leviathan ventures outside the floating islands, its body will not have enough magical attunement to sustain flight, resulting in its death.
+## Bound to the Islands
 
-Flying Leviathans are more than just creatures; they are living monuments to the power of magic, offering players a unique opportunity to explore and utilize their potential while respecting the delicate balance of their existence.
+A leviathan's freedom of the sky comes with a hard tether. During gestation and early maturity, a young leviathan must remain within the floating islands, where the concentrated mana sustains its development; an immature one that ventures beyond the biome lacks the magical attunement to keep itself aloft, and it dies. This binds the species to the islands as surely as the islands are bound to their crystals, and it shapes how players interact with them, since the leviathans cannot simply be led away and must be met, tamed, and worked with on their own high ground.
 
-See also: [Creatures index](../Creatures.md)
+## Story Hook
+
+When the first skywrights tried to tether a young leviathan, the creature answered with a song of low, rumbling tones, and they abandoned the attempt, learning instead to read the leviathans' migrations as heralds of shifting mana flows. A small shrine on a remote island still honours that bond between sky and maker, and a player who finds it discovers that the old skywrights left more than a monument behind: they left the beginnings of a method for working with the leviathans rather than against them.
+
+See also: [Creatures index](../Creatures.md), the [Floating Islands](../Biomes/Floating-islands.md) it is bound to, and [Travel and Mounts](../Travel-and-mounts.md) for its place among flying mounts.
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

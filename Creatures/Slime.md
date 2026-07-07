@@ -1,47 +1,29 @@
-Slimes are a unique and ever-evolving type of creature in the world, known for their gelatinous bodies, adaptive behaviors, and potential for growth. They possess several traits and mechanics that apply universally, regardless of their type:
-Growth and Evolution: All slimes have the potential to grow and evolve over time. Their growth is fueled by consuming food or the corpses of other slimes, with the latter providing a significant boost to their leveling process. However, feeding on slime corpses increases the likelihood of an evolution into an Aggressive Slime.
-Attack Method: Slimes attack by engulfing their target, dealing damage over time. Their corrosive bodies can dissolve armor and other items, making them a major threat if allowed to grow unchecked.
-Resilience: Slimes are highly resistant to small or piercing attacks due to their malleable bodies. Large blunt weapons or sufficiently powerful magic spells are the most effective methods of dealing with them.
-Taming and Control: Slimes cannot be tamed, but players can manipulate their evolution and growth by controlling their environment and feeding them appropriately. This makes it possible to strategically utilize slimes, though this comes with significant risk.
+# Slime
 
-# Passive Slime
-Passive Slimes are the weakest and least threatening members of the slime family. These harmless creatures actively avoid danger, fleeing from threats rather than engaging in combat. Despite their peaceful nature, Passive Slimes can still grow and evolve over time.
-Unique Traits:
-They will avoid attacking players, creatures, or other entities at all costs.
-Their evolution path splits between Neutral Slimes and Aggressive Slimes, depending on their diet and environment. Consuming other slimes' corpses provides a significant leveling boost but increases their chance of evolving into an Aggressive Slime.
-Appearance: Passive Slimes are small, translucent creatures, typically blue or green in color.
+Slimes are among the world's strangest and most adaptive creatures, gelatinous bodies that grow, evolve, and reshape themselves in response to what they eat and where they live. A slime is rarely a fixed threat; it is a threat in progress, harmless today and potentially catastrophic if left to feed. They share a set of traits across every form, and those shared traits are what make a slime dangerous in ways a fixed-stat monster never is.
 
-# Neutral Slime
-Neutral Slimes are defensive by nature, attacking only when provoked. Their method of attack involves engulfing targets, which deals corrosive damage over time and severely weakens armor and other equipment. While not inherently aggressive, Neutral Slimes can still pose a serious threat due to their ability to dissolve valuable items and grow larger when left undisturbed.
-Unique Traits:
-Neutral Slimes will retaliate if attacked, making them dangerous to approach without preparation.
-Their corrosive attacks are particularly effective against armor and stored equipment.
-They can evolve further, but only into Aggressive Slimes, depending on their diet and environment.
-Appearance: Neutral Slimes are larger than Passive Slimes, often reaching the size of a cow. Their color shifts to warm tones, such as orange or yellow, making them easy to distinguish.
+## Shared Traits
 
-# Aggressive Slime
-Aggressive Slimes are the most dangerous type of slime, attacking anything in sight without provocation. These creatures grow indefinitely as long as they have access to food, making it vital to eliminate them before they become unmanageable. A fully grown Aggressive Slime is a catastrophic threat, capable of defeating even the most powerful creatures, including dragons.
-Unique Traits:
-Constant Aggression: Aggressive Slimes attack anything in their range, regardless of size or strength.
-Extreme Growth Potential: Their size and power increase as long as they can find sufficient sustenance.
-Resistance: Small weapons and projectiles are largely ineffective. They are best countered with large blunt weapons or powerful area-of-effect magic spells.
-Strategic Use: While taming them is impossible, players can manipulate their evolution and growth to create massive Aggressive Slimes for specific purposes. This requires careful planning and carries great risk.
-Appearance: Aggressive Slimes are deep red in color, with a dense, opaque appearance as they grow larger. Their sheer size and pulsing movement make them a terrifying sight on the battlefield.
+Every slime can grow and evolve over time, fuelled by the food and corpses it consumes. Feeding on the corpses of other slimes accelerates this growth dramatically, but it also pushes the creature toward a more aggressive form, so the fastest path to a larger slime is also the path to a more dangerous one. Slimes attack by engulfing their target and dealing corrosive damage over time, and that corrosion eats at armour and carried equipment as readily as at flesh, making an unchecked slime a threat to a player's gear as much as their health, with the consequences for ruined kit reaching into [Inventory](../Inventory.md). Their malleable bodies shrug off small or piercing attacks, so blades and arrows accomplish little; large blunt weapons and powerful magic, including the area spells covered in [Magic](../Magic.md), are the reliable answers. No slime can be tamed, but a player who controls a slime's environment and diet can steer its growth and evolution deliberately, which makes them less a creature to be hunted than a force to be cultivated, and a risky one.
 
-# Key Slime Mechanics (Summary)
-Evolution and Growth:
-All slimes grow through feeding, with slime corpses providing the most efficient leveling.
-Evolution paths are influenced by diet:
-Passive Slime → Neutral Slime or Aggressive Slime
-Neutral Slime → Aggressive Slime
-Combat and Defense:
-All slimes attack by engulfing targets, dealing damage over time and degrading armor.
-Highly resistant to small or piercing attacks. Best countered with blunt weapons or large magic spells.
-Player Interaction:
-Slimes cannot be tamed, but players can influence their growth and evolution.
-Players can strategically raise and guide a slime, especially toward becoming an Aggressive Slime, to weaponize them indirectly.
+## Passive Slime
 
-## Continue Reading
+Passive Slimes are the weakest and least threatening of the family. They actively avoid danger, fleeing from threats rather than fighting, and will go out of their way not to attack a player, creature, or anything else. Despite that meekness they still grow and evolve, and a passive slime's path forks toward either a Neutral or an Aggressive form depending on its diet and surroundings, with a diet of slime corpses giving the fastest growth at the cost of tipping it toward aggression. They are small and translucent, usually blue or green, and easy to mistake for harmless ambience right up until one has been fed into something else.
 
-See also: [Creatures index](../Creatures.md), [Magic](../Magic.md), and [Inventory](../Inventory.md).
+## Neutral Slime
 
+Neutral Slimes are defensive by nature and attack only when provoked, but a provoked one is a serious problem: its engulfing attack deals corrosive damage over time that severely weakens armour and equipment, so even a fight a player wins can cost them their gear. They retaliate readily once struck, which makes them dangerous to approach unprepared, and they can evolve only in one direction, toward the Aggressive form, as diet and environment push them. A neutral slime is markedly larger than a passive one, often the size of a cow, and its colour shifts to warm tones of orange and yellow that mark it out at a distance.
+
+## Aggressive Slime
+
+Aggressive Slimes are the most dangerous form, attacking anything in sight without provocation and growing without limit as long as they can find food. This makes them a threat that compounds: a small aggressive slime is a manageable fight, but one left to feed grows into a catastrophe, and a fully grown specimen can overwhelm even the most powerful creatures in the world, dragons included. They carry the family's resistance to small weapons and projectiles, so the only dependable counters are heavy blunt force and large area-of-effect magic, ideally before the creature has had time to grow. Their colour deepens to red and their bodies turn dense and opaque as they swell, until a mature one is a pulsing mass that is a terrifying sight on any battlefield. A player cannot tame such a thing, but with careful planning and considerable risk they can raise and guide a slime toward this form deliberately, turning it into an indirect weapon aimed at someone else's walls.
+
+## Story Hook
+
+A frontier outpost once kept a passive slime in a pit to dispose of refuse and the occasional corpse, a tidy arrangement until someone discovered how much faster it grew on the dead and began feeding it in secret. By the time the colour turned, it was too large for the pit and too aggressive to approach, and the outpost found it had bred its own siege engine. The questions left behind, who fed it, whether it can still be steered, and toward whose gate, are exactly the kind of trouble a cultivated slime leaves in its wake.
+
+See also: [Creatures index](../Creatures.md), the [Forest](../Biomes/Forest.md) and [Plains](../Biomes/Plains.md) it drifts through, [Magic](../Magic.md), and [Inventory](../Inventory.md).
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

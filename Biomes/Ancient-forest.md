@@ -1,13 +1,23 @@
-The Ancient Forest is a mystical and timeless biome, believed to have existed for thousands of years. Towering trees dominate the landscape, reaching hundreds of meters into the sky and forming a dense canopy that allows only fragments of sunlight to touch the forest floor. The ground beneath is overgrown with smaller trees, mosses, and thick bushes that thrive in the shadows of the giant trees. Massive roots sprawl across the surface, creating natural pathways, obstacles, and bridges over the rocky rivers that wind through the terrain. These rivers, filled with crystal-clear water, are entangled with roots and vines, adding to the forest's untamed beauty.
-The atmosphere of the Ancient Forest is one of serene mystery. The air is thick with the scent of damp earth and ancient wood, and the forest hums with a quiet vibrancy, occasionally interrupted by distant wildlife or the groaning sway of the towering trees. Despite its tranquility, the forest is fiercely protected by its inhabitants, who view it as sacred and will go to great lengths to preserve its balance.
-Elves, skilled warriors and mages, are among the forest’s guardians. They build their homes high in the treetops, their architecture blending seamlessly with the natural surroundings. Wary of outsiders, they act as both defenders and stewards of the forest. Alongside the elves are treants, ancient, tree-like creatures that embody the forest’s spirit. These slow-moving but immensely powerful beings punish those who dare desecrate the forest, ensuring its preservation against any threat.
-The Ancient Forest is a place of great opportunity for exploration. Its sprawling terrain hides ancient ruins, secret caves, and treetop pathways that beckon adventurers. Rare and magical resources can be found scattered throughout the forest, but harvesting them recklessly risks provoking the wrath of its protectors. Players navigating the forest may need to earn the trust of its inhabitants or carefully tread its dense and labyrinthine landscape to avoid angering the treants or the wildlife that call it home.
-This biome offers a mix of beauty, challenge, and danger, drawing players into its ancient and otherworldly allure while testing their respect for its natural order.
+# Ancient Forest
 
-Fauna & notable encounters
+The Ancient Forest is a mystical, timeless biome believed to have stood for thousands of years, and the oldest and most magic-steeped of the world's woodlands. Towering trees reach hundreds of metres into the sky and lock into a canopy so dense that only fragments of sunlight reach the floor, where smaller trees, mosses, and thick bushes thrive in the shade of the giants. It is a place of serene mystery and real danger, sacred to those who dwell in it and fiercely defended against anyone who treats it carelessly.
 
-- Treants — guardians of the wood (see [Treant](../Creatures/Treant.md))
-(../Creatures/Ancient-deer.md))
-- Birds — environmental cues and scavengers (see [Birds](../Creatures/Birds.md))
+## Terrain and Atmosphere
 
-See also: [Creatures index](../Creatures.md)
+Beneath the great trees the ground is overgrown and labyrinthine, with massive roots sprawling across the surface to form natural pathways, obstacles, and bridges over the rocky, crystal-clear rivers that wind through the terrain, their waters entangled with roots and vines. The air is thick with the scent of damp earth and ancient wood, and the forest hums with a quiet vibrancy broken only by distant wildlife or the groaning sway of the trees overhead. The beauty is genuine and so is the warning beneath it: this is a watchful place, and it does not welcome the reckless.
+
+## Guardians
+
+The forest is defended by its inhabitants, who hold it sacred and will go to great lengths to preserve its balance. The [Elves](../Races/Elf.md) are among its stewards, skilled warriors and mages who build their homes high in the treetops in the canopy settlements described in [Elven Settlements](../Structures/Elven-settlements.md), wary of outsiders and acting as both defenders and caretakers of the wood. Alongside them stand the [Treants](../Creatures/Treant.md), slow-moving but immensely powerful tree-creatures that embody the forest's spirit and punish those who desecrate it. Together they make the Ancient Forest a place a player must earn passage through rather than simply walk into.
+
+## Resources and Exploration
+
+For those who tread carefully, the forest is rich with opportunity. Its sprawling terrain hides ancient ruins, secret caves, and treetop pathways that reward exploration, and rare magical resources tied to the traditions of [Magic](../Magic.md) lie scattered throughout. The catch is that harvesting recklessly provokes the wrath of the forest's protectors, so gathering here is bound up with diplomacy: a player may need to earn the trust of the elves, or learn to read the dense and shifting landscape well enough to avoid rousing the treants, before the forest gives up what it holds. The watchful [Birds](../Creatures/Birds.md) of the canopy add their own layer of warning to anyone who has learned to read them.
+
+## Continue Reading
+
+Continue with the [Treant](../Creatures/Treant.md) that guards the wood, the [Elves](../Races/Elf.md) who steward it, and [Magic](../Magic.md) for the forces that run close to the surface here.
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->
