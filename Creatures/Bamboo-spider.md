@@ -1,6 +1,6 @@
 # Bamboo Spider
 
-The Bamboo Spider is a large and deadly ambush predator of the dense bamboo forests, inspired by the Mother Longlegs of the Monsterverse and perfectly adapted to the one biome it haunts. Its long, slender legs mimic the bamboo stalks around it so closely that the creature all but disappears into the grove, making it a silent and efficient hunter that can strike before its prey ever registers the danger. It is the reason the [Bamboo Jungle](../Biomes/Bamboo-jungle.md) is a place to move through carefully rather than quickly.
+The Bamboo Spider is a large and deadly ambush predator of the dense bamboo forests, perfectly adapted to the one biome it haunts. Its long, slender legs mimic the bamboo stalks around it so closely that the creature all but disappears into the grove, making it a silent and efficient hunter that can strike before its prey ever registers the danger. It is the reason the [Bamboo Jungle](../Biomes/Bamboo-jungle.md) is a place to move through carefully rather than quickly.
 
 ## Ambush and Camouflage
 

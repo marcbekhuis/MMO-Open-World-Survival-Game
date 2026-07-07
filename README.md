@@ -44,7 +44,7 @@ Encounters should reward preparation and observation. A player who understands t
 
 ## Settlements And Social Play
 
-Capital cities act as safe hubs for early progression, trade, training, portals, and social gathering. Smaller settlements, camps, ruins, and dungeons create structure across the wilderness. Player-built settlements should eventually become part of that same landscape, giving groups reasons to defend places, negotiate access, or relocate when pressure becomes too great.
+Capital cities act as safe hubs for early progression, trade, training, portals, and social gathering. [Non-Player Characters](NPCs.md) give those places their daily motion, from merchants and guards to trainers, crafters, and travelling convoys. Smaller settlements, camps, ruins, and dungeons create structure across the wilderness. Player-built settlements should eventually become part of that same landscape, giving groups reasons to defend places, negotiate access, or relocate when pressure becomes too great.
 
 The design should support cooperation without making it mandatory for every activity. Solo players need meaningful progression paths, while groups gain efficiency, security, and access to larger ambitions such as raids, boss hunts, and settlement warfare.
 
@@ -76,6 +76,7 @@ The game is funded by a single subscription, with no box price and nothing that 
 - [Crafting](Crafting.md)
 - [Death and Loss](Death-and-loss.md)
 - [Quest System](Quests.md)
+- [Non-Player Characters](NPCs.md)
 - [Building System](Building-system.md)
 - [Reputation System](Reputation-system.md)
 - [Guilds and Factions](Guilds-and-factions.md)

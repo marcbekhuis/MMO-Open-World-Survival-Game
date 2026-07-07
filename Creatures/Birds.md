@@ -8,13 +8,13 @@ When danger stirs, birds react before a player can, breaking from cover and clim
 
 ## Habitat
 
-Birds are common across the temperate and warm biomes, filling the skies of the [Forest](../Biomes/Forest.md), the open [Plains](../Biomes/Plains.md), and the dense [Jungle](../Biomes/Jungle.md), where their constant presence and reactions give each of those places its living backdrop.
+Birds are common across the temperate and warm biomes, filling the skies of the [Forest](../Biomes/Forest.md), the open [Plains](../Biomes/Plains.md), the dense [Jungle](../Biomes/Jungle.md), and the old canopy of the [Ancient Forest](../Biomes/Ancient-forest.md), where their constant presence and reactions give each of those places its living backdrop.
 
 ## Story Hook
 
 A frontier scout teaches new arrivals a single lesson before anything else: watch the birds, not the road. The players who take it to heart find that a flock breaking from a distant ridge has saved more lives than any blade, and the ones who ignore it learn the same lesson the harder way, on a quiet path that the birds had already abandoned.
 
-See also: [Creatures index](../Creatures.md) and the [Forest](../Biomes/Forest.md), [Plains](../Biomes/Plains.md), and [Jungle](../Biomes/Jungle.md) it fills.
+See also: [Creatures index](../Creatures.md) and the [Forest](../Biomes/Forest.md), [Plains](../Biomes/Plains.md), [Jungle](../Biomes/Jungle.md), and [Ancient Forest](../Biomes/Ancient-forest.md) it fills.
 
 ## Draft
 

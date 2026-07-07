@@ -1,6 +1,6 @@
 # Ancient Deer
 
-Inspired by Morozova's stag from the Shadow and Bone series, Ancient Deer are majestic, magical creatures that haunt the remote tundras of the wild. Towering at a shoulder height of nearly 3 metres, they blend so completely into their snowbound country that their presence is more often felt than seen, and to come upon one is to encounter a living legend rather than a quarry.
+Ancient Deer are majestic, magical creatures that haunt the remote tundras of the wild. Towering at a shoulder height of nearly 3 metres, they blend so completely into their snowbound country that their presence is more often felt than seen, and to come upon one is to encounter a living legend rather than a quarry.
 
 ## Appearance
 

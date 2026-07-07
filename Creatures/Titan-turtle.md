@@ -18,7 +18,7 @@ A turtle large enough to carry a wood on its back can carry a town, and both NPC
 
 A thriving market town has stood on one ancient turtle's shell for three generations, its people long since used to waking to a different horizon each morning. Now the creature has turned, for the first time in living memory, toward the coast and the open sea, and the town must decide whether to evacuate the only home some of them have known, find a way to coax a course change from a beast that has never once been steered, or trust that it will turn back before the water rises past the lowest streets.
 
-See also: [Creatures index](../Creatures.md), the [Plains](../Biomes/Plains.md) it crosses, and [Taming and Control](../Taming-and-control.md).
+See also: [Creatures index](../Creatures.md), the [Plains](../Biomes/Plains.md), [Forest](../Biomes/Forest.md), and [Swamp](../Biomes/Swamp.md) it crosses, and [Taming and Control](../Taming-and-control.md).
 
 ## Draft
 
