@@ -2,6 +2,12 @@
 
 The Kraken is an apex sea creature that dwells in the deepest ocean trenches and occasionally surfaces to challenge ships and coastal settlements. It is a rare, world-event tier encounter designed for coordinated groups.
 
+## Appearance and Visual Design
+
+The Kraken feels like the deep ocean given intent. Most sightings reveal only pieces of it: a tentacle thicker than a mast sliding over the rail, a ridge of barnacled armour breaking the surface, or a vast eye opening beneath dark water before the hull starts to groan. Its hide is blue-black and oil-slick in calm light, mottled with pale scars, shell growths, and mineral crust from years spent against trench walls. When storms gather, faint bioluminescent lines move under the skin, outlining the creature just enough to make the water around it feel inhabited by something impossibly large.
+
+The tentacles carry the encounter's visual language. Each one is muscular, asymmetrical, and heavy with suckers, hooks, old harpoon heads, rope, and fragments of wreckage dragged down from previous attacks. The central body is rarely exposed, but when it rises it looks ancient rather than clean: plated ridges, cracked shell masses, ink-dark folds, and a beak glimpsed between churning water. A Kraken attack turns the sea itself into part of the creature's silhouette, with whirlpools, foam rings, and black ink clouds making it hard to tell where the monster ends and the storm begins.
+
 ## Behaviour and Mechanics
 
 The Kraken prefers darkness and pressure-filled trenches, surfacing when ships linger in dangerous waters or when severe storms disturb its territory. Its tentacles create the main tactical pressure: they can grab areas of a ship, stun movement, drag targets downward, and force crews to manage positioning rather than simply attack. Sustained damage can crack crusted armour and reveal softer tissue, creating short strike windows for prepared groups. Waves, whirlpools, broken masts, and forced movement make the encounter partly a naval survival test.

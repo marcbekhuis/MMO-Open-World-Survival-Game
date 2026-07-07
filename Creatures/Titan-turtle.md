@@ -2,6 +2,12 @@
 
 The Titan Turtle is among the largest creatures that walk the world, a living landmark more than an enemy, and one of the elder beasts that [Setting and Lore](../Setting-and-lore.md) treats as a piece of the world's own myth still drawing breath. It is almost completely immune to harm, indifferent to nearly everything smaller than itself, and old beyond the span of any realm. To meet one is less an encounter than a feature of the landscape that happens to be moving.
 
+## Appearance and Visual Design
+
+A titan turtle reads first as terrain and only second as a creature. From a distance its shell is a rounded hillline broken by grass, shrubs, exposed rock, standing water, and the dark shapes of trees that have taken root in soil trapped between the shell plates. The oldest specimens carry miniature landscapes on their backs: footpaths worn by settlers, retaining walls bolted into ancient scutes, pond basins filled by rain, and cliff-like shell edges where waterfalls spill after storms. Only when the whole hill shifts, exhales, or lifts a foot from the ground does the full scale become clear.
+
+The living body beneath that landscape is massive, weathered, and patient. Its skin is grey-green and fissured like old river stone, with barnacles, moss, and mud collecting around the joints. The eyes are dark, wet, and startlingly calm, set in a head large enough to feel like a moving gatehouse when it turns. Age changes the visual identity more than colour does: younger turtles have cleaner shell geometry and visible patterning, while ancient ones lose their outline beneath earth, settlement debris, roots, and the scars of centuries of weather.
+
 ## Anatomy and Growth
 
 A titan turtle is sheathed in a shell that turns aside almost any attack; its only vulnerable points are its eyes and the softer skin around its joints, and reaching either is a feat in itself on a creature this size. It keeps growing for its entire life, slowing as it ages but never stopping, so age can be read directly from height. A turtle of around fifty years stands some 30 metres tall at the crown of its shell, and one of a century reaches 50 metres. The oldest carry whole ecosystems on their backs, with soil, grass, and even small trees taking root across the shell, and their eggs are laid the size of boulders. Because they never stop growing and some live for centuries, the truly ancient specimens are among the few sights in the world that can make a frontier feel small.

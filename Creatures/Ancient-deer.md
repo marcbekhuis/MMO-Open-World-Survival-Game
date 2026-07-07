@@ -2,9 +2,11 @@
 
 Ancient Deer are majestic, magical creatures that haunt the remote tundras of the wild. Towering at a shoulder height of nearly 3 metres, they blend so completely into their snowbound country that their presence is more often felt than seen, and to come upon one is to encounter a living legend rather than a quarry.
 
-## Appearance
+## Appearance and Visual Design
 
-Their rugged coats are thick against the bitter cold and shimmer faintly in hues of white and silver. Beneath the fur, faint veins of glowing blue mana pulse gently, like rivers of energy flowing just under the skin, and their large, sprawling antlers bear delicate cracks through which that mana escapes as a subtle blue glow. The effect is understated and mesmerising, a quiet testament to the magic they carry, and their watchful eyes glow faintly with an intelligence that unsettles anyone who meets them.
+An Ancient Deer looks like a tundra legend that has learned to survive weather rather than escape it. At nearly 3 metres at the shoulder, it towers over ordinary deer, with a deep chest, long legs, and a high narrow head carried in absolute stillness while snow moves around it. Its rugged coat is thick against the bitter cold, white and silver at a distance, but close inspection reveals pale grey guard hairs, frost caught in the mane, and darker underfur around the joints where the body needs warmth most.
+
+Magic is present but restrained. Faint blue mana-veins pulse beneath the fur like rivers seen through ice, brightest along the neck, chest, and flanks after the creature has used its power. The antlers are enormous, spreading like wind-shaped branches, and their delicate cracks release a subtle blue glow that turns falling snow into drifting sparks around the crown. Its eyes glow only faintly, but they are steady and intelligent, giving the creature the unsettling calm of something that has watched whole hunting parties pass and chosen not to be seen. A herd is readable by silhouettes emerging and vanishing in snow haze, with the oldest deer almost indistinguishable from frost-rimed trees until the antlers move.
 
 ## Habitat and Behaviour
 

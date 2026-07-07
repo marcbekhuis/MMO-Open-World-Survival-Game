@@ -2,6 +2,12 @@
 
 Treants are living, humanoid tree creatures that embody the spirit of the forest, varying enormously in size and shape. The smallest stand barely a metre tall, while the largest reach an imposing eight metres. Their bark-covered bodies and natural camouflage let them blend into canopies and trunks until they are nearly indistinguishable from ordinary trees, so a grove a player has walked through a dozen times can turn out to have been watching them the whole time.
 
+## Appearance and Visual Design
+
+A treant's silhouette sits exactly on the edge between tree and person. Its torso is a split trunk twisted into a ribcage-like shape, its arms are heavy boughs that taper into branch-fingers, and its legs end in root masses that can sink into the soil when it stands still. Sapling treants look quick and wiry, with flexible green wood, leaf clusters like loose hair, and narrow faces hidden in knots. Elder treants are broader and stranger, carrying hollows, shelf fungus, hanging moss, bird nests, and whole crowns of canopy that make them read as part of the forest until they move.
+
+Their faces are subtle, formed from cracks in bark, amber sap, and deep-set knots that glow faintly when the creature is alert. Seasonal variation gives them immediate local identity: spring treants carry pale buds and fresh shoots, summer ones are dense with leaves, autumn ones shed colour as they walk, and winter treants show bare black branches over bark like old ironwood. In combat, the visual language becomes more overtly magical, with roots surfacing around their feet, bark plates sliding over wounds, and green-gold mana moving under the grain like sap forced through living wood.
+
 ## Behaviour
 
 Treants are typically neutral and peaceful, and they become aggressive only when provoked, either by a direct attack or by harm done to the trees and plants of their forest. They are fierce protectors of their environment, and once roused their retaliation is swift and relentless. This makes them less a monster to hunt than a consequence to avoid: a player who logs, burns, or clears carelessly in treant country is choosing a fight, while one who treads lightly can pass among them unharmed.
