@@ -28,6 +28,10 @@ A coastal settlement asks players to recover cargo from wreckage left after a Kr
 
 See also: [Creatures index](../Creatures.md), [Travel and Mounts](../Travel-and-mounts.md) for the ships it threatens, [Weather, Time, and Seasons](../Weather-time-and-seasons.md) for the storms that stir it, and [Raids](../Raids.md) for its world-event scale.
 
+## Concept Drawing
+
+![Kraken bestiary entry](../Assets/Creatures/Bestiary/kraken-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

@@ -18,6 +18,10 @@ A sealed lower vault is guarded by a knight that does not attack intruders so mu
 
 See also: [Creatures index](../Creatures.md), the [Skeleton Archer](Skeleton-Archer.md) that fights beside it, and the [Dungeons](../Structures/Dungeons.md) that bind them.
 
+## Concept Drawing
+
+![Skeleton Knight bestiary entry](../Assets/Creatures/Bestiary/skeleton-knight-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

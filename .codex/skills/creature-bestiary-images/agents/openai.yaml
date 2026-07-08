@@ -1,0 +1,4 @@
+interface:
+  display_name: "Creature Bestiary Images"
+  short_description: "Generate matching open-book creature plates"
+  default_prompt: "Use $creature-bestiary-images to create or replace a creature bestiary image for this design document."

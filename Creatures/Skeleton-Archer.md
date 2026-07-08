@@ -18,6 +18,10 @@ Deep in one dungeon, a gallery of archers stands ranked along a balcony above a 
 
 See also: [Creatures index](../Creatures.md), the [Skeleton Knight](Skeleton-Knight.md) that fights beside it, and the [Dungeons](../Structures/Dungeons.md) that bind them.
 
+## Concept Drawing
+
+![Skeleton Archer bestiary entry](../Assets/Creatures/Bestiary/skeleton-archer-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

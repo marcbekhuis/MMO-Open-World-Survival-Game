@@ -26,6 +26,10 @@ A renowned artificer puts out word that a commission, an heirloom weapon for a f
 
 See also: [Creatures index](../Creatures.md) and the [Tundra](../Biomes/Tundra.md) it haunts.
 
+## Concept Drawing
+
+![Ancient Deer bestiary entry](../Assets/Creatures/Bestiary/ancient-deer-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

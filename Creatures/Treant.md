@@ -26,6 +26,10 @@ Legend holds that a single sapling grew from a rune-seed planted by a long-dead 
 
 See also: [Creatures index](../Creatures.md) and the [Ancient Forest](../Biomes/Ancient-forest.md).
 
+## Concept Drawing
+
+![Treant bestiary entry](../Assets/Creatures/Bestiary/treant-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

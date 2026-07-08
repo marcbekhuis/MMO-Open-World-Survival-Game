@@ -1,12 +1,14 @@
 # Royal Dragon
 
-The Royal Dragon is a proud, highly intelligent dragon species marked by red-gold scales and crown-like horns. Its head is roughly as high as a human, and its bearing makes even a still dragon feel like a court holding audience in the open air.
+The Royal Dragon is a proud, highly intelligent dragon species marked by red-gold scales, crown-like horns, and a wyvern-like body plan. It has two powerful hind legs and two broad wings whose arm bones serve as its forelimbs; it should never be depicted with a separate pair of front legs. Its head is roughly as high as a human, and its bearing makes even a still dragon feel like a court holding audience in the open air.
+
+
 
 ## Appearance and Visual Design
 
-A Royal Dragon looks regal before it looks monstrous. Its scales run from deep crimson across the back to bright gold along the throat, chest, and wing bones, catching sunlight like worked metal rather than simple hide. The crown-like horns are not a single ornament but a branching crest of swept-back spines, with smaller gold ridges along the jaw and brow that make the head read like a living helm. Even at rest, the dragon carries its neck high, folds its wings with deliberate care, and watches visitors with the stillness of something used to being approached.
+A Royal Dragon looks regal before it looks monstrous. Its scales run from deep crimson across the back to a warm gold colour along the throat, chest, and wing bones, catching sunlight like polished enamel rather than hoarded metal. The crown-like horns are not a single ornament but a branching crest of swept-back spines, with smaller gold-coloured ridges along the jaw and brow that make the head read like a living helm. Even at rest, the dragon carries its neck high, folds its wings with deliberate care, and watches visitors with the stillness of something used to being approached.
 
-The body is powerful but elegant, built around long lines, broad wings, and a tail that moves with courtly precision until it becomes a weapon. Wing membranes are warm amber near the bones and darken toward the edges, showing veins of heat and mana when backlit by the sun. Old dragons gather visual history: polished scale edges from flight through canyon wind, pale scars where challengers once landed a blow, smoke-darkened horn tips, and treasure dust caught between claws. The eyes are the most important detail, bright, assessing, and uncomfortably intelligent, so a player feels judged even before the dragon acts.
+The body is powerful but elegant, built around long lines, broad wing-arms, muscular hind legs, and a tail that moves with courtly precision until it becomes a weapon. Its silhouette should read as a wyvern rather than a six-limbed dragon: two hind legs under the body, two wings growing from the shoulder line, and no independent forelegs at all. Concept art should avoid a four-footed quadruped stance; show the Royal Dragon in flight, landing, or upright on its two hind legs so the anatomy cannot be mistaken for four legs plus wings. Wing membranes are warm amber near the bones and darken toward the edges, showing veins of heat and mana when backlit by the sun. Old dragons gather visual history: polished scale edges from flight through canyon wind, pale scars where challengers once landed a blow, smoke-darkened horn tips, and fine mesa dust caught between claws. The royal impression should come from posture, anatomy, horns, and scale colour rather than props, so concept art should keep the creature on mesa stone or open sky with no coins, gold objects, treasure piles, or hoard imagery around it. The eyes are the most important detail, bright, assessing, and uncomfortably intelligent, so a player feels judged even before the dragon acts.
 
 ## Behaviour
 
@@ -23,6 +25,10 @@ The Royal Dragon is a high-prestige encounter tied to reputation, territory, fli
 A mesa settlement survives by leaving tribute at the edge of a dragon's hunting ground, not because the dragon demands worship, but because generations of restraint have taught both sides where the boundary lies. When a young raiding guild steals from the offering cairn and wounds the dragon's mate during its escape, the whole region waits to see whether the players can return what was taken, punish the insult, or face the judgement of a creature that remembers exactly who crossed into its domain.
 
 See also: [Creatures index](../Creatures.md), the [Mesa](../Biomes/Mesa.md) where it nests, [Reputation System](../Reputation-system.md), and [Travel and Mounts](../Travel-and-mounts.md) for its place among flying mounts.
+
+## Concept Drawing
+
+![Royal Dragon bestiary entry](../Assets/Creatures/Bestiary/royal-dragon-bestiary.png)
 
 ## Draft
 

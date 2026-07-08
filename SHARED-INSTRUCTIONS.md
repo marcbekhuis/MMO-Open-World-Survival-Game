@@ -95,3 +95,5 @@ When writing or confirming technical content — particularly anything in [Serve
 ## Conventions & gotchas
 
 Creature detail files follow a recognizable shape — opening behaviour and role prose, then a `Story Hook` section, the `See also:` backlink, and finally the `Draft` appendix — which new creatures should mirror. Keep the prose in the systems-design voice of the surrounding document throughout, framing decisions in terms of gameplay rationale, and link any file you name as you write so the web of documents stays navigable.
+
+Creature anatomy is visual canon, not decorative suggestion. When a creature is described as wyvern-like, treat that classification literally: two hind legs and two wings whose wing bones serve as the forelimbs, four limbs total, with no separate front legs added for a six-limbed dragon silhouette. For concept art, prefer poses that make the count unambiguous, such as flight, landing, or an upright hind-leg perch, rather than a four-footed quadruped stance. The [Royal Dragon](Creatures/Royal-dragon.md) follows this wyvern-like body plan, so future prose and concept art prompts should preserve that anatomy exactly.

@@ -22,6 +22,10 @@ A forest outpost wakes to find its storehouse open, its tools gone, and a line o
 
 See also: [Creatures index](../Creatures.md), the [Forest](../Biomes/Forest.md) whose edges they raid, [Raids](../Raids.md), and [Reputation System](../Reputation-system.md).
 
+## Concept Drawing
+
+![Goblins bestiary entry](../Assets/Creatures/Bestiary/goblins-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

@@ -22,6 +22,10 @@ When the first skywrights tried to tether a young leviathan, the creature answer
 
 See also: [Creatures index](../Creatures.md), the [Floating Islands](../Biomes/Floating-islands.md) it is bound to, and [Travel and Mounts](../Travel-and-mounts.md) for its place among flying mounts.
 
+## Concept Drawing
+
+![Flying Leviathan bestiary entry](../Assets/Creatures/Bestiary/flying-leviathan-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

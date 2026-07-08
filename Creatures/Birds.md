@@ -22,6 +22,10 @@ A frontier scout teaches new arrivals a single lesson before anything else: watc
 
 See also: [Creatures index](../Creatures.md) and the [Forest](../Biomes/Forest.md), [Plains](../Biomes/Plains.md), [Jungle](../Biomes/Jungle.md), and [Ancient Forest](../Biomes/Ancient-forest.md) it fills.
 
+## Concept Drawing
+
+![Birds bestiary entry](../Assets/Creatures/Bestiary/birds-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

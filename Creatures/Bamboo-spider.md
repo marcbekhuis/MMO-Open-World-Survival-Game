@@ -22,6 +22,10 @@ A bamboo-cutter's camp keeps losing workers to the deep groves, always the ones 
 
 See also: [Creatures index](../Creatures.md) and the [Bamboo Jungle](../Biomes/Bamboo-jungle.md) it hunts.
 
+## Concept Drawing
+
+![Bamboo Spider bestiary entry](../Assets/Creatures/Bestiary/bamboo-spider-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

@@ -22,6 +22,10 @@ A mining settlement in the high passes has prospered for years by quietly feedin
 
 See also: [Creatures index](../Creatures.md), the [Mountain Range](../Biomes/Mountain-range.md) it roams, and the [Building System](../Building-system.md) for the platforms raised to scale it.
 
+## Concept Drawing
+
+![Stone Giant bestiary entry](../Assets/Creatures/Bestiary/stone-giant-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

@@ -22,6 +22,10 @@ A prospector's outpost on the desert margin posts a standing bounty, not for a w
 
 See also: [Creatures index](../Creatures.md) and the [Scorching Desert](../Biomes/Scorching-desert.md) it rules.
 
+## Concept Drawing
+
+![Sandworm bestiary entry](../Assets/Creatures/Bestiary/sandworm-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

@@ -18,6 +18,10 @@ On the edge of a northern encampment, an old hunter kept a carved wolf-bone tali
 
 See also: [Creatures index](../Creatures.md) and the [Forest](../Biomes/Forest.md) it hunts in.
 
+## Concept Drawing
+
+![Wolf bestiary entry](../Assets/Creatures/Bestiary/wolf-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

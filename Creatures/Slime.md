@@ -30,6 +30,10 @@ A frontier outpost once kept a passive slime in a pit to dispose of refuse and t
 
 See also: [Creatures index](../Creatures.md), the [Forest](../Biomes/Forest.md) and [Plains](../Biomes/Plains.md) it drifts through, [Magic](../Magic.md), and [Inventory](../Inventory.md).
 
+## Concept Drawing
+
+![Slime bestiary entry](../Assets/Creatures/Bestiary/slime-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

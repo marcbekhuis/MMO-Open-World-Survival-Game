@@ -26,6 +26,10 @@ A thriving market town has stood on one ancient turtle's shell for three generat
 
 See also: [Creatures index](../Creatures.md), the [Plains](../Biomes/Plains.md), [Forest](../Biomes/Forest.md), and [Swamp](../Biomes/Swamp.md) it crosses, and [Taming and Control](../Taming-and-control.md).
 
+## Concept Drawing
+
+![Titan Turtle bestiary entry](../Assets/Creatures/Bestiary/titan-turtle-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->
