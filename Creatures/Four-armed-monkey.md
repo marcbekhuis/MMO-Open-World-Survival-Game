@@ -26,6 +26,10 @@ A jungle guide asks players to help free a troop of Four-Armed Monkeys from poac
 
 See also: [Creatures index](../Creatures.md), the [Jungle](../Biomes/Jungle.md) it inhabits, [Taming and Control](../Taming-and-control.md) for trust-bonded companions, [Crafting](../Crafting.md) for its minor material uses, and the [Paralyzing Dragon](paralyzing-dragon.md) whose presence its alarm calls can reveal.
 
+## Concept Drawing
+
+![Four-Armed Monkey bestiary entry](../Assets/Creatures/Bestiary/four-armed-monkey-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->
