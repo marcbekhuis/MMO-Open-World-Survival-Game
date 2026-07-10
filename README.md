@@ -3,6 +3,7 @@
 This repository is a living game-design document for a large-scale, persistent open-world survival RPG built around exploration, settlement building, social conflict, and long-term character growth. The game takes place in a single seamless world where players can leave the safety of capital cities, cross dangerous biomes, build defensible homes, discover hidden ruins, trade with other players, and take part in factional conflict without feeling pushed through isolated levels or short-session arenas.
 
 The intended experience is a survival game with MMO scale and RPG depth, played entirely in first person. Moment-to-moment play should feel grounded and physical, seen through the character's own eyes: players gather resources, manage gear, navigate weather and terrain, fight creatures, and return to settlements with stories worth telling. Over weeks or months, those same actions feed into larger systems: reputations shift, guilds claim territory, settlements grow, trade routes become valuable, and the world remembers what players have changed.
+<!-- REVIEW(investor): No one-line USP — after two minutes a reader retains a stack of genre attributes, not a single reason this exists that Rust/ARK/Valheim/Albion don't. Add a top-of-README sentence stating what this uniquely is and who it's for, plus an "unlike X and Y" positioning line. -->
 
 ## Design Pillars
 
@@ -51,6 +52,7 @@ The design should support cooperation without making it mandatory for every acti
 ## Technical Direction
 
 The game targets Unreal Engine 5 and assumes a distributed server model designed for a seamless persistent world. The conceptual networking model lives in [Server Architecture](Server-architecture.md), while implementation-oriented notes live separately in [Server Architecture (Technical)](<Server-architecture (Technical).md>). Rendering and synchronization decisions should stay aligned with [Dynamic Culling & Render Distance](Dynamic-culling-and-render-distance.md), especially for fast-moving creatures, flying entities, and large outdoor spaces.
+<!-- REVIEW(producer): The entire content design assumes the bespoke seamless-world tech already works, yet it is the highest-risk longest-lead item — add a dependency sketch of what gates what and an explicit fallback (e.g. launch sharded/zoned and retrofit) so the content pipeline isn't hostage to that R&D. -->
 
 The game is funded by a single subscription, with no box price and nothing that affects power ever offered for sale, and it is built for PC first with consoles kept within reach for later. The full reasoning, including the strict no-pay-to-win stance, is set out in [Monetization and Platforms](Monetization.md).
 

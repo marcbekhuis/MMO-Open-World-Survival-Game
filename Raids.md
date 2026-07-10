@@ -13,6 +13,8 @@ After a raid, recovery should take time. Damaged services such as blacksmiths, t
 ## Player Base Raids
 
 Player-built bases are always part of the risk landscape, especially in open or contested zones. PvP raids can focus on stealing loot, damaging structures, weakening defenders, or forcing a rival group to relocate. They are the organized end of the open conflict described in [Conflict and PvP](Conflict-and-pvp.md). Strong base design, watch systems, alliances, hidden storage, terrain control, and escape routes all matter.
+<!-- REVIEW(player): The document never says what happens to a base and its banked goods while the owners are logged off — offline raiding is the make-or-break question of a full-loot survival MMO for anyone with a job. State the offline-raid rules and what protects (or doesn't) an absent small group's stored wealth. -->
+<!-- REVIEW(design-peer): Death-and-loss promises goods banked in a base are "never at risk from a death in the field," but Raids lets base raids steal loot and force relocation — define the offline base rule (raid windows, decay-only vulnerability, insured vs lootable storage) and make the footholds and death-and-loss docs agree. -->
 
 NPC faction raids can target player bases when reputation, location, wealth, or previous aggression makes the base a threat. Low reputation should increase raid frequency and intensity, while high-value bases may draw more organized assaults. Defenders need to adapt to both human attackers and NPC forces, because each creates different pressure.
 

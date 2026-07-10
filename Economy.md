@@ -5,6 +5,9 @@ The world runs on a working economy from the very first hour, and players make i
 ## The NPC Economy
 
 Every settlement of any size has merchants who will buy from and sell to players and craftsmen who make goods of their own, from the tools a new character needs to the everyday gear of a working town. This baseline economy is real rather than a token gesture: a player can outfit themselves, sell what they recover, and stay supplied dealing with NPCs alone. Crucially, NPC prices are not fixed. They respond to supply and demand and to what players actually do, so a vendor flooded with iron pays less for the next bar, a town stripped of healing draughts charges more for what little remains, and a region's prices drift with its fortunes. The NPC economy is a living market in its own right, and it is the steady ground the player economy is built on.
+<!-- REVIEW(developer): A live region-wide supply/demand simulation has no home in the server model (the Master Server "never simulates gameplay"; Cluster Units are region-only) — decide where market simulation runs, its consistency/latency, and how it survives region migration and crashes. -->
+<!-- REVIEW(producer): A fully simulated supply/demand economy is one of the hardest MMO systems to build and keep exploit-resistant — state the reduced launch form (static or slowly-drifting regional pricing) and confirm the merchant playstyle stands up on the simpler version. -->
+<!-- REVIEW(monetization): The sinks are well catalogued but the faucet side is unexamined — NPC vendors buying goods for coin is a pure currency faucet and dynamic pricing without guardrails is an arbitrage exploit. Add faucet accounting (buy-price caps/spreads/budgets) so sinks demonstrably outpace coin creation. -->
 
 ## The Player Layer
 
@@ -13,6 +16,7 @@ On top of that ground, players reshape the economy without replacing it. The gat
 ## Many Ways to Make a Living
 
 Because the NPC economy stands on its own, trade is a complete way to play rather than a support activity bolted onto survival. A player can live entirely inside the cities and their markets, buying low and selling high between NPCs and other players, running goods between regions where prices differ, and never once building a base or crafting an item, and still have a full game in front of them. This is the economic face of the design's wider commitment to letting players choose how they live in the world, set out in [Player Progression](Player.md): the city merchant and the self-sufficient frontier crafter are equally first-class lives, not a real way to play and a lesser one.
+<!-- REVIEW(design-peer): The stationary-merchant promise undercuts itself — its own income example (running goods between regions) requires the full-loot travel the merchant is told is optional. Show a stationary wealth loop at comparable scale (funded/insured caravans, commodity contracts, market-making) or admit the merchant engages travel by proxy. -->
 
 ## Trade Routes and the Weight of Goods
 

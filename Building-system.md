@@ -3,6 +3,7 @@
 ## Core Philosophy
 
 All humanoid structures, whether player-built or NPC-built, use the same construction system. This makes architecture part of the shared world language: players can build with human, elven, or dwarven styles, combine influences into hybrid settlements, understand NPC structures through the same rules that govern their own bases, and attack or defend buildings during raids without needing a separate ruleset.
+<!-- REVIEW(developer): This gives philosophy but nothing an engineer could scope — grid vs free placement, snapping, piece taxonomy, how support/durability is computed, how raids damage structures. Add one buildable pass (piece inventory, core formulas, a worked place-a-wall example) for this and equally for Magic, Skills, and Taming. -->
 
 ## Progression And Materials
 

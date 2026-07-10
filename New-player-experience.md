@@ -9,6 +9,8 @@ A new player begins by making a character from one of the three races set out in
 ## The First Hours
 
 A new character wakes in or beside one of the capital cities, inside the ring of safety that the NPC guards of [Conflict and PvP](Conflict-and-pvp.md) hold against violence. Here the game teaches itself in the open rather than from behind a wall of pop-ups: gathering, crafting, combat, inventory, and survival are introduced through early tasks and the ordinary business of a living city, supported by the [Quest System](Quests.md) and the readable, on-demand interface of [UI and HUD](UI-and-HUD.md). Starter gear is cheap and easily replaced, so the first lessons in fighting and dying cost little, and the patrolled land around the capital gives a newcomer room to practise, explore, and fail without losing everything to another player while they are still finding their feet.
+<!-- REVIEW(ux): This is an assertion that teaching happens, not a design for it — provide an ordered onboarding sequence mapping each core system (encumbrance from zero slots, hunger, temperature, full-loot) to the moment and mechanism that first teaches it in the first 20 minutes, first hour, and before the frontier. -->
+<!-- REVIEW(player): The core loop reads generic and the evocative writing lives in the bestiary, not here — add a concrete walkthrough of a real first evening so a curious fan can daydream themselves into this world's first night. -->
 
 ## Crossing into the Frontier
 

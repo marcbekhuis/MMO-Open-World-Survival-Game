@@ -741,10 +741,12 @@ Ghost snapshot propagation between servers adds latency. Budget for:
 - Plus network RTT between server machines (~1–5 ms in same datacenter)
 
 This is generally imperceptible in an open-world MMO context. Tight competitive gameplay (e.g., 1v1 duels) at region boundaries needs special handling — consider briefly migrating one combatant to the other's region for the duration of the fight.
+<!-- REVIEW(developer): This is the fatal unnamed assumption — in a full-loot game where a kill transfers all loot, a fight straddling a mutable region seam has no authoritative owner of hit-reg and corpse, and players will deliberately seam-camp. Add deterministic cross-boundary combat-authority rules that also cover 20v20, not a per-duel migration hack. -->
 
 ### 10.3 World Partition & Save Compatibility
 
 World Partition's save system has known complexity with cell loading/unloading on dedicated servers. Test thoroughly with `wp.Runtime.EnableServerStreaming=1` enabled. If you encounter actor serialization issues, consider using **Data Layers** to group actors by persistent state:
+<!-- REVIEW(developer): Persistent player-built structures across a seamless world is a genre killer (Rust/ARK struggle at hundreds of players) and it's flagged here as a one-line footnote — treat it as a first-class subsystem: actors per region, serialization across migration/streaming, crash-recovery orphans, storage growth over months. -->
 
 ```cpp
 // Assign world actors to Data Layers by type

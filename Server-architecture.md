@@ -3,6 +3,7 @@
 ## Purpose
 
 The game requires a seamless, persistent, large-scale world that supports high player concurrency without traditional instancing barriers or loading screens. To achieve this it uses a cluster-based distributed server architecture, in which the world is divided into simulation regions handled collaboratively by multiple servers that scale dynamically with workload. This document is the conceptual specification; its concrete Unreal Engine 5 realisation lives in [Server-architecture (Technical)](<Server-architecture (Technical).md>), which is expected to track the concepts described here.
+<!-- REVIEW(investor): The design only works at full population density (dead shared world = no one pays) and a bespoke UE5 distributed cluster is the most expensive way to run an MMO — add a stageability answer (smaller/denser launch, single-shard cap) and directional run-cost awareness. -->
 
 ## 1. System overview
 

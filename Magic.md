@@ -11,6 +11,7 @@ This makes spellcraft a build choice rather than a simple linear climb. Two play
 ## Unlocks And Combination
 
 Advanced spells can unlock when a player reaches thresholds in one or more prerequisite spells. Some unlocks remain within a single element, while others combine schools: earth and water might support growth magic, lightning and wind might support storm spells, and light magic might interact with healing, wards, or visibility tools.
+<!-- REVIEW(producer): This describes a combinatorial spell tree while only three spells are authored — give a rough content-count target (spells, and by extension creatures/biomes/structures at launch) and mark which lists are closed vs open-ended so the pipeline has a bounded number to staff against. -->
 
 The system should reward experimentation without requiring players to memorize opaque recipes. Hints can come from trainers, ruins, quests, rare books, creature drops, or repeated use of related spells in the world.
 

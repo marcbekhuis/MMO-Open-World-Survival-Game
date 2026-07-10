@@ -1,12 +1,14 @@
 # Art Direction
 
 The game's look is photorealistic, and its defining creative choice is contrast. The world is built to swing, region by region, from the most beautiful and peaceful places a player has seen in a game to scenes out of the worst horror they have played, and the journey between those extremes is meant to be felt. This document sets the visual target and the rules that hold that contrast together as one coherent world rather than a patchwork.
+<!-- REVIEW(art): "Photoreal + contrast" briefs nobody — contrast is a mood tool, not an identity. Raise this file to the bestiary's standard: a stated visual thesis (the mana-suffused living-mythic-age identity), global shape-language and material discipline, a "what this world is never" section, and per-biome palette poles/key light. -->
 
 ## Photorealistic Foundation
 
 Fidelity targets photorealism on Unreal Engine 5. [Nanite](https://dev.epicgames.com/documentation/en-us/unreal-engine/nanite-virtualized-geometry-in-unreal-engine) virtualized geometry carries film-quality detail without hand-built levels of detail, [Lumen](https://dev.epicgames.com/documentation/en-us/unreal-engine/lumen-global-illumination-and-reflections-in-unreal-engine) provides dynamic global illumination and reflections so light behaves believably as the day and weather change, and [Virtual Shadow Maps](https://dev.epicgames.com/documentation/en-us/unreal-engine/virtual-shadow-maps-in-unreal-engine) deliver high-resolution shadows that hold up across a large, dynamically lit world. Materials obey real-world scale and physically based standards, characters are built to a high human fidelity, and surfaces wear the dirt, damage, and age that a survival world demands. And because the world is only ever seen in first person, that fidelity sits directly in front of the player at eye level, where its detail and scale carry their full weight.
 
 Photorealism across a seamless persistent world is expensive, and the art is authored with that cost in mind rather than against it. Assets are built for streaming and for the budgets defined in [Dynamic Culling & Render Distance](Dynamic-culling-and-render-distance.md) and realized through the World Partition and rendering pipeline in [Server Architecture (Technical)](<Server-architecture (Technical).md>). Fidelity and performance are balanced there, so the look described here always reads against what the engine can sustain at scale.
+<!-- REVIEW(art): First-person eye-level viewing removes the distance that hides fidelity and multiplies a huge distinct-asset library (11 biomes, 20+ creatures, 3 architectures, a build kit in all three styles, "impossible interior" dungeons) — acknowledge asset volume as a top cost driver and commit to a shared modular kit/material library and an MVP biome/creature cut. -->
 
 ## Contrast as the Signature
 
@@ -15,6 +17,7 @@ The core direction is deliberate, dramatic swings in mood between regions. A sun
 ## Light, Colour, and Atmosphere per Region
 
 Every biome carries its own palette, key lighting, atmosphere, and colour grade chosen to commit to one emotion. Peaceful regions run warm and saturated under soft, golden light, lush and inviting and open. Horror regions desaturate toward sickly or cold casts, sink into heavy fog and deep shadow, and lean on unsettling colour, the bruised greens and bone-and-blood notes that tell a player something here is hostile to them. Lumen, Virtual Shadow Maps, and volumetric atmosphere do most of this work, tuned per region through post-process volumes. The contrast is not only mood; it is information, because the look of a place telegraphs its danger before a single creature appears.
+<!-- REVIEW(art): Four biomes are green woodland (Forest, Ancient Forest, Jungle, Bamboo Jungle) and only mood separates them — give each a screenshot-distinct signature (canopy height/density, palette and light, a keystone flora silhouette, the survival read) so concept plates can't be swapped unnoticed. -->
 
 ## Violence Made Real
 

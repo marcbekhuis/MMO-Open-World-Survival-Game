@@ -9,6 +9,7 @@ Players choose from three playable races, each with a clear playstyle identity w
 ### Experience And Leveling
 
 Players earn experience through the major activities the game wants to support: defeating creatures and bosses, crafting equipment and structures, completing quests, defending settlements, leading raids, exploring new locations, and discovering secrets. This keeps advancement connected to the full survival RPG loop rather than only to combat.
+<!-- REVIEW(design-peer): The XP list omits trading entirely, yet the pure city merchant is sold as first-class — a trade-only player never levels and falls behind in Strength/carry capacity. Add an economic XP source (sales, arbitrage margin, fulfilled contracts) or state how a non-combat trader progresses. -->
 
 ### Stat Point Allocation
 

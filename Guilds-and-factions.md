@@ -9,10 +9,12 @@ The world is already populated by powers with their own interests. Foremost are 
 ## Player Guilds
 
 A guild is a player organisation with a name, a membership, and shared purpose. At the smallest scale it is a band of friends pooling effort and storage; at the largest it is a standing power that fields armies, holds territory, and shapes the politics of a region. A guild's anchor is its hall, raised through the [Building System](Building-system.md) and detailed among the [Structures](Structures.md), which serves as home, muster point, shared storage, and the visible seat of the group's identity and ambition. Guilds give the cooperative end of the game its structure, turning the loose grouping of individual play into something that can plan, hold, and be remembered, while the design keeps solo and small-group play fully viable so that joining one is a choice rather than a requirement.
+<!-- REVIEW(player): "Fully viable" small-group play sits in tension with conquest machinery where guilds field armies and hold contested ground — state honestly what three friends can actually hold against an organized guild, or that territory is strictly a large-guild game. -->
 
 ## Territory and Conquest
 
 The prize that organised play contests is ground. A guild that holds a stretch of frontier holds what is on it, the resource nodes, the trade routes of [Economy and Trade](Economy.md), and the defensible sites worth building on, and holding it means defending it through the organised warfare of [Raids and Conquest](Raids.md). Territory is never wholly secure: a held region draws rivals, and a guild's reach is only as long as its ability to answer a raid, so power on the frontier is something continuously defended rather than permanently owned. This churn of claim, defence, and loss is the engine the setting describes, a frontier opening faster than anyone can hold it, and player guilds are among its principal players.
+<!-- REVIEW(monetization): Finite land plus compounding entrenched guilds risks a closed shop by year three that punishes new and returning subscribers — state how the frontier stays contestable (decay of unheld claims, rotating/expanding frontier, soft caps on holdings). -->
 
 ## Alliances and Enmity
 

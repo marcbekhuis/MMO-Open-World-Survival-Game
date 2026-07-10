@@ -3,6 +3,7 @@
 ## Overview
 
 NPCs offer dynamic quests that give structure to exploration, combat, trade, settlement life, and faction conflict. Quest completion can grant experience, currency, equipment, materials, unlocks, and reputation, but the stronger purpose is to pull players into the world and give their actions context.
+<!-- REVIEW(narrative): Setting-and-lore names this as the delivery vehicle for the authored layer, yet it's a generic MMO quest taxonomy that never mentions the reopened frontier or the three-realm race, and ignores what a persistent world does to storytelling — reframe quests around the frontier premise and add a section on repeatability, shared world state, and avoiding "the chosen one." -->
 
 ## Quest Types
 
@@ -15,6 +16,7 @@ NPC escort missions send players across dangerous routes with merchants, messeng
 Structure defense quests ask players to protect outposts, villages, caravansaries, gates, shrines, or strongholds. They work best when the defended place has visible value: a blacksmith who will reopen after the attack, a bridge that keeps trade moving, or a settlement whose reputation rewards improve if it survives.
 
 Event quests cover world invasions, seasonal celebrations, faction wars, natural disasters, resource booms, political incidents, and world bosses. These quests can temporarily reshape travel routes, settlement services, market prices, and player priorities.
+<!-- REVIEW(producer): For a subscription MMO the document ends where the hardest production problem begins — sustaining content for years. Add a live-ops section: the post-launch content rhythm, roughly how much authored content a beat needs, and how much of the living world is systemic vs hand-made. -->
 
 ## Quest Rewards
 

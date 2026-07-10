@@ -4,7 +4,9 @@ The Item Box is a powerful late-game spell that gives a mage a private store of 
 
 ## Gameplay Role
 
-The Item Box's value rests on three properties. Its contents are accessible to the caster alone, so what is stored in it is genuinely private and secure. What it holds sits outside the carry weight of [Inventory](../../../Inventory.md), letting a mage keep essentials on hand without being encumbered by them. Above all, its contents are not lost on death: as set out in [Death and Loss](../../../Death-and-loss.md), the Item Box never appears on the corpse, which makes it the one reliable way to carry something into danger without wagering it, and a large part of why the spell is so prized. Together these make the Item Box indispensable to a late-game mage running dangerous expeditions.
+The Item Box's value rests on three properties. Its contents are accessible to the caster alone, so what is stored in it is genuinely private and secure. What it holds sits outside the carry weight of [Inventory](../../../Inventory.md), letting a mage keep essentials on hand without being encumbered by them. Above all, its contents are not lost on death: as set out in [Death and Loss](../../../Death-and-loss.md), the Item Box never appears on the corpse, which makes it the one reliable way to carry something into danger without wagering it, and a large part of why the spell is so prized.
+<!-- REVIEW(design-peer): This exempts a mage's carried goods from full-loot death, carry weight, and spoilage — a mage-merchant is strictly safer hauling valuables than a non-mage, undermining "Play your way" equal viability, not just death stakes. Cap it to personal essentials, scale mana drain with stored value, or give non-mages an equivalent. -->
+Together these make the Item Box indispensable to a late-game mage running dangerous expeditions.
 
 ## Upgrade Directions
 

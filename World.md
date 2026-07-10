@@ -2,7 +2,8 @@
 
 ## Overview
 
-The world is vast and seamless, designed for long-form exploration and emergent storytelling. A single journey can span hours, with discovery and danger around every turn. The design should support expansive biomes, seamless travel between major regions, dynamic ecosystems, hidden secrets, and vertical depth across underground spaces, surface wilderness, oceans, mountains, and floating islands. This page concerns the shape of that world; for its history, cosmology, and the central conflict that gives it meaning, see [Setting and Lore](Setting-and-lore.md).
+The world is vast and seamless, designed for long-form exploration and emergent storytelling. A single journey can span hours, with discovery and danger around every turn.
+<!-- REVIEW(narrative): The terrain document never signals the setting's central premise — a player reading only this would never know they're entering a newly-reopened frontier. Fold the reopened-frontier framing into the geography (which regions were sealed and by what, environmental signs of the withdrawal, why revisiting matters as it opens further). --> The design should support expansive biomes, seamless travel between major regions, dynamic ecosystems, hidden secrets, and vertical depth across underground spaces, surface wilderness, oceans, mountains, and floating islands. This page concerns the shape of that world; for its history, cosmology, and the central conflict that gives it meaning, see [Setting and Lore](Setting-and-lore.md).
 
 ## Biome Variety
 
