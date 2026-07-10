@@ -1,1 +1,0 @@
-A small six armed monkey that is 1 meter tall, its arm are long and relatively slim, they live in the jungle on a diet of fruit and insects, passive creatures that will flee for any danger. They have a short haired fur coat with bright colors for mating display. They have large eyes.

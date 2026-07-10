@@ -8,7 +8,7 @@ Dungeons provide concentrated challenge inside a game that otherwise emphasizes 
 
 ## Impossible Interiors
 
-A dungeon's defining trait is that its inside does not obey its outside. Some hold levels that defy all logic, opening into spaces that feel like open country, a forest or a plain complete with its own sky and sealed off from the world above, where it can be the dead of night on a dungeon floor while the sun is high on the surface. Others bend space and gravity: shifting mazes that rearrange themselves at set intervals and can strand explorers for hours, or floors where the ground curves overhead so a player looks up to see another standing on what is, to them, the floor. Reaching the lowest or highest level of a great dungeon can take hours or even days. The direction a dungeon runs is itself a warning, since some climb and others descend, and the two breed different things: dungeons that rise tend toward angelic, light-aligned creatures, while those that delve fill with demonic, dark-aligned things, among them the bound undead garrisons of [Skeleton Knights](../Creatures/Skeleton-Knight.md) and [Skeleton Archers](../Creatures/Skeleton-Archer.md) that hold the lower halls.
+A dungeon's defining trait is that its inside does not obey its outside. Some hold levels that defy all logic, opening into spaces that feel like open country, a forest or a plain complete with its own sky and sealed off from the world above, where it can be the dead of night on a dungeon floor while the sun is high on the surface. Others bend space and gravity: shifting mazes that rearrange themselves at set intervals and can strand explorers for hours, or floors where the ground curves overhead so a player looks up to see another standing on what is, to them, the floor. Reaching the lowest or highest level of a great dungeon can take hours or even days. The direction a dungeon runs is itself a warning, since some climb and others descend, and the two breed different things: dungeons that rise tend toward angelic, light-aligned creatures, while those that delve fill with demonic, dark-aligned things, among them the bound undead garrisons of [Skeleton Knights](../Creatures/Skeleton-Knight.md) and [Skeleton Archers](../Creatures/Skeleton-Archer.md) that hold the lower halls. Not every dungeon guardian is undead, though; maze floors, prison halls, and root-choked chambers can also hold a living [Minotaur](../Creatures/Minotaur.md), turning architecture itself into a weapon for its charge.
 
 ## Progression
 
@@ -20,7 +20,7 @@ Dungeons can reward players with rare materials, spell clues, faction relics, cr
 
 ## Continue Reading
 
-See also: [Structures index](../Structures.md), [Quests](../Quests.md), [Magic](../Magic.md), and the [Skeleton Knight](../Creatures/Skeleton-Knight.md) and [Skeleton Archer](../Creatures/Skeleton-Archer.md) that garrison the dark.
+See also: [Structures index](../Structures.md), [Quests](../Quests.md), [Magic](../Magic.md), the [Skeleton Knight](../Creatures/Skeleton-Knight.md) and [Skeleton Archer](../Creatures/Skeleton-Archer.md) that garrison the dark, and the [Minotaur](../Creatures/Minotaur.md) that can claim maze-like floors.
 
 ## Draft
 

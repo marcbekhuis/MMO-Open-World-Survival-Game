@@ -12,7 +12,7 @@ The forest is rich and accessible to a gatherer, with harvestable timber, plenti
 
 ## Creatures
 
-The forest's signature threat is the [Wolf](../Creatures/Wolf.md), whose packs teach a player that the wilderness fights as a group rather than as a single foe. Bands of [Goblins](../Creatures/Goblin.md) raid its edges, the occasional [Slime](../Creatures/Slime.md) drifts through its hollows, and the [Birds](../Creatures/Birds.md) overhead give constant, readable warning of what moves beneath the trees. Rarely, the slow migration of a [Titan Turtle](../Creatures/Titan-turtle.md) turns a stretch of woodland into a path of splintered trunks and deep footprints, while rabbits and deer make up the ordinary game a hunter relies on.
+The forest's signature threat is the [Wolf](../Creatures/Wolf.md), whose packs teach a player that the wilderness fights as a group rather than as a single foe. Bands of [Goblins](../Creatures/Goblin.md) raid its edges, the occasional [Slime](../Creatures/Slime.md) drifts through its hollows, and the [Birds](../Creatures/Birds.md) overhead give constant, readable warning of what moves beneath the trees. In the deepest ravines and overgrown ruins, a [Minotaur](../Creatures/Minotaur.md) can turn familiar woodland into a place of broken trunks, crushed snares, and sudden charges. Rarely, the slow migration of a [Titan Turtle](../Creatures/Titan-turtle.md) turns a stretch of woodland into a path of splintered trunks and deep footprints, while rabbits and deer make up the ordinary game a hunter relies on.
 
 ## Hazards and Travel
 
@@ -24,7 +24,7 @@ The forest supports a scattering of modest habitation: travelling merchant route
 
 ## Continue Reading
 
-Continue with the [Wolf](../Creatures/Wolf.md) that hunts it, [World Design](../World.md) for the wider world it opens onto, and the [Quest System](../Quests.md) for the work its settlements offer.
+Continue with the [Wolf](../Creatures/Wolf.md) that hunts it, the [Minotaur](../Creatures/Minotaur.md) that haunts its deepest ruins, [World Design](../World.md) for the wider world it opens onto, and the [Quest System](../Quests.md) for the work its settlements offer.
 
 ## Draft
 

@@ -12,7 +12,7 @@ A mount is the first real answer to distance, and here it is a living creature r
 
 ## Sailing and the Sea
 
-Water is its own domain of travel. Ships open the oceans and coasts to exploration, trade, and war, carrying cargo in bulk no land caravan can match and reaching places the land routes never touch. The sea exacts its own price: the storms of [Weather, Time, and Seasons](Weather-time-and-seasons.md) make open water treacherous, and the same severe weather that endangers a ship is what draws the [Kraken](Creatures/Kraken.md) up from the deep, so a sea crossing is a gamble against both the sky and what lives beneath it. A laden merchant ship is as tempting a target on the water as a caravan is on the road, which ties sailing into the same web of risk and reward as travel everywhere else.
+Water is its own domain of travel. Ships open the oceans and coasts to exploration, trade, and war, carrying cargo in bulk no land caravan can match and reaching places the land routes never touch. The sea exacts its own price: the storms of [Weather, Time, and Seasons](Weather-time-and-seasons.md) make open water treacherous, and the same severe weather that endangers a ship is what draws the [Kraken](Creatures/Kraken.md) up from the deep, so a sea crossing is a gamble against both the sky and what lives beneath it. Smaller threats make the danger personal as well, with [Mermaids](Creatures/Mermaid.md) turning fog, night watch, and wreck salvage into tests of discipline and preparation. A laden merchant ship is as tempting a target on the water as a caravan is on the road, which ties sailing into the same web of risk and reward as travel everywhere else.
 
 ## Climbing and Verticality
 
