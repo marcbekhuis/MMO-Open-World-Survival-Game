@@ -12,7 +12,7 @@ The river oases teem with life and make the plains generous to a gatherer. Herds
 
 ## Creatures
 
-The plains are home to the harmless and the familiar: rabbits, horses, hardy highland cattle, and the [Birds](../Creatures/Birds.md) that fill the open sky, alongside the occasional wandering [Slime](../Creatures/Slime.md). The one genuinely awe-inspiring resident is the [Titan Turtle](../Creatures/Titan-turtle.md), whose slow, unstoppable migrations cross the flat country and which the people of the plains learn simply to live around rather than to fight.
+The plains are home to the harmless and the familiar: rabbits, horses, hardy highland cattle, and the [Birds](../Creatures/Birds.md) that fill the open sky, alongside the occasional wandering [Slime](../Creatures/Slime.md). The [Large Buffalo](../Creatures/Large-buffalo.md) gives the rivers a gentler kind of spectacle, a docile giant whose herds mark safe water and open grazing, while the truly world-scale resident remains the [Titan Turtle](../Creatures/Titan-turtle.md), whose slow, unstoppable migrations cross the flat country and which the people of the plains learn simply to live around rather than to fight.
 
 ## Hazards and Travel
 
@@ -24,7 +24,7 @@ The plains suit settlement well, and human towns in particular take root here, a
 
 ## Continue Reading
 
-Continue with the [Titan Turtle](../Creatures/Titan-turtle.md) that crosses the grasslands, [Human Settlements](../Structures/Human-settlements.md) that take root along the rivers, and the [Mountain Range](Mountain-range.md) the rivers fall from.
+Continue with the [Large Buffalo](../Creatures/Large-buffalo.md) that grazes the riverbanks, the [Titan Turtle](../Creatures/Titan-turtle.md) that crosses the grasslands, and [Human Settlements](../Structures/Human-settlements.md) that take root along the rivers.
 
 ## Draft
 

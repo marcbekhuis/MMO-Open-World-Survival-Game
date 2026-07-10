@@ -29,3 +29,5 @@ See also: [Creatures index](../Creatures.md) and the [Bamboo Jungle](../Biomes/B
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->
+
+it has 4 meter long legs which makes their body positioned up in the tops of the bamboo leaves making them extreemly well hidden

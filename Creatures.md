@@ -10,6 +10,8 @@ Creatures define the living pressure of the world. They are enemies, resources, 
 - [Flying leviathan](Creatures/Flying-leviathan.md)
 - [Goblin](Creatures/Goblin.md)
 - [Kraken](Creatures/Kraken.md)
+- [Large buffalo](Creatures/Large-buffalo.md)
+- [Paralyzing dragon](Creatures/paralyzing-dragon.md)
 - [Royal dragon](Creatures/Royal-dragon.md)
 - [Sandworm](Creatures/Sandworm.md)
 - [Skeleton Archer](Creatures/Skeleton-Archer.md)

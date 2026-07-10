@@ -12,7 +12,7 @@ The biome's biodiversity is its bounty. Rich resource nodes yield medicinal plan
 
 ## Creatures
 
-The jungle teems with life, and much of it warns before it strikes: many animals use sound, colour, or camouflage as signals a careful player can learn to read. The [Birds](../Creatures/Birds.md) of the canopy are the clearest of these, serving as watchers and alarm signals whose sudden flight betrays a predator or a disturbance below long before it comes into view. Reading the jungle's chorus is as much a survival skill here as any weapon.
+The jungle teems with life, and much of it warns before it strikes: many animals use sound, colour, or camouflage as signals a careful player can learn to read. The [Birds](../Creatures/Birds.md) of the canopy are the clearest of these, serving as watchers and alarm signals whose sudden flight betrays a predator or a disturbance below long before it comes into view. At the more lethal end of that same lesson, the [Paralyzing Dragon](../Creatures/paralyzing-dragon.md) turns camouflage, speed, and toxic breath into a close-range ambush that makes silence under the canopy feel dangerous. Reading the jungle's chorus is as much a survival skill here as any weapon.
 
 ## Hazards and Travel
 
@@ -24,7 +24,7 @@ At the jungle's heart stands a major overgrown temple or stepped ruin, a structu
 
 ## Continue Reading
 
-Continue with the [Birds](../Creatures/Birds.md) that watch its canopy, the neighbouring [Bamboo Jungle](Bamboo-jungle.md), and the [Dungeons](../Structures/Dungeons.md) its great ruin conceals.
+Continue with the [Birds](../Creatures/Birds.md) that watch its canopy, the [Paralyzing Dragon](../Creatures/paralyzing-dragon.md) that stalks its undergrowth, the neighbouring [Bamboo Jungle](Bamboo-jungle.md), and the [Dungeons](../Structures/Dungeons.md) its great ruin conceals.
 
 ## Draft
 

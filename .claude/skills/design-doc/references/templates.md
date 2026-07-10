@@ -45,7 +45,9 @@ Continue with [<Doc>](<path>.md), [<Doc>](<path>.md), and [<Doc>](<path>.md).
 
 A bestiary entry living under `Creatures/`. Reach top-level files with `../`. Creature files carry a
 `Story Hook` section before the backlink. Add the reciprocal link from each biome this creature inhabits
-back to this file, and list the creature on the [Creatures](../../../../Creatures.md) index.
+back to this file, and list the creature on the [Creatures](../../../../Creatures.md) index. When concept
+art exists, place it in its own `## Concept Drawing` section after the `See also:` backlink and before
+the `## Draft` appendix, matching the existing creature files.
 
 ```markdown
 # <Creature Name>
@@ -61,6 +63,10 @@ back to this file, and list the creature on the [Creatures](../../../../Creature
 <A short encounter or player-facing vignette showing the creature in play.>
 
 See also: [Creatures index](../Creatures.md), and the biome it inhabits, [<Biome>](../Biomes/<Biome>.md).
+
+## Concept Drawing
+
+![<Creature Name> bestiary entry](../Assets/Creatures/Bestiary/<creature-slug>-bestiary.png)
 
 ## Draft
 
