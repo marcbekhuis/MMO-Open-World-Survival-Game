@@ -1,0 +1,45 @@
+# Swamp Spider
+
+The Swamp Spider is a pale cave predator whose danger lies in population rather than stealth or individual strength. Its colonies breed beneath the [Swamp](../Biomes/Swamp.md), devouring anything they can see and multiplying until the cave can no longer contain them. When that point is reached, the spiders pour into the wetlands in a living flood, turning an overlooked nest into a threat to every creature, traveller, and settlement nearby.
+
+## Appearance and Life Stages
+
+Young Swamp Spiders range from hand-sized hatchlings to waist-high juveniles. Their thin, bone-white shells and nearly colourless legs make them stark against dark mud but difficult to distinguish from pale cave growths when they crowd together underground. They move in restless layers across floors, walls, and ceilings, so a nursery chamber seems to ripple before the player can identify any one body.
+
+A mature spider stands about as tall as a human, with a heavier abdomen, long ivory limbs, and a chalk-pale carapace scarred by bites from its own kind. Adults are far less common than juveniles. Each generation begins with clutches of hundreds of eggs, but starvation, predation, trampling, disease, and cannibalism kill most of the young before they reach full size. The few that survive become the durable centre of an infestation and produce the next wave.
+
+## The Brood Cycle
+
+A colony is always growing toward crisis. Fresh nests hold egg mats and scattered hatchlings deep inside a cave. As numbers rise, juveniles consume the cave's insects, vermin, and larger residents, then begin hunting around the entrance. Shed shells, stripped carcasses, and the sudden absence of ordinary swamp life warn that the brood is close to saturation.
+
+Once prey can no longer support the colony, hunger turns the spiders on one another. The strongest feed on the weak, but cannibalism only delays the collapse. Eventually the surviving mass spills from the cave and spreads through the swamp, attacking anything that enters its sight. This overflow can become a regional event: paths disappear beneath moving bodies, wildlife flees ahead of the swarm, and isolated structures face wave after wave until players break the brood or it consumes itself.
+
+Clearing a cave suppresses the population rather than erasing the species. Destroying egg clusters and killing mature breeders buys the region a long reprieve, while ignoring a recovering nest allows the cycle to begin again. This makes each spider cave a pressure point players can scout and manage before it becomes a public emergency.
+
+## Swarm Combat
+
+Swamp Spiders do not fight with elaborate tactics. They rush visible prey from every available surface, climb over fallen members, and keep closing until the target is buried under attacks. Young spiders are individually fragile, but fighting them burns stamina, ammunition, mana, and weapon durability faster than their low strength suggests. Their role is to crowd a player, obstruct retreat, and create too many immediate threats to answer cleanly.
+
+Mature spiders appear only occasionally within the mass. They are strong enough to survive blows that scatter the young and tall enough to attack over them, giving a swarm a few durable points without turning the encounter into a conventional boss fight. When food is scarce, wounded and dead spiders draw hungry members away from other prey for a moment. A group that understands this behaviour can create an escape opening, but once the feeding frenzy ends the survivors resume the hunt.
+
+The safest answer is early intervention. Inside an established nest, players need controlled retreat routes, overlapping area attacks, and enough endurance to avoid being exhausted by hundreds of weak bodies. In the open swamp, breaking line of sight through dense terrain can divide an overflow, but any spider that sees prey gives chase. The encounter should feel less like defeating one monster and more like holding back a tide that is always trying to flow around the group.
+
+## Ecological Impact
+
+An overflowing colony briefly empties part of the swamp. Small animals vanish first, larger predators are dragged down by numbers, and carcasses left in the water draw the swarm farther from its cave. Once the available food is gone, the spiders cannibalise one another until only scattered survivors remain. Ordinary swamp life then returns, and the few mature spiders that escaped begin new nests in abandoned caves.
+
+This cycle lets the creature change the biome without permanently stripping it. A quiet cave mouth, a marsh emptied of animal calls, or a line of pale juveniles crossing black water becomes a readable warning that the local ecology is about to break.
+
+## Story Hook
+
+Trappers report that an entire stretch of swamp has gone silent. Their bait remains untouched, no birds call from the reeds, and the last supply boat returned with pale hatchlings clinging beneath its hull. At the nearest cave, the ground appears white until the mass turns toward the players at once. They can descend to destroy the egg chambers before the colony spills out, or retreat and face the swarm when it reaches the raised settlements downstream.
+
+See also: [Creatures index](../Creatures.md), the [Swamp](../Biomes/Swamp.md) where its colonies grow, and [Survival](../Survival.md) for the expedition pressure of fighting deep in the wetlands.
+
+## Concept Drawing
+
+![Swamp Spider bestiary entry](../Assets/Creatures/Bestiary/swamp-spider-bestiary.png)
+
+## Draft
+
+<!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

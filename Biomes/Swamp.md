@@ -12,7 +12,7 @@ For all its menace the swamp is generous to a crafter. It is the prime source of
 
 ## Creatures
 
-The marsh hides its predators well. Alligators, swamp spiders, and large water snakes all use the water, reeds, and mud banks to break line of sight before they strike, so the danger here is rarely the one a player can see. The slow-moving country also lies on the migration routes of the [Titan Turtle](../Creatures/Titan-turtle.md), whose immense bulk wades through the shallows and across the soft ground that bears nothing else its size.
+The marsh hides its predators well. Alligators and large water snakes use the water, reeds, and mud banks to break line of sight before they strike, so the danger here is rarely the one a player can see. The pale [Swamp Spiders](../Creatures/Swamp-spider.md) breed in caves beneath the wetlands until hunger and overcrowding drive whole broods into the open, turning a local nest into a moving flood of predators. The slow-moving country also lies on the migration routes of the [Titan Turtle](../Creatures/Titan-turtle.md), whose immense bulk wades through the shallows and across the soft ground that bears nothing else its size.
 
 ## Hazards and Travel
 
@@ -24,7 +24,7 @@ Permanent settlement in the swamp is sparse and purpose-built, raised on stilts 
 
 ## Continue Reading
 
-Continue with [Survival](../Survival.md) for the illness the swamp breeds, [Crafting](../Crafting.md) for the reagents it offers, and the [Titan Turtle](../Creatures/Titan-turtle.md) that wades its shallows.
+Continue with [Survival](../Survival.md) for the illness the swamp breeds, [Crafting](../Crafting.md) for the reagents it offers, the [Swamp Spider](../Creatures/Swamp-spider.md) that erupts from its caves, and the [Titan Turtle](../Creatures/Titan-turtle.md) that wades its shallows.
 
 ## Draft
 

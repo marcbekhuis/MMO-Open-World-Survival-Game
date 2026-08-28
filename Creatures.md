@@ -21,6 +21,7 @@ Creatures define the living pressure of the world. They are enemies, resources, 
 - [Skeleton Knight](Creatures/Skeleton-Knight.md)
 - [Slime](Creatures/Slime.md)
 - [Stone giant](Creatures/Stone-giant.md)
+- [Swamp spider](Creatures/Swamp-spider.md)
 - [Titan turtle](Creatures/Titan-turtle.md)
 - [Treant](Creatures/Treant.md)
 - [Wolf](Creatures/Wolf.md)
