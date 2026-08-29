@@ -4,9 +4,11 @@ The Swamp Spider is a pale cave predator whose danger lies in population rather 
 
 ## Appearance and Life Stages
 
-Young Swamp Spiders range from hand-sized hatchlings to waist-high juveniles. Their thin, bone-white shells and nearly colourless legs make them stark against dark mud but difficult to distinguish from pale cave growths when they crowd together underground. They move in restless layers across floors, walls, and ceilings, so a nursery chamber seems to ripple before the player can identify any one body.
+Young Swamp Spiders range from hand-sized hatchlings to waist-high juveniles. Their thin, bone-white shells and nearly colourless legs make them stark against dark mud but difficult to distinguish from pale cave growths when they crowd together underground. Sparse black sensory hairs break the smooth pallor of their bodies, each bristle long enough to bend and tremble in the cave air. They move in restless layers across floors, walls, and ceilings, so a nursery chamber seems to ripple before the player can identify any one body.
 
-A mature spider stands about as tall as a human, with a heavier abdomen, long ivory limbs, and a chalk-pale carapace scarred by bites from its own kind. Adults are far less common than juveniles. Each generation begins with clutches of hundreds of eggs, but starvation, predation, trampling, disease, and cannibalism kill most of the young before they reach full size. The few that survive become the durable centre of an infestation and produce the next wave.
+A mature spider stands about as tall as a human, with a swollen abdomen, long ivory limbs, and a chalk-pale carapace scarred by bites from its own kind. Its sparse hairs are not a coat but irregular, wet-looking needles along the joints, back, and mouthparts. They quiver before the spider moves, sensing breath and vibration, so prey may see the hairs turn toward them one by one while the body remains still. The underside is thin enough to show bruised shadows of organs and eggs beneath the shell. A cluster of mismatched glassy eyes sits above pale mouthplates that hinge apart around a dark, constantly working centre, giving the face a disturbingly unfinished appearance.
+
+Adults are far less common than juveniles. Mature females shelter fresh hatchlings in the folds beneath the abdomen, and a threatened female can spill a crawling sheet of young around her own feet. Each generation begins with clutches of hundreds of eggs, but starvation, predation, trampling, disease, and cannibalism kill most of the young before they reach full size. The few that survive become the durable centre of an infestation and produce the next wave.
 
 ## The Brood Cycle
 
