@@ -18,6 +18,12 @@ Large events need their own scaling expectations. Raids, world bosses, capital g
 
 Until production load testing produces real numbers, this document should use ranges and design intent rather than hard guarantees. A reasonable early baseline is to define normal, stressed, and emergency profiles for each region. Normal regions run full simulation. Stressed regions reduce low-priority AI and cosmetic replication. Emergency profiles protect player movement, combat authority, and persistence first, then degrade ambience and distant non-critical actors.
 
+## Handoff and Availability Budgets
+
+Each movement class and coordinated transfer group has a preparation distance, separate forward and reverse ownership thresholds, a supported overlap extent, and an approaching-warning distance. The margin beyond the transfer threshold covers transfer completion or safe movement restriction before the simulation limit. Ownership does not expire merely because an entity remains idle in the overlap. Memory, AI, physics, persistence, and network budgets include residents retained by neighbouring-region owners.
+
+Availability settings govern destination readiness, recovery qualification, transfer admission rate, and spare source capacity during an outage. The warning distance accounts for approach speed and group bounds across ground, water, and aerial movement. Validation measures warning lead time and movement corrections alongside transfer latency; a visible error wall must correspond to the actual enforced limit. These settings implement [Server Architecture](Server-architecture.md#5-seamless-player--ai-handoff).
+
 ## Continue Reading
 
 Continue with [Server Architecture](Server-architecture.md), [Server Architecture (Technical)](<Server-architecture (Technical).md>), and [Dynamic Culling & Render Distance](Dynamic-culling-and-render-distance.md).

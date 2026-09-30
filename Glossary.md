@@ -8,7 +8,7 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Biome** — a visually and mechanically distinct stretch of the world with its own resources, creatures, hazards, settlement patterns, and travel problems. Biomes live under `Biomes/`, beginning at [Ancient forest](Biomes/Ancient-forest.md).
 
-**Region** — a one-square-kilometre unit of the world owned by a single server in the cluster model, and the unit across which entities are handed off as players move. See [Server architecture](Server-architecture.md).
+**Region** — a one-square-kilometre geographic unit assigned to a single server in the cluster model. Inside a boundary overlap, an entity's simulation owner can differ from the server assigned to its geographic region. See [Server architecture](Server-architecture.md).
 
 **Landmark** — a dominant, recognizable feature that anchors navigation and memory within a place, letting players orient themselves and describe routes.
 
@@ -50,13 +50,19 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Master Server** — the coordinating server that oversees the cluster and the division of labour between the region servers. See [Server architecture](Server-architecture.md).
 
-**Cluster Unit Server** — the authoritative server for a single region, responsible for the entities and simulation within it.
+**Cluster Unit Server** — a simulation server assigned one or more regions, responsible for their world simulation and the entities it authoritatively owns. See [Server architecture](Server-architecture.md).
 
-**Ghost entity** — a read-only stand-in for an entity owned by a neighbouring region, shown near a boundary so play stays seamless across the seam. See [Server architecture (Technical)](<Server-architecture (Technical).md>).
+**Ghost entity** — a read-only stand-in for an entity whose simulation owner is another server, shown where relevant so play stays seamless across region boundaries. See [Server architecture (Technical)](<Server-architecture (Technical).md>).
 
 **Visibility-driven synchronization** — the rule that an entity is replicated to a client only when it is relevant to that client's view, keeping bandwidth and load manageable at world scale.
 
-**Region handoff** — the seamless transfer of authority over an entity from one region server to the next as it crosses a boundary.
+**Simulation owner** — the single server authorised to advance an entity's gameplay state. A movable entity keeps its current owner while it remains between the overlap's directional transfer thresholds. See [Server architecture](Server-architecture.md).
+
+**Overlap band** — the bounded area around a region boundary in which neighbouring servers maintain the loaded world state needed to support continued simulation and prepare a handoff. Presence in the overlap does not give an entity multiple simulation owners. See [Server architecture](Server-architecture.md).
+
+**Handoff hysteresis** — the use of separate forward and reverse transfer thresholds inside an overlap band, so standing still or moving slightly around a boundary does not repeatedly change an entity's owner. See [Server architecture](Server-architecture.md).
+
+**Region handoff** — the coordinated transfer of simulation ownership to the server assigned to the destination region once the directional threshold is crossed and the destination is ready. Mounts and riders, and vehicles and their passengers, transfer together as coordinated groups. See [Server architecture](Server-architecture.md).
 
 **World Partition** — the Unreal Engine 5 system for streaming a large world in cells, applied in [Server architecture (Technical)](<Server-architecture (Technical).md>).
 

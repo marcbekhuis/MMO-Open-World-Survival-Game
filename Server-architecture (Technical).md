@@ -1,10 +1,20 @@
 # Building a Cluster-Based Distributed Server Architecture in Unreal Engine 5
 
-A detailed technical implementation guide based on the Server Architecture specification.
+A technical design and implementation research guide based on the [Server Architecture specification](Server-architecture.md).
+
+## Research Baseline and Engine Evolution
+
+Unreal Engine **5.8.2** is the current research baseline for this architecture, confirmed by [Epic's hotfix announcement](https://forums.unrealengine.com/t/5-8-2-hotfix-released/2746335). The work remains at the design stage. Existing code and configuration examples serve as implementation sketches; each requires validation against this baseline before development, and their presence does not establish build compatibility or measured performance.
+
+The design also prepares for migration to Unreal Engine 6. [Epic's published roadmap](https://www.unrealengine.com/news/the-road-to-ue-6), checked on 5 September 2026, targets Early Access at the end of 2027 and a full release 12–18 months later. It describes a Verse-based Scene Graph framework and research into automatically distributing gameplay and persistent state across servers. These are evolving capabilities whose suitability for this game's standalone server architecture must be evaluated when available.
+
+The migration boundary separates gameplay rules and durable data from their engine integration. Entity identity, ownership rules, combat outcomes, inventory transactions, and saved-state formats are specified independently of Unreal object instances and replication channels. Engine-specific integration handles actor representation, replication, world streaming, and client connections through replaceable interfaces. Saved data and inter-server messages carry explicit schema versions so migration can transform and validate state. A UE6 implementation is assessed against the same requirements for continuity, combat fairness, persistence, and recovery as the UE5 implementation; engine migration requires compatibility and load testing before adoption.
 
 ---
 
 ## Table of Contents
+
+- [Research Baseline and Engine Evolution](#research-baseline-and-engine-evolution)
 
 1. [Architecture Overview](#1-architecture-overview)
 2. [UE5 Foundation: World Partition & Server Streaming](#2-ue5-foundation-world-partition--server-streaming)
@@ -139,14 +149,9 @@ Cluster Unit Servers report their load metrics every 1–5 seconds over the cont
 
 ### 3.3 Player Routing
 
-When a client connects or crosses a region boundary:
+Login routing uses authenticated saved state and the authoritative entity-owner record. The region map supplies the default destination for a new entity; an existing overlap resident remains routed to its recorded simulation owner even when its position lies in a neighbour's geographic region. Client-reported position does not establish ownership. Movement handoffs update routing only after a committed ownership change, and retries resolve the same entity and transfer identity.
 
-1. Client sends their world position to Master Server.
-2. Master Server looks up the `RegionID` for that position.
-3. Master Server returns the `ServerAddr` of the owning Cluster Unit Server.
-4. Client connects to that address.
-
-For the **Gateway Proxy** model (preferred), a stateless proxy layer (e.g., `Envoy`, `nginx stream`) sits in front of all Cluster Unit Servers. The Master Server instructs the proxy to reroute the player's connection, and the client's TCP/UDP session is transparently redirected — no disconnect occurs.
+The client connection layer implements the continuity requirements in [section 7.3](#73-client-connection-continuity). Redirecting traffic and transferring Unreal connection state are separate responsibilities.
 
 ### 3.4 Dynamic Load Balancing
 
@@ -503,80 +508,47 @@ Ghost actors still replicate to clients in the receiving region (using the stand
 
 ## 7. Seamless Player & AI Handoff
 
-When a player or AI crosses a region boundary, ownership transfers from the source server to the destination server.
+The [conceptual handoff rules](Server-architecture.md#5-seamless-player--ai-handoff) apply to every movable entity. The following describes the custom protocol requirements for the UE 5.8.2 research baseline; it is a design contract for implementation and validation.
 
-### 7.1 Boundary Detection
+### 7.1 Overlap Geometry and Hysteresis
 
-Track when any entity is within a **handoff threshold** of a region boundary (e.g., 200 m):
+For a shared edge, measure signed distance from its region line, positive toward region B and negative toward region A. Let H denote a transfer threshold offset and O the outer limit of safely supported overlap, with O greater than H. An A-owned entity becomes eligible for transfer to B beyond +H; a B-owned entity becomes eligible for transfer to A beyond -H. Between those thresholds, the recorded owner remains unchanged. These are separate from ghost visibility distances and prefetch triggers.
 
-```cpp
-void URegionManagerComponent::CheckBoundaryProximity(ACharacter* Pawn)
-{
-    FVector Pos = Pawn->GetActorLocation();
-    // RegionBounds is the FBox of this server's owned region(s)
-    float DistToBoundary = RegionBounds.GetClosestPointTo(Pos) distance;
+Choose H, O, and warning lead distance from movement speed, entity or group extent, streaming readiness, transfer latency, and available simulation capacity. Freeze the relevant geometry for an active handoff so velocity changes or small position corrections cannot move the thresholds beneath an entity. Remaining inside the deadband never causes a timer-driven transfer. Pending preparation is cancelled or revalidated if the entity turns away before commitment; a committed transfer is never undone by replaying an old acknowledgement.
 
-    if (DistToBoundary < HandoffThreshold)
-    {
-        // Pre-warm: the ghost is already on the destination server
-        // Now, prepare a full authoritative snapshot
-        InitiateHandoff(Pawn);
-    }
-}
-```
+Transfer selection uses the group's movement root while safety checks cover its full occupied and swept bounds. At corners, select a single reachable destination using validated movement and retain that candidate while its preparation remains valid. Each entity or group has at most one active transfer. If multiple regions belong to one process, update geographic bookkeeping without transferring between servers.
 
-### 7.2 Handoff Payload
+### 7.2 Preparation, Cutover, and Group State
 
-At handoff time, the source server serializes a full authoritative snapshot — far more complete than a ghost snapshot:
+The source maintains the current authoritative state while the destination prepares loaded content, entity representations, and client readiness. The transfer record identifies the entity or group, source and destination, unique transfer attempt, ownership generation, state schema version, and final simulation/input sequence. The handoff payload preserves transform, velocity, health, inventory, active effects, movement state, and relevant AI state, with stable entity IDs for references.
 
-```
-Authoritative Handoff Payload:
-{
-  EntityID, Class, Position, Rotation, Velocity,
-  PlayerState: { Inventory[], Stats{}, Affiliation, QuestFlags[] },
-  MovementState: { Crouch, Sprint, MontageState },
-  ActiveEffects: [ ... ],
-  InputBuffer: last 300ms of inputs (for reconciliation)
-}
-```
+A mount and rider or vehicle, passengers, and attached cargo form a coordinated transfer group. The payload includes a versioned membership list and attachment relationships. Boarding, leaving, death, or detachment changes that version; commitment requires a matching, revalidated membership snapshot. The group changes authority together, and incomplete preparation leaves it with the source. A surrounding crowd is not a transfer group.
 
-The destination server receives this, **promotes its existing ghost** into a full simulation entity, and the source server destroys its copy after receiving an acknowledgment.
+Cutover requires a single committed ownership decision and a defined final source simulation sequence. The destination starts from that state and the source is fenced from making later authoritative changes under its old ownership generation. Duplicate or late messages cannot promote a second owner or repeat inventory changes. A ghost alone is insufficient for promotion, and source cleanup cannot depend on an acknowledgement being delivered exactly once. The [Design Backlog](Design-backlog.md) tracks the durable commit and recovery protocol that must satisfy these requirements.
 
-### 7.3 Client Connection Redirect
+### 7.3 Client Connection Continuity
 
-**Option A — Gateway Proxy (Recommended)**
+Gameplay-state migration and network-connection continuity require separate handling. Unreal's [connection API](https://dev.epicgames.com/documentation/en-us/unreal-engine/API/Runtime/Engine/UNetConnection) exposes connection-specific actor channels, package mappings, and transport state. A generic packet-forwarding proxy does not migrate that state between independent Unreal processes. A gateway design therefore requires an explicit session and replication continuity mechanism as well as packet routing.
 
-Use a stateless L4 proxy (e.g., Envoy, HAProxy, or a custom proxy in Go). The proxy maintains the client's UDP/TCP session. When the Master Server updates the routing table, the proxy transparently forwards packets to the new Cluster Unit Server. From the client's perspective, the connection never breaks.
+Unreal's [multiplayer travel documentation](https://dev.epicgames.com/documentation/en-us/unreal-engine/travelling-in-multiplayer-in-unreal-engine) distinguishes seamless map travel from reconnecting to a server. A reconnect-based implementation must be measured for world, input, and presentation interruption; hiding a reconnect does not establish seamless movement. The architecture's acceptance criterion is continuity of movement and gameplay during ordinary handoffs, with no duplicated actor presentation or lost inputs. The connection mechanism remains a research item in the [Design Backlog](Design-backlog.md).
 
-**Option B — Silent Redirect**
+### 7.4 AI and Persistent Overlap Residents
 
-The source server instructs the client to reconnect via `APlayerController::ClientTravel`:
+AI transfers use the same ownership protocol and coordinated group rules, without a player connection step. Gameplay-defined state captures behaviour progress, targets, timers, and stable references; destination representations restore that state before simulation begins. Transfer does not reset aggro or grant a fresh action cycle.
 
-```cpp
-// On source server, when handoff is confirmed
-void AYourPlayerController::TriggerServerRedirect(FString NewServerAddr)
-{
-    // Hide the redirect visually on the client side
-    ClientSetHUD(nullptr);   // optional: keep HUD up actually
-    ClientTravel(NewServerAddr, TRAVEL_Absolute);
-}
-```
+An idle entity can remain in the overlap under its current owner indefinitely while that owner remains healthy and assigned to serve that overlap. Ownership records, persistence, visibility fan-out, and load accounting must represent this case explicitly instead of deriving the owner solely from position. A deliberate region reassignment inventories such residents and their transfer groups; an idle timeout is not a substitute for that migration protocol.
 
-Mask the reconnect on the client with a "world streaming" animation — a fraction of a second is typically all the delay involved.
+### 7.5 Unavailable Destinations
 
-### 7.4 AI Handoff
+A failed or unready destination cannot accept a transfer. While the source remains healthy and authoritative, it continues within its loaded safe overlap and rejects movement beyond the supported travel limit. Ghost visibility alone never proves that the source has collision, navigation, world state, or capacity to simulate additional space. Entities already owned by the failed server use crash recovery rather than automatic ghost promotion.
 
-AI handoff follows the same protocol but without the client connection step. The AI Controller serializes its behavioral state (patrol target, threat list, current action) into the handoff payload. The destination server reconstructs the AI from this state snapshot.
+Admission checks account for the swept bounds of fast entities, attached groups, flight, swimming, and forced displacement so they cannot skip the limit between updates. The source communicates the unavailable area, actual movement limit, and availability revision to affected clients. [UI and HUD](UI-and-HUD.md#unavailable-region-feedback) presents these as the approaching holographic error wall; the authoritative movement restriction operates independently of its rendering, consistent with Unreal's [server-authoritative networking model](https://dev.epicgames.com/documentation/en-us/unreal-engine/networking-overview-for-unreal-engine).
 
-```cpp
-void AYourAIController::SerializeForHandoff(FHandoffPayload& Payload)
-{
-    Payload.BehaviorTreeAsset  = BehaviorTreeAssetPath;
-    Payload.BlackboardData     = BlackboardComp->Serialize();
-    Payload.CurrentPatrolIndex = PatrolIndex;
-    Payload.ThreatActorIDs     = ThreatPerception.GetThreatIDs();
-}
-```
+Reopening requires loaded content, current authoritative world state, valid ownership, and admission capacity. A heartbeat alone is insufficient. Availability revisions reject stale reopen messages, and recovery qualification prevents repeated wall flicker during an unstable restart. Reopening restores eligibility for ordinary handoffs; it does not force idle residents to migrate or commit every waiting transfer simultaneously.
+
+### 7.6 Design Validation Cases
+
+Validation covers idle overlap residents, boundary jitter, deliberate back-and-forth movement, reversal during preparation, corner crossings, high-speed movement, and same-process region crossings. Group cases cover boarding and dismounting during preparation, large vehicle bounds, and incomplete destination readiness. Failure cases cover lost or duplicate acknowledgements, process failure around cutover, a stale reopen message, and an unavailable destination encountered on foot, mounted, swimming, flying, or under knockback. Every case checks unique ownership, preserved state, bounded movement, and feedback matching the actual restriction. Widths, timing budgets, and population claims become operational values through the measurements recorded in [Server Settings](Server-settings.md).
 
 ---
 
@@ -796,7 +768,7 @@ This is enabled by default in UE5.1+ open world templates.
 | Region state store | Redis | Sub-ms lookup for routing |
 | Persistence DB | PostgreSQL or ScyllaDB | Delta + full snapshots |
 | Inter-server messaging | NATS or Redis Pub/Sub | Ghost snapshot transport |
-| Client proxy/routing | Envoy L4 proxy or custom Go proxy | Gateway proxy model |
+| Client connection/routing | Custom session-continuity integration | Mechanism evaluated under section 7.3 |
 | Orchestration | Kubernetes or AWS GameLift | Auto-scaling fleet |
 | Physics replication | `UNetworkPhysicsComponent` (UE5.4+) | Input rewind/resimulation |
 
@@ -815,6 +787,10 @@ This is enabled by default in UE5.1+ open world templates.
 - [Travelling in Multiplayer — UE5 Docs](https://dev.epicgames.com/documentation/en-us/unreal-engine/travelling-in-multiplayer-in-unreal-engine)
 - [AWS GameLift + UE5 Dedicated Server Guide](https://aws.amazon.com/blogs/gametech/unreal-engine-5-dedicated-server-development-with-amazon-gamelift-anywhere/)
 - [OmniMesh — Battle-tested MMO networking for UE5](https://starvault.se/omnimesh-mmo-networking-unreal-engine-5/)
+
+## Continue Reading
+
+Continue with [Server Architecture](Server-architecture.md), [Server Settings](Server-settings.md), [UI and HUD](UI-and-HUD.md), and the [Design Backlog](Design-backlog.md).
 
 ## Draft
 

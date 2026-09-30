@@ -1,7 +1,5 @@
 # Server Architecture
 
-## Purpose
-
 The game requires a seamless, persistent, large-scale world that supports high player concurrency without traditional instancing barriers or loading screens. To achieve this it uses a cluster-based distributed server architecture, in which the world is divided into simulation regions handled collaboratively by multiple servers that scale dynamically with workload. This document is the conceptual specification; its concrete Unreal Engine 5 realisation lives in [Server-architecture (Technical)](<Server-architecture (Technical).md>), which is expected to track the concepts described here.
 <!-- REVIEW(investor): The design only works at full population density (dead shared world = no one pays) and a bespoke UE5 distributed cluster is the most expensive way to run an MMO — add a stageability answer (smaller/denser launch, single-shard cap) and directional run-cost awareness. -->
 
@@ -11,7 +9,7 @@ The world is divided into a grid of 1 km × 1 km logical regions. These regions 
 
 ## 2. Master Server responsibilities
 
-The Master Server is the authoritative coordinator of the cluster. It maintains the region ownership map that records which Cluster Unit Server controls each region, and it routes players, deciding which server a client connects to on login and whenever it crosses into a new region. It performs dynamic load balancing by reassigning regions between servers in response to live metrics such as player count, CPU time, and AI load, and it owns persistence, storing the incremental world-state backups that simulation servers stream to it. Finally, it handles failure recovery: when a simulation node stops responding, the Master Server reassigns its regions to a standby and restores the last-known state. In short, it is orchestration, routing, and database authority — not a gameplay simulator.
+The Master Server is the authoritative coordinator of the cluster. It maintains the region ownership map that records which Cluster Unit Server controls each region, and it routes players to their recorded simulation owners on login and after committed handoffs. It performs dynamic load balancing by reassigning regions between servers in response to live metrics such as player count, CPU time, and AI load, and it owns persistence, storing the incremental world-state backups that simulation servers stream to it. Finally, it handles failure recovery: when a simulation node stops responding, the Master Server reassigns its regions to a standby and restores the last-known state. In short, it is orchestration, routing, and database authority — not a gameplay simulator.
 
 ## 3. Cluster Unit Servers — region simulation
 
@@ -33,9 +31,29 @@ For each entity inside a region the owning server computes the entity's current 
 
 ## 5. Seamless player & AI handoff
 
-When a player or AI crosses a region boundary, authority transfers from the source server to the destination. The transfer is almost invisible precisely because of the velocity-aware radius: a fast entity's forward-extended volume causes the destination region to begin tracking it as a ghost well ahead of the crossing, so the new server already holds a current copy. At the moment of crossing, the source server sends one final authoritative snapshot, the destination server promotes its ghost into a full simulation entity, and the original server destroys its version once the handoff is acknowledged. Throughout, the client keeps receiving updates without interruption.
+Movable entities transfer between servers within a bounded simulation overlap around a region boundary. The region grid assigns responsibility for the world, while each entity has one recorded simulation owner. Inside the overlap that owner can differ from the server assigned to the entity's geographic region. The owner continues gameplay simulation and neighbours hold non-authoritative ghosts. Crossing between regions already owned by the same server requires no inter-server transfer.
 
-Two connection models support this. In the ideal **gateway proxy** model the client maintains a single connection and a proxy layer swaps the backend routing internally, so the transition is completely seamless. The simpler **silent redirect** model disconnects and reconnects the client behind a brief masking effect; it carries a little more background complexity but is still visually seamless. Either way there are no loading screens and no invisible walls.
+### 5.1 Stable ownership inside the overlap
+
+Separate forward and reverse transfer thresholds create a deadband, also called hysteresis. An entity arriving from one region keeps its current owner while it remains inside that band, including when it stands still, circles, or repeatedly crosses the map's region line. A transfer becomes eligible only when it moves beyond the threshold toward the destination and that destination is ready. After transfer, returning ownership requires movement beyond the opposite threshold, back toward the previous region. There is no idle timeout that forces a stationary entity to alternate between servers.
+
+The overlap is distinct from the visibility volume. Visibility prepares ghosts at a distance; the simulation overlap defines where an existing owner can safely continue movement and gameplay using loaded world content. Transfer thresholds sit inside that safe area, leaving room to finish a transfer or stop further travel. Fast movers receive earlier preparation and warning. Their speed does not continually move the ownership thresholds beneath them. Region corners select one destination at a time, and an entity has at most one active handoff. Deliberate load balancing and failure recovery use explicit ownership changes rather than repeatedly reclassifying an entity from its position.
+
+### 5.2 Coordinated transfers
+
+The source retains authority while the destination loads the required content and prepares the complete gameplay state. Authority changes at a coordinated cutover; preparation and ghost creation alone never grant ownership. The source retires its authoritative copy after the committed transfer, retaining a ghost where its players still need to see the entity. Movement, health, inventory, active effects, and AI state survive the transfer.
+
+A mount and rider, or a vehicle with its passengers and attached cargo, transfer as one coordinated group. The destination prepares the whole group and its relationships before cutover. Group membership is checked again before commitment so boarding, dismounting, death, or detachment during preparation cannot duplicate or strand a member. Nearby players and enemies remain independent entities; proximity alone does not join them into a transfer group.
+
+The client connection must preserve gameplay continuity through the ownership change. The [technical guide](<Server-architecture (Technical).md#73-client-connection-continuity>) treats connection migration as a dedicated networking responsibility alongside gameplay-state transfer.
+
+### 5.3 Unavailable destinations and visible feedback
+
+If the destination is unavailable, the source keeps simulating entities it still owns within its loaded, bounded overlap. It admits no movement beyond the space it can safely simulate. A player approaching that travel limit sees a translucent holographic error wall with a short message explaining that the region is temporarily unavailable. The warning appears early enough to turn or slow down and becomes more pronounced on approach. The wall marks the actual travel limit, which can lie beyond the nominal region line, and follows the unavailable edge across ground, water, and aerial routes.
+
+The server enforces the limit for movement, including vehicles, AI, and forced displacement. Players can move along the limit or retreat into available space; the display does not grant invulnerability, clear combat, or make the visible wall a climbable world object. Existing combat and effects continue wherever authoritative simulation remains available. Entities already owned by a failed destination follow crash recovery; the neighbouring source does not acquire them merely because it has ghosts.
+
+The restriction clears only when the destination can accept gameplay and handoffs again. Recovery leaves idle overlap residents with their current owners until an ordinary transfer is warranted. Presentation and accessibility details live in [UI and HUD](UI-and-HUD.md#unavailable-region-feedback).
 
 ## 6. Persistence, backups, and recovery
 
@@ -51,7 +69,7 @@ The game uses a distributed cluster server architecture in which the world is di
 
 ## Continue Reading
 
-Continue with [Server Architecture (Technical)](<Server-architecture (Technical).md>), [Server Settings](Server-settings.md), and [Dynamic Culling & Render Distance](Dynamic-culling-and-render-distance.md).
+Continue with [Server Architecture (Technical)](<Server-architecture (Technical).md>), [Server Settings](Server-settings.md), [Dynamic Culling & Render Distance](Dynamic-culling-and-render-distance.md), [UI and HUD](UI-and-HUD.md), and the [Design Backlog](Design-backlog.md) for the remaining boundary and recovery decisions.
 
 ## Draft
 

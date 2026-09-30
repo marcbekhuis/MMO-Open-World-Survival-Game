@@ -1,0 +1,4 @@
+interface:
+  display_name: "Creature Model References"
+  short_description: "Generate single-image references for image-to-3D creature models"
+  default_prompt: "Use $creature-model-references to create a model reference image for a creature in this design document."

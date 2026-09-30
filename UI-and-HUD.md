@@ -19,6 +19,12 @@ The interface leans on in-world presentation wherever that deepens immersion wit
 
 Because the world swings between brilliant, colourful regions and dark, oppressive ones as described in [Art Direction](Art-direction.md), the HUD has to stay legible against every background. Interface elements carry adaptive contrast and subtle outlining so they read on snow, in fog, and against blood-dark interiors alike. Critically, danger and status information never depend on the maturity controls: the gore-intensity setting in [Player Settings](Player-settings.md) changes spectacle, never the cues a player relies on to understand a threat, in keeping with the rule in [Content and Tone](Content-and-tone.md) that comfort options never alter fairness.
 
+## Unavailable Region Feedback
+
+When a destination region is temporarily unavailable, the current server continues simulation within the bounded, loaded safe overlap described in [Server Architecture](Server-architecture.md). An approaching player sees a translucent holographic error wall at the actual limit of permitted travel, giving the restriction a visible position before they reach it. The wall becomes more prominent as the player approaches and carries the simple message "Region temporarily unavailable". Its shape and text communicate the restriction without relying on colour alone; server identifiers and debugging information stay out of the player-facing message.
+
+The wall is an in-world availability cue and remains visible when the HUD is hidden. The server enforces the travel restriction independently of its presentation. Reaching the wall grants no invulnerability and does not reset combat.
+
 ## Customization and Profiles
 
 Players shape the HUD through the named profiles in [Player Settings](Player-settings.md), switching between a clutter-reduced combat layout, a hidden-interface cinematic mode for screenshots, and a comfortable default for exploration and settlement life. Individual elements can be toggled, scaled, and faded. As with every setting, these adjustments serve readability and comfort and never confer a competitive advantage, so what a player hides for cleanliness can never be something the game relied on them seeing.
@@ -29,7 +35,7 @@ A readable interface is the foundation of an accessible one, so the HUD is built
 
 ## Continue Reading
 
-Continue with [Player Settings](Player-settings.md) for the profiles and controls that drive the interface, [Content and Tone](Content-and-tone.md) for the comfort rules it honours, and [Cartography](Skills/Artisan/Cartography.md) for the progression behind the in-world map.
+Continue with [Player Settings](Player-settings.md) for the profiles and controls that drive the interface, [Content and Tone](Content-and-tone.md) for the comfort rules it honours, [Cartography](Skills/Artisan/Cartography.md) for the progression behind the in-world map, and [Server Architecture](Server-architecture.md) for region availability and handoff behaviour.
 
 ## Draft
 
