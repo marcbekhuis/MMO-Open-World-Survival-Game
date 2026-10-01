@@ -8,7 +8,7 @@ The largest elven cities should feel vertical and serene, but never empty. Canop
 
 ## Quest And Crafting Role
 
-Elven quests often connect to stewardship, observation, and the balance of the forest: protecting groves, calming awakened guardians, gathering rare herbs, tracing corruption, or negotiating with spirits and neighbouring settlements. Crafting opportunities should favour light materials, bows, herbalism, nature magic, and tools that support stealth or travel.
+Elven quests often connect to stewardship, observation, and the balance of the forest: protecting groves, gathering rare herbs, tracing corruption, or negotiating with spirits and neighbouring settlements. Crafting opportunities should favour light materials, bows, herbalism, nature magic, and tools that support stealth or travel.
 
 ## Starting Experience
 

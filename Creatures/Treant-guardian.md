@@ -16,7 +16,7 @@ Keeping moving is the answer. A guardian out-walks no one, and the ground near a
 
 ## Story Hook
 
-A settlement wants a road cut through the edge of the Ancient Forest to reach a new timber stand, and sends the players to survey the route. The surveyors have already felled a line of trees to clear their sightlines, and saplings have trailed them for two days. Now a guardian stands across the line of survey stakes and will not be moved, and it has not touched the stakes themselves. The Elves watching from the canopy say it will let the survey pass if the road is moved, and that a second guardian will stand behind it if the crew fells another tree.
+A settlement wants a road cut through the edge of the Ancient Forest to reach a new timber stand, and sends the players to survey the route. The surveyors have already felled a line of trees to clear their sightlines, and saplings have trailed them for two days. Now a guardian stands across the line of survey stakes and will not be moved, and it has not touched the stakes themselves. Foresters who know the wood say it will let the survey pass if the road is moved, and that a second guardian will stand behind it if the crew fells another tree.
 
 See also: [Creatures index](../Creatures.md), the [Treant](Treant.md) hub, the [Treant Sapling](Treant-sapling.md), the [Treant Elder](Treant-elder.md), and the [Ancient Forest](../Biomes/Ancient-forest.md).
 

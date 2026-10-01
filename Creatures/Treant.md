@@ -18,19 +18,19 @@ Treants do not hunt. They respond to harm done to the forest, and four acts coun
 
 The response climbs in steps, and each step gives the player a chance to stop. It begins with the forest itself: timber creaks without wind, and branches close across the paths behind and ahead of the offender until the way out is narrower than the way in. If the offender carries on, Saplings appear in the branches and shadow them at a distance. If the offender still carries on, Guardians come down out of the trunks and attack. The last step is the Elder, which does not walk to the fight but turns the ground under it, raising roots and shifting thickets, and calls further Guardians to the place.
 
-The ladder ends when the offender leaves the area or stops the act that started it. The treants do not pursue past the edge of their grove, and the forest reopens its paths behind a player who is walking away. [Elves](../Races/Elf.md) can shorten the climb. As the forest's stewards they are recognised by the treants, and an elf who steps between the offender and the wood and speaks for them brings the escalation to a halt, which is why a trespasser deep in the forest has reason to look for one.
+The ladder ends when the offender leaves the area or stops the act that started it. The treants do not pursue past the edge of their grove, and the forest reopens its paths behind a player who is walking away. Treants judge what is done to the forest, not who does it: no race, faction, or settlement is exempt, and an elf who fells a tree is met exactly as anyone else would be.
 
 Fire deserves its own warning. Bark burns, and flame drives a treant back further than any blade, but a fire in the forest is the most serious offence there is. It moves the offender several steps up the ladder at once, and the treants it draws in do not break off while the forest is still burning. Striking a treant is a shortcut of the same kind: a Sapling's cry calls the Guardians without waiting for the warnings in between.
 
 ## Habitat and Ecology
 
-Treants are found chiefly in the [Ancient Forest](../Biomes/Ancient-forest.md), the oldest and most magic-steeped of the woodlands. The trees there climb hundreds of metres, and the larger tiers use that scale to hide: a Guardian or an Elder stands still among lower trees and thick bushes, roots sunk and face closed, and reads as one more trunk in a forest made of them. The Elves build their canopy settlements above the same ground, and the two peoples keep an old, unspoken bargain, in which the Elves tend the wood and the treants defend what the Elves tend. Treants yield heartwood, sap resin and bark plates, in proportions set by their tier.
+Treants are found chiefly in the [Ancient Forest](../Biomes/Ancient-forest.md), the oldest and most magic-steeped of the woodlands. The trees there climb hundreds of metres, and the larger tiers use that scale to hide: a Guardian or an Elder stands still among lower trees and thick bushes, roots sunk and face closed, and reads as one more trunk in a forest made of them. Elven canopy settlements stand above the same ground, and a careful settlement and a grove can live side by side for centuries, but the treants answer to no people; they respond only to what happens to the wood. Treants yield heartwood, sap resin and bark plates, in proportions set by their tier.
 
 ## Story Hook
 
 Legend holds that a single sapling grew from a rune-seed planted by a long-dead druid. Over generations it learned to remember the names of those who tended it, and it became the first treant. Villagers still leave small tokens at the base of the oldest groves in hope of earning the forest's favour, and a player who leaves the same token finds that the guardians of that grove let them pass where others are turned back.
 
-See also: [Creatures index](../Creatures.md), the [Ancient Forest](../Biomes/Ancient-forest.md), the [Elves](../Races/Elf.md) who steward it, and the three tiers: [Treant Sapling](Treant-sapling.md), [Treant Guardian](Treant-guardian.md) and [Treant Elder](Treant-elder.md).
+See also: [Creatures index](../Creatures.md), the [Ancient Forest](../Biomes/Ancient-forest.md), and the three tiers: [Treant Sapling](Treant-sapling.md), [Treant Guardian](Treant-guardian.md) and [Treant Elder](Treant-elder.md).
 
 ## Concept Drawing
 

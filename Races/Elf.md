@@ -12,11 +12,11 @@ Where dwarves bind magic into objects, elves channel it directly. Their affinity
 
 ## Homeland and Start
 
-Elves begin in one of the great forest cities, surrounded by towering trees and quiet routes into the deep woodland, with an early experience that teaches vertical navigation, careful movement, ranged combat, and the value of reading environmental cues. Their homeland is the [Ancient Forest](../Biomes/Ancient-forest.md), and their realm is drawn outward toward the charged, primeval corners of the frontier described in [Setting and Lore](../Setting-and-lore.md). The forest's [Treants](../Creatures/Treant.md) recognise the elves as its stewards, and an elf can intercede with them on a trespasser's behalf, as the Treant page explains. An elf who wants to play against type can build toward heavier combat with enough investment, trading some of the race's natural reach for staying power, though they will always have to work for the resilience a dwarf is simply born with.
+Elves begin in one of the great forest cities, surrounded by towering trees and quiet routes into the deep woodland, with an early experience that teaches vertical navigation, careful movement, ranged combat, and the value of reading environmental cues. Their homeland is the [Ancient Forest](../Biomes/Ancient-forest.md), and their realm is drawn outward toward the charged, primeval corners of the frontier described in [Setting and Lore](../Setting-and-lore.md). An elf who wants to play against type can build toward heavier combat with enough investment, trading some of the race's natural reach for staying power, though they will always have to work for the resilience a dwarf is simply born with.
 
 ## Continue Reading
 
-See also: [Races](../Races.md), [Player Progression](../Player.md), [Elven Settlements](../Structures/Elven-settlements.md), [Magic](../Magic.md), the [Ancient Forest](../Biomes/Ancient-forest.md), and the [Treants](../Creatures/Treant.md) they live beside.
+See also: [Races](../Races.md), [Player Progression](../Player.md), [Elven Settlements](../Structures/Elven-settlements.md), [Magic](../Magic.md), and the [Ancient Forest](../Biomes/Ancient-forest.md).
 
 ## Draft
 

@@ -16,7 +16,7 @@ Attacked, cornered or pushed too far, a sapling fights as it moves, with quick j
 
 ## Story Hook
 
-A harvesting crew working the rare reagents of the Ancient Forest finds, three mornings running, that the marks they cut into the trunks the day before have been healed over in the night. On the third day they see why: a pair of amber eyes in the leaves above, which has followed them since they entered the grove. The Elves of the nearest canopy settlement pay well for the reagent, but they have also seen the healed marks, and whether they trust the crew with the next harvest depends on whether it stops cutting.
+A harvesting crew working the rare reagents of the Ancient Forest finds, three mornings running, that the marks they cut into the trunks the day before have been healed over in the night. On the third day they see why: a pair of amber eyes in the leaves above, which has followed them since they entered the grove. The canopy settlement that buys the reagent pays well for it, but they have also seen the healed marks, and whether they trust the crew with the next harvest depends on whether it stops cutting.
 
 See also: [Creatures index](../Creatures.md), the [Treant](Treant.md) hub, the [Treant Guardian](Treant-guardian.md), the [Treant Elder](Treant-elder.md), and the [Ancient Forest](../Biomes/Ancient-forest.md).
 

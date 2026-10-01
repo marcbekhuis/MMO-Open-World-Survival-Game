@@ -14,7 +14,9 @@ while those that delve fill with demonic, dark-aligned things, among them the bo
 
 ## The Threshold
 
-The dungeon's own magic sustains its undead, and that magic reaches exactly as far as the dungeon does. The threshold is the line where it ends: a door, a gate, a stair mouth or the opening of a cave. A bound [Skeleton Knight](../Creatures/Skeleton-Knight.md) or [Skeleton Archer](../Creatures/Skeleton-Archer.md) that crosses it, for any reason, loses the binding at once, its light gutters out and its armour and bones fall in a heap. Crossing on its own feet is one way, but being shoved, knocked back or pulled across is just as final, so a doorway becomes a weapon for any party that can move a knight through it. Living guardians such as the [Minotaur](../Creatures/Minotaur.md) are not bound and pass the threshold freely.
+The dungeon's own magic sustains its undead, and that magic reaches exactly as far as the dungeon does. It also keeps their marrow alive. In a living body the marrow makes blood, and in a bound skeleton it never stops: with no heart or veins to hold it, the blood seeps out through the bone and coats the dead in a thick, dark, half-congealed layer, wettest where the marrow is richest, around the ribcage, spine, pelvis and skull. It drips from armour edges and leaves smeared trails across the floors, so a party that watches the ground can read where the skeletons patrol and how recently one passed.
+
+The threshold is the line where that magic ends: a door, a gate, a stair mouth or the opening of a cave. A bound [Skeleton Knight](../Creatures/Skeleton-Knight.md) or [Skeleton Archer](../Creatures/Skeleton-Archer.md) that crosses it, for any reason, loses the binding at once: its light gutters out, its marrow dies, and its armour and bones drop into a spreading pool of the blood it was still carrying. Crossing on its own feet is one way, but being shoved, knocked back or pulled across is just as final, so a doorway becomes a weapon for any party that can move a knight through it. Living guardians such as the [Minotaur](../Creatures/Minotaur.md) are not bound and pass the threshold freely.
 
 ## Progression
 
