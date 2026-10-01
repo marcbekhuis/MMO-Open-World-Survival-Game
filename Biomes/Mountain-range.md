@@ -12,7 +12,7 @@ The mountains are rich underground. Mineral-rich veins and caves hold rare ores 
 
 ## Creatures
 
-The signature inhabitant is the [Stone Giant](../Creatures/Stone-giant.md), a colossus of living stone that roams the heights in search of mana crystals and wars with its own kind over them, leaving trails of devastation behind. Hardier ordinary animals such as mountain goats pick their way along the ledges where little else can follow, but it is the giants that define the danger of the high country and that a traveller must learn to route around.
+The signature inhabitant is the [Stone Giant](../Creatures/Stone-giant.md), a colossus of living stone that roams the heights in search of mana crystals and wars with its own kind over them, leaving trails of devastation behind. It comes in three tiers: the [Young Stone Giant](../Creatures/Young-stone-giant.md) wanders the lower passes and is the one a prepared party can bring down, the [Adult Stone Giant](../Creatures/Adult-stone-giant.md) rules the high ridges, and the [Elder Stone Giant](../Creatures/Elder-stone-giant.md) is indistinguishable from a peak until it moves. Miners and settlements can buy safe work in a giant's range by feeding it, a costly truce the [Stone Giant](../Creatures/Stone-giant.md) file describes. Hardier ordinary animals such as mountain goats pick their way along the ledges where little else can follow, but it is the giants that define the danger of the high country and that a traveller must learn to route around.
 
 ## Hazards and Travel
 
@@ -24,7 +24,7 @@ The range is dwarven country above all. The stone-hewn holds and forge-centres o
 
 ## Continue Reading
 
-Continue with the [Stone Giant](../Creatures/Stone-giant.md) that roams the heights, [Dwarven Settlements](../Structures/Dwarven-settlements.md) carved into the stone, and [Survival](../Survival.md) for the cold and altitude the range turns against a traveller.
+Continue with the [Stone Giant](../Creatures/Stone-giant.md) that roams the heights and its tiers, the [Young](../Creatures/Young-stone-giant.md), [Adult](../Creatures/Adult-stone-giant.md) and [Elder](../Creatures/Elder-stone-giant.md) giants, [Dwarven Settlements](../Structures/Dwarven-settlements.md) carved into the stone, and [Survival](../Survival.md) for the cold and altitude the range turns against a traveller.
 
 ## Draft
 

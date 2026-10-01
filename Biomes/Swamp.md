@@ -1,6 +1,6 @@
 # Swamp
 
-The Swamp is a dense, humid biome of blackwater channels, reedy marshes, and half-sunken groves, where visibility is poor beneath the heavy canopy and the air carries the scent of peat and rot. It should feel slow, watchful, and dangerous, a place where the ground itself cannot always be trusted and where the real threats are as likely to be the water, the fog, and the fevers as anything with teeth. It is the world's richest source of alchemical materials and its most reliable source of illness, and the two are not unrelated.
+The Swamp is a dense, humid biome of blackwater channels, reedy marshes, and half-sunken groves, where visibility is poor beneath the heavy canopy and the air carries the scent of peat and rot. It feels slow, watchful, and dangerous, a place where the ground itself cannot always be trusted and where the real threats are as likely to be the water, the fog, and the fevers as anything with teeth. It is the world's richest source of alchemical materials and its most reliable source of illness, and the two are not unrelated.
 
 ## Terrain and Atmosphere
 
@@ -12,7 +12,7 @@ For all its menace the swamp is generous to a crafter. It is the prime source of
 
 ## Creatures
 
-The marsh hides its predators well. Alligators and large water snakes use the water, reeds, and mud banks to break line of sight before they strike, so the danger here is rarely the one a player can see. The pale [Swamp Spiders](../Creatures/Swamp-spider.md) breed in caves beneath the wetlands until hunger and overcrowding drive whole broods into the open, turning a local nest into a moving flood of predators. The slow-moving country also lies on the migration routes of the [Titan Turtle](../Creatures/Titan-turtle.md), whose immense bulk wades through the shallows and across the soft ground that bears nothing else its size.
+The marsh hides its predators well. Alligators and large water snakes use the water, reeds, and mud banks to break line of sight before they strike, so the danger here is rarely the one a player can see. The pale [Swamp Spiders](../Creatures/Swamp-spider.md) breed in caves beneath the wetlands until hunger and overcrowding drive whole broods into the open, turning a local nest into a moving flood of predators. The slow-moving country also lies on the seasonal migration routes of the [Titan Turtle](../Creatures/Titan-turtle.md), whose immense bulk wades through the shallows and across the soft ground that bears nothing else its size.
 
 ## Hazards and Travel
 

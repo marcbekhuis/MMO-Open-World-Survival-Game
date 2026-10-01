@@ -12,15 +12,15 @@ The harvestable crystals are the islands' great prize. They feed the enchanting 
 
 ## Creatures
 
-The signature inhabitants of the biome are the [Flying Leviathans](../Creatures/Flying-leviathan.md), slow and majestic sky-whales bound to the islands by the same mana that lifts the land. Their young depend on the islands' concentrated energy to survive, which keeps the species tied to the biome and makes an encounter with one a defining moment of any expedition into the high country.
+The signature inhabitants of the biome are the [Flying Leviathans](../Creatures/Flying-leviathan.md), slow and majestic sky-whales nursed by the same mana that lifts the land. Their young depend on the islands' concentrated energy to survive and cannot leave until they are grown, which makes the biome the species' nursery and an encounter with a calf a defining moment of any expedition into the high country. Adults are no longer tied to the islands and roam the whole world, so the biome is where a leviathan is raised, not where it stays.
 
 ## Access and Travel
 
-Reaching the floating islands is a challenge in its own right and a test of everything the travel systems offer. Players ascend by climbing and grappling, or by taming the flying creatures described in [Travel and Mounts](../Travel-and-mounts.md), with a tamed Flying Leviathan the grandest route of all. Once aloft, the islands reward the effort: their stable ground and unmatched isolation make them prime sites for the kind of aerial foothold the [Building System](../Building-system.md) supports, a base no ground-bound raider can easily reach.
+Reaching the floating islands is a challenge in its own right and a test of everything the travel systems offer. Players ascend by climbing and grappling, or by taming the flying creatures described in [Travel and Mounts](../Travel-and-mounts.md), and a [Flying Leviathan](../Creatures/Flying-leviathan.md) raised from a calf on the islands becomes the grandest route of all between the high country and the world below. Once aloft, the islands reward the effort: their stable ground and unmatched isolation make them prime sites for the kind of aerial foothold the [Building System](../Building-system.md) supports, a base no ground-bound raider can easily reach.
 
 ## Continue Reading
 
-Continue with the [Flying Leviathan](../Creatures/Flying-leviathan.md) bound to the islands, [Travel and Mounts](../Travel-and-mounts.md) for the flight and climbing that reach them, and [Magic](../Magic.md) for what their crystals power.
+Continue with the [Flying Leviathan](../Creatures/Flying-leviathan.md) raised on the islands, [Travel and Mounts](../Travel-and-mounts.md) for the flight and climbing that reach them, and [Magic](../Magic.md) for what their crystals power.
 
 ## Draft
 

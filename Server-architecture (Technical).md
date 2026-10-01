@@ -417,7 +417,7 @@ const float Draw = FMath::Min(
 PrimitiveComp->SetMaxDrawDistance(Draw);
 ```
 
-For static, non-replicated set dressing — rocks, props, foliage — prefer **Cull Distance Volumes**, which assign size-based draw distances to actors in a level with no per-frame logic. Reserve the dynamic `SetMaxDrawDistance` path for the moving entities that actually benefit from it, such as a Flying Leviathan fading in early as it crosses open sky.
+For static, non-replicated set dressing — rocks, props, foliage — prefer **Cull Distance Volumes**, which assign size-based draw distances to actors in a level with no per-frame logic. Reserve the dynamic `SetMaxDrawDistance` path for the moving entities that actually benefit from it, such as a flying mount at speed, or a Flying Leviathan, whose 80-metre body stays visible from far away across open sky and so takes the long, world-boss radius class of section 5.3 as its baseline instead of relying on speed look-ahead.
 
 ---
 

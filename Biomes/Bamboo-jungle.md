@@ -12,7 +12,7 @@ The bamboo itself is the biome's wealth. Specialised materials, bamboo fibre, re
 
 ## Creatures
 
-The signature resident is the [Bamboo Spider](../Creatures/Bamboo-spider.md), a large ambush predator whose long, slender legs mimic the bamboo so closely that it all but vanishes among the stalks. It uses the vertical surfaces and dense screens to close distance unseen, which makes it the embodiment of the biome's central danger and the reason a careful player reads the grove for the wrongness that betrays a hunter lying in wait.
+The signature resident is the [Bamboo Spider](../Creatures/Bamboo-spider.md), a lone ambush predator about 6 metres tall whose eight long, slender legs mimic the bamboo so closely that it all but vanishes among the stalks, its body held high in the leaves overhead. It uses the vertical surfaces and dense screens to close distance unseen and kills with a paralysing stab, which makes it the embodiment of the biome's central danger and the reason a careful player reads the grove for the wrongness that betrays a hunter lying in wait.
 
 ## Hazards and Travel
 

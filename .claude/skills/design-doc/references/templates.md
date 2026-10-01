@@ -47,16 +47,30 @@ A bestiary entry living under `Creatures/`. Reach top-level files with `../`. Cr
 `Story Hook` section before the backlink. Add the reciprocal link from each biome this creature inhabits
 back to this file, and list the creature on the [Creatures](../../../../Creatures.md) index. When concept
 art exists, place it in its own `## Concept Drawing` section after the `See also:` backlink and before
-the `## Draft` appendix, matching the existing creature files.
+the `## Draft` appendix, matching the existing creature files. When the creature was inspired by a
+creature from another work, add a short `## Inspiration` section after `## Concept Drawing`: the source
+with a link, which traits were borrowed, and what differs here. It exists so artists and image
+generators can find the reference; keep it when restructuring the file.
+
+State the physical facts concretely, because artists, 3D modellers, animators, and image generators
+work from them: metric size (comma decimals), limb count and where limbs attach, posture and how it
+moves, and colour zones. Describe encounters by what the creature does, the tell before its attacks,
+how players counter it, and what it drops, without stat numbers. When a species has several distinct
+sizes or forms (such as Treant Sapling, Guardian, and Elder), keep the species file as a hub for what
+they share and give each form its own file.
 
 ```markdown
 # <Creature Name>
 
-<Opening: what the creature is, how it behaves, the role it plays in its region's ecology and encounters.>
+<Opening: what the creature is, its size and body plan, how it behaves, and the role it plays in its region's ecology and encounters.>
+
+## Appearance and Visual Design
+
+<Silhouette, limbs and posture, how it moves, colour zones, materials, and distinguishing details.>
 
 ## <Behaviour, ecology, or combat section as fits>
 
-<Develop its behaviour and how it reads in play, framed in terms of gameplay rationale.>
+<Develop its behaviour and how it reads in play: attacks and their tells, counterplay, and rewards, framed in terms of gameplay rationale.>
 
 ## Story Hook
 
@@ -67,6 +81,10 @@ See also: [Creatures index](../Creatures.md), and the biome it inhabits, [<Biome
 ## Concept Drawing
 
 ![<Creature Name> bestiary entry](../Assets/Creatures/Bestiary/<creature-slug>-bestiary.png)
+
+## Inspiration
+
+<Only when a source exists: name it with a link, say which traits were borrowed and what differs in this game.>
 
 ## Draft
 

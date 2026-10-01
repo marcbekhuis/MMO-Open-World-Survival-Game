@@ -1,20 +1,24 @@
-# Goblins
+# Goblin
 
-Goblins are opportunistic humanoids that thrive at the edges of civilisation. They form loose tribes and scavenger bands, frequently raiding outposts, ambushing caravans, and scavenging ruins for valuables.
+Goblins are opportunistic humanoids that thrive at the edges of civilisation. They live in loose tribes and scavenger bands of four to eight, raiding outposts, ambushing caravans and stripping ruins for anything of value. Individually they are weak, but a band plays its three roles against each other, and a player who treats a goblin encounter as one fight rather than as a trap with several parts pays for it.
 
 ## Appearance and Visual Design
 
-Goblins look underfed, quick, and difficult to fully dislodge from the world. They stand about 1,40 metres tall, with wiry limbs, long fingers, sharp shoulders, and oversized ears that make their silhouettes readable even in brush or ruined doorways. Skin tones vary by habitat, from mossy green and grey-brown in forest bands to dustier ochre near dry country, and their faces are narrow, restless, and expressive enough to make cowardice, greed, suspicion, and sudden courage visible before a fight begins.
+A goblin is a hunched biped with two arms and two legs, standing 1,40 metres tall and weighing between 35 and 45 kilograms. The limbs are wiry and the fingers long, the shoulders sharp and the ears oversized, which keeps the silhouette readable in brush or a ruined doorway. It walks upright but hunched, and it runs in a crouch with its knuckles close to the ground, scrambling up walls, roof beams and trees with ease. The skin is a grey-brown olive that takes on the colour of the band's habitat: mossy green-brown in forest bands, dustier ochre where a band lives in dry country. The face is narrow, restless and expressive enough to show cowardice, greed, suspicion and sudden courage before a fight begins.
 
-Their equipment is the strongest visual clue to tribe, role, and recent success. A desperate raider wears patched leather, rope belts, stolen boots that do not fit, and blades filed from broken tools. A tinkerer carries clattering packs of springs, cracked lenses, wire, traps, and improvised mechanisms. A successful band begins to show its thefts in mismatched human buckles, dwarven toolheads, elven cloth scraps, and settlement-made cooking pots hammered into armour plates. The result is comic at a distance and unpleasant up close: nothing decorative is merely decorative, and everything on a goblin looks stolen, repaired, or ready to be thrown away during a retreat.
+Three variants share that body and are told apart by kit. The Raider is the desperate front-line fighter in patched leather, rope belts and stolen boots that do not fit, carrying blades filed from broken tools and crude clubs. The Tinkerer is hung with clattering packs of springs, cracked lenses, wire and trap parts, and wears goggles pushed up on its forehead. The Scout is the lightest of the three, in a hooded cloak with a dagger at the belt, built to slip through undergrowth unseen. A successful band begins to show its thefts in mismatched human buckles, dwarven toolheads, elven cloth scraps and settlement-made cooking pots hammered into armour plates. Nothing on a goblin is merely decorative: everything looks stolen, repaired, or ready to be thrown away during a retreat.
 
-## Behaviour
+## Behaviour and Encounter
 
-Goblins fight as pack-oriented skirmishers, using crude traps, short-range weapons, terrain, and surprise rather than honourable confrontation. They prefer to attack only when they believe they have an advantage, and they retreat quickly if the situation turns against them. Some tribes specialize in tinkering and trade with cobbled-together mechanical items, which can make them useful contacts as well as threats.
+Goblins prefer to attack only when they believe they hold the advantage, and each variant has its part in that. Raiders rush in with blades and clubs once the ground is prepared. Tinkerers set snares, spike pits and noise traps along the approach and throw fire pots from behind the line. Scouts spot a player first and run to warn the band, so a patrol that has been seen is rarely alone for long. The typical ambush draws the strongest defenders away with a deliberately obvious trail while the rest of the band circles back for the animals and food.
+
+The traps give themselves away to a careful player: disturbed ground, tripwires, and a scattering of bait left a little too neatly. Killing the Scout before it can warn the band keeps a fight small, and a band breaks and flees once its leader or its Tinkerer falls. Retreating goblins scatter rather than fall back in order, dropping what they carry as they run.
+
+Bands can also merge. Under a Goblin Chieftain, a larger and better-armed elite, several bands combine into a war-host, the regional power that [Setting and Lore](../Setting-and-lore.md) and [Guilds and Factions](../Guilds-and-factions.md) describe as holding ground against the realms. A war-host raids settlements rather than lone travellers, and it is the kind of threat that settlement defenders and friendly players meet together, as described in [Raids](../Raids.md).
 
 ## Role in the World
 
-Goblins are common low- to mid-tier enemies and recurring sources of crafting components, low-grade trade goods, settlement trouble, and quest hooks. They stand about 1,40 metres tall, with lean frames and ferocious survival instincts. Their raids on small towns and early player bases are usually motivated by theft: they attack targets they consider weak enough to overwhelm, then carry off tools, food, weapons, and anything else their tribe can use.
+Goblins are common low- to mid-tier enemies, and their raids on small towns and early player bases are almost always motivated by theft: they go for targets they judge weak enough to overwhelm and carry off tools, food, weapons and anything else the tribe can use. They are also the steady source of scrap metal, springs, cloth, trap parts and stolen goods, which a player can recover from a dead band. Some tribes lean into tinkering and trade their cobbled-together mechanisms, which makes them useful contacts as well as threats.
 
 ## Story Hook
 

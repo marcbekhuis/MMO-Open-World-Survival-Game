@@ -12,6 +12,10 @@ A dungeon's defining trait is that its inside does not obey its outside. Some ho
 <!-- REVIEW(narrative): This installs an angel/demon heaven-hell cosmology the setting never establishes (gods keep their distance, magic wells from the world, no fallen prior empire) — root the light/dark axis in the established primordial cosmology and reconcile the "ancient superstructures" with the "not the ruin of a fallen empire" stance. -->
 while those that delve fill with demonic, dark-aligned things, among them the bound undead garrisons of [Skeleton Knights](../Creatures/Skeleton-Knight.md) and [Skeleton Archers](../Creatures/Skeleton-Archer.md) that hold the lower halls. Not every dungeon guardian is undead, though; maze floors, prison halls, and root-choked chambers can also hold a living [Minotaur](../Creatures/Minotaur.md), turning architecture itself into a weapon for its charge.
 
+## The Threshold
+
+The dungeon's own magic sustains its undead, and that magic reaches exactly as far as the dungeon does. The threshold is the line where it ends: a door, a gate, a stair mouth or the opening of a cave. A bound [Skeleton Knight](../Creatures/Skeleton-Knight.md) or [Skeleton Archer](../Creatures/Skeleton-Archer.md) that crosses it, for any reason, loses the binding at once, its light gutters out and its armour and bones fall in a heap. Crossing on its own feet is one way, but being shoved, knocked back or pulled across is just as final, so a doorway becomes a weapon for any party that can move a knight through it. Living guardians such as the [Minotaur](../Creatures/Minotaur.md) are not bound and pass the threshold freely.
+
 ## Progression
 
 The deeper players venture into a dungeon, the more valuable the rewards should become. Early rooms can support solo scouting, lore discovery, and light combat. Lower levels should demand preparation, party roles, keys, environmental tools, or knowledge earned elsewhere in the world.
