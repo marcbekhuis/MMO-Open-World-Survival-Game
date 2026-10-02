@@ -32,6 +32,8 @@ See also: [Creatures index](../Creatures.md) and the [Forest](../Biomes/Forest.m
 
 ![Wolf bestiary entry](../Assets/Creatures/Bestiary/wolf-bestiary.png)
 
+![Wolf model reference](../Assets/Creatures/Model-references/wolf-model-reference.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

@@ -38,6 +38,8 @@ See also: [Creatures index](../Creatures.md), the [Jungle](../Biomes/Jungle.md) 
 
 ![Paralyzing Dragon bestiary entry](../Assets/Creatures/Bestiary/paralyzing-dragon-bestiary.png)
 
+![Paralyzing Dragon model reference](../Assets/Creatures/Model-references/paralyzing-dragon-model-reference.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

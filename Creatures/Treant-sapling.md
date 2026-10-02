@@ -24,6 +24,8 @@ See also: [Creatures index](../Creatures.md), the [Treant](Treant.md) hub, the [
 
 ![Treant Sapling bestiary entry](../Assets/Creatures/Bestiary/treant-sapling-bestiary.png)
 
+![Treant Sapling model reference](../Assets/Creatures/Model-references/treant-sapling-model-reference.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

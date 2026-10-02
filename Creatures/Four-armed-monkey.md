@@ -34,6 +34,8 @@ See also: [Creatures index](../Creatures.md), the [Jungle](../Biomes/Jungle.md) 
 
 ![Four-Armed Monkey bestiary entry](../Assets/Creatures/Bestiary/four-armed-monkey-bestiary.png)
 
+![Four-Armed Monkey model reference](../Assets/Creatures/Model-references/four-armed-monkey-model-reference.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

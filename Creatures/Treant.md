@@ -36,6 +36,12 @@ See also: [Creatures index](../Creatures.md), the [Ancient Forest](../Biomes/Anc
 
 ![Treant bestiary entry](../Assets/Creatures/Bestiary/treant-bestiary.png)
 
+![Treant Sapling model reference](../Assets/Creatures/Model-references/treant-sapling-model-reference.png)
+
+![Treant Guardian model reference](../Assets/Creatures/Model-references/treant-guardian-model-reference.png)
+
+![Treant Elder model reference](../Assets/Creatures/Model-references/treant-elder-model-reference.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

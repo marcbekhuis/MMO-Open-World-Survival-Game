@@ -24,6 +24,8 @@ See also: [Creatures index](../Creatures.md), the [Treant](Treant.md) hub, the [
 
 ![Treant Elder bestiary entry](../Assets/Creatures/Bestiary/treant-elder-bestiary.png)
 
+![Treant Elder model reference](../Assets/Creatures/Model-references/treant-elder-model-reference.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

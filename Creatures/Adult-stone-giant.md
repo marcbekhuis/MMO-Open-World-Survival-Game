@@ -26,6 +26,8 @@ See also: [Creatures index](../Creatures.md), the [Stone Giant](Stone-giant.md) 
 
 ![Adult Stone Giant bestiary entry](../Assets/Creatures/Bestiary/adult-stone-giant-bestiary.png)
 
+![Adult Stone Giant model reference](../Assets/Creatures/Model-references/adult-stone-giant-model-reference.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

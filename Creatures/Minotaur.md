@@ -32,6 +32,8 @@ See also: [Creatures index](../Creatures.md), the [Forest](../Biomes/Forest.md) 
 
 ![Minotaur bestiary entry](../Assets/Creatures/Bestiary/minotaur-bestiary.png)
 
+![Minotaur model reference](../Assets/Creatures/Model-references/minotaur-model-reference.png)
+
 ## Inspiration
 
 The design follows the beast minotaur in the [Greyhawk illustration](https://www.greyhawkonline.com/greyhawkwiki/images/9/97/Minotaur.jpg), a brutal animal that fights with claws, raw strength and bite rather than a weapon. This version keeps that bestial, unarmed and unarmoured character and adds the charge, the tell and the dazed recovery that make it a readable fight, along with a home in both forest ravines and dungeon mazes.

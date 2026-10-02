@@ -34,6 +34,8 @@ See also: [Creatures index](../Creatures.md) and the [Bamboo Jungle](../Biomes/B
 
 ![Bamboo Spider bestiary entry](../Assets/Creatures/Bestiary/bamboo-spider-bestiary.png)
 
+![Bamboo Spider model reference](../Assets/Creatures/Model-references/bamboo-spider-model-reference.png)
+
 ## Inspiration
 
 The Bamboo Spider descends from [Mother Longlegs](https://godzilla.fandom.com/wiki/Mother_Longlegs) of the Monsterverse, the giant spider of Kong: Skull Island. It borrows the bamboo-stalk legs, the body held high in the foliage, the ambush, the paralytic venom delivered through the legs, and the tendrils under the belly that ensnare prey. Here the spider has no extra pincer arms: it kills with its eight legs and its tendrils alone, at a height of about 6 metres.

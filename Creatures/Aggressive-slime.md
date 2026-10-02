@@ -30,6 +30,8 @@ See also: [Creatures index](../Creatures.md), [Slime](Slime.md), [Passive Slime]
 
 ![Aggressive Slime bestiary entry](../Assets/Creatures/Bestiary/aggressive-slime-bestiary.png)
 
+![Aggressive Slime model reference](../Assets/Creatures/Model-references/aggressive-slime-model-reference.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

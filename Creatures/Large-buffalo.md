@@ -36,6 +36,8 @@ See also: [Creatures index](../Creatures.md), the [Plains](../Biomes/Plains.md) 
 
 ![Large Buffalo bestiary entry](../Assets/Creatures/Bestiary/large-buffalo-bestiary.png)
 
+![Large Buffalo model reference](../Assets/Creatures/Model-references/large-buffalo-model-reference.png)
+
 ## Inspiration
 
 The Large Buffalo comes from the [Sker Buffalo](https://kingkong.fandom.com/wiki/Sker_Buffalo) of Kong: Skull Island, a docile giant river buffalo that only fights when threatened. This version keeps the gentle temperament and the love of water. It is much smaller, with adults at 4 metres and the elder bull at up to 7 metres, and it lives on the rivers of the plains rather than in a lost island's lakes.

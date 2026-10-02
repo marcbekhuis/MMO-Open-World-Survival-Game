@@ -32,6 +32,8 @@ See also: [Creatures index](../Creatures.md), the [Floating Islands](../Biomes/F
 
 ![Flying Leviathan bestiary entry](../Assets/Creatures/Bestiary/flying-leviathan-bestiary.png)
 
+![Flying Leviathan model reference](../Assets/Creatures/Model-references/flying-leviathan-model-reference.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

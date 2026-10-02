@@ -32,6 +32,12 @@ See also: [Creatures index](../Creatures.md), the [Mountain Range](../Biomes/Mou
 
 ![Stone Giant bestiary entry](../Assets/Creatures/Bestiary/stone-giant-bestiary.png)
 
+![Young Stone Giant model reference](../Assets/Creatures/Model-references/young-stone-giant-model-reference.png)
+
+![Adult Stone Giant model reference](../Assets/Creatures/Model-references/adult-stone-giant-model-reference.png)
+
+![Elder Stone Giant model reference](../Assets/Creatures/Model-references/elder-stone-giant-model-reference.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

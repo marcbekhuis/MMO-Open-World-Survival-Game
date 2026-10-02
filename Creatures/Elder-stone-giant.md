@@ -26,6 +26,8 @@ See also: [Creatures index](../Creatures.md), the [Stone Giant](Stone-giant.md) 
 
 ![Elder Stone Giant bestiary entry](../Assets/Creatures/Bestiary/elder-stone-giant-bestiary.png)
 
+![Elder Stone Giant model reference](../Assets/Creatures/Model-references/elder-stone-giant-model-reference.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

@@ -30,6 +30,8 @@ See also: [Creatures index](../Creatures.md), the [Forest](../Biomes/Forest.md) 
 
 ![Goblins bestiary entry](../Assets/Creatures/Bestiary/goblins-bestiary.png)
 
+![Goblin model reference](../Assets/Creatures/Model-references/goblins-model-reference.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

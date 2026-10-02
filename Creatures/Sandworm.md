@@ -28,6 +28,8 @@ See also: [Creatures index](../Creatures.md) and the [Scorching Desert](../Biome
 
 ![Sandworm bestiary entry](../Assets/Creatures/Bestiary/sandworm-bestiary.png)
 
+![Sandworm model reference](../Assets/Creatures/Model-references/sandworm-model-reference.png)
+
 ## Inspiration
 
 The sandworm takes its cue from the sandworms of Frank Herbert's Dune ([Sandworm](https://dune.fandom.com/wiki/Sandworm)): colossal desert creatures that hunt by the rhythm of movement on the sand and swallow caravans whole. Here the worm is smaller, about 150 metres, there is one to each desert region rather than a whole planet's worth, and a prepared group can kill it.

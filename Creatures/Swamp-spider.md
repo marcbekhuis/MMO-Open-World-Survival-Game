@@ -48,6 +48,8 @@ See also: [Creatures index](../Creatures.md), the [Swamp](../Biomes/Swamp.md) wh
 
 ![Swamp Spider bestiary entry](../Assets/Creatures/Bestiary/swamp-spider-bestiary.png)
 
+![Swamp Spider model reference](../Assets/Creatures/Model-references/swamp-spider-model-reference.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

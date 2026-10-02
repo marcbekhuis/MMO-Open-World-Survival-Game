@@ -38,6 +38,8 @@ See also: [Creatures index](../Creatures.md) and the [Tundra](../Biomes/Tundra.m
 
 ![Ancient Deer bestiary entry](../Assets/Creatures/Bestiary/ancient-deer-bestiary.png)
 
+![Ancient Deer model reference](../Assets/Creatures/Model-references/ancient-deer-model-reference.png)
+
 ## Inspiration
 
 The Ancient Deer is drawn from [Morozova's stag](https://shadowandbone.fandom.com/wiki/Morozova%27s_Stag) of the Shadow and Bone series, an immense, near-mythical stag whose antlers carry power and draw hunters across the land. The game keeps the giant size and the hunt for its antlers. It differs in being a living herd rather than a single beast, in defending itself with storm and ice, and in offering a bloodless route to the prize through shed antlers.

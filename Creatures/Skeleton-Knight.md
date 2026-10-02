@@ -26,6 +26,8 @@ See also: [Creatures index](../Creatures.md), the [Skeleton Archer](Skeleton-Arc
 
 ![Skeleton Knight bestiary entry](../Assets/Creatures/Bestiary/skeleton-knight-bestiary.png)
 
+![Skeleton Knight model reference](../Assets/Creatures/Model-references/skeleton-knight-model-reference.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

@@ -40,6 +40,10 @@ See also: [Creatures index](../Creatures.md), the [Coast](../Biomes/Coast.md) it
 
 ![Mermaid bestiary entry](../Assets/Creatures/Bestiary/mermaid-bestiary.png)
 
+![Mermaid model reference — charmed appearance](../Assets/Creatures/Model-references/mermaid-model-reference-v2.png)
+
+![Mermaid model reference — uncharmed appearance](../Assets/Creatures/Model-references/mermaid-model-reference-v5.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->
