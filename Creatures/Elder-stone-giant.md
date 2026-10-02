@@ -22,6 +22,10 @@ A high pass has been closed for a season because an elder stone giant has lain d
 
 See also: [Creatures index](../Creatures.md), the [Stone Giant](Stone-giant.md) hub, the [Young Stone Giant](Young-stone-giant.md), the [Adult Stone Giant](Adult-stone-giant.md) it grew from, the [Building System](../Building-system.md) for the works a siege needs, and the [Mountain Range](../Biomes/Mountain-range.md).
 
+## Concept Drawing
+
+![Elder Stone Giant bestiary entry](../Assets/Creatures/Bestiary/elder-stone-giant-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

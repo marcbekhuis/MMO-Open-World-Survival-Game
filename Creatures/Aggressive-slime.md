@@ -26,6 +26,10 @@ A rival guild has been baiting a slime along the river road for a week, leaving 
 
 See also: [Creatures index](../Creatures.md), [Slime](Slime.md), [Passive Slime](Passive-slime.md), and [Neutral Slime](Neutral-slime.md).
 
+## Concept Drawing
+
+![Aggressive Slime bestiary entry](../Assets/Creatures/Bestiary/aggressive-slime-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

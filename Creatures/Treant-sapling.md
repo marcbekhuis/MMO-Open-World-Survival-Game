@@ -20,6 +20,10 @@ A harvesting crew working the rare reagents of the Ancient Forest finds, three m
 
 See also: [Creatures index](../Creatures.md), the [Treant](Treant.md) hub, the [Treant Guardian](Treant-guardian.md), the [Treant Elder](Treant-elder.md), and the [Ancient Forest](../Biomes/Ancient-forest.md).
 
+## Concept Drawing
+
+![Treant Sapling bestiary entry](../Assets/Creatures/Bestiary/treant-sapling-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

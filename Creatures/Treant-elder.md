@@ -20,6 +20,10 @@ A guild's careless fire has burned a corner of the Ancient Forest, and a grove t
 
 See also: [Creatures index](../Creatures.md), the [Treant](Treant.md) hub, the [Treant Sapling](Treant-sapling.md), the [Treant Guardian](Treant-guardian.md), and the [Ancient Forest](../Biomes/Ancient-forest.md).
 
+## Concept Drawing
+
+![Treant Elder bestiary entry](../Assets/Creatures/Bestiary/treant-elder-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

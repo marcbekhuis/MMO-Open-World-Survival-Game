@@ -22,6 +22,10 @@ A prospecting crew finds a rich seam on a pass and camps beside it, only to watc
 
 See also: [Creatures index](../Creatures.md), the [Stone Giant](Stone-giant.md) hub, the [Adult Stone Giant](Adult-stone-giant.md) it becomes, the [Elder Stone Giant](Elder-stone-giant.md), the [Building System](../Building-system.md) for climbing platforms, and the [Mountain Range](../Biomes/Mountain-range.md).
 
+## Concept Drawing
+
+![Young Stone Giant bestiary entry](../Assets/Creatures/Bestiary/young-stone-giant-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

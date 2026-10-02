@@ -34,7 +34,7 @@ Leave out lore, story, and gameplay numbers that have no visual form. If the fil
 
 ## Species Hubs and Tiers
 
-Some species are split into a hub file and tier files: [Treant](../../../../Creatures/Treant.md) (Sapling, Guardian, Elder), [Stone Giant](../../../../Creatures/Stone-giant.md) (Young, Adult, Elder), and [Slime](../../../../Creatures/Slime.md) (Passive, Neutral, Aggressive). Each species gets one plate, stored under the hub's slug and embedded in the hub file. Its main portrait shows the middle tier (Treant Guardian, Adult Stone Giant, Neutral Slime), and the right page lines up all three tiers side by side at true relative scale with a human silhouette, built from each tier file. Tier files do not get their own plates unless the user asks for them.
+Some species are split into a hub file and tier files: [Treant](../../../../Creatures/Treant.md) (Sapling, Guardian, Elder), [Stone Giant](../../../../Creatures/Stone-giant.md) (Young, Adult, Elder), and [Slime](../../../../Creatures/Slime.md) (Passive, Neutral, Aggressive). The hub plate is stored under the hub's slug and embedded in the hub file. Its main portrait shows the middle tier (Treant Guardian, Adult Stone Giant, Neutral Slime), and the right page lines up all three tiers side by side at true relative scale with a human silhouette, built from each tier file. Each tier file also gets its own full plate, built from that tier file alone, with the tier as the main portrait and right-page sketches of what is specific to it. A tier plate is drawn in the same adventurer hand as its hub, as if the same researcher studied the whole family, so the four plates of a species read as one set.
 
 ## Style Contract
 
@@ -75,5 +75,14 @@ Only the adventurer hand, the mood, and the palette accents are fixed here, so t
 | Titan Turtle (`Titan-turtle.md`) | `titan-turtle-bestiary.png` | Cartographer | Mythic patience and living landscape; moss green, earth brown, pond blue; a settlement on the shell for scale |
 | Treant (`Treant.md` hub) | `treant-bestiary.png` | Patient druid | Old forest watcher; bark browns, moss greens, green-gold magic |
 | Wolf (`Wolf.md`) | `wolf-bestiary.png` | Rugged hunter | Grounded forest danger; charcoal grey, pine green, muted brown, yellow eye glints |
+| Treant Sapling (`Treant-sapling.md`) | `treant-sapling-bestiary.png` | Patient druid (as Treant) | Quick, watchful canopy shadow; young bark greens, leaf light |
+| Treant Guardian (`Treant-guardian.md`) | `treant-guardian-bestiary.png` | Patient druid (as Treant) | Roused protector on the forest floor; dark furrowed bark, moss, glowing sap |
+| Treant Elder (`Treant-elder.md`) | `treant-elder-bestiary.png` | Patient druid (as Treant) | Ancient presence among giant trunks; deep shadow, moving roots, green-gold magic |
+| Young Stone Giant (`Young-stone-giant.md`) | `young-stone-giant-bestiary.png` | Miner-surveyor (as Stone Giant) | Restless young force near a mining camp; fresh-cut stone, bright crystals |
+| Adult Stone Giant (`Adult-stone-giant.md`) | `adult-stone-giant-bestiary.png` | Miner-surveyor (as Stone Giant) | High mountain force; slate grey, granite brown, crystal glow |
+| Elder Stone Giant (`Elder-stone-giant.md`) | `elder-stone-giant-bestiary.png` | Miner-surveyor (as Stone Giant) | A ridge that stands up; weathered strata, alpine moss, deep crystal light |
+| Passive Slime (`Passive-slime.md`) | `passive-slime-bestiary.png` | Eccentric alchemist (as Slime) | Harmless curiosity in the grass; cool translucent blue and green |
+| Neutral Slime (`Neutral-slime.md`) | `neutral-slime-bestiary.png` | Eccentric alchemist (as Slime) | Wary, provoked defender; warm amber layers, slow bubbles |
+| Aggressive Slime (`Aggressive-slime.md`) | `aggressive-slime-bestiary.png` | Eccentric alchemist (as Slime) | Siege-scale hazard; opaque red, black core, corrosion fumes |
 
 When a new creature file is added, add a row here with an adventurer hand not yet used by its neighbours.

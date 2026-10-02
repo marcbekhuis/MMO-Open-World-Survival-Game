@@ -22,6 +22,10 @@ A caravan route through a high pass runs beneath a ridge that has started to mov
 
 See also: [Creatures index](../Creatures.md), the [Stone Giant](Stone-giant.md) hub, the [Young Stone Giant](Young-stone-giant.md) it grows from, the [Elder Stone Giant](Elder-stone-giant.md) it grows into, the [Building System](../Building-system.md) for climbing platforms, and the [Mountain Range](../Biomes/Mountain-range.md).
 
+## Concept Drawing
+
+![Adult Stone Giant bestiary entry](../Assets/Creatures/Bestiary/adult-stone-giant-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

@@ -20,6 +20,10 @@ Two hunters tracking a wounded deer into a forest hollow find the carcass alread
 
 See also: [Creatures index](../Creatures.md), [Slime](Slime.md), [Passive Slime](Passive-slime.md), [Aggressive Slime](Aggressive-slime.md), and the [Forest](../Biomes/Forest.md) where it feeds.
 
+## Concept Drawing
+
+![Neutral Slime bestiary entry](../Assets/Creatures/Bestiary/neutral-slime-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

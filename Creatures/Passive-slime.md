@@ -18,6 +18,10 @@ A seed-trader camped on the plains keeps losing the scraps he leaves at the edge
 
 See also: [Creatures index](../Creatures.md), [Slime](Slime.md), [Neutral Slime](Neutral-slime.md), [Aggressive Slime](Aggressive-slime.md), and the [Plains](../Biomes/Plains.md) where it creeps.
 
+## Concept Drawing
+
+![Passive Slime bestiary entry](../Assets/Creatures/Bestiary/passive-slime-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

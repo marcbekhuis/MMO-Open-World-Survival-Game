@@ -59,6 +59,39 @@ drive it deliberately rather than guessing:
    inventory, reputation, and the economy. Update every affected file in the same pass so nothing drifts
    out of step.
 
+### Large passes across many files
+
+A pass that reviews or rewrites a whole domain (every creature, every biome) follows a fixed loop. It
+worked well and the user expects it:
+
+1. **Review before deciding.** Read the files in batches against one written brief with a fixed
+   findings format (verdict, then issues ranked by importance with a concrete improvement each). Then
+   compare across files yourself: sizes that do not fit together, overlapping roles, contradictions
+   between a creature and its biome. Present one consolidated opinion with a suggested order of work.
+2. **Decide in rounds.** Put genuine forks to the user as multiple-choice questions with a recommended
+   option and the reason. Put numeric or descriptive values (sizes, body plans, encounter summaries) as
+   one proposal table the user approves or edits, rather than one question per value. Follow what the
+   user's answer actually says, including answers that reshape the question (a "which tier is right"
+   question can turn into "split it into files").
+3. **Keep a decisions log.** Record every answer in a decisions file in the session's scratch space as
+   it comes in. That file is the binding brief for whoever writes the files.
+4. **Write in non-overlapping groups.** When the work is split across parallel workers, give each worker
+   a disjoint set of files so no two edit the same file. Shared files (indexes such as
+   [Creatures.md](../../../Creatures.md), README, these instructions) stay with the coordinating session.
+   Every worker gets the same writing brief, which points at SHARED-INSTRUCTIONS, the templates, and the
+   decisions log rather than restating them.
+5. **Verify twice, then fix.** Run the doc audit for structure, links, say-it-once, and style, and run a
+   separate check of every changed file against the decisions log. Fix the findings in a second round,
+   then read the most judgement-heavy files yourself.
+6. **Never invent silently.** Any rule a writer added that the user did not decide is listed under
+   "Open questions" in [Design-backlog.md](../../../Design-backlog.md) for the user to confirm or change,
+   and is cleared once they answer.
+7. **Leave the commit to the user.** Commit nothing; the user reviews the diff. End with a summary of
+   what changed, what is still open, and where it is parked.
+
+The project's `doc-auditor` agent is read-only and cannot write files, so ask it to return its findings
+in its reply instead of saving a report; save the report yourself if it needs to survive.
+
 ## Adding a new document
 
 1. Choose the matching template from [references/templates.md](references/templates.md) — system or hub,

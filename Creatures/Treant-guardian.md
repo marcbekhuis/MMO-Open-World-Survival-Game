@@ -20,6 +20,10 @@ A settlement wants a road cut through the edge of the Ancient Forest to reach a 
 
 See also: [Creatures index](../Creatures.md), the [Treant](Treant.md) hub, the [Treant Sapling](Treant-sapling.md), the [Treant Elder](Treant-elder.md), and the [Ancient Forest](../Biomes/Ancient-forest.md).
 
+## Concept Drawing
+
+![Treant Guardian bestiary entry](../Assets/Creatures/Bestiary/treant-guardian-bestiary.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

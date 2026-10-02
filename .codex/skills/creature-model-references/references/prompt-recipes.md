@@ -124,7 +124,7 @@ Consolidated prompt. The accepted image came from several rounds in one conversa
 ```text
 Create an image: a photorealistic 3D creature reference for a game model. It will be fed into an image-to-3D generator, so it must show one creature, full body, clearly readable, on a plain background.
 
-Subject: the Royal Dragon, a massive, heavy wyvern.
+Subject: the Royal Dragon, a massive, heavily muscled wyvern built like a predator, never fat.
 
 Anatomy (most important, follow exactly):
 - Exactly four limbs: two thick hind legs and two wings. The wings are its only front limbs, like a bat or a pterosaur; no arms and no separate front legs.
