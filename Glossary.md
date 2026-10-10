@@ -78,7 +78,9 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Corpse run** — the trip a player makes back to their corpse to recover what they dropped on death, before the recovery window closes or another player reaches it first. See [Death and loss](Death-and-loss.md).
 
-**Recovery window** — the period for which a fallen player's corpse persists in the world so that it can be reclaimed. The corpse run is the race to reach the corpse within this window, against the wear on equipment, the perishables the world claims meanwhile, and any player who finds the body first. See [Death and loss](Death-and-loss.md).
+**Recovery window** — the period for which a fallen player's corpse persists in the world so that it can be reclaimed. The corpse run is the race to reach the corpse within this window, against the wear on equipment, the perishables the world claims meanwhile, and any player who finds the body first. Whatever is still on the corpse when the window closes is destroyed. See [Death and loss](Death-and-loss.md).
+
+**Sleeping character** — a character whose player has logged out or disconnected outside the safe area of an NPC city. It stays where it stood for as long as the player is away and can be killed and looted like any other body. See [Death and loss](Death-and-loss.md#logging-out).
 
 **Sink** — any mechanism that permanently removes currency or goods from the economy, such as repair, upkeep, taxes, tolls, and loss on death, used to counter the inflation a persistent world would otherwise suffer. See [Economy and trade](Economy.md).
 
@@ -108,7 +110,7 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Bonding** — the control a player keeps over a tamed creature, which must be actively maintained rather than granted permanently by taming. There are three methods: slave bonding forces obedience through coercion and is the easiest and most dangerous, parental bonding raises a creature from birth or near birth and gives the strongest control, and trust bonding earns a wild creature's trust through consistent care and is the slowest. See [Taming and control](Taming-and-control.md).
 
-**Bond strength** — how firmly a creature is under its handler's control. The stronger the bond, the better the creature answers commands and the more readily it follows guidance into danger it would otherwise refuse, while a fraying bond leaves its own instincts in charge. See [Taming and control](Taming-and-control.md).
+**Bond strength** — how firmly a creature is under its handler's control. The stronger the bond, the better the creature answers commands and the more readily it follows guidance into danger it would otherwise refuse, while a fraying bond leaves its own instincts in charge. A bond holds steady only in a stable stocked with food; elsewhere, time away weakens it slowly but never breaks it while the owner is offline. See [Taming and control](Taming-and-control.md#bonds-while-away).
 
 **Mana** — the magical force that casters spend and that quickens the world's elder creatures. It wells from the living world itself rather than from the gods, and it is the resource that gates spellcasting and spells such as the Item Box. See [Setting and lore](Setting-and-lore.md) and [Magic](Magic.md).
 

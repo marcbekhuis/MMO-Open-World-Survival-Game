@@ -6,9 +6,12 @@ Slave bonding is the easiest yet most dangerous method of controlling a creature
 Parental bonding offers the strongest control over a creature but is also the most challenging method. To achieve this, players must raise a creature from birth or near birth. This can be done by breeding creatures under the player’s control (requiring creatures of both genders) or by obtaining wild eggs or baby creatures (for mammals).
 <!-- REVIEW(producer): Taming is a full simulation subsystem on one page (three bonding methods, breeding/genetics, self-preserving mount AI) — state its minimum launch form (one method, no breeding, guided-AI mounts) and what's post-launch, or cost it as the major system it is. -->
 While creatures raised this way build a deep bond with the player, maintaining their trust is crucial. If neglected, they can revert to their wild instincts and break free from the player's control.
-<!-- REVIEW(design-peer): It's unstated whether being offline counts as neglect — if real-time absence degrades a bond, a player could lose their hardest-won flying mount just by not logging in. Define bond maintenance across offline time and what a lapsed bond costs (temporary disobedience vs permanent loss). -->
 ## Trust Bonding
 Trust bonding is the slowest method but allows players to tame wild creatures without resorting to harmful tactics. This process requires players to earn the creature’s trust over time through consistent care, such as proper feeding and avoiding overly dangerous situations. Even after trust is established, players must continue nurturing the bond to keep the creature under their control.
+
+## Bonds While Away
+
+A creature's bond only holds steady in a stable. A stable at the owner's base, kept stocked with enough food for its creatures to last several days, holds every bond inside it exactly as it was for as long as the stores last, so a player can leave for a week without losing a mount they spent months raising. Once the stores run out, or for any creature left outside a stable, time away counts as neglect: the bond weakens slowly, first into hesitation and then into open disobedience, but it never breaks entirely while the owner is offline. A returning player may find a creature that will no longer follow them into danger and has to earn its trust again, but they will not find it gone. Stables are part of the [Building System](Building-system.md), and keeping one stocked is one of the standing costs of keeping creatures at all.
 
 ## Creature Riding
 

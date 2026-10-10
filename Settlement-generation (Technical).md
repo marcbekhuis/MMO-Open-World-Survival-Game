@@ -204,21 +204,34 @@ struct FLotState
     ELotBuildState BuildState = ELotBuildState::Intact;
     float Health = 1.f;               // 0..1
     float StageProgress = 0.f;        // 0..1 within the current rebuild stage
-    int32 Staff = 0;                  // filled service posts
+};
+
+struct FResidentState
+{
+    uint32 ResidentId = 0;            // unique within the settlement, never reused
+    uint16 HomeLot = 0;
+    uint16 WorkLot = 0;               // 0 when the resident holds no post
+    FName Role;                       // Gameplay Tag name: Role.Baker, Role.Guard, Role.Farmer, Role.Labourer
+    FName Schedule;                   // routine asset id: when the resident is at home, at work, or in the street
+    uint32 AppearanceSeed = 0;        // drives the generated look, so the same person always looks the same
 };
 
 struct FSettlementState
 {
     FName SettlementId;
     uint64 WorldSeed = 0;
-    double Residents = 0.0;           // fractional so slow growth accumulates between updates
+    TArray<FResidentState> Residents; // sorted by ResidentId
+    uint32 NextResidentId = 1;
+    double ArrivalProgress = 0.0;     // fractional newcomers accumulated between updates
     double LastSimulatedTime = 0.0;   // settlement clock, in in-game days
     double LastRaidTime = -1.0e9;
     TArray<FLotState> Lots;           // sorted by LotId
 };
 ```
 
-Gameplay Tags are registered by name rather than by a stable number, and primary asset ids are type-and-name pairs, so both are persisted in their text form. Only the replicated copy, described in [section 7.2](#72-replication), uses compact indices. In the [world state database](<Server-architecture (Technical).md#3-master-server-implementation>) each lot becomes one row keyed by world, settlement, and lot, which keeps a raid's changes to a handful of small updates in the [delta stream](<Server-architecture (Technical).md#81-delta-state-updates>).
+A lot's staff is not stored on the lot; it is the set of residents whose `WorkLot` points at it, so a death or an arrival updates the service it affects without a second record to keep in step.
+
+Gameplay Tags are registered by name rather than by a stable number, and primary asset ids are type-and-name pairs, so both are persisted in their text form. Only the replicated copy, described in [section 7.2](#72-replication), uses compact indices. In the [world state database](<Server-architecture (Technical).md#3-master-server-implementation>) each lot and each resident becomes one row keyed by world, settlement, and lot or resident id — around ten thousand resident rows for the largest great city — which keeps a raid's changes to a handful of small updates in the [delta stream](<Server-architecture (Technical).md#81-delta-state-updates>).
 
 ## 3. Seeds and Weighted Rolls
 
@@ -306,6 +319,7 @@ The first roll assigns functions to the whole settlement at once, because quotas
 3. **Quota fill.** While any function still has buildings outstanding, take the function with the largest outstanding count, breaking ties by tag name, and place it on one free lot whose shape can hold it. The lot is a weighted pick over its position affinity and a spread penalty.
 4. **Leftovers.** Every lot still free takes its shape's default function, normally a dwelling.
 5. **Style and variant.** For every non-landmark lot, pick a style from those the shape lists for the lot's function, filtered to the settlement's people, then a variant from that style, each from its own stream.
+6. **Residents.** Create the blueprint's target residents one by one through the same `AddNewcomer` routine that repopulation uses (section 5.1), so every post is staffed and every resident has a home before the settlement first opens.
 
 ```cpp
 void FSettlementRoller::AssignFunctions(FSettlementState& State, const USettlementBlueprint& Blueprint,
@@ -373,7 +387,7 @@ Housing is checked after the roll rather than enforced during it: the sum of `Ho
 
 ### 5.1 Recovery Toward the Target
 
-Residents recover exponentially toward the target, so a settlement that has lost half its people regains most of them quickly and the last few slowly, which matches how the specification describes a city filling back up. The rate is the product of a base rate and three factors between 0 and 1.
+The settlement's population recovers exponentially toward the target, so a settlement that has lost half its people regains most of them quickly and the last few slowly, which matches how the specification describes a city filling back up. The curve decides how many newcomers arrive; each newcomer is then created as an individual resident. The rate is the product of a base rate and three factors between 0 and 1.
 
 - **Food** is the share of the blueprint's supplying settlements, its farming hamlets, that are standing and populated, blended with the settlement's own food stores. A city whose hamlets have been burnt recovers slowly.
 - **Safety** rises from 0 back to 1 over the days since the settlement was last raided, so a settlement under repeated attack stays depleted.
@@ -394,32 +408,43 @@ void FSettlementSimulator::Advance(FSettlementState& State, const USettlementBlu
         const double Safety = 1.0 - FMath::Exp(-(State.LastSimulatedTime - State.LastRaidTime)
                                                / Blueprint.Repopulation.SafetyRecoveryDays); // 0..1
         const double Rate = Blueprint.Repopulation.BaseRatePerDay * Food * Safety;
+        const double Current = State.Residents.Num() + State.ArrivalProgress;
 
-        if (State.Residents < Target)
+        if (Current < Target)
         {
             // Closed-form exponential approach: R(t) = Target - (Target - R0) * e^(-Rate * t)
-            State.Residents = Target - (Target - State.Residents) * FMath::Exp(-Rate * Step);
+            const double Next = Target - (Target - Current) * FMath::Exp(-Rate * Step);
+            State.ArrivalProgress += Next - Current;
+
+            FRandomStream Stream = MakeArrivalStream(State);   // keyed on settlement and NextResidentId
+            while (State.ArrivalProgress >= 1.0)
+            {
+                AddNewcomer(State, Blueprint, Stream);         // takes a vacant post first, then a free home
+                State.ArrivalProgress -= 1.0;
+            }
         }
         else
         {
-            State.Residents = Target;   // housing lost to collapse displaces the surplus
+            DisplaceHomeless(State);   // housing lost to collapse sends residents away, newest first
+            State.ArrivalProgress = 0.0;
         }
 
-        RefillStaff(State, Rate, Step);
         State.LastSimulatedTime += Step;
     }
 }
 ```
 
+`AddNewcomer` creates one `FResidentState` with the next resident id. It first looks for the service post furthest below its staffing, in quota order, and assigns the newcomer that role and workplace; only when every post is filled does it create an ordinary resident with a labouring or farming role. It then houses them in the dwelling with the most free capacity nearest their workplace, and gives them the schedule for their role and a fresh appearance seed. Arrivals are random only through the arrival stream, so the same settlement state always produces the same newcomers.
+
 ### 5.2 Staff and Open Services
 
-Service posts refill before the general population, at a faster rate and in a fixed priority set by the quotas, so a settlement that has lost its only baker gets a new one before it gets back its last few dwellers. A service is open only when its building is `Intact` and its `Staff` meets the variant's `StaffRequired`. A damaged building is closed until it is repaired, as [Raids and Conquest](Raids.md) requires.
+Service posts refill before the general population, because `AddNewcomer` fills vacant posts first, and a resident without a post can also be promoted into one at `StaffRefillRatePerDay`, which models an apprentice stepping up faster than strangers arrive. A settlement that has lost its only baker therefore gets a new one before it gets back its last few dwellers. A service is open only when its building is `Intact` and the residents working there meet the variant's `StaffRequired`. A damaged building is closed until it is repaired, as [Raids and Conquest](Raids.md) requires.
 
-Deaths go the other way: when a raid kills residents, the server subtracts them from `Residents`, and any killed staff member also lowers the `Staff` count of their lot. NPC children are not part of the casualty model, in line with [Content and Tone](Content-and-tone.md).
+Deaths go the other way: when a raid kills a resident, the server removes that resident's record, which empties a post if they held one and frees a place in their home. NPC children are not part of the casualty model, in line with [Content and Tone](Content-and-tone.md).
 
-### 5.3 Visible People
+### 5.3 Simulation Levels
 
-`Residents` is a number. The actors a player sees are derived from it: one staff actor per filled post at each open service, the guards the settlement's patrols call for, and an ambient crowd whose size is a fraction of `Residents` scaled by time of day. Only the server spawns them, and only near players, through the visibility rules of the [Replication Graph](<Server-architecture (Technical).md#5-replication-graph-visibility-driven-sync>), so a great city of several thousand residents costs the servers the few dozen people actually in view.
+Residents exist at two levels of detail. Away from players, a resident is only their record: their position is derived on demand from their schedule and the settlement clock — at home, at work, or on the street between the two — and nothing runs per resident between updates. Near a player, the server spawns the resident as an actor at the place their schedule puts them, and from then on they walk, work, and react as a full NPC, including fleeing or fighting during a raid. When no player is near any more, the actor is removed and only the facts that matter are written back: whether the resident is still alive, and anything that changed their home, post, or role. Only the server spawns these actors, and only within the visibility rules of the [Replication Graph](<Server-architecture (Technical).md#5-replication-graph-visibility-driven-sync>), so a great city of several thousand residents costs the servers the few dozen people actually in view while every one of them remains a specific person.
 
 ## 6. Damage, Collapse, and Rebuilding
 
@@ -465,7 +490,7 @@ void FSettlementRoller::RerollLot(FSettlementState& State, const USettlementBlue
     RollStyleAndVariant(State, Blueprint, Shape, Lot);   // Style and Variant streams, same key with their own level
     Lot.BuildState = ELotBuildState::Scaffolding;
     Lot.StageProgress = 0.f;
-    Lot.Staff = 0;
+    ReleaseWorkers(State, Lot.LotId);   // residents who worked here lose their post and become ordinary residents
 }
 ```
 
