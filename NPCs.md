@@ -22,7 +22,7 @@ NPCs share the player races' visual language so they feel like part of the same 
 
 ## Continue Reading
 
-Continue with [Structures](Structures.md) for the settlements NPCs inhabit, [Quest System](Quests.md) for the work they offer, [Economy and Trade](Economy.md) for the markets they anchor, [Guilds and Factions](Guilds-and-factions.md) for the organisations their representatives serve, and [Conflict and PvP](Conflict-and-pvp.md) for the guards who hold the safe cities.
+Continue with [Structures](Structures.md) for the settlements NPCs inhabit, [Settlement Generation](Settlement-generation.md) for how their numbers are tracked and recover after losses, [Quest System](Quests.md) for the work they offer, [Economy and Trade](Economy.md) for the markets they anchor, [Guilds and Factions](Guilds-and-factions.md) for the organisations their representatives serve, and [Conflict and PvP](Conflict-and-pvp.md) for the guards who hold the safe cities.
 
 ## Draft
 

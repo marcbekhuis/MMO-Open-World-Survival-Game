@@ -24,7 +24,7 @@ Raids should make territory feel alive without making every structure disposable
 
 ## Continue Reading
 
-Continue with [Building System](Building-system.md), [Reputation System](Reputation-system.md), [Guilds and Factions](Guilds-and-factions.md), [Death and Loss](Death-and-loss.md), and [Structures](Structures.md).
+Continue with [Building System](Building-system.md), [Reputation System](Reputation-system.md), [Guilds and Factions](Guilds-and-factions.md), [Death and Loss](Death-and-loss.md), [Structures](Structures.md), and [Settlement Generation](Settlement-generation.md) for how a raided settlement repopulates and rebuilds.
 
 ## Draft
 

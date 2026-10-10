@@ -30,6 +30,16 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Settlement** — any inhabited place along the scale from a temporary camp to a fortified town, player-built or pre-placed. Settlements are gathered under [Structures](Structures.md).
 
+**Settlement blueprint** — the dataset behind an NPC settlement: its layout, people and realm, settlement type, target residents, housing capacity, and service quotas. See [Settlement generation](Settlement-generation.md).
+
+**Lot** — a building plot in a settlement layout, carrying a fixed building shape. A landmark lot never changes; a function-pinned lot keeps its purpose but rolls its look; every other lot rolls freely. See [Settlement generation](Settlement-generation.md#fixed-layout-rolled-buildings).
+
+**Shape, function, style, variant** — the four levels a building on a lot is chosen in: the fixed massing, then what the building is for, then how its people dress it, then the small details such as doors, interior layout, roof additions, alleys, and underpasses. Each level may not change what the level above has fixed. See [Settlement generation](Settlement-generation.md#the-building-blueprint-hierarchy).
+
+**Service quota** — the share of residents one building of a function serves, with the minimum and maximum a settlement holds. See [Settlement generation](Settlement-generation.md#the-settlement-blueprint).
+
+**World seed** — the value a game world receives at creation, from which every settlement roll in that world follows. See [Settlement generation](Settlement-generation.md#rolling-a-settlement).
+
 **Outpost** — a small, often hidden foothold that provides safety and limited services away from the great cities, well suited to solo players and frontier groups.
 
 **Guild hall** — a group's home structure and organizing point for shared activity, territory, and identity.

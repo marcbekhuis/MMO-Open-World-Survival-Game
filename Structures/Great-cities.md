@@ -32,7 +32,7 @@ Each great city has at least one dominant landmark that players use for navigati
 
 ## Continue Reading
 
-See also: [Structures index](../Structures.md), [Human settlements](Human-settlements.md), [Elven settlements](Elven-settlements.md), [Dwarven settlements](Dwarven-settlements.md), and the [Human](../Races/Human.md), [Elf](../Races/Elf.md), and [Dwarf](../Races/Dwarf.md) races whose starting areas they host.
+See also: [Structures index](../Structures.md), [Settlement Generation](../Settlement-generation.md) for how a great city's buildings are rolled and rebuilt, [Human settlements](Human-settlements.md), [Elven settlements](Elven-settlements.md), [Dwarven settlements](Dwarven-settlements.md), and the [Human](../Races/Human.md), [Elf](../Races/Elf.md), and [Dwarf](../Races/Dwarf.md) races whose starting areas they host.
 
 ## Draft
 

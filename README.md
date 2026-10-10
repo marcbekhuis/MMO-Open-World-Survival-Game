@@ -89,6 +89,8 @@ The game is funded by a single subscription, with no box price and nothing that 
 - [Taming and Control](Taming-and-control.md)
 - [Travel and Mounts](Travel-and-mounts.md)
 - [Structures](Structures.md)
+- [Settlement Generation](Settlement-generation.md)
+- [Settlement Generation (Technical)](<Settlement-generation (Technical).md>)
 - [Server Settings](Server-settings.md)
 - [Server Architecture](Server-architecture.md)
 - [Server Architecture (Technical)](<Server-architecture (Technical).md>)

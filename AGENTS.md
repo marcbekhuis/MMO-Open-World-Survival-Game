@@ -34,7 +34,7 @@ Before writing in a domain, read the files that hold its load-bearing context, p
 | Creatures | [Creatures.md](Creatures.md), the creature's biomes, [Art Direction](Art-direction.md), [Taming and Control](Taming-and-control.md), [Wolf](Creatures/Wolf.md) as a model entry |
 | Biomes | [World Design](World.md), [Art Direction](Art-direction.md), [Weather, Time, and Seasons](Weather-time-and-seasons.md), [Survival](Survival.md), the biome's creature files |
 | Magic and spells | [Magic.md](Magic.md), [Setting and Lore](Setting-and-lore.md) for where magic comes from, two sibling spells |
-| Races and settlements | [Races.md](Races.md), [Structures.md](Structures.md), [Great cities](Structures/Great-cities.md), [Guilds and Factions](Guilds-and-factions.md) |
+| Races and settlements | [Races.md](Races.md), [Structures.md](Structures.md), [Great cities](Structures/Great-cities.md), [Settlement Generation](Settlement-generation.md), [Guilds and Factions](Guilds-and-factions.md) |
 | Combat, loss, economy | [Conflict and PvP](Conflict-and-pvp.md), [Death and Loss](Death-and-loss.md), [Economy and Trade](Economy.md), [Reputation System](Reputation-system.md) |
 | Servers and technology | both server-architecture documents, [Server Settings](Server-settings.md), [Dynamic Culling](Dynamic-culling-and-render-distance.md) |
 
@@ -104,7 +104,7 @@ Two working files carry context between sessions, since assistants do not share 
 
 ## Two server-architecture documents (keep distinct)
 
-The server design is split across two documents that must not be conflated. [Server-architecture.md](Server-architecture.md) is the conceptual design spec — prose describing the cluster model of 1 km² regions, the division of labour between the Master Server and the Cluster Unit Servers, visibility-driven synchronisation, and seamless region handoff, with no code. Its companion, [Server-architecture (Technical).md](<Server-architecture (Technical).md>), is the Unreal Engine 5 implementation guide that realises the spec in concrete C++, INI, YAML, and Dockerfile snippets covering World Partition, the Replication Graph, the ghost-entity protocol, and orchestration through GameLift or Kubernetes. The technical document is meant to track the spec, so whenever a concept in the spec changes — region size or synchronisation rules, for instance — update the corresponding section of the technical guide to keep the two consistent.
+The server design is split across two documents that must not be conflated. [Server-architecture.md](Server-architecture.md) is the conceptual design spec — prose describing the cluster model of 1 km² regions, the division of labour between the Master Server and the Cluster Unit Servers, visibility-driven synchronisation, and seamless region handoff, with no code. Its companion, [Server-architecture (Technical).md](<Server-architecture (Technical).md>), is the Unreal Engine 5 implementation guide that realises the spec in concrete C++, INI, YAML, and Dockerfile snippets covering World Partition, the Replication Graph, the ghost-entity protocol, and orchestration through GameLift or Kubernetes. The technical document is meant to track the spec, so whenever a concept in the spec changes — region size or synchronisation rules, for instance — update the corresponding section of the technical guide to keep the two consistent. [Settlement Generation](Settlement-generation.md) and its technical companion are a second pair under the same rule.
 
 ## Cross-linking conventions
 

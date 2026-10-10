@@ -28,7 +28,7 @@ Settlement scale changes both function and atmosphere. A farming hamlet offers l
 
 ## Continue Reading
 
-Continue with [Great cities](Structures/Great-cities.md), [Building System](Building-system.md), [World Design](World.md), and [Setting and Lore](Setting-and-lore.md) for the realms and the frontier these settlements belong to.
+Continue with [Great cities](Structures/Great-cities.md), [Settlement Generation](Settlement-generation.md) for how NPC settlements are assembled, populated, and rebuilt, [Building System](Building-system.md), [World Design](World.md), and [Setting and Lore](Setting-and-lore.md) for the realms and the frontier these settlements belong to.
 
 ## Draft
 
