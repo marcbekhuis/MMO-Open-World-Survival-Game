@@ -11,15 +11,15 @@ Early construction uses simple stick, thatch, hide, and rough timber pieces. The
 
 ## Environmental Adaptation
 
-Buildings must suit their biome or suffer penalties. A design that works in dry plains may rot in rain-heavy jungle, collapse under mountain snow, or flood in a swamp. This makes material choice and location part of settlement strategy rather than decoration.
+Buildings must suit their biome or suffer penalties. A design that works in dry [plains](Biomes/Plains.md) may rot in rain-heavy [jungle](Biomes/Jungle.md), collapse under mountain snow, or flood in a swamp. This makes material choice and location part of settlement strategy rather than decoration.
 
 | Biome | Challenge | Adaptive Solution |
 |---|---|---|
-| Frozen Tundra | Cold, ice, snow loads | Insulated structures, heated foundations |
-| Scorching Desert | Heat, sandstorms | Reflective surfaces, hardened walls |
-| Rainforest | Rain, rot, dense foliage | Elevated platforms, treated wood |
-| Mountain Range | Avalanches, exposed cliffs | Reinforced anchoring, wind-resistant design |
-| Swamp | Flooding, decay | Raised floor systems, waterproof materials |
+| [Tundra](Biomes/Tundra.md) | Cold, ice, snow loads | Insulated structures, heated foundations |
+| [Scorching Desert](Biomes/Scorching-desert.md) | Heat, sandstorms | Reflective surfaces, hardened walls |
+| [Jungle](Biomes/Jungle.md) | Rain, rot, dense foliage | Elevated platforms, treated wood |
+| [Mountain Range](Biomes/Mountain-range.md) | Avalanches, exposed cliffs | Reinforced anchoring, wind-resistant design |
+| [Swamp](Biomes/Swamp.md) | Flooding, decay | Raised floor systems, waterproof materials |
 
 ## Durability And Support
 

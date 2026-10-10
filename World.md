@@ -21,7 +21,7 @@ The world should feel alive. Wildlife reacts to danger and player presence, NPC 
 
 ## Continue Reading
 
-Continue with [Biomes](Biomes/Ancient-forest.md), [Creatures](Creatures.md), and [Server Architecture](Server-architecture.md).
+Continue with [Biomes](Biomes/Ancient-forest.md), [Creatures](Creatures.md), [Structures](Structures.md), [Conflict and PvP](Conflict-and-pvp.md), and [Server Architecture](Server-architecture.md).
 
 ## Draft
 

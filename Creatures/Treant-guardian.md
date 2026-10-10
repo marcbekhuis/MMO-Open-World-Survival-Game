@@ -1,6 +1,6 @@
 # Treant Guardian
 
-When a warning in the Ancient Forest goes unheeded, the Treant Guardian comes down out of the trunks to drive the offender out. It is the middle tier of [Treant](Treant.md) and the one that does the fighting: 3 to 5 metres tall, between one and two tonnes, walking the forest floor on two root-legs, with two bough-arms that can sweep a party off its feet.
+When a warning in the [Ancient Forest](../Biomes/Ancient-forest.md) goes unheeded, the Treant Guardian comes down out of the trunks to drive the offender out. It is the middle tier of [Treant](Treant.md) and the one that does the fighting: 3 to 5 metres tall, between one and two tonnes, walking the forest floor on two root-legs, with two bough-arms that can sweep a party off its feet.
 
 ## Appearance and Visual Design
 

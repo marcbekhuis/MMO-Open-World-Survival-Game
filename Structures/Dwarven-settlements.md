@@ -12,7 +12,7 @@ At the heart of every major dwarven settlement is a forge district. These forges
 
 ## Starting Experience
 
-Players who choose dwarves begin near deep gates, forge halls, training pits, and mining routes. Early quests can teach endurance, heavy armour, mining, crafting, tunnel navigation, and the importance of preparation before entering exposed mountain passes or deep caves.
+Players who choose dwarves begin in one of the dwarven great cities, each a forge-city behind the deep gates of a mountain hold, among forge halls, training pits, and mining routes. What their first districts teach is set out in [Great cities](Great-cities.md).
 
 ## Continue Reading
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Deterministic audit of the Markdown game-design document repository.
 //
-// Checks the conventions from SHARED-INSTRUCTIONS.md that a machine can verify:
+// Checks the conventions from AGENTS.md that a machine can verify:
 // broken relative links, orphaned files, missing Draft appendices, unintegrated
 // Draft notes, missing related-links closers, and emojis. Judgment checks
 // (reciprocal links, voice, single source of truth) belong to the assistant.
@@ -14,7 +14,7 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 
 const PLUMBING = new Set([
-  "README.md", "CLAUDE.md", "AGENTS.md", "SHARED-INSTRUCTIONS.md", "Design-backlog.md",
+  "README.md", "CLAUDE.md", "AGENTS.md", "GEMINI.md", "Design-backlog.md", "GDD-REVIEW.md",
 ]);
 const SKIP_DIRS = new Set([".claude", ".git", ".codex", ".github", "node_modules"]);
 

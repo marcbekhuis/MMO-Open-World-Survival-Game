@@ -33,13 +33,13 @@ Rewards scale with difficulty, distance, risk, and social consequence.
 
 ## Dynamic Quest Availability
 
-Quest availability should depend on location and world state. Urban settlements naturally produce trade requests, local disputes, merchant support work, and service recovery quests. Wilderness areas create hunting, gathering, exploration, survival, and rescue tasks. Sea and sky regions support ocean travel, piracy, merchant encounters, flying creature hunts, and island colonization. Dungeons and caves focus on artifact recovery, ancient ruin exploration, monster extermination, and treasure hunting.
+Quest availability should depend on location and world state. Urban settlements naturally produce trade requests, local disputes, merchant support work, and service recovery quests. Wilderness areas create hunting, gathering, exploration, survival, and rescue tasks. Sea and sky regions support ocean travel, piracy, merchant encounters, flying creature hunts, and island colonization. [Dungeons](Structures/Dungeons.md) and caves focus on artifact recovery, ancient ruin exploration, monster extermination, and treasure hunting.
 
 Dynamic events should interrupt the normal rhythm. A storm can strand traders, a faction war can close a road, a resource boom can draw miners and raiders, and a world invasion can pull nearby settlements into a shared defense.
 
 ## Continue Reading
 
-Continue with [Reputation System](Reputation-system.md), [World Design](World.md), and [Dungeons](Structures/Dungeons.md).
+Continue with [Reputation System](Reputation-system.md), [NPCs](NPCs.md), [Guilds and Factions](Guilds-and-factions.md), [Raids and Conquest](Raids.md), [World Design](World.md), and [Dungeons](Structures/Dungeons.md).
 
 ## Draft
 

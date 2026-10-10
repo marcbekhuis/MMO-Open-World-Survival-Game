@@ -12,7 +12,7 @@ The spell's total strength is distributed across all eligible resources within i
 
 ## World Use
 
-NPC mages can use Nature Growth around starting cities during peak activity to prevent early resource exhaustion. This supports new players in crowded areas while preserving scarcity in remote, dangerous, or high-tier regions.
+[NPC mages](../../../NPCs.md) can use Nature Growth around [great cities](../../../Structures/Great-cities.md) during peak activity to prevent early resource exhaustion. This supports new players in crowded areas while preserving scarcity in remote, dangerous, or high-tier regions.
 
 ## Upgrade Directions
 

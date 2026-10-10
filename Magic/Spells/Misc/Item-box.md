@@ -10,7 +10,7 @@ Together these make the Item Box indispensable to a late-game mage running dange
 
 ## Upgrade Directions
 
-The spell grows through invested spell points, and its upgrades are build choices rather than flat increases. A caster can expand the number of slots the box holds, trading depth in this spell against everything else their points could buy; reduce the spell's continuous mana drain to make long-term storage sustainable; or unlock preservation, which keeps food and other perishables from spoiling inside the box and turns it into the ideal larder for the long survival expeditions of [Survival](../../../Survival.md). Each direction shapes the box toward a different role, the deep vault, the always-on convenience, or the expedition pantry.
+The spell grows through invested upgrade points, and its upgrades are build choices rather than flat increases. A caster can expand the number of slots the box holds, trading depth in this spell against everything else their points could buy; reduce the spell's continuous mana drain to make long-term storage sustainable; or unlock preservation, which keeps food and other perishables from spoiling inside the box and turns it into the ideal larder for the long survival expeditions of [Survival](../../../Survival.md). Each direction shapes the box toward a different role, the deep vault, the always-on convenience, or the expedition pantry.
 
 ## Trade-Offs
 

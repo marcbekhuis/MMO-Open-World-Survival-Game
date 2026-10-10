@@ -1,6 +1,6 @@
 # Project Overview
 
-This repository is a living game-design document for a large-scale, persistent open-world survival RPG built around exploration, settlement building, social conflict, and long-term character growth. The game takes place in a single seamless world where players can leave the safety of capital cities, cross dangerous biomes, build defensible homes, discover hidden ruins, trade with other players, and take part in factional conflict without feeling pushed through isolated levels or short-session arenas.
+This repository is a living game-design document for a large-scale, persistent open-world survival RPG built around exploration, settlement building, social conflict, and long-term character growth. The game takes place in a single seamless world where players can leave the safety of great cities, cross dangerous biomes, build defensible homes, discover hidden ruins, trade with other players, and take part in factional conflict without feeling pushed through isolated levels or short-session arenas.
 
 The intended experience is a survival game with MMO scale and RPG depth, played entirely in first person. Moment-to-moment play should feel grounded and physical, seen through the character's own eyes: players gather resources, manage gear, navigate weather and terrain, fight creatures, and return to settlements with stories worth telling. Over weeks or months, those same actions feed into larger systems: reputations shift, guilds claim territory, settlements grow, trade routes become valuable, and the world remembers what players have changed.
 <!-- REVIEW(investor): No one-line USP — after two minutes a reader retains a stack of genre attributes, not a single reason this exists that Rust/ARK/Valheim/Albion don't. Add a top-of-README sentence stating what this uniquely is and who it's for, plus an "unlike X and Y" positioning line. -->
@@ -21,7 +21,7 @@ The intended experience is a survival game with MMO scale and RPG depth, played 
 
 ## Core Player Loop
 
-Players begin in a race-appropriate capital city where they can [learn the game's basic systems](New-player-experience.md), meet vendors and trainers, accept early quests, and use costly portal travel between major hubs. From there, the loop expands outward:
+Players begin in a race-appropriate [great city](Structures/Great-cities.md) where they can [learn the game's basic systems](New-player-experience.md), meet vendors and trainers, accept early quests, and use costly portal travel between major hubs. From there, the loop expands outward:
 
 1. Prepare gear, supplies, party roles, and route information.
 2. Travel into the wilderness to gather resources, hunt creatures, explore landmarks, or pursue quests.
@@ -45,7 +45,7 @@ Encounters should reward preparation and observation. A player who understands t
 
 ## Settlements And Social Play
 
-Capital cities act as safe hubs for early progression, trade, training, portals, and social gathering. [Non-Player Characters](NPCs.md) give those places their daily motion, from merchants and guards to trainers, crafters, and travelling convoys. Smaller settlements, camps, ruins, and dungeons create structure across the wilderness. Player-built settlements should eventually become part of that same landscape, giving groups reasons to defend places, negotiate access, or relocate when pressure becomes too great.
+[Great cities](Structures/Great-cities.md) act as safe hubs for early progression, trade, training, portals, and social gathering. [Non-Player Characters](NPCs.md) give those places their daily motion, from merchants and guards to trainers, crafters, and travelling convoys. Smaller settlements, camps, ruins, and dungeons create structure across the wilderness. Player-built settlements should eventually become part of that same landscape, giving groups reasons to defend places, negotiate access, or relocate when pressure becomes too great.
 
 The design should support cooperation without making it mandatory for every activity. Solo players need meaningful progression paths, while groups gain efficiency, security, and access to larger ambitions such as raids, boss hunts, and settlement warfare.
 
@@ -64,7 +64,7 @@ The game is funded by a single subscription, with no box price and nothing that 
 - [Art Direction](Art-direction.md)
 - [Audio Direction](Audio-direction.md)
 - [UI and HUD](UI-and-HUD.md)
-- [Biomes](Biomes/Ancient-forest.md)
+- [Biomes](World.md#biome-variety)
 - [Weather, Time, and Seasons](Weather-time-and-seasons.md)
 - [Creatures](Creatures.md)
 - [Races](Races.md)

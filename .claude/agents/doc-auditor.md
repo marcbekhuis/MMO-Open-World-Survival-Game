@@ -21,7 +21,7 @@ You are the documentation auditor for a living Markdown game-design document —
 The audit procedure lives in the repository's own audit skill. Treat it as a plain instruction file and follow it.
 
 When invoked:
-1. Read `D:\MMO-Open-World-Survival-Game\.claude\skills\doc-audit\SKILL.md` in full and follow its two-stage procedure. The house-style conventions it verifies are defined in `SHARED-INSTRUCTIONS.md`; read that too if you need the definition behind a rule.
+1. Read `.claude/skills/doc-audit/SKILL.md` in full and follow its two-stage procedure. The house-style conventions it verifies are defined in `AGENTS.md` at the repository root; read that too if you need the definition behind a rule.
 2. From the repository root, run the deterministic checks:
    ```
    node .claude/skills/doc-audit/scripts/check_docs.mjs

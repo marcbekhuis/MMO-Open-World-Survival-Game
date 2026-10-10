@@ -12,11 +12,11 @@ What dwarves lack in casting they have more than recovered in craft. They are th
 
 ## Homeland and Start
 
-Dwarves begin in the deep gates and forge halls of a mountain hold, with early tasks that teach endurance, mining, heavy armour, and the value of preparation before venturing into exposed passes or deep caves. Their homeland is the [Mountain Range](../Biomes/Mountain-range.md) and the tunnels beneath it, and their realm pushes its holds and forges into the frontier's stone as set out in [Setting and Lore](../Setting-and-lore.md). A dwarf who wants to play against type can still become a capable caster with enough investment in the right stats and skills; the race simply makes them work harder for it than an elf would, and rewards them with the durability to survive the lessons.
+Dwarves begin in one of the dwarven [great cities](../Structures/Great-cities.md), each a forge-city behind the deep gates of a mountain hold. Their homeland is the [Mountain Range](../Biomes/Mountain-range.md) and the tunnels beneath it, and their realms push their holds and forges into the frontier's stone as set out in [Setting and Lore](../Setting-and-lore.md). A dwarf who wants to play against type can still become a capable caster with enough investment in the right stats and skills; the race simply makes them work harder for it than an elf would, and rewards them with the durability to survive the lessons.
 
 ## Continue Reading
 
-See also: [Races](../Races.md), [Player Progression](../Player.md), [Dwarven Settlements](../Structures/Dwarven-settlements.md), and the [Mountain Range](../Biomes/Mountain-range.md).
+See also: [Races](../Races.md), [Player Progression](../Player.md), [Dwarven Settlements](../Structures/Dwarven-settlements.md), [Great cities](../Structures/Great-cities.md), and the [Mountain Range](../Biomes/Mountain-range.md).
 
 ## Draft
 

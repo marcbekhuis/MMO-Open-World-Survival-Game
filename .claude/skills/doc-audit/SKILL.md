@@ -15,7 +15,7 @@ The repository's conventions — relative links that must resolve, reciprocal cr
 file anatomy, a Draft appendix on every design file — are load-bearing, and nothing enforces them
 automatically. This skill is the stand-in for that missing linter: a deterministic script for what
 a machine can check, plus a judgment pass for what it cannot. The conventions themselves are
-defined in [SHARED-INSTRUCTIONS.md](../../../SHARED-INSTRUCTIONS.md); this skill only verifies
+defined in [AGENTS.md](../../../AGENTS.md); this skill only verifies
 them.
 
 ## 1. Run the deterministic checks
@@ -31,8 +31,8 @@ The script scans every design Markdown file (it skips `.claude/` and `.git/`) an
 - **Broken links** — relative links whose target file does not exist.
 - **Orphaned files** — design files no other file links to, invisible to navigation.
 - **Missing Draft appendix** — design files without the required `## Draft` section
-  (the plumbing files are exempt: README, CLAUDE.md, AGENTS.md, SHARED-INSTRUCTIONS.md,
-  Design-backlog.md).
+  (the plumbing files are exempt: README, CLAUDE.md, AGENTS.md, GEMINI.md,
+  Design-backlog.md, and the transient GDD-REVIEW.md report).
 - **Unintegrated Draft notes** — Draft sections holding raw content that should be reworked into
   the body and cleared.
 - **Missing related-links closer** — files without a Continue Reading or See also section.
@@ -70,4 +70,4 @@ in the same pass; they have one correct answer. Judgment repairs — integrating
 finished prose, merging duplicated content, rewriting bullet stacks — do only when the user asked
 for a fixing pass, since they change the design text itself. When any fix renames or moves a file,
 search the whole repository for inbound links and update them in the same change, then rerun the
-script to prove the repair. End with the structural-change summary SHARED-INSTRUCTIONS requires.
+script to prove the repair. End with the structural-change summary AGENTS.md requires.

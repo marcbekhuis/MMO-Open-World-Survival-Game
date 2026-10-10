@@ -29,7 +29,7 @@ Progression should support combat specialists, crafters, mages, survivalists, tr
 
 ## Character Growth
 
-Growth is not just mechanical; it is narrative. Race, stats, skills, reputation, and player choices shape how the world responds and what challenges a character can confidently face.
+Growth is not just mechanical; it is narrative. Race, stats, skills, [reputation](Reputation-system.md), and player choices shape how the world responds and what challenges a character can confidently face.
 
 ## Continue Reading
 

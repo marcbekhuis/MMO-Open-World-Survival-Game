@@ -21,7 +21,7 @@ and texture, and how do they tie to its biome? What visual or audio tell communi
 idle, alerted, enraged, wounded? What does a player hear before they see it?
 
 **Behaviour and temperament.** Aggressive on sight, territorial, defensive, or skittish? Day-active,
-night-active, or driven by [weather and seasons](../../../Weather-time-and-seasons.md)? Solitary,
+night-active, or driven by [weather and seasons](../../../../Weather-time-and-seasons.md)? Solitary,
 paired, or pack-living — and if a pack, what structure and what happens when the leader dies? How
 does it react to fire, light, noise, and thrown food? How does it disengage — flee, burrow, climb,
 call for help?
@@ -36,11 +36,11 @@ skill does it actually test — awareness, positioning, timing, resource managem
 does it punish hardest? How does the fight change between a solo player and a group? Does it have a
 desperation or enrage behaviour near death?
 
-**Rewards and economy.** What does it yield when harvested, and which [crafting](../../../Crafting.md)
-recipes or [economy](../../../Economy.md) niches want those materials? Is there a rare drop or
+**Rewards and economy.** What does it yield when harvested, and which [crafting](../../../../Crafting.md)
+recipes or [economy](../../../../Economy.md) niches want those materials? Is there a rare drop or
 trophy worth hunting it specifically for?
 
-**Taming and control.** Is it tameable or mountable under [Taming and control](../../../Taming-and-control.md)?
+**Taming and control.** Is it tameable or mountable under [Taming and control](../../../../Taming-and-control.md)?
 If so, what does a tamed one offer that justifies the effort, and how is it captured?
 
 **Story presence.** What rumour do NPCs tell about it? What scar has it left on its region? What is
@@ -53,7 +53,7 @@ heat, hush? What one image defines it? How does it differ from its nearest neigh
 just terrain?
 
 **Terrain and climate.** What is the ground actually like to cross — elevation, footing, sightlines,
-water? What climate band, and how do [weather, time, and seasons](../../../Weather-time-and-seasons.md)
+water? What climate band, and how do [weather, time, and seasons](../../../../Weather-time-and-seasons.md)
 change it?
 
 **The travel problem.** Every biome poses one: what slows, threatens, or disorients a traveller
@@ -110,7 +110,7 @@ climb back?
 **Progression.** What changes about the system between the first hour and the five-hundredth?
 
 **Multiplayer weight.** Does it run per-player, or does it touch the shared world and the
-[server architecture](../../../Server-architecture.md)?
+[server architecture](../../../../Server-architecture.md)?
 
 ## Race
 
@@ -124,7 +124,7 @@ survival difference.
 naming rules — no named nations or capitals.
 
 **Mechanical identity.** What does playing this race change — starting biases, aptitudes,
-[skill](../../../Skills.md) affinities — without becoming a strict best-choice?
+[skill](../../../../Skills.md) affinities — without becoming a strict best-choice?
 
 **Relations.** How does it regard the other playable races, and where does friction show up in
 play?
@@ -141,4 +141,4 @@ player notice first on approach?
 makes it worth returning to?
 
 **Threats.** What endangers it, and does that danger create play — sieges, raids, creature
-incursions per [Conflict and PvP](../../../Conflict-and-pvp.md)?
+incursions per [Conflict and PvP](../../../../Conflict-and-pvp.md)?

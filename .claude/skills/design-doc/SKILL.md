@@ -14,7 +14,7 @@ description: >-
 
 This skill is the *how to work* layer for this repository. The *how the writing should read* layer —
 voice, file structure, naming, metric units, cross-linking, draft sections, single source of truth —
-lives in [SHARED-INSTRUCTIONS.md](../../../SHARED-INSTRUCTIONS.md). Read that first; this skill does not
+lives in [AGENTS.md](../../../AGENTS.md). Read that first; this skill does not
 repeat it. What follows is the workflow that keeps changes consistent and the templates for new files.
 
 ## Orient before you touch anything
@@ -78,7 +78,7 @@ worked well and the user expects it:
 4. **Write in non-overlapping groups.** When the work is split across parallel workers, give each worker
    a disjoint set of files so no two edit the same file. Shared files (indexes such as
    [Creatures.md](../../../Creatures.md), README, these instructions) stay with the coordinating session.
-   Every worker gets the same writing brief, which points at SHARED-INSTRUCTIONS, the templates, and the
+   Every worker gets the same writing brief, which points at AGENTS.md, the templates, and the
    decisions log rather than restating them.
 5. **Verify twice, then fix.** Run the doc audit for structure, links, say-it-once, and style, and run a
    separate check of every changed file against the decisions log. Fix the findings in a second round,
@@ -95,8 +95,8 @@ in its reply instead of saving a report; save the report yourself if it needs to
 ## Adding a new document
 
 1. Choose the matching template from [references/templates.md](references/templates.md) — system or hub,
-   creature, biome, or spell — and follow the shape its neighbours already use.
-2. Place it in the most fitting folder. Detail files live in subfolders (`Creatures/`, `Magic/Spells/<Element>/`);
+   creature, biome, spell, race, structure or settlement, or skill — and follow the shape its neighbours already use.
+2. Place it in the most fitting folder. Detail files live in subfolders (`Creatures/`, `Magic/Spells/<Element>/`, `Races/`, `Structures/`, `Skills/<Family>/`);
    create a new folder only for a genuinely new category.
 3. **Register it in the same change.** Add the file to [README.md](../../../README.md) and/or its hub
    document, so it is reachable from the repository's navigation rather than orphaned.

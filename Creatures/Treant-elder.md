@@ -6,7 +6,7 @@ Nothing about the Treant Elder is quick, and nothing about it needs to be. The l
 
 An elder keeps the treant body plan at a scale that no longer looks like a person: two arms, each a trunk-thick bough that hangs to its knees, and two legs like root pillars that flare at the base. Its bark is grey-brown and cracked like a dry riverbed, thick enough to hold hollows and whole shelves of fungus. Hanging moss trails from its shoulders, birds nest in the hollows of its back, and its head carries a crown of live branches with real canopy growth in season. Sap shows only in the deep-set knots of the face, which stay dark until the elder is roused.
 
-Each step is a long, grinding shift of weight, and crossing a clearing takes it far longer than it takes a player, who can leave one behind without hurrying. It never gives chase. It stands among the giant trunks of the Ancient Forest, roots sunk, and waits. Next to trees that climb for hundreds of metres it is small, and with its limbs still and its crown of branches blending into the lower canopy, it is among the hardest creatures in the forest to pick out. Travellers have walked beneath one for an hour without knowing.
+Each step is a long, grinding shift of weight, and crossing a clearing takes it far longer than it takes a player, who can leave one behind without hurrying. It never gives chase. It stands among the giant trunks of the [Ancient Forest](../Biomes/Ancient-forest.md), roots sunk, and waits. Next to trees that climb for hundreds of metres it is small, and with its limbs still and its crown of branches blending into the lower canopy, it is among the hardest creatures in the forest to pick out. Travellers have walked beneath one for an hour without knowing.
 
 ## Encounter
 

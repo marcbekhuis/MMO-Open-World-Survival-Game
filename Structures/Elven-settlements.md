@@ -12,7 +12,7 @@ Elven quests often connect to stewardship, observation, and the balance of the f
 
 ## Starting Experience
 
-Players who choose elves begin in one of the largest forest cities, surrounded by towering trees and quiet routes into the ancient woodland. Their early experience should teach vertical navigation, careful movement, ranged combat, and the value of reading environmental cues.
+Players who choose elves begin in one of the elven great cities, each a vertical forest-city woven through the largest trees of the woodland, with quiet routes leading out into the ancient forest. What their first districts teach is set out in [Great cities](Great-cities.md).
 
 ## Continue Reading
 

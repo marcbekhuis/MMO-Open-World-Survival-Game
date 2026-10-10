@@ -48,7 +48,7 @@ Reputation is a long-term resource. It affects access, prices, safety, faction s
 
 ## Continue Reading
 
-Continue with [Quests](Quests.md), [Raids](Raids.md), and [Structures](Structures.md).
+Continue with [Quests](Quests.md), [Raids](Raids.md), [Conflict and PvP](Conflict-and-pvp.md), and [Structures](Structures.md).
 
 ## Draft
 

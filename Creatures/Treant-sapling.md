@@ -1,6 +1,6 @@
 # Treant Sapling
 
-A trespasser in the Ancient Forest meets the Treant Sapling before any other treant, and keeps meeting it: a wiry wooden biped between 1 and 2 metres tall and 20 to 50 kilograms in weight, which slips through the branches overhead, watches for harm done to the wood and carries the news back to the heavier tiers of [Treant](Treant.md). It is the smallest and fastest of them, and the forest's watcher.
+A trespasser in the [Ancient Forest](../Biomes/Ancient-forest.md) meets the Treant Sapling before any other treant, and keeps meeting it: a wiry wooden biped between 1 and 2 metres tall and 20 to 50 kilograms in weight, which slips through the branches overhead, watches for harm done to the wood and carries the news back to the heavier tiers of [Treant](Treant.md). It is the smallest and fastest of them, and the forest's watcher.
 
 ## Appearance and Visual Design
 

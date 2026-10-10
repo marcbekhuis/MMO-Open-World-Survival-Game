@@ -12,7 +12,7 @@ The operations model should track expected concurrency per world, per hotspot, a
 
 Persistence settings need to state how often player state, placed structures, AI state, and regional deltas are written to durable storage. Recovery settings should cover backup retention, failure detection thresholds, standby capacity, and acceptable rollback windows. Each Cluster Unit Server also needs clear CPU, memory, bandwidth, entity count, and replication budgets.
 
-Large events need their own scaling expectations. Raids, world bosses, capital gatherings, and other predictable spikes should have temporary capacity rules so the cluster can protect core simulation and persistence under pressure.
+Large events need their own scaling expectations. Raids, world bosses, great-city gatherings, and other predictable spikes should have temporary capacity rules so the cluster can protect core simulation and persistence under pressure.
 
 ## Initial Baseline
 

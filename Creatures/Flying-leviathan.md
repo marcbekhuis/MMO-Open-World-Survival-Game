@@ -10,7 +10,7 @@ The creature's scale is read through small details as much as through size. Bird
 
 ## Movement and Behaviour
 
-A leviathan flies level, belly down, propelled by slow, deliberate strokes of its wing-fins and a rolling pump of the tail fluke, as if swimming through deep water. Left alone it drifts at about the pace of a walking horse, unhurried and almost soundless apart from its song. That pace does not make it slow to notice: it is peaceful by nature, awe-inspiring rather than threatening, and ignores players entirely, whether they watch from a distant ledge or land on its back. Its migrations follow the shifting mana flows of the world, which is why the skywrights came to read its routes as heralds of change.
+A leviathan flies level, belly down, propelled by slow, deliberate strokes of its wing-fins and a rolling pump of the tail fluke, as if swimming through deep water. Left alone it drifts at about the pace of a walking horse, unhurried and almost soundless apart from its song. That pace does not make it slow to notice: it is peaceful by nature, awe-inspiring rather than threatening, and ignores players entirely, whether they watch from a distant ledge or land on its back. Its migrations follow the shifting mana flows of the world, which is why the first expeditions to reach the islands learned to read its routes as heralds of change.
 
 When a leviathan is hurt it rises and flees. Its song climbs in pitch, the crystals along its spine flare, and a deep double stroke of the wing-fins announces a surge that carries it away at the speed of the fastest flying mounts in [Travel and Mounts](../Travel-and-mounts.md). The surge lasts only a short while before the creature falls back to its drift, so a pursuer that keeps pace outlasts it, but a ridden leviathan driven hard can be made to surge in the same way. Killing one takes a huge, sustained effort from many players, and the act carries a lasting cost to their standing in the [Reputation System](../Reputation-system.md).
 
@@ -24,7 +24,7 @@ A leviathan cannot be led away young, so the path to owning one runs through [Pa
 
 ## Story Hook
 
-When the first skywrights tried to tether a young leviathan, the creature answered with a song of low, rumbling tones, and they abandoned the attempt, learning instead to read the leviathans' migrations as heralds of shifting mana flows. A small shrine on a remote island still honours that bond between sky and maker, and a player who finds it discovers that the old skywrights left more than a monument behind: they left the beginnings of a method for working with the leviathans rather than against them.
+When one of the first expeditions to reach the floating islands tried to tether a young leviathan, the creature answered with a song of low, rumbling tones, and the expedition abandoned the attempt, learning instead to read the leviathans' migrations as heralds of shifting mana flows. A small shrine they raised on a remote island marks where they made their peace with the creature, and a player who finds it discovers that those pioneers left more than a monument behind: they left the beginnings of a method for working with the leviathans rather than against them.
 
 See also: [Creatures index](../Creatures.md), the [Floating Islands](../Biomes/Floating-islands.md) that shelter its young, and [Travel and Mounts](../Travel-and-mounts.md) for its place among flying mounts.
 

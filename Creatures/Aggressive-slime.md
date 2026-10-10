@@ -24,7 +24,7 @@ A dead aggressive slime leaves gel, acid sacs, and the dissolved metals its diet
 
 A rival guild has been baiting a slime along the river road for a week, leaving dead livestock every few hundred metres, and the trail now points at the palisade of a small mining outpost. The miners cannot outrun it, cannot shoot it, and cannot afford to burn the road, so the foreman posts a reward for anyone who can reach the dark core, or find whoever is laying the bait and make them stop.
 
-See also: [Creatures index](../Creatures.md), [Slime](Slime.md), [Passive Slime](Passive-slime.md), and [Neutral Slime](Neutral-slime.md).
+See also: [Creatures index](../Creatures.md), [Slime](Slime.md), [Passive Slime](Passive-slime.md), [Neutral Slime](Neutral-slime.md), and the [Forest](../Biomes/Forest.md) and [Plains](../Biomes/Plains.md) where slimes live.
 
 ## Concept Drawing
 

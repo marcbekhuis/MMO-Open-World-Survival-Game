@@ -1,5 +1,5 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code when working in this repository.
+This file provides guidance to Claude Code when working in this repository. The shared instructions for every AI assistant live in [AGENTS.md](AGENTS.md) and are imported below, so Claude Code loads them at the start of every session.
 
-Follow the shared project instructions in [SHARED-INSTRUCTIONS.md](SHARED-INSTRUCTIONS.md).
+@AGENTS.md

@@ -15,7 +15,7 @@ description: >-
 
 This skill runs a structured question-and-answer session that pulls the user's vision for a design
 subject out of their head, then commits it to the repository as finished prose. It is the
-operational form of the "propose first" rule in [SHARED-INSTRUCTIONS.md](../../../SHARED-INSTRUCTIONS.md):
+operational form of the "propose first" rule in [AGENTS.md](../../../AGENTS.md):
 instead of inventing a substantial creature or system and hoping it matches what the user imagined,
 you ask a small number of sharp questions, record the answers as decisions, and write only what has
 been settled. House style, file structure, and templates are governed by the
@@ -71,8 +71,9 @@ not a checklist: choose only the areas the existing material leaves open.
 ## Write as you go
 
 After each settled batch — or at the end, for a short session — convert the decisions into
-finished, publication-quality prose in the correct file, following the matching template from the
-[design-doc](../design-doc/SKILL.md) skill. The rules from SHARED-INSTRUCTIONS apply in full:
+finished, publication-quality prose in the correct file, following the matching template (system or hub, creature, biome, spell, race, structure or
+settlement, or skill) in the [design-doc templates](../design-doc/references/templates.md) of the
+[design-doc](../design-doc/SKILL.md) skill. The rules from AGENTS.md apply in full:
 nothing tentative in the files, no "the user chose…" narration, no options left in the prose. The
 document reads as though the design was always this way.
 

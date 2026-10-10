@@ -8,15 +8,15 @@ A human's balanced spread across the attributes in [Player Progression](../Playe
 
 ## A Culture of Adaptation
 
-Human strength is social as much as personal. Their realm survives by trade, alliance, engineering, and the flexible use of whatever local materials a place offers, and their settlements show it: the roadside villages, fortified towns, and busy capital cities of [Human Settlements](../Structures/Human-settlements.md) range wider in form than any other race's, shaped to their surroundings rather than to a single architectural ideal. That same adaptability makes humans the natural backbone of the player economy described in [Economy and Trade](../Economy.md), where a city merchant who never raises a wall or forges a blade can still thrive purely on buying and selling.
+Human strength is social as much as personal. Their realms survive by trade, alliance, engineering, and the flexible use of whatever local materials a place offers, and their settlements show it: the roadside villages, fortified towns, and busy great cities of [Human Settlements](../Structures/Human-settlements.md) range wider in form than any other race's, shaped to their surroundings rather than to a single architectural ideal. That same adaptability makes humans the natural backbone of the player economy described in [Economy and Trade](../Economy.md), where a city merchant who never raises a wall or forges a blade can still thrive purely on buying and selling.
 
 ## Homeland and Start
 
-Humans begin in one of the largest human cities, hubs that connect to capital-level trade and the portal network, with early quests tied to caravans, roads, monster pressure, and the ordinary business of a settlement holding its ground. They are not bound to any one biome; human towns take root from plains to river valleys to mining roads, and their realm pushes into the frontier as the most opportunistic of the three set out in [Setting and Lore](../Setting-and-lore.md). For a human there is no playing against type, because there is no type to play against. Every direction is the intended one.
+Humans begin in one of the human [great cities](../Structures/Great-cities.md), each a broad market-city at the hub of its realm's roads, trade, and portal network. They are not bound to any one biome; human towns take root from [plains](../Biomes/Plains.md) to river valleys to mining roads, and their realms push into the frontier as the most opportunistic of the three peoples set out in [Setting and Lore](../Setting-and-lore.md). For a human there is no playing against type, because there is no type to play against. Every direction is the intended one.
 
 ## Continue Reading
 
-See also: [Races](../Races.md), [Player Progression](../Player.md), [Human Settlements](../Structures/Human-settlements.md), and [Economy and Trade](../Economy.md).
+See also: [Races](../Races.md), [Player Progression](../Player.md), [Human Settlements](../Structures/Human-settlements.md), [Great cities](../Structures/Great-cities.md), and [Economy and Trade](../Economy.md).
 
 ## Draft
 

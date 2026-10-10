@@ -12,7 +12,7 @@ The river oases teem with life and make the plains generous to a gatherer. Herds
 
 ## Creatures
 
-The plains are home to the harmless and the familiar: rabbits, horses, hardy highland cattle, and the [Birds](../Creatures/Birds.md) that fill the open sky, alongside the wandering [Passive Slimes](../Creatures/Passive-slime.md) of the [Slime](../Creatures/Slime.md) family. The [Large Buffalo](../Creatures/Large-buffalo.md) gives the rivers a gentler kind of spectacle, a docile giant whose herds mark safe water and open grazing, while the truly world-scale resident remains the [Titan Turtle](../Creatures/Titan-turtle.md), whose seasonal migrations cross the flat country on slow, ground-shaking steps, each stride covering more than a running player can match, and which the people of the plains learn simply to live around rather than to fight.
+The plains are home to the harmless and the familiar: rabbits, horses, hardy highland cattle, and the [Birds](../Creatures/Birds.md) that fill the open sky, alongside the wandering [Passive Slimes](../Creatures/Passive-slime.md) of the [Slime](../Creatures/Slime.md) family and, rarely, an [Aggressive Slime](../Creatures/Aggressive-slime.md) that someone has fed into its final form. The [Large Buffalo](../Creatures/Large-buffalo.md) gives the rivers a gentler kind of spectacle, a docile giant whose herds mark safe water and open grazing, while the truly world-scale resident remains the [Titan Turtle](../Creatures/Titan-turtle.md), whose seasonal migrations cross the flat country on slow, ground-shaking steps, each stride covering more than a running player can match, and which the people of the plains learn simply to live around rather than to fight.
 
 ## Hazards and Travel
 

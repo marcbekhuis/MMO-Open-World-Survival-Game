@@ -14,7 +14,7 @@ description: >-
 
 Research here serves the document. The deliverable is never a research report — it is better design
 prose, decisions the user can judge, and authoritative links placed behind the words per the house
-style in [SHARED-INSTRUCTIONS.md](../../../SHARED-INSTRUCTIONS.md). The most valuable single output
+style in [AGENTS.md](../../../AGENTS.md). The most valuable single output
 of a research pass is a well-sourced contradiction of something the design currently assumes,
 surfaced before it spreads to more files.
 
@@ -45,9 +45,9 @@ plausible-sounding API or CVar from memory.
 ## 2. Search
 
 In Claude Code, delegate the lanes to agents in parallel and keep the synthesis in the main thread:
-the project's `design-researcher` agent handles the genre and grounding lanes, and either it or the
-global `researcher` agent handles the technical lane. In an assistant without subagents, run the
-searches directly with whatever web tools it has.
+the repository's [`design-researcher`](../../agents/design-researcher.md) agent handles all three
+lanes — genre, grounding, and technical — so dispatch one per lane. In an assistant without
+subagents, run the searches directly, one lane after another, with whatever web tools it has.
 
 Whoever searches, the source hierarchy is the same. Official documentation and vendor pages decide
 technical questions. Developer talks and postmortems outrank fan wikis; fan wikis outrank forum
@@ -67,7 +67,7 @@ Apply the repository's weight rule to what you learned:
   claim — is simply written, as finished prose in the document's voice.
 
 External references go behind the words, at the authoritative origin, following the linking rules
-in SHARED-INSTRUCTIONS: an engine feature links to Epic's page for it, a real-world inspiration
+in AGENTS.md: an engine feature links to Epic's page for it, a real-world inspiration
 links to a substantive treatment of it, and technical documents extend their Further Reading lists.
 The prose itself keeps the systems-design voice throughout — the document states the design with
 conviction, and the justification stays in chat. Grounding may surface as texture ("it hunts the

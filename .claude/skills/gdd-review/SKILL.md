@@ -45,6 +45,8 @@ Return the Verdict / Strengths / Findings report exactly as your output contract
 
 Do not paraphrase the briefs into the prompt or add extra instructions; divergent prompts make the panel's reports incomparable.
 
+**Without subagents.** An assistant that cannot dispatch agents runs each selected lens itself, one after another, never blending them. For each lens it reads the brief in [references/](references/) and the whole document through that stakeholder's eyes alone, then writes up the result in the output contract defined in [.claude/agents/gdd-reviewer.md](../../agents/gdd-reviewer.md): the Verdict, Strengths, and anchored Findings with severity and what the stakeholder wants instead. Steps 2 to 5 then proceed unchanged on those reports. Read-only discipline still holds while reviewing: nothing is edited until Step 3.
+
 ## Step 2 — Merge the findings
 
 The reports come back as structured findings (file, anchor, severity, finding, wants). Treat them as input to verify, not truth:

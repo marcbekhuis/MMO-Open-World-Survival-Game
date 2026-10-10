@@ -1,6 +1,6 @@
 # Races
 
-A player's race is the first decision a character makes and the one that colours everything that follows, without ever deciding it outright. The game offers three playable races, drawn from the three realms that are pushing out into the reopened frontier of [Setting and Lore](Setting-and-lore.md): humans, elves, and dwarves. Each carries a distinct cultural identity, a homeland, and a natural lean toward a way of fighting and surviving, but none of them locks a character into a single life. Race sets the opening feel and the starting point; the world, and the choices made in it, write the rest.
+A player's race is the first decision a character makes and the one that colours everything that follows, without ever deciding it outright. The game offers three playable races, the three peoples whose many realms are pushing out into the frontier of [Setting and Lore](Setting-and-lore.md): humans, elves, and dwarves. Each carries a distinct cultural identity, a homeland, and a natural lean toward a way of fighting and surviving, but none of them locks a character into a single life. Race sets the opening feel and the starting point; the world, and the choices made in it, write the rest.
 
 ## What a Race Decides, and What It Does Not
 
@@ -8,9 +8,9 @@ Choosing a race shapes a character's early attributes and affinities, the city t
 
 Because identity here is earned through play rather than picked from a menu, race is deliberately not a class. There are no classes at all, as the start is laid out in [New Player Experience](New-player-experience.md). Two characters of the same race can grow into a frontier scout and a city financier and have almost nothing mechanically in common by the time they are established.
 
-## The Three Realms
+## Peoples and Realms
 
-The three playable races are also the three expanding powers of the setting, and their cultures are written into how and where they live. Humans spread as adaptable settlers and traders, planting towns where others see only risk and surviving by alliance and flexibility. Elves are drawn to the leyline-rich and the primeval, building upward through ancient forests where the world's force runs close to the surface. Dwarves drive holds and forges into the mountains and the deep places, reading wealth in stone the others walk past. The realm a character is born to is the same one whose settlements they start beside, whose architecture is detailed in [Structures](Structures.md), and whose place in the wider contest over the frontier is set out in [Setting and Lore](Setting-and-lore.md).
+Each playable race is a people divided among several realms, and those realms are the expanding powers of the setting, as ready to contest a pass or a river with their own kin as with anyone else. A people's culture holds across its realms and is written into how and where its members live. Humans spread as adaptable settlers and traders, planting towns where others see only risk and surviving by alliance and flexibility. Elves are drawn to the leyline-rich and the primeval, building upward through ancient forests where the world's force runs close to the surface. Dwarves drive holds and forges into the mountains and the deep places, reading wealth in stone the others walk past. A character starts in one of the [great cities](Structures/Great-cities.md) of their people, among settlements whose architecture is detailed in [Structures](Structures.md), and their people's place in the wider contest over the frontier is set out in [Setting and Lore](Setting-and-lore.md).
 
 ## The Races
 
@@ -20,7 +20,7 @@ The three playable races are also the three expanding powers of the setting, and
 
 ## Continue Reading
 
-Continue with [Player Progression](Player.md) for the stats and skills that grow beyond a character's birth, [New Player Experience](New-player-experience.md) for how a character is created and brought into the world, and [Setting and Lore](Setting-and-lore.md) for the three realms and the frontier they contest.
+Continue with [Player Progression](Player.md) for the stats and skills that grow beyond a character's birth, [New Player Experience](New-player-experience.md) for how a character is created and brought into the world, and [Setting and Lore](Setting-and-lore.md) for the many realms and the frontier they contest.
 
 ## Draft
 

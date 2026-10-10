@@ -1,6 +1,6 @@
 # Conflict and PvP
 
-The open world is dangerous above all because of the people in it. Beyond the protection of a guarded city this is a full player-versus-player world: any player may raise a hand against any other, and the contest over the reopened frontier described in [Setting and Lore](Setting-and-lore.md) is fought as much between players as against the wild. This document sets out where that conflict is allowed, what restrains it, and how it connects to the larger machinery of loss, reputation, and conquest.
+The open world is dangerous above all because of the people in it. Beyond the protection of a guarded city this is a full player-versus-player world: any player may raise a hand against any other, and the contest over the frontier described in [Setting and Lore](Setting-and-lore.md) is fought as much between players as against the wild. This document sets out where that conflict is allowed, what restrains it, and how it connects to the larger machinery of loss, reputation, and conquest.
 
 ## A World of Open Conflict
 
@@ -8,7 +8,7 @@ By default the wilderness is lawless. There are no flags to raise and no consent
 
 ## Safe Cities and the Reach of the Guard
 
-Order exists where power enforces it. The capital and spawn cities are held by NPC guards strong enough that no player or party can hope to fight them, and within a city's bounds aggression against another player is met with overwhelming, immediate force. These cities are true havens, the places to respawn, trade, craft, bank, train, and gather without fear, the fixed points a player can always fall back to. The protection does not end abruptly at the gate, either: the settled land immediately around a capital is patrolled and comparatively safe, giving new characters room to find their feet, and that safety thins with distance until, deep in the frontier, there is no guard at all and the only law is the one players bring with them.
+Order exists where power enforces it. The [great cities](Structures/Great-cities.md) are held by NPC guards strong enough that no player or party can hope to fight them, and within a city's bounds aggression against another player is met with overwhelming, immediate force. These cities are true havens, the places to respawn, trade, craft, bank, train, and gather without fear, the fixed points a player can always fall back to. The protection does not end abruptly at the gate, either: the settled land immediately around a great city is patrolled and comparatively safe, giving new characters room to find their feet, and that safety thins with distance until, deep in the frontier, there is no guard at all and the only law is the one players bring with them.
 <!-- REVIEW(ux): The safe zone is a gradient with no clear line, yet onboarding frames crossing into full-loot danger as an informed choice — a newcomer can't make an informed decision about a line with no location. Add a readable in-world signal of the gradient and a designed low-cost first encounter that teaches the full-loot stake before it's enforced for real. -->
 
 ## The Weight of a Killing
@@ -21,7 +21,7 @@ Open-world PvP is the individual layer of a larger contest. What begins as a roa
 
 ## Continue Reading
 
-Continue with [Death and Loss](Death-and-loss.md) for what is at stake in a fight, the [Reputation System](Reputation-system.md) for the consequences that restrain it, and [Raids and Conquest](Raids.md) for conflict at the scale of settlements.
+Continue with [Death and Loss](Death-and-loss.md) for what is at stake in a fight, the [Reputation System](Reputation-system.md) for the consequences that restrain it, [NPCs](NPCs.md) for the guards who hold the safe cities, and [Raids and Conquest](Raids.md) for conflict at the scale of settlements.
 
 ## Draft
 

@@ -6,7 +6,7 @@ Non-player characters are the human, elven, and dwarven people who make settleme
 
 NPCs are readable by role at a glance while still feeling like people who belong to a place. Merchants move goods between cities and frontier settlements, guards hold gates and patrol roads, city mages maintain protective work around crowded hubs, and craftspeople visibly perform the labour that keeps a settlement functioning. Civilians such as farmers, bartenders, musicians, weavers, butchers, and builders add ordinary life around the services players use. Children appear only in safe, non-combat routines where they add life to urban spaces without becoming targets or rewards.
 
-These roles scale with settlement size. A roadside outpost has a handful of armed guards, a trader, and a tired cook; a capital city supports patrols, guild representatives, trainers, specialist vendors, craftsmen, performers, and city mages. The larger the settlement, the more its NPCs communicate its power, wealth, and vulnerabilities through what they are seen doing.
+These roles scale with settlement size. A roadside outpost has a handful of armed guards, a trader, and a tired cook; a great city supports patrols, guild representatives, trainers, specialist vendors, craftsmen, performers, and city mages. The larger the settlement, the more its NPCs communicate its power, wealth, and vulnerabilities through what they are seen doing.
 
 ## Interaction and Services
 
@@ -22,7 +22,7 @@ NPCs share the player races' visual language so they feel like part of the same 
 
 ## Continue Reading
 
-Continue with [Structures](Structures.md) for the settlements NPCs inhabit, [Quest System](Quests.md) for the work they offer, and [Economy and Trade](Economy.md) for the markets they anchor.
+Continue with [Structures](Structures.md) for the settlements NPCs inhabit, [Quest System](Quests.md) for the work they offer, [Economy and Trade](Economy.md) for the markets they anchor, [Guilds and Factions](Guilds-and-factions.md) for the organisations their representatives serve, and [Conflict and PvP](Conflict-and-pvp.md) for the guards who hold the safe cities.
 
 ## Draft
 

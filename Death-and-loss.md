@@ -18,11 +18,11 @@ The catch is that the world is not the only thing that may find the body. In con
 
 When the killer is another player, the gloves come off: the victor may strip the corpse completely. This is full loot, everything carried and everything worn, and it is the central stake of the open world. It is the reason the frontier's first rule is never to carry what you are not prepared to lose, the reason a laden merchant or a richly geared raider is a target worth hunting, and the engine that keeps gear genuinely valuable, since anything that can be won can also be lost. What changes hands this way does not vanish from the world but recirculates through it, feeding the markets of [Economy and Trade](Economy.md).
 
-Full loot is deliberately harsh, and the design does not pretend otherwise. Its counterweights are the safe cities and reputation consequences set out in [Conflict and PvP](Conflict-and-pvp.md), the player's own freedom to decide how much to risk on any given outing, and the storage systems that let wealth be banked rather than worn into a fight.
+Full loot is deliberately harsh, and the design does not pretend otherwise. Its counterweights are the safe cities and [reputation consequences](Reputation-system.md) set out in [Conflict and PvP](Conflict-and-pvp.md), the player's own freedom to decide how much to risk on any given outing, and the storage systems that let wealth be banked rather than worn into a fight.
 
 ## Getting Back on Your Feet
 
-A fallen player respawns at a bound safe location, by default the capital or spawn city they are tied to, or a bed or claimed point established through the [Building System](Building-system.md) so that groups working the frontier can return closer to the action. From there the choice is immediate and familiar to the genre: re-equip from storage and cut the losses, or gear up and race back to the corpse before the window closes or a stranger arrives. Either way the loop turns again, a little wiser about what to bring next time.
+A fallen player respawns at a bound safe location, by default the [great city](Structures/Great-cities.md) they are tied to, or a bed or claimed point established through the [Building System](Building-system.md) so that groups working the frontier can return closer to the action. From there the choice is immediate and familiar to the genre: re-equip from storage and cut the losses, or gear up and race back to the corpse before the window closes or a stranger arrives. Either way the loop turns again, a little wiser about what to bring next time.
 
 ## Continue Reading
 
