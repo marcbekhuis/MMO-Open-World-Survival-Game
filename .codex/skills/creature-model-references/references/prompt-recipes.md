@@ -548,3 +548,45 @@ Pose: neutral upright A-pose while retaining modest species stoop, not all-fours
 Camera: three-quarter front about 30–35 degrees from slightly above, entire head ears fingertips toes in frame with 5% margin, closely framed for anatomical readability. Plain light-grey seamless backdrop, very soft even neutral illumination; subtle contact shading only, no strong cast shadows, no torch scene, cave, treasure heap, other character, scale silhouette, border, title, labels, weapons, throne or props. Realistic pale translucent skin, fine veins, ragged cloth and granular flaky gold paint, like a high-end photorealistic horror-fantasy game model. Closed mouth, neutral watchful expression, no gore. ONE full creature only.
 ```
 
+### Goblin model-reference corrections — pending (reviewed 10 October 2026)
+
+All three refreshed goblin references need corrections, and two of them because the creature files changed after generation: the Green Goblin is now 40 to 50 kilograms and lean rather than starved, and the Red Goblin is now 70 to 85 kilograms with the build of a fit human soldier. The consolidated prompts recorded above still carry the old weights and physiques, so do not regenerate from them unedited. Apply each fix as its own edit in the conversation that holds the image, one message per fix, then re-run the quality checklist. If a body-build fix makes the face, armour or colours drift, start a new conversation from the current Markdown instead. Remove an entry once its corrected image is saved and its fix round is recorded above.
+
+#### Red Goblin — Grunt
+
+The figure is a hulking brute with a bodybuilder's neck, shoulders and arms. The file now asks for a fit human soldier's build.
+
+```text
+Build: The goblin is far too massive. Slim it to the build of a fit, trained human soldier about 1.80 metres tall and 75 kilograms: square shoulders, a solid chest and strong forearms with natural, functional muscle, a normal-width neck and waist, and arms no thicker than an athletic man's. No bodybuilder bulk, barrel chest or swollen trapezius. Resize the scrap armour to fit the slimmer body. Keep the red skin, scars, yellow eyes, topknot, pointed ears, face, armour design, A-pose and framing identical.
+```
+
+#### Golden Goblin — Gleaner
+
+The figure stands almost upright with a flat belly, the skin reads flesh-pink rather than sickly white, and the top of the head nearly touches the frame edge, inside the 5% margin.
+
+```text
+Posture: The goblin stands too upright. Curve the spine into a permanent stoop, with the upper back rounded, the shoulders rolled forward and the head carried low and forward of the chest, while both feet stay flat and the arms stay out at 45 degrees with open empty hands. Give the belly a slight distension below the visible ribs. Keep everything else identical.
+```
+
+```text
+Skin tone: The skin reads flesh-pink. Shift the bare skin to a sickly, almost translucent pale white with a faint cold grey-blue undertone, so the blue veins at the temples, wrists and chest show clearly. Keep the gold paint, its coverage and every other detail identical.
+```
+
+```text
+Framing: The top of the head nearly touches the frame edge. Zoom out slightly so the head, both ear tips, the fingertips and the toes all sit inside a clear 5% margin on every side, with the figure centred. Keep everything else identical.
+```
+
+#### Green Goblin — Raider
+
+The figure holds a crouched, claws-out stance with bent elbows and curled hands instead of the neutral A-pose with open hands the prompt asked for, which makes the arms and hands harder to rig.
+
+```text
+Pose: The goblin is crouched with bent elbows and curled, claw-like hands. Straighten it into a neutral A-pose that keeps only the species' mild hunch: elbows relaxed and nearly straight, both arms angled down about 45 degrees away from the torso, both hands open and empty with five clearly separated fingers, knees only softly bent and feet flat about shoulder width apart. Keep the boots, clothing, shoulder plate, skin colour and face identical.
+```
+
+The body is also too thin for the updated file, with the ribs, sternum and sticklike limbs showing.
+
+```text
+Build: The goblin is too skinny. Give it a lean but solid body of about 45 kilograms at 1.40 metres: compact and firm, ropy muscle over the upper arms, forearms, thighs and calves, a little flesh over the ribs so they no longer show, and a solid trunk. Wiry and tough, not starved, not bulky. Keep the pose, boots, clothing, shoulder plate, skin colour, ears and face identical.
+```
+

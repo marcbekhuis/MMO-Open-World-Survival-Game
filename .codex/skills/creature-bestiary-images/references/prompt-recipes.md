@@ -59,12 +59,14 @@ Only the adventurer hand, the mood, and the palette accents are fixed here, so t
 | Birds (`Birds.md`) | `birds-bestiary.png` | Observational naturalist | Alive, watchful, informational; one study per biome archetype the file names, flock breaking upward as a warning |
 | Flying Leviathan (`Flying-leviathan.md`) | `flying-leviathan-bestiary.png` | Peaceful skywright | Serene high-altitude wonder; pale blue, pearl grey, cloud white, soft gold, cyan mana, island greens |
 | Four-Armed Monkey (`Four-armed-monkey.md`) | `four-armed-monkey-bestiary.png` | Cheerful jungle guide | Bright canopy life; jungle greens, the file's display colours, dappled light |
+| Golden Goblin (`Golden-goblin.md`) | `golden-goblin-bestiary.png` | Nervous mine foreman | Furtive greed and crawling cave dread; sickly pale white, dull flaking pyrite gold, cave black, blue-green fungus glow; Gleaner, Hoard-warden and Gilded King to scale on the right page |
 | Green Goblin (`Green-goblin.md`) | `green-goblin-bestiary.png` | Practical frontier scout | Scrappy, cunning, unpleasant up close; rust metal, stolen cloth, forest-edge greens; all three variants on the right page |
 | Kraken (`Kraken.md`) | `kraken-bestiary.png` | Sailor | World-event ocean terror; blue-black, storm grey, sea green, foam white; a ship for scale |
 | Large Buffalo (`Large-buffalo.md`) | `large-buffalo-bestiary.png` | Plains drover | Gentle giant at a river ford; mud browns, reed greens, cream and ochre fur; the elder bull beside an adult |
 | Mermaid (`Mermaid.md`) | `mermaid-bestiary.png` | Wary coastal salvager | Moonlit wreck-field danger; both forms side by side, iridescent charmed tail against the dull true form |
 | Minotaur (`Minotaur.md`) | `minotaur-bestiary.png` | Veteran ravine delver | Torchlit menace in ruins and mazes; dark hide, ivory horn, stone and root |
 | Paralyzing Dragon (`paralyzing-dragon.md`) | `paralyzing-dragon-bestiary.png` | Jungle hunter who survived one | Close, humid dread; leaf-mottled greens, damp blacks, a faint green gas haze |
+| Red Goblin (`Red-goblin.md`) | `red-goblin-bestiary.png` | Battle-worn palisade sergeant | Iron, drums and smoke on the march; brick and rust red, forge-blackened iron, palisade timber, smoke grey; Grunt, Ironback and Warboss to scale on the right page |
 | Royal Dragon (`Royal-dragon.md`) | `royal-dragon-bestiary.png` | Noble illuminator | Ceremonial mesa power; crimson, ochre-gold scale colour, warm amber, mesa stone; never coins, treasure, or hoards |
 | Sandworm (`Sandworm.md`) | `sandworm-bestiary.png` | Desert guide | Harsh survival hazard; ochre sand, burnt sienna, pale raw flesh; a caravan for scale |
 | Skeleton Archer (`Skeleton-Archer.md`) | `skeleton-archer-bestiary.png` | Brisk dungeon scout | High-ground dungeon threat; bone yellow, dark half-congealed blood red, blackened wood, rust iron, pale blue magic |
@@ -86,3 +88,25 @@ Only the adventurer hand, the mood, and the palette accents are fixed here, so t
 | Aggressive Slime (`Aggressive-slime.md`) | `aggressive-slime-bestiary.png` | Eccentric alchemist (as Slime) | Siege-scale hazard; opaque red, black core, corrosion fumes |
 
 When a new creature file is added, add a row here with an adventurer hand not yet used by its neighbours.
+
+## Pending Corrections
+
+Plates that were reviewed against their creature file and need regenerating. Rebuild the subject from the current Markdown as usual and fold in the correction; the notes only say what went wrong last time. Remove an entry once its corrected plate is saved.
+
+### Green Goblin — build (reviewed 10 October 2026)
+
+Every goblin on the plate is drawn emaciated, with sticklike limbs and the ribs and spine showing. The file now gives a lean but solid body of 40 to 50 kilograms at 1,40 metres: compact and firm, ropy muscle over the arms and legs, a little flesh over the ribs and a solid trunk. Draw the Raider, Tinkerer and Scout tough and wiry rather than starved, so they cannot be mistaken for the bony Golden Goblin. Keep the skin colour, kit, trap sketch and scale, which were correct.
+
+### Red Goblin — scale and build (reviewed 10 October 2026)
+
+The goblins tower over the human silhouette and are drawn as hulking, bodybuilder-heavy brutes. Measured against the silhouette, the Grunt reads at about 2,05 metres and the Warboss at about 2,3 metres, and the silhouette itself is drawn small and slight. The file gives a Grunt 1,75 to 1,85 metres and 70 to 85 kilograms, the build of a fit human soldier, and the Warboss close to 2 metres, tall and hard rather than massive. Draw every red goblin, the Ironback included, with the muscle of a trained human man-at-arms: square shoulders, a solid chest and strong forearms, but no swollen neck, bulging arms or barrel torso. Their menace on the page should come from the armour and the massed ranks, not from size. Put the human silhouette, drawn as an ordinary adult man of about 1,80 metres, on the same ground line as the right-page line-up so the Grunt stands eye to eye with it, the Ironback barely taller, and the Warboss no more than a head above it. Keep the main portrait, the Ironback's tower shield and hammer, the Warboss's horn and trophy standard, the drum platform and the war-camp palisade.
+
+Two smaller deviations to fix in the same pass. Arm the marching shield wall with cleavers, notched swords, axes, mauls and spiked clubs instead of spears, since the file lists only those weapons. Draw the war camp as hide tents and lean-tos around fighting pits and a central scrap forge, with no stone tower.
+
+### Golden Goblin — scale and title (reviewed 10 October 2026)
+
+The Gleaner stands nearly as tall as the human silhouette, about 1,7 metres by comparison, where the file gives 1,40 metres: roughly three-quarters of an adult human's height, the same height as a Green Goblin. Redraw the right-page line-up on one ground line with the silhouette at about 1,80 metres, the Gleaner's head level with the silhouette's chest, the stooped Hoard-warden only slightly taller, and the Gilded King at about 2,20 metres.
+
+The title's final "n" in "Golden" carries a long descending tail, so the lettering reads "Goldeŋ Goblin". Letter the title "Golden Goblin" with no flourish below the baseline on any letter.
+
+Two smaller deviations to fix in the same pass. Render the body paint as dull, gritty, flaking paint that glints only where light catches it, not as bright metallic gold leaf. Build the Gilded King's throne from heaped hoard junk (coins, plate, armour fittings, glass and brass) rather than an ornate carved gold throne with drapery; keep the real gold chains and rings on the King himself.
