@@ -6,6 +6,8 @@ Dwarven settlements are carved into mountain walls, cliff faces, and deep underg
 
 Entrances are marked by heavy gates, carved stone, runes, guarded bridges, and tunnel mouths wide enough for carts and siege materials. Inside, vaulted halls, pillar forests, ore lifts, reservoirs, glowing crystals, lava channels, and layered workshops make the settlement feel both functional and monumental.
 
+The deepest mine workings reach toward the [Deep Caverns](../Biomes/Deep-caverns.md), and the breaches they make are where dwarven holds meet their most hated pest, the [Golden Goblin](../Creatures/Golden-goblin.md). A golden colony that finds its way into a mine strips its stores, its tools and its dead, so dwarven holds treat the goblins as vermin, wall off breached galleries behind iron doors, and keep standing bounties on them. The grudge is the hold's own: any player who takes up the bounty is paid the same, and the goblins treat a dwarven player no differently from anyone else.
+
 ## Forge Economy
 
 At the heart of every major dwarven settlement is a forge district. These forges support weapons, armour, tools, jewelry, construction components, and rare material refinement. They should also create strong reasons for other players to visit dwarven territory, trade for crafted goods, or seek specialists.
@@ -16,7 +18,7 @@ Players who choose dwarves begin in one of the dwarven great cities, each a forg
 
 ## Continue Reading
 
-See also: [Dwarf](../Races/Dwarf.md), [Structures index](../Structures.md), [Mountain Range](../Biomes/Mountain-range.md), and [Building System](../Building-system.md).
+See also: [Dwarf](../Races/Dwarf.md), [Structures index](../Structures.md), [Mountain Range](../Biomes/Mountain-range.md), the [Deep Caverns](../Biomes/Deep-caverns.md) its mines break into, and [Building System](../Building-system.md).
 
 ## Draft
 

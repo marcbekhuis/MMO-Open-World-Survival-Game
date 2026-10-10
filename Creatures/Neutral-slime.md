@@ -12,13 +12,13 @@ A neutral slime is defensive by nature. It ignores players who keep their distan
 
 Standing off with the heavy, fiery, and salted answers from the hub works best, while the cheapest option costs nothing, since a player who needs to pass can simply walk around it. A kill yields gel and the acid sacs the body has built up, a caustic reagent for alchemy and for treating weapons.
 
-A neutral slime is usually found in the hollows of the [Forest](../Biomes/Forest.md), near the carcasses and kills that turned it.
+A neutral slime is usually found in the hollows of the [Forest](../Biomes/Forest.md), near the carcasses and kills that turned it, and in the damp, carrion-strewn hollows of the [Deep Caverns](../Biomes/Deep-caverns.md), where it sits unseen in the dark beside the bodies that [Golden Goblins](Golden-goblin.md) come to strip.
 
 ## Story Hook
 
 Two hunters tracking a wounded deer into a forest hollow find the carcass already inside a neutral slime, half dissolved, with their own arrowhead drifting in the gel beside it. The hollow is the only way through to the herd they were following, and arrows are wasted on the thing. Somebody has to decide whether to lure the slime off the trail, burn it out, or leave it feeding and trust it to stay put.
 
-See also: [Creatures index](../Creatures.md), [Slime](Slime.md), [Passive Slime](Passive-slime.md), [Aggressive Slime](Aggressive-slime.md), and the [Forest](../Biomes/Forest.md) where it feeds.
+See also: [Creatures index](../Creatures.md), [Slime](Slime.md), [Passive Slime](Passive-slime.md), [Aggressive Slime](Aggressive-slime.md), and the [Forest](../Biomes/Forest.md) and [Deep Caverns](../Biomes/Deep-caverns.md) where it feeds.
 
 ## Concept Drawing
 

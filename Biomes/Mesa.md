@@ -12,7 +12,7 @@ The mesa's wealth is in its stone. Valuable metal deposits run through it, inclu
 
 ## Creatures
 
-The cliffs and canyons are the territory of dragons, with the [Royal Dragon](../Creatures/Royal-dragon.md) the apex among the species that nest in the high rock, alongside lesser cliff predators that hunt the ledges and trails. A traveller in the mesa shares the sky with things that regard the canyons as their own, which adds a vertical dimension to danger that the open plains never have.
+The cliffs and canyons are the territory of dragons, with the [Royal Dragon](../Creatures/Royal-dragon.md) the apex among the species that nest in the high rock, alongside lesser cliff predators that hunt the ledges and trails. A traveller in the mesa shares the sky with things that regard the canyons as their own, which adds a vertical dimension to danger that the open plains never have. On the ground, the canyons shelter the war-camps of [Red Goblins](../Creatures/Red-goblin.md), whose palisades crown the defensible buttes and whose war-hosts march out along the canyon floors to raid the mining camps and settlements of the rock and the plains beyond it.
 
 ## Hazards and Travel
 
@@ -24,7 +24,7 @@ The mesa is settled by those with nowhere gentler to go: outcasts, prospectors, 
 
 ## Continue Reading
 
-Continue with the [Royal Dragon](../Creatures/Royal-dragon.md) that nests in its cliffs, the bordering [Scorching Desert](Scorching-desert.md), and the [Building System](../Building-system.md) for the defensible settlements the rock invites.
+Continue with the [Royal Dragon](../Creatures/Royal-dragon.md) that nests in its cliffs, the [Red Goblin](../Creatures/Red-goblin.md) war-camps in its canyons, the bordering [Scorching Desert](Scorching-desert.md), and the [Building System](../Building-system.md) for the defensible settlements the rock invites.
 
 ## Draft
 

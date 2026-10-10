@@ -1,6 +1,6 @@
 # Minotaur
 
-The Minotaur is a brutal, bull-headed beast found in forest ravines, overgrown ruins and the heavier chambers of old [Dungeons](../Structures/Dungeons.md). It is not the armed, armoured labyrinth soldier of some traditions but a raw physical monster that kills with horns, hooves, claws, weight and bite. It is an elite encounter, and only one holds any given ravine or maze. Its role is to make enclosed spaces and dense woodland feel physically unsafe: if a player hears it breathing in the dark, the question is not whether it can hurt them, but whether there is enough room to survive the charge.
+The Minotaur is a brutal, bull-headed beast found in forest ravines, overgrown ruins, the maze-like passages of the [Deep Caverns](../Biomes/Deep-caverns.md) and the heavier chambers of old [Dungeons](../Structures/Dungeons.md). It is not the armed, armoured labyrinth soldier of some traditions but a raw physical monster that kills with horns, hooves, claws, weight and bite. It is an elite encounter, and only one holds any given ravine or maze. Its role is to make enclosed spaces and dense woodland feel physically unsafe: if a player hears it breathing in the dark, the question is not whether it can hurt them, but whether there is enough room to survive the charge.
 
 ## Appearance and Visual Design
 
@@ -10,7 +10,7 @@ The body is bare dark brown-grey hide, thick and scarred across the torso and li
 
 ## Movement and Territory
 
-The Minotaur walks in a low, rolling hunch with its arms swinging close to the ground, and covers open ground in a head-down charge on its two legs. It favours ravines, root-choked hollows, ruined thresholds and game trails in the [Forest](../Biomes/Forest.md), where its bulk can burst from cover at close range, and in dungeons it is at home in maze-like floors, prison halls and chambers wide enough for a charge but narrow enough that players cannot scatter. It leaves deep, cloven hoof prints and horn-gouged bark along its routes, and a player who reads those marks knows a territory's owner long before meeting it. It responds strongly to scent, vibration and sound, which makes stealth possible but risky.
+The Minotaur walks in a low, rolling hunch with its arms swinging close to the ground, and covers open ground in a head-down charge on its two legs. It favours ravines, root-choked hollows, ruined thresholds and game trails in the [Forest](../Biomes/Forest.md), where its bulk can burst from cover at close range, underground it claims knots of twisting cavern passages where a charge fills the whole tunnel, and in dungeons it is at home in maze-like floors, prison halls and chambers wide enough for a charge but narrow enough that players cannot scatter. It leaves deep, cloven hoof prints and horn-gouged bark along its routes, and a player who reads those marks knows a territory's owner long before meeting it. It responds strongly to scent, vibration and sound, which makes stealth possible but risky.
 
 Its intelligence is predatory rather than conversational. It learns a route, remembers where prey escaped and feints a retreat toward a better charge lane, but it does not negotiate and does not fight with human discipline. Once enraged it smashes obstacles, drives targets into corners, and throws bodies against trees, pillars, doors and walls.
 
@@ -26,7 +26,7 @@ A dead Minotaur leaves horns, hide and heavy bone, materials for heavy armour, i
 
 Hunters in a forest settlement find their marked trail trees split open and their snares crushed flat, all leading toward a ruin that was supposed to be empty. Beneath it, a dungeon floor has opened into a root-filled maze, and a Minotaur has claimed both sides of the threshold as one territory. Players can hunt it in the trees, descend after it into the dungeon, or use the passage between the two spaces to turn its charge against itself.
 
-See also: [Creatures index](../Creatures.md), the [Forest](../Biomes/Forest.md) it stalks, [Dungeons](../Structures/Dungeons.md) that can hold it, and [Crafting](../Crafting.md) for the heavy materials its body provides.
+See also: [Creatures index](../Creatures.md), the [Forest](../Biomes/Forest.md) and [Deep Caverns](../Biomes/Deep-caverns.md) it stalks, [Dungeons](../Structures/Dungeons.md) that can hold it, and [Crafting](../Crafting.md) for the heavy materials its body provides.
 
 ## Concept Drawing
 

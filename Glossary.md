@@ -56,6 +56,8 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Faction** — an NPC-run power in the world, whether a realm, a settlement, a sworn order, or a wild dominion, whose attitude toward a player is tracked as standing. See [Guilds and factions](Guilds-and-factions.md) and the [Reputation system](Reputation-system.md).
 
+**War-host** — a goblin colony on the march: a red goblin war-camp of a hundred to two hundred warriors, with the green goblin bands it has pressed into service, raiding and besieging settlements rather than ambushing travellers. It is one of the wild's own powers that hold frontier ground against the realms. See [Red goblin](Creatures/Red-goblin.md) and [Raids and Conquest](Raids.md).
+
 **Guild** — a player-run organisation with a shared name, membership, and home structure, ranging from a small band to a territory-holding power. See [Guilds and factions](Guilds-and-factions.md).
 
 **Realm** — a kingdom or comparable power belonging to one of the three playable peoples. Each people is divided among several realms, which expand into the frontier and contest it with one another as readily as with other peoples. See [Races](Races.md) and [Setting and lore](Setting-and-lore.md).

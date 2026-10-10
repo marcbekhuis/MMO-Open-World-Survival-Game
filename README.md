@@ -35,7 +35,7 @@ The loop should scale naturally from solo play to guild activity. A solo player 
 
 The game world is divided into visually and mechanically distinct biomes. Each biome should offer its own travel problems, local resources, creatures, settlement patterns, and encounter tone. A [Forest](Biomes/Forest.md) should not play like a [Swamp](Biomes/Swamp.md), and a [Mountain Range](Biomes/Mountain-range.md) should change how players think about stamina, visibility, shelter, and base placement.
 
-Verticality is part of the identity of the world. Players should be able to descend into caves and ruins, cross surface wilderness, climb dangerous ridges, sail or dive through water spaces, and eventually reach aerial spaces such as the [Floating Islands](Biomes/Floating-islands.md). This supports long-term exploration without relying only on a larger flat map.
+Verticality is part of the identity of the world. Players should be able to descend into the [Deep Caverns](Biomes/Deep-caverns.md) and ruins, cross surface wilderness, climb dangerous ridges, sail or dive through water spaces, and eventually reach aerial spaces such as the [Floating Islands](Biomes/Floating-islands.md). This supports long-term exploration without relying only on a larger flat map.
 
 ## Creatures And Encounters
 

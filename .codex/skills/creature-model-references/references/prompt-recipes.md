@@ -282,9 +282,9 @@ Subject: Resting siege-scale opaque dense red gel mass, at least 3 m wide, black
 Final correction incorporated: Every swallowed fragment is entirely submerged beneath continuous smooth red gel, no debris protrudes.
 ```
 
-#### Goblin
+#### Green Goblin
 
-Saved as `Assets/Creatures/Model-references/goblins-model-reference.png`. Fix rounds: 0. Visually checked: 4 limbs/fin appendages. Known weak spot: Tattered leather, finger gaps and oversized boot openings may fuse.
+Saved as `Assets/Creatures/Model-references/green-goblin-model-reference.png`. Fix rounds: 0. Visually checked: 4 limbs/fin appendages. Known weak spot: Tattered leather, finger gaps and oversized boot openings may fuse.
 
 ```text
 Create a photorealistic high-end game-creature 3D model reference: ONE creature, full body, neutral rig-friendly pose. Use the attached Royal Dragon ONLY as an anchor for photographic rendering, plain light-grey studio background and soft even lighting; do not copy dragon anatomy or colours. Every appendage fully inside frame with 5% margin, every limb visible separately with negative space, three-quarter front view from slightly above (adjust higher for many limbs). No scenery, no people, no scale markers, no text, no weapons or external props, no hard cast shadows. Mouth closed unless mouth anatomy otherwise cannot be shown.

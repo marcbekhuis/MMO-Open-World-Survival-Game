@@ -59,7 +59,7 @@ Only the adventurer hand, the mood, and the palette accents are fixed here, so t
 | Birds (`Birds.md`) | `birds-bestiary.png` | Observational naturalist | Alive, watchful, informational; one study per biome archetype the file names, flock breaking upward as a warning |
 | Flying Leviathan (`Flying-leviathan.md`) | `flying-leviathan-bestiary.png` | Peaceful skywright | Serene high-altitude wonder; pale blue, pearl grey, cloud white, soft gold, cyan mana, island greens |
 | Four-Armed Monkey (`Four-armed-monkey.md`) | `four-armed-monkey-bestiary.png` | Cheerful jungle guide | Bright canopy life; jungle greens, the file's display colours, dappled light |
-| Goblin (`Goblin.md`) | `goblins-bestiary.png` (keep this name) | Practical frontier scout | Scrappy, cunning, unpleasant up close; rust metal, stolen cloth, forest-edge greens; all three variants on the right page |
+| Green Goblin (`Green-goblin.md`) | `green-goblin-bestiary.png` | Practical frontier scout | Scrappy, cunning, unpleasant up close; rust metal, stolen cloth, forest-edge greens; all three variants on the right page |
 | Kraken (`Kraken.md`) | `kraken-bestiary.png` | Sailor | World-event ocean terror; blue-black, storm grey, sea green, foam white; a ship for scale |
 | Large Buffalo (`Large-buffalo.md`) | `large-buffalo-bestiary.png` | Plains drover | Gentle giant at a river ford; mud browns, reed greens, cream and ochre fur; the elder bull beside an adult |
 | Mermaid (`Mermaid.md`) | `mermaid-bestiary.png` | Wary coastal salvager | Moonlit wreck-field danger; both forms side by side, iridescent charmed tail against the dull true form |

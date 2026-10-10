@@ -22,13 +22,13 @@ No slime can be tamed, and none will accept a saddle or a bond of any kind from 
 
 ## Habitat
 
-Slimes are found wherever soft ground and plentiful scraps let them feed unnoticed, which in practice means the open [Plains](../Biomes/Plains.md), where passive slimes creep through the grass, and the hollows of the [Forest](../Biomes/Forest.md), where carrion turns them neutral. Wild aggressive slimes are rare; most exist because someone fed them.
+Slimes are found wherever soft ground and plentiful scraps let them feed unnoticed, which in practice means the open [Plains](../Biomes/Plains.md), where passive slimes creep through the grass, the hollows of the [Forest](../Biomes/Forest.md), where carrion turns them neutral, and the damp hollows of the [Deep Caverns](../Biomes/Deep-caverns.md), where neutral slimes compete with scavenging goblins for the dead. Wild aggressive slimes are rare; most exist because someone fed them.
 
 ## Story Hook
 
 A frontier outpost once kept a passive slime in a pit to dispose of refuse and the occasional corpse, a tidy arrangement until someone discovered how much faster it grew on the dead and began feeding it in secret. By the time the colour turned, it was too large for the pit and too aggressive to approach, and the outpost found it had bred its own siege engine. Who fed it, whether it can still be steered, and toward whose gate are the questions the outpost now has to answer.
 
-See also: [Creatures index](../Creatures.md), [Passive Slime](Passive-slime.md), [Neutral Slime](Neutral-slime.md), [Aggressive Slime](Aggressive-slime.md), the [Forest](../Biomes/Forest.md) and [Plains](../Biomes/Plains.md) it drifts through, [Magic](../Magic.md), and [Inventory](../Inventory.md).
+See also: [Creatures index](../Creatures.md), [Passive Slime](Passive-slime.md), [Neutral Slime](Neutral-slime.md), [Aggressive Slime](Aggressive-slime.md), the [Forest](../Biomes/Forest.md), [Plains](../Biomes/Plains.md) and [Deep Caverns](../Biomes/Deep-caverns.md) it drifts through, [Magic](../Magic.md), and [Inventory](../Inventory.md).
 
 ## Concept Drawing
 
