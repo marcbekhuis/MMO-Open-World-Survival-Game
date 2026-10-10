@@ -491,3 +491,60 @@ ONE complete adult creature, exactly TWO arms and ONE fish tail, no legs or wing
 
 Final gill anatomy: override any rib-like treatment with SOLID smooth grey flanks and a compact bank of four slender near-vertical crescent-shaped gill slits on each upper flank below the arm, arranged side by side rather than stacked down the torso. Narrow supple skin lips, flat continuous skin between slits, no white bars, raised ribs, exposed skeleton or large holes. Keep the lower flank intact. Keep every other part identical.
 ```
+
+
+### Goblin model-reference refresh — 10 October 2026
+
+One representative of each goblin people: Raider, Grunt and Gleaner. Built-in image generation; no correction rounds after the initial generation. The previous Green Goblin anchored studio presentation only; the Wolf anchored Red and Golden presentation only. All three were visually checked for two arms, two legs, separated limbs, complete framing and a plain background. Absolute size remains defined by the creature Markdown.
+
+#### Green Goblin — Raider
+
+Saved as `Assets/Creatures/Model-references/green-goblin-model-reference.png`. Fix rounds: 0. Known weak spots: Finger tips and layered leather edges may fuse; the shoulder plate covers part of the upper arm attachment.
+
+Consolidated prompt:
+
+```text
+Create ONE photorealistic high-end game creature MODEL REFERENCE, full body, neutral rig-friendly pose, intended for single-image image-to-3D reconstruction.
+Input image role: attached old goblin model reference is ONLY a studio lighting, background and photographic material finish anchor. Build anatomy and colours freshly from the written description below. Especially replace its tan/brown skin with unmistakable dull OLIVE GREEN.
+
+Subject: adult Green Goblin, representative Raider, hunched wiry humanoid 1.40 metres tall, 35–45 kilograms.
+Anatomy most important: exactly TWO arms attached at sharp shoulders, TWO legs at hips, four limbs total. Lean wiry long arms and legs, long fingers with five distinctly separated digits per hand, oversized pointed ears, narrow restless suspicious face, angular shoulders. A compact lightly hunched upright body, neck subtly forward; not muscular bodybuilder, not dwarf. Natural humanoid joints, clear gaps between arms and ribcage and between both legs. No horns, no wings, no tail.
+Appearance: dull olive-green skin, darker mossy green-brown on back and outer shoulders, muted paler olive inside arms and abdomen. Realistic pores, subtle dirt, uneven pigmentation. Face should remain a narrow cunning goblin, pronounced ear cartilage and nose, closed mouth. Sparse unkempt hair. Raider clothing: patched fitted leather shoulder protection, sparse worn leather chest straps leaving substantial green torso visible, rope belt with a few mismatched stolen buckles, short ragged cloth/leather hip covering and mismatched oversized stolen boots. One small battered hammered-pot armour plate secured to a shoulder; do not obscure elbow or shoulder attachment. Attached clothing only, no loose scavenged objects.
+Pose: neutral A-pose, both arms angled down about 45 degrees OUT from torso, elbows gently straight, EMPTY open hands, fingers spaced. Legs slightly apart, both boots flat visible separately. Retain species' mild hunch but no deep crouch, gesture, action or held weapon.
+Camera and presentation: three-quarter front view roughly 30–40 degrees, camera slightly above, sufficient separation to see both complete arms, both hands and both legs. All ear tips, fingers and boots inside frame with 5% margin. Plain LIGHT GREY seamless studio background, very soft even neutral lighting, no strong cast shadow, no scenery, text, labels, scale silhouette, border, books, weapons or shields. Photorealistic detailed skin, worn real leather and fabric, realistic high-end game model; never ink illustration, cartoon or metallic statue. ONE creature only.
+```
+
+#### Red Goblin — Grunt
+
+Saved as `Assets/Creatures/Model-references/red-goblin-model-reference.png`. Fix rounds: 0. Known weak spots: Overlapping scrap plates, shoulder spikes and knuckle guards may merge into solid geometry; armour conceals some underlying anatomy.
+
+Consolidated prompt:
+
+```text
+Create ONE photorealistic high-end game creature MODEL REFERENCE, full body, neutral rig-friendly pose, intended for single-image image-to-3D reconstruction. This is a NEW humanoid creature, not the animal in the reference.
+Input image role: attached wolf is ONLY a studio finish anchor: plain light-grey seamless background, soft even neutral lighting, realistic photographic material detail. Do not borrow wolf anatomy, fur or posture.
+
+Subject: adult RED GOBLIN GRUNT, a heavily muscular human-sized war goblin, 1.75–1.85 metres tall, 85–110 kilograms, NOT a small green goblin.
+Anatomy: exactly TWO humanoid arms at shoulders and TWO legs at hips, four limbs total. Thick neck, deep chest, very heavy shoulders, long powerful arms, large hands and muscular forearms. Slight forward lean, otherwise upright balanced neutral pose. Narrow goblin jaw and oversized POINTED EARS, not a broad tusked orc head. Five distinct separated fingers on each empty open hand. Both complete legs, feet and hands clearly visible with negative space between limbs and torso. No horns, tail, wings or extra appendages.
+Appearance: matte BRICK RED to DARK RUST skin, deeper on upper shoulders scalp and back, paler warm rust-red on chest and inner arms, pale old healed scar lines. Small deep-set YELLOW eyes, coarse BLACK hair in a single TOPKNOT. Narrow angular face, closed mouth, severe expression. Armour: forge-blackened mismatched scrap iron overlapping jagged plates riveted onto worn leather, shoulder spikes and small knuckle plates, made from stolen pots cart fittings broken blades and battlefield helmets. Functional crude armour rather than polished fantasy knight plate. Keep neck and face exposed, substantial red upper arms and forearms visible, clear joint articulation. Compact scrap shoulder guards, open neckline, riveted torso plates and leather straps, short plated leather hip skirt, separated arm bracers and greaves; complete foot coverings. Helmet left off to reveal facial anatomy. No shield or held weapon.
+Pose: neutral A-pose, both arms angled down about 45 degrees away from body, straight relaxed elbows, EMPTY open hands with separated fingers, palms slightly forward. Legs slightly apart, feet flat, slight species forward lean without action or deep crouch. Nothing crossing in front of torso.
+Camera: three-quarter front view about 35 degrees, slightly above, entire figure including topknot shoulder spike tips fingers and toes in frame with 5% margin. Frame closely enough that limb joints and face are readable. Plain light-grey seamless background, soft even studio illumination, minimal contact shading and no strong cast shadows. No text, labels, human scale marker, scenery, pedestal, props, weapon, shield, blood, book, logo or watermark. ONE character only, realistic skin pores and scars, hammered black iron, leather stitching, high-end photoreal game asset render, no cartoon or illustration.
+```
+
+#### Golden Goblin — Gleaner
+
+Saved as `Assets/Creatures/Model-references/golden-goblin-model-reference.png`. Fix rounds: 0. Known weak spots: Thin fingers, toes, ear edges and attached trinket cords may fuse. Gold paint should be reconstructed as a surface material rather than raised armour.
+
+Consolidated prompt:
+
+```text
+Create ONE photorealistic high-end game creature MODEL REFERENCE, full body, neutral rig-friendly pose, for single-image image-to-3D reconstruction. NEW HUMANOID creature, not the animal in attached reference.
+Input image role: attached wolf is ONLY an anchor for photographic finish, soft even neutral studio light, and plain LIGHT GREY background. Do not copy its anatomy, fur, colours or posture.
+
+Subject: adult GOLDEN GOBLIN GLEANER, pale emaciated cave scavenger with flaking gold paint. 1.40 metres tall, 25–32 kilograms, far thinner than a Green Goblin; NOT a bloated king, muscular goblin, solid-gold statue or armoured warrior.
+Anatomy most important: exactly TWO arms at narrow shoulders and TWO legs at hips. Starved-looking even when healthy, clearly visible ribs and knuckles, thin sticklike limbs, slightly distended belly, spine curving into a permanent mild STOOP. Long grasping fingers and toes, five clearly separated fingers per empty hand, long mobile pointed ears. Huge DARK WET EYES with dilated pupils. Wide mouth, SMALL crowded teeth mostly concealed by closed lips. Narrow gaunt face with sunken cheeks. Humanoid skeleton with very light lean physique, clear limb attachment and negative space around arms and between legs. No horns, wings, tail or extra limbs.
+Skin and materials: base skin SICKLY PALE WHITE, almost translucent, with delicate BLUE VEINS visible at temples, wrists and chest. GOLD IS ONLY PAINT applied ON TOP OF PALE SKIN. Separate irregular streaks, handprints and daubs of dull flaking metallic pyrite/mica gold mixed into greasy tallow; edges visibly cracked and worn. Large areas of bare pale-white skin remain visible on face, chest, forearms and thighs, worn pale patches at elbows and knees. Make gold look like thin gritty paint on living skin, never a smooth gold metal body. Small sparse attached cords around neck and wrists with buttons, brass buckles, a few coins, polished nails and small mirror/glass fragments; irregular scavenged trinkets, not luxurious heavy chains. Small simple earrings of shiny junk. Clothing minimal ragged cloth/leather shorts or an opaque short loincloth covering groin completely; bare torso, bare long-fingered hands, bare grasping feet. Nothing held in hands, no scavenger bag or detached objects.
+Pose: neutral upright A-pose while retaining modest species stoop, not all-fours or deep crouch. Both arms extend out/down about 45 degrees away from narrow torso, relaxed elbows, both EMPTY hands OPEN with separated fingers. Legs slightly apart, knees only softly bent, feet flat with long toes visible. All four limbs clearly separated, nothing crosses body.
+Camera: three-quarter front about 30–35 degrees from slightly above, entire head ears fingertips toes in frame with 5% margin, closely framed for anatomical readability. Plain light-grey seamless backdrop, very soft even neutral illumination; subtle contact shading only, no strong cast shadows, no torch scene, cave, treasure heap, other character, scale silhouette, border, title, labels, weapons, throne or props. Realistic pale translucent skin, fine veins, ragged cloth and granular flaky gold paint, like a high-end photorealistic horror-fantasy game model. Closed mouth, neutral watchful expression, no gore. ONE full creature only.
+```
+

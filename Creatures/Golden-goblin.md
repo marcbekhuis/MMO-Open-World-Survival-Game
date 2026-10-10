@@ -34,6 +34,12 @@ A mining camp at the edge of the mountains has been losing its dead. Bodies laid
 
 See also: [Creatures index](../Creatures.md), the [Deep Caverns](../Biomes/Deep-caverns.md) it lives in, the [Mountain Range](../Biomes/Mountain-range.md) whose mines it infests, the [Red Goblin](Red-goblin.md) war-hosts it trails, and [Death and Loss](../Death-and-loss.md).
 
+## Concept Drawing
+
+![Golden goblin bestiary entry](../Assets/Creatures/Bestiary/golden-goblin-bestiary.png)
+
+![Golden goblin model reference](../Assets/Creatures/Model-references/golden-goblin-model-reference.png)
+
 ## Inspiration
 
 The golden goblin is inspired by the goblins of Goblin-town in Peter Jackson's [*The Hobbit: An Unexpected Journey*](https://tolkiengateway.net/wiki/The_Hobbit:_An_Unexpected_Journey): pale, emaciated creatures swarming through the caves beneath the mountains in vast numbers, ruled by the bloated [Great Goblin](https://tolkiengateway.net/wiki/Great_Goblin) on his throne, which is the direct model for the Gilded King. What differs is the temperament. Golden goblins are cowardly scavengers rather than captors and torturers, they are blinded by sunlight rather than merely disliking it, and they are driven by a compulsion for anything that shines, which gives them the gold paint, the trinkets and the hoard that their film counterparts lack.

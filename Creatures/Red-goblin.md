@@ -36,6 +36,12 @@ A frontier hamlet on the edge of the plains has heard drums in the foothills eve
 
 See also: [Creatures index](../Creatures.md), the [Green Goblin](Green-goblin.md) bands it presses into service, the [Golden Goblin](Golden-goblin.md) that trails its war-hosts, the [Mountain Range](../Biomes/Mountain-range.md), [Mesa](../Biomes/Mesa.md) and [Plains](../Biomes/Plains.md) it raids from and across, and [Raids](../Raids.md).
 
+## Concept Drawing
+
+![Red goblin bestiary entry](../Assets/Creatures/Bestiary/red-goblin-bestiary.png)
+
+![Red goblin model reference](../Assets/Creatures/Model-references/red-goblin-model-reference.png)
+
 ## Inspiration
 
 The red goblin draws on the orcs of [J. R. R. Tolkien's Middle-earth](https://tolkiengateway.net/wiki/Orcs), and particularly the [Uruk-hai](https://tolkiengateway.net/wiki/Uruk-hai) as Peter Jackson's *The Lord of the Rings* films presented them: human-sized, muscular warriors in jagged, forge-blackened scrap armour, fighting as a disciplined mass behind shields and marching to drums. What differs is the master. Red goblins serve no dark lord and were made by no one; they are a people of the wild, and their war is their own, driven by iron, plunder and the standing of each Warboss rather than by a will greater than theirs.
