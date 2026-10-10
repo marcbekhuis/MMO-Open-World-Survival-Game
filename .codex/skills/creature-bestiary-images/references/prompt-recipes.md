@@ -91,22 +91,12 @@ When a new creature file is added, add a row here with an adventurer hand not ye
 
 ## Pending Corrections
 
-Plates that were reviewed against their creature file and need regenerating. Rebuild the subject from the current Markdown as usual and fold in the correction; the notes only say what went wrong last time. Remove an entry once its corrected plate is saved.
+Plates that were reviewed against their creature file and need regenerating or editing. Rebuild the subject from the current Markdown as usual and fold in the correction; the notes only say what went wrong last time. Remove an entry once its corrected plate is saved.
 
-### Green Goblin — build (reviewed 10 October 2026)
+### Red Goblin — footwear and details (reviewed 10 October 2026, second round)
 
-Every goblin on the plate is drawn emaciated, with sticklike limbs and the ribs and spine showing. The file now gives a lean but solid body of 40 to 50 kilograms at 1,40 metres: compact and firm, ropy muscle over the arms and legs, a little flesh over the ribs and a solid trunk. Draw the Raider, Tinkerer and Scout tough and wiry rather than starved, so they cannot be mistaken for the bony Golden Goblin. Keep the skin colour, kit, trap sketch and scale, which were correct.
+The scale, soldier build, war camp and marching weapons are now correct; keep them. The main portrait and the foot sketch show bare feet with ankle wraps, but the file now puts every red goblin in heavy hobnailed leather boots fitted to the wearer, capped with scrap plate at the toe and shin. Draw boots on every red goblin on the spread and replace the bare-foot sketch with a study of the boot. In the same pass, remove the few spears still rising from the back ranks of the marching block, replace the smoking volcano in the top-left background with ordinary foothills under forge smoke, and bring the Warboss down to close to 2 metres, about a head above the human silhouette rather than taller.
 
-### Red Goblin — scale and build (reviewed 10 October 2026)
+### Golden Goblin — Hoard-warden (reviewed 10 October 2026, second round)
 
-The goblins tower over the human silhouette and are drawn as hulking, bodybuilder-heavy brutes. Measured against the silhouette, the Grunt reads at about 2,05 metres and the Warboss at about 2,3 metres, and the silhouette itself is drawn small and slight. The file gives a Grunt 1,75 to 1,85 metres and 70 to 85 kilograms, the build of a fit human soldier, and the Warboss close to 2 metres, tall and hard rather than massive. Draw every red goblin, the Ironback included, with the muscle of a trained human man-at-arms: square shoulders, a solid chest and strong forearms, but no swollen neck, bulging arms or barrel torso. Their menace on the page should come from the armour and the massed ranks, not from size. Put the human silhouette, drawn as an ordinary adult man of about 1,80 metres, on the same ground line as the right-page line-up so the Grunt stands eye to eye with it, the Ironback barely taller, and the Warboss no more than a head above it. Keep the main portrait, the Ironback's tower shield and hammer, the Warboss's horn and trophy standard, the drum platform and the war-camp palisade.
-
-Two smaller deviations to fix in the same pass. Arm the marching shield wall with cleavers, notched swords, axes, mauls and spiked clubs instead of spears, since the file lists only those weapons. Draw the war camp as hide tents and lean-tos around fighting pits and a central scrap forge, with no stone tower.
-
-### Golden Goblin — scale and title (reviewed 10 October 2026)
-
-The Gleaner stands nearly as tall as the human silhouette, about 1,7 metres by comparison, where the file gives 1,40 metres: roughly three-quarters of an adult human's height, the same height as a Green Goblin. Redraw the right-page line-up on one ground line with the silhouette at about 1,80 metres, the Gleaner's head level with the silhouette's chest, the stooped Hoard-warden only slightly taller, and the Gilded King at about 2,20 metres.
-
-The title's final "n" in "Golden" carries a long descending tail, so the lettering reads "Goldeŋ Goblin". Letter the title "Golden Goblin" with no flourish below the baseline on any letter.
-
-Two smaller deviations to fix in the same pass. Render the body paint as dull, gritty, flaking paint that glints only where light catches it, not as bright metallic gold leaf. Build the Gilded King's throne from heaped hoard junk (coins, plate, armour fittings, glass and brass) rather than an ornate carved gold throne with drapery; keep the real gold chains and rings on the King himself.
+The title, scale, Gilded King and paint are now correct; keep them. The Hoard-warden reads as a figure wrapped in muddy, dripping rags. The file describes an older, heavier goblin so caked in layers of gold paint that it has the cracked, glittering look of a gilded statue. Draw it with bare pale skin under thick, crazed layers of dull gold paint, cracked like old gilding, with only a scrap of cloth at the hips and its trinkets on cords.

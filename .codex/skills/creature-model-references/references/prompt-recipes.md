@@ -493,7 +493,7 @@ Final gill anatomy: override any rib-like treatment with SOLID smooth grey flank
 ```
 
 
-### Goblin model-reference refresh — 10 October 2026
+### Goblin model-reference refresh — 10 October 2026 (historical; superseded below)
 
 One representative of each goblin people: Raider, Grunt and Gleaner. Built-in image generation; no correction rounds after the initial generation. The previous Green Goblin anchored studio presentation only; the Wolf anchored Red and Golden presentation only. All three were visually checked for two arms, two legs, separated limbs, complete framing and a plain background. Absolute size remains defined by the creature Markdown.
 
@@ -548,45 +548,110 @@ Pose: neutral upright A-pose while retaining modest species stoop, not all-fours
 Camera: three-quarter front about 30–35 degrees from slightly above, entire head ears fingertips toes in frame with 5% margin, closely framed for anatomical readability. Plain light-grey seamless backdrop, very soft even neutral illumination; subtle contact shading only, no strong cast shadows, no torch scene, cave, treasure heap, other character, scale silhouette, border, title, labels, weapons, throne or props. Realistic pale translucent skin, fine veins, ragged cloth and granular flaky gold paint, like a high-end photorealistic horror-fantasy game model. Closed mouth, neutral watchful expression, no gore. ONE full creature only.
 ```
 
-### Goblin model-reference corrections — pending (reviewed 10 October 2026)
+### Goblin model-reference refresh — corrected 10 October 2026
 
-All three refreshed goblin references need corrections, and two of them because the creature files changed after generation: the Green Goblin is now 40 to 50 kilograms and lean rather than starved, and the Red Goblin is now 70 to 85 kilograms with the build of a fit human soldier. The consolidated prompts recorded above still carry the old weights and physiques, so do not regenerate from them unedited. Apply each fix as its own edit in the conversation that holds the image, one message per fix, then re-run the quality checklist. If a body-build fix makes the face, armour or colours drift, start a new conversation from the current Markdown instead. Remove an entry once its corrected image is saved and its fix round is recorded above.
+These references supersede the earlier goblin refresh. One representative per species: Raider, Grunt and Gleaner. Built-in image generation from current Markdown; the existing Green Goblin anchored studio presentation only, then its corrected render anchored the Red and Golden references. Every accepted image was visually checked for two arms, two legs, correct attachments, separated open hands, full framing and a plain background. Absolute sizes remain defined by the creature files. The consolidated prompts include the framing and hand corrections, and have not been rerun as single prompts.
+
+#### Green Goblin — Raider
+
+Saved as `Assets/Creatures/Model-references/green-goblin-model-reference.png`. Fix rounds: 2. Hands opened and fingers separated; framing expanded. Known weak spots: Fine fingers and layered leather edges may fuse; the small shoulder plate conceals part of the shoulder surface.
+
+Consolidated prompt:
+
+```text
+Create ONE photorealistic high-end game creature MODEL REFERENCE, full body, for single-image image-to-3D reconstruction.
+Input image role: use attached old goblin ONLY for light-grey studio background, soft even light and photographic material finish. The NEW body and pose must follow the text below; do not copy the old skeletal build or clawing hands.
+
+Subject: adult GREEN GOBLIN RAIDER, 1.40 metres tall and 40–50 kg. Compact, lean but SOLID and firm, tough ropy muscle over upper arms, forearms, thighs and calves, solid trunk with flesh covering ribs and sternum. Not starved, no exposed rib cage, not bulky bodybuilder.
+Anatomy: exactly TWO humanoid ARMS attached at shoulders and TWO LEGS attached at pelvis. Arms end in open hands; legs end in feet in boots. Natural separate shoulder/elbow/wrist and hip/knee/ankle joints. Long fingers, five clearly separated fingers per hand. Oversized pointed ears, sharp shoulders, narrow angular suspicious goblin face, sparse messy hair. Retain a MILD upper-back hunch and forward neck while standing upright in a neutral pose. No horns, tail or wings.
+Skin: unmistakable dull OLIVE GREEN, deeper mossy green-brown shoulders and back, muted paler olive inner arms and abdomen, realistic pores and subtle dirt.
+Clothing: representative Raider in sparse patched fitted leather straps leaving substantial torso visible, rope belt, mismatched stolen buckles, short ragged cloth/leather hip covering, mismatched oversized stolen boots. One SMALL battered cooking-pot scrap plate on shoulder, fitted without hiding the upper arm outline. Attached clothing only, no loose objects, no held blades, no shields, no packs.
+
+POSE is essential: neutral A-pose, both upper arms straight out/down at roughly 45 degrees from torso, elbows relaxed and NEARLY STRAIGHT. Hands EMPTY and OPEN, fingers extended with clear gaps, palms oriented visibly towards camera. No curled clawing gestures. Legs shoulder-width apart, knees only softly bent, both boots flat. Visible negative-space gaps between each arm and torso, each hand and thigh, and both legs. Absolutely no limb merging, action pose, squat or arm crossing.
+Camera: near three-quarter FRONT view about 30 degrees, slightly above, favour visibility of both arms/hands/legs. Portrait composition, ONE full character, every ear tip, fingertip and boot inside frame with at least 5 percent clear margin.
+Plain LIGHT GREY seamless studio background, soft neutral even lighting, only very subtle contact shading. No hard shadows, scenery, text, scale person, labels, weapons, props, pedestal, book, logo or watermark. Photoreal living green skin, real worn leather, metal and stitching, not illustration.
+
+Final corrections consolidated: Both hands fully open with five extended slightly fanned fingers and palms facing slightly towards camera. Entire character centred with at least 5 percent clear margin above highest hair and below boots; no cropped tips.
+```
 
 #### Red Goblin — Grunt
 
-The figure is a hulking brute with a bodybuilder's neck, shoulders and arms. The file now asks for a fit human soldier's build.
+Saved as `Assets/Creatures/Model-references/red-goblin-model-reference.png`. Fix rounds: 1. Framing expanded; soldier physique correct in initial generation. Known weak spots: Overlapping scrap plates and small spikes may merge; armour conceals the covered torso surfaces.
+
+Consolidated prompt:
 
 ```text
-Build: The goblin is far too massive. Slim it to the build of a fit, trained human soldier about 1.80 metres tall and 75 kilograms: square shoulders, a solid chest and strong forearms with natural, functional muscle, a normal-width neck and waist, and arms no thicker than an athletic man's. No bodybuilder bulk, barrel chest or swollen trapezius. Resize the scrap armour to fit the slimmer body. Keep the red skin, scars, yellow eyes, topknot, pointed ears, face, armour design, A-pose and framing identical.
+Create ONE NEW photorealistic high-end game creature MODEL REFERENCE, full body, neutral A-pose, for single-image image-to-3D reconstruction.
+Attached Green Goblin is ONLY a studio presentation anchor: copy its plain light-grey background, even soft lighting, realistic materials, open empty hands and clear separated-limb reference pose. Do NOT copy green colour, small size, green face or Raider outfit. Build the NEW Red Goblin from this text.
+
+Subject: adult RED GOBLIN GRUNT, 1.75–1.85 metres tall, 70–85 kg, proportions of a FIT HUMAN SOLDIER. Square but normal shoulders, solid chest, strong functional forearms, NORMAL-width neck and waist, lean marching soldier thighs/calves. Athletic 1.80 m, 78 kg man-at-arms build, NOT hulking orc, NOT bodybuilder, NO swollen neck/trapezius, bulging arms or barrel torso.
+Anatomy: exactly TWO arms at shoulders and TWO legs at hips, four limbs total. Somewhat long arms, large hands, oversized pointed ears, NARROW goblin jaw and angular face, no giant tusks. Separate complete shoulder/elbow/wrist/hand chains and hip/knee/ankle/foot chains. Slight forward lean but balanced standing upright. Five clearly separated extended fingers per open hand. No horns, wings, tail or extra appendages.
+Skin: matte BRICK RED fading to dark rust on back, shoulders and scalp, lighter rust-red chest and inner arms, fine pale healed scars. Small deep-set YELLOW eyes. Coarse black hair in a single topknot, CLOSED mouth, severe watchful expression. Realistic living skin, pores and uneven pigmentation.
+Outfit: forge-blackened mismatched jagged scrap IRON PLATES riveted on worn leather, made from stolen pots, cart fittings, broken blades and helmets. Compact spiked shoulder guards, open neck, fitted riveted torso plates, short plated leather hip skirt, separate bracers/greaves and complete worn foot coverings. Resize plates to the NORMAL soldier build. Substantial upper arm skin and elbow joints remain visible. No helmet to hide face. No oversized armour making a huge silhouette. No weapons or shields, nothing held, no trophy standard.
+
+POSE: neutral A-pose, arms angled out/down about 45 degrees away from torso, elbows nearly straight, both EMPTY hands FULLY OPEN, fingers extended and fanned with visible gaps, palms slightly toward camera. Legs shoulder-width apart, both feet flat and separated, knees only softly bent. Clear empty background gaps between each arm and torso, hands and thighs, and between legs. No limb crossing or fusing, no action or squat.
+Camera: near three-quarter front about 30 degrees, slightly above, entire body including topknot, ear and spike tips, fingers and boots visible. Centre figure with AT LEAST 5 percent clear background margin on ALL edges. One character only.
+Plain light-grey seamless backdrop and neutral soft even studio light, only subtle contact shading, no hard shadows, scenery, scale figure, text, labels, title, pedestal, props, blood, book, logo or watermark. High-end photoreal game asset with hammered iron, leather stitching and skin detail.
+
+Final correction consolidated: Full character centred vertically with at least 5 percent clear margin above topknot and below boots, all spike and finger tips inside frame.
 ```
 
 #### Golden Goblin — Gleaner
 
-The figure stands almost upright with a flat belly, the skin reads flesh-pink rather than sickly white, and the top of the head nearly touches the frame edge, inside the 5% margin.
+Saved as `Assets/Creatures/Model-references/golden-goblin-model-reference.png`. Fix rounds: 1. Framing expanded; stoop, distended belly and separate limbs present in initial generation. Known weak spots: Thin fingers, toes and trinket cords may fuse; paint should be a surface material, not raised metal geometry.
+
+Consolidated prompt:
 
 ```text
-Posture: The goblin stands too upright. Curve the spine into a permanent stoop, with the upper back rounded, the shoulders rolled forward and the head carried low and forward of the chest, while both feet stay flat and the arms stay out at 45 degrees with open empty hands. Give the belly a slight distension below the visible ribs. Keep everything else identical.
+Create ONE NEW photorealistic high-end fantasy game creature MODEL REFERENCE for single-image image-to-3D reconstruction.
+Attached Green Goblin is ONLY an anchor for grey studio background, soft neutral lighting, photoreal surface finish, open empty hands and separated-limb rig pose. Do NOT copy its solid body, green colour, clothing, boots or face. NEW subject below:
+
+Adult GOLDEN GOBLIN GLEANER, pale emaciated cave scavenger 1.40 metres tall and 25–32 kg. Not a bloated king. Four limbs: exactly TWO arms attached at SHOULDERS and TWO legs attached at PELVIS. Each arm separately traces shoulder -> elbow -> wrist -> long-fingered open hand. Each leg separately traces hip -> thigh -> knee -> calf -> long-toed bare foot. Absolutely no blending of arm with leg, no extra appendages.
+Physique: starved-looking skeleton-thin arms/legs, protruding knuckles and visible ribs, slightly DISTENDED LOWER BELLY below ribs. Back rounded into a PERMANENT STOOP: shoulders rolled forward, upper back visibly curved, neck extends forwards, head carried LOW and FORWARD of chest. It remains a standing A-pose reference with both feet flat and knees softly bent, NOT crouched down or on all fours and NOT straight-backed upright. Long grasping fingers and toes, oversized pointed ears, huge dark wet eyes and dilated pupils, narrow sunken face, wide mouth CLOSED with small crowded teeth concealed. No horns, tail, wings or armour.
+
+Skin/material: base colour is SICKLY PALE WHITE with a faint cold grey-blue undertone, almost translucent, with fine BLUE VEINS at temples, wrists and chest. NOT flesh-pink or tan. Gold is only surface PAINT: irregular streaks, handprints, daubs of DULL granular flaking pyrite/mica powder in greasy tallow, small subdued glints, visibly cracked edges and worn spots at elbows/knees. Majority of living pale white skin still visible. Not a smooth gold metal statue, not raised gold leaf or bright polished gold skin.
+Minimal modest clothing: opaque short ragged cloth/leather hip wrap fully covering groin, bare torso, arms, legs and grasping bare feet. Sparse small junk ornaments fixed close on cords: brass buttons, buckles, cheap coins, small mirror/glass scraps around neck and wrists and in ears. No luxurious real-gold royal chains, no weapon, bag or throne, no detached objects.
+
+Pose: arms extend outward/down about 45 degrees from torso, elbows nearly straight, both hands EMPTY and fully OPEN with five extended slightly fanned fingers and visible background gaps between all digits. Palms slightly towards camera. Legs shoulder-width apart, feet separated with readable long toes. Clear empty background gaps all along arm/torso, hand/thigh and leg/leg contours. Preserve rounded upper back and forward low head in this neutral standing A-pose. No limbs overlap, no curled claws or action gestures.
+Camera: three-quarter FRONT view around 30 degrees, slightly elevated, choose angle so both shoulder attachments, hands and legs visible. Entire figure centred, ears/hair/fingertips/toes INSIDE A GENEROUS 8 percent clear background border on all edges. ONE creature only, full body.
+Plain LIGHT GREY seamless studio background, neutral soft even light, subtle contact shading only. No cast shadows, cave, scenery, treasure, scale person, pedestal, book, labels, readable text, weapons, props, logo or watermark. Photoreal high-end game model: pale living veined skin, thin ragged fabric, gritty flaking paint, unsettling but no gore.
+
+Final correction consolidated: Entire character centred vertically with at least 5 percent clear margin around highest hair, ear tips, fingertips and toes; preserve stooped back and visible independent arm and leg outlines.
+```
+
+### Goblin model-reference corrections — pending (reviewed 10 October 2026, second round)
+
+The corrected Green Goblin reference is accepted apart from the shared background note below. Apply each fix as its own edit, one message per fix, then re-run the quality checklist. Remove an entry once its corrected image is saved and its fix round is recorded above.
+
+#### All three — background colour
+
+All three corrected references sit on a lavender-blue background instead of the plain light grey every other creature reference uses. It does not affect reconstruction, but keep the set consistent: when each image is next edited, finish with this fix.
+
+```text
+Background: The background is lavender-blue. Change it to a plain, neutral light grey seamless studio backdrop with no colour cast, matching soft even lighting. Keep the creature, its colours and every other detail identical.
+```
+
+#### Red Goblin — Grunt
+
+Regenerate this one rather than editing it. The accepted image has the proportions of a short goblin, about 5 heads tall, where a 1,80 metre adult human is about 7½, and its face, scowl, ears and chunky oversized boots are near copies of the Green Goblin's. The cause is the anchor: the Green render was attached and its body plan carried over. The build is also slim and wiry rather than square-shouldered, and the chest armour is a cropped harness that leaves the stomach bare.
+
+Start a new conversation. Attach no goblin image; if a studio anchor is needed, use the Wolf reference for background and lighting only. Build the prompt from the current [Red Goblin](../../../../Creatures/Red-goblin.md) file, which now also specifies boots, and add these lines to the subject:
+
+```text
+Proportions: ADULT HUMAN proportions, about 7.5 heads tall: a normal-sized head on a full-length torso and long legs, like a 1.80 metre man-at-arms. NOT the large-headed, short-bodied proportions of a small goblin. Only the oversized pointed ears, narrow jaw, slightly long arms and large hands mark it as a goblin. Face its own: severe, narrow and angular, with small deep-set yellow eyes; not the Green Goblin's face.
+Build: fit human soldier, square shoulders, solid chest, strong forearms, normal neck and waist; not wiry, not hulking.
+Armour: riveted scrap plates covering the chest and stomach on leather, spiked shoulder guards, plated hip skirt, bracers and greaves. Boots: heavy hobnailed leather boots FITTED to the feet, capped with scrap plate at toe and shin; not oversized, not stolen-looking.
+```
+
+#### Golden Goblin — Gleaner
+
+The stoop, belly, hands and framing are now correct. Two material fixes remain.
+
+```text
+Skin tone: The skin still reads beige-pink. Shift all bare skin to a sickly, almost translucent pale white with a cold grey-blue undertone, and make the fine blue veins at the temples, wrists and chest clearly visible. Keep the paint, pose and every other detail identical.
 ```
 
 ```text
-Skin tone: The skin reads flesh-pink. Shift the bare skin to a sickly, almost translucent pale white with a faint cold grey-blue undertone, so the blue veins at the temples, wrists and chest show clearly. Keep the gold paint, its coverage and every other detail identical.
-```
-
-```text
-Framing: The top of the head nearly touches the frame edge. Zoom out slightly so the head, both ear tips, the fingertips and the toes all sit inside a clear 5% margin on every side, with the figure centred. Keep everything else identical.
-```
-
-#### Green Goblin — Raider
-
-The figure holds a crouched, claws-out stance with bent elbows and curled hands instead of the neutral A-pose with open hands the prompt asked for, which makes the arms and hands harder to rig.
-
-```text
-Pose: The goblin is crouched with bent elbows and curled, claw-like hands. Straighten it into a neutral A-pose that keeps only the species' mild hunch: elbows relaxed and nearly straight, both arms angled down about 45 degrees away from the torso, both hands open and empty with five clearly separated fingers, knees only softly bent and feet flat about shoulder width apart. Keep the boots, clothing, shoulder plate, skin colour and face identical.
-```
-
-The body is also too thin for the updated file, with the ribs, sternum and sticklike limbs showing.
-
-```text
-Build: The goblin is too skinny. Give it a lean but solid body of about 45 kilograms at 1.40 metres: compact and firm, ropy muscle over the upper arms, forearms, thighs and calves, a little flesh over the ribs so they no longer show, and a solid trunk. Wiry and tough, not starved, not bulky. Keep the pose, boots, clothing, shoulder plate, skin colour, ears and face identical.
+Gold paint: The paint reads as yellow stains on the skin. Make it read as dull gold PAINT: gritty pyrite and mica flakes in greasy tallow, applied in streaks, handprints and daubs with cracked, flaking edges, catching small metallic glints where the light hits. Still matte overall, not polished gold. Keep the skin, pose and every other detail identical.
 ```
 
