@@ -14,7 +14,7 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 
 const PLUMBING = new Set([
-  "README.md", "CLAUDE.md", "AGENTS.md", "GEMINI.md", "Design-backlog.md", "GDD-REVIEW.md",
+  "README.md", "CLAUDE.md", "CLAUDE.local.md", "AGENTS.md", "GEMINI.md", "Design-backlog.md", "GDD-REVIEW.md",
 ]);
 const SKIP_DIRS = new Set([".claude", ".git", ".codex", ".github", "node_modules"]);
 
