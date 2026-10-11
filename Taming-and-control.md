@@ -2,6 +2,8 @@
 
 In many games, taming a [creature](Creatures.md) grants permanent control. Here control is a bond that has to be kept, won through one of three methods and maintained for as long as the creature serves. The stronger the bond, the better a creature answers its handler, above all when it is ridden.
 
+This document is the conceptual design. Its implementation in Unreal Engine 5 — the bond records and methods, shelter evaluation, elapsed-time catch-up, and the creature AI that riding and flight call into — is set out in [Taming and Control (Technical)](<Taming-and-control (Technical).md>).
+
 ## Slave Bonding
 
 Slave bonding is the easiest and most dangerous way to control a creature. It forces obedience through harm and coercion, and it holds only as long as the handler keeps the pressure on. When that control slips, the creature flees or turns on its handler, and depending on its nature it may attack to kill.
@@ -30,7 +32,7 @@ The bond built through the methods above matters at every moment a creature is r
 
 ## Continue Reading
 
-Continue with [Creature Riding](Creature-riding.md) for life in the saddle, [Travel and Mounts](Travel-and-mounts.md) for what a controlled creature lets a player do, [Creatures](Creatures.md) for the beasts worth bonding with, and [Skills](Skills.md) for the taming and handling skills that strengthen the bond.
+Continue with [Creature Riding](Creature-riding.md) for life in the saddle, [Travel and Mounts](Travel-and-mounts.md) for what a controlled creature lets a player do, [Creatures](Creatures.md) for the beasts worth bonding with, and [Skills](Skills.md) for the taming and handling skills that strengthen the bond, and [Taming and Control (Technical)](<Taming-and-control (Technical).md>) for how it is built in Unreal Engine 5.
 
 ## Draft
 

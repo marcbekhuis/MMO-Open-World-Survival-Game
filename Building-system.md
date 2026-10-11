@@ -2,6 +2,8 @@
 
 Building is how a player stakes a claim on the world: a lean-to against the rain on the first night, a timber hall with a forge and a stable yard a season later, a stone keep that a whole guild bleeds to hold. The system works the way the genre's best piece-based builders do, in the tradition of [ARK: Survival Evolved](https://ark.wiki.gg/wiki/Building) and [Conan Exiles](https://www.conanexiles.com/): structures are made of crafted pieces that snap together, each piece has to be carried by something beneath it, and anything that stands can be burned, battered, or brought down. This document covers how pieces are made and placed, how structures stand and fall, how land is claimed and kept, and how the same pieces become a home for tamed creatures.
 
+This document is the conceptual design. Its implementation in Unreal Engine 5 — the piece records and snap points, the stability graph, damage and claims, and the replication and persistence of player-built structures — is set out in [Building System (Technical)](<Building-system (Technical).md>).
+
 ## One System for Everyone
 
 All humanoid structures, player-built or NPC-built, use the same construction system. Architecture is part of the shared world language: players build in human, elven, or dwarven styles or mix them into hybrid settlements, they understand an NPC town through the rules that govern their own walls, and they attack or defend any building in a raid without a separate ruleset. The NPC settlements laid out by [Settlement Generation](Settlement-generation.md) are made of the same pieces, from the same materials, and fail in the same ways.
@@ -16,18 +18,32 @@ Crafted pieces keep their weight. A thatch panel is light, a timber wall is a lo
 
 ## Placing Pieces
 
-Structural pieces snap together. Each piece has sockets along its edges and faces, and the placement preview locks a new piece into the nearest fitting socket of its neighbours: foundations join edge to edge, walls stand on foundation edges, ceilings rest on walls and pillars, roofs cap walls, and stairs and ramps hook onto floors. Square and triangular variants let a builder turn corners, ring a tower, or follow a cliff edge. Foundations settle onto uneven ground within limits, and on steeper slopes they rise on pillars to make a level floor. Pieces cannot be placed over resource nodes, on the roads that link settlements, or inside the protected ground around NPC settlements and the [great cities](Structures/Great-cities.md).
+Building is meant to feel refined: quick to rough out, precise to finish, and generous with options at every step. Structural pieces snap together, and the snapping is the heart of it. Square and triangular variants let a builder turn corners, ring a tower, or follow a cliff edge. Foundations settle onto uneven ground within limits, and on steeper slopes they rise on pillars to make a level floor. Pieces cannot be placed over resource nodes, on the roads that link settlements, or inside the protected ground around NPC settlements and the [great cities](Structures/Great-cities.md).
 
 The core families of structural piece are these:
 
-- **Foundations**, square and triangular, the only pieces that take their support from the ground, along with fence foundations for walls and palisades.
+- **Foundations**, square and triangular, which take their support from the ground.
+- **Wall foundations**, ground-supported like any foundation but only as thick as a wall, which line the outer edge of an ordinary foundation so that the wall stands beside the floor rather than on top of it. A room ringed with them keeps every square of its floor inside, and on open ground they carry fences and palisades.
 - **Pillars**, which carry floors and roofs up from a foundation or the ground.
 - **Walls**, solid, windowed, half-height, and framed for doors, gates, and hatches, along with the doors and gates that fill those frames.
 - **Floors and ceilings**, which are the same piece seen from either side.
 - **Roofs**, sloped and flat, which also decide whether the space below counts as covered.
 - **Stairs, ramps, and ladders**, which join one level to the next.
+- **Frames and beams**, the timber support frames, crossbeams, braces, and trims that fix onto the face of a wall, floor, or ceiling.
 
-Everything that is not structure, such as crafting stations, storage chests, beds, hearths, feeding troughs, furniture, and decoration, is placed freely on any flat surface rather than snapped to a socket, so a builder can arrange an interior as they like once the shell stands.
+### Snap Points
+
+Every piece carries many snap points, not one per edge, and the builder can always see them. As soon as a piece is in hand, every valid snap point on the nearby structure lights up as a small marker, the one the preview will lock to is highlighted, and the builder can step through the other candidates at the same spot before committing. Foundations join edge to edge and corner to corner, walls stand on foundation edges or on wall foundations, ceilings rest on walls and pillars, roofs cap walls, and stairs and ramps hook onto floors.
+
+Pillars are where the extra options matter most. A wall can meet a pillar centred on the pillar, so that the wall's end runs into the middle of the post, or flush with either of its outer corners, so that the pillar stands proud of the wall or sits hidden behind it. The same choice applies at every face of the pillar, which lets one post anchor a straight run, a corner, or a junction of walls meeting from three or four sides. Wall faces are just as generous. Support frames, crossbeams, diagonal braces, and trims snap onto any face of any wall, at its edges, its middle, or its quarter lines, so a builder can dress a plain wall as half-timbered work, brace a long run, or band a stone tower with timber without any of it floating free.
+
+### Clean Joints
+
+Pieces never fight one another visually. Wherever two pieces meet or overlap, such as a wall running into a pillar, two walls crossing at a corner, a beam laid across a wall face, or a floor tucked under a wall foundation, the joint resolves cleanly instead of showing two surfaces flickering through each other. The system does this in two layers. First, each piece reads its neighbours and swaps to the model variant that fits the joint: a corner piece where two walls meet, a T-junction where a third arrives, an end cap where a run stops, a notched beam where it crosses a post. Second, where pieces still overlap, one surface always takes priority and the other is hidden behind it, so even an unusual arrangement never clips. A builder can therefore set pieces as close together as the snap points allow and trust the result to look built rather than stacked.
+
+### Decoration and Detail
+
+Everything that is not structure, such as crafting stations, storage chests, beds, hearths, feeding troughs, furniture, and decoration, is placed freely rather than snapped. It sits on floors, tables, and shelves, hangs on walls and from beams, and can be rotated in fine steps, nudged by small distances, aligned to the surface beneath it, or set down with a light grid when a row of things needs to line up. Structural pieces carry their own choices as well. Most come in several styles and trims within each material, so the same timber wall can be left rough, planked smooth, or carved, and a builder can change a placed piece's style without tearing it down. Finishing a building is as much a part of the craft as raising it.
 
 ## Materials
 
@@ -71,7 +87,7 @@ Anything that stands can be brought down, and almost anything can do it, at very
 
 A lone raider with a pickaxe can start hacking at a stone wall, and given enough uninterrupted hours they will get through it, but every swing is loud and every hour is an hour for defenders to arrive. The better answers cost more to bring and are harder to hide: rams and siege engines must be built on site or hauled in, war beasts must be raised and fed, and a mage who can breach stone has spent years learning to. Walls do not have to be broken at all if they can be climbed. Siege ladders and grappling lines go over a wall, and flyers come down inside it if nothing stops them.
 
-Every wall has a strong face and a weak one. The outer face takes far more punishment than the inner, so a wall set the wrong way round gives an attacker the easy side. Defence is a matter of design more than thickness, and the strongest bases are hard to reach, hard to read, and slow to break into. Roofs over courtyards deny flyers a landing, spiked wall-tops slow climbers, stone cladding keeps fire off a timber core, archer posts with a clear view of the sky cover the approaches from above, and a winding entrance turns a battering ram into a slow problem. A damaged piece is repaired with a hammer and its materials, but not while it is under attack: a piece that has just taken damage cannot be mended until the assault on it pauses, so a raid cannot be held off by repairing faster than the attackers can strike.
+A wall is equally strong from either side, so what protects a base is how it is laid out, not which way its walls face. Defence is a matter of design more than thickness, and the strongest bases are hard to reach, hard to read, and slow to break into. Roofs over courtyards deny flyers a landing, spiked wall-tops slow climbers, stone cladding keeps fire off a timber core, archer posts with a clear view of the sky cover the approaches from above, and a winding entrance turns a battering ram into a slow problem. A damaged piece is repaired with a hammer and its materials, but not while it is under attack: a piece that has just taken damage cannot be mended until the assault on it pauses, so a raid cannot be held off by repairing faster than the attackers can strike.
 
 How raids unfold, who may raid whom, and what happens to a base whose owners are asleep are set out in [Raids and Conquest](Raids.md).
 
@@ -104,7 +120,7 @@ The system scales with the people using it. A solo player keeps a compact outpos
 
 ## Continue Reading
 
-Continue with [Raids and Conquest](Raids.md) for how bases are attacked and defended, [Structures](Structures.md) for the settlements and dungeons built from the same pieces, [Crafting](Crafting.md) for the stations that make them, and [Taming and Control](Taming-and-control.md) for the creatures a shelter keeps.
+Continue with [Raids and Conquest](Raids.md) for how bases are attacked and defended, [Structures](Structures.md) for the settlements and dungeons built from the same pieces, [Crafting](Crafting.md) for the stations that make them, and [Taming and Control](Taming-and-control.md) for the creatures a shelter keeps, and [Building System (Technical)](<Building-system (Technical).md>) for how it is built in Unreal Engine 5.
 
 ## Draft
 

@@ -50,6 +50,8 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Building piece** — a crafted structural item, such as a foundation, pillar, wall, ceiling, or roof, that is made at a station, carried with its full weight, and snapped into place. Upgrading a piece means replacing it with one of a stronger material. See [Building system](Building-system.md).
 
+**Wall foundation** — a ground-supported foundation only as thick as a wall, placed along the edge of an ordinary foundation so the wall stands beside the floor rather than on it and the room keeps its full floor space. On open ground it carries fences and palisades. See [Building system](Building-system.md#placing-pieces).
+
 **Stability** — the share of support a building piece receives, full on a foundation or pillar resting on the ground and lessening with each connection away from it. Builders see it as a colour from blue to red, and a piece that loses all of it collapses. See [Building system](Building-system.md#stability-and-support).
 
 **Claim marker** — the crafted piece that claims land for a base, projecting building rights outward from every foundation connected to it and holding the materials the base draws on each day as upkeep. When the store runs dry the base decays, and in time the claim lapses and the land returns to the world. See [Building system](Building-system.md#claims-upkeep-and-decay).

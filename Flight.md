@@ -2,6 +2,8 @@
 
 Flight comes in two forms. Gliding is open to anyone who crafts a wing-rig, and it can only descend. True flight on the back of a flying creature, whether it beats its way aloft on wings or is held up by mana, is one of the hardest-won freedoms in the game. Both answer to the rule set out in [Travel and Mounts](Travel-and-mounts.md): a faster way to travel must add value to distance, not erase it. A flyer crosses country that would take days on foot, but it tires and must land, it carries little, and the sky has weather of its own. This document covers how gliding and mounted flight work, what they cost, and how they change the way a player sees the world. Everything in [Creature Riding](Creature-riding.md) applies to a flying mount as well; what follows is what the air adds.
 
+This document is the conceptual design. Its implementation in Unreal Engine 5 — flight movement, launch and landing, the energy and wind model, breath, gliders, and mana-borne flight — is set out in [Flight (Technical)](<Flight (Technical).md>).
+
 ## Gliding
 
 A wing-rig is a folding frame of light wood or bone with hide or treated silk stretched across it. It is strapped to the back and opened with both arms. It lifts no one. A glider needs height to launch, from a cliff edge, a tower, a ridge, or the rim of a [floating island](Biomes/Floating-islands.md), and from there it trades height for distance in a long, controlled descent. Rising air slows the descent: an updraft along a sunlit cliff or the wind driving up a ridge lets a skilled glider stretch a flight much further. Rising air never carries a glider higher than the point it launched from, and every flight ends lower than it began.
@@ -108,7 +110,7 @@ Flyers can strike at a base from above, landing on its walls or inside its yard 
 
 ## Continue Reading
 
-Continue with [Creature Riding](Creature-riding.md) for the riding rules every flyer also follows, [Travel and Mounts](Travel-and-mounts.md) for where flight fits among the ways of crossing the world, and [Floating Islands](Biomes/Floating-islands.md) for the high country flight opens.
+Continue with [Creature Riding](Creature-riding.md) for the riding rules every flyer also follows, [Travel and Mounts](Travel-and-mounts.md) for where flight fits among the ways of crossing the world, and [Floating Islands](Biomes/Floating-islands.md) for the high country flight opens, and [Flight (Technical)](<Flight (Technical).md>) for how it is built in Unreal Engine 5.
 
 ## Draft
 

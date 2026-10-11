@@ -2,6 +2,8 @@
 
 A mount here is a living animal with a will of its own, and riding one is a partnership rather than a set of controls. The rider decides where to go and how fast; the creature decides how to put its feet down, what it is afraid of, and whether an order is worth dying for. This document sets out how that partnership works in the saddle: the controls, the gaits and their costs, the refusals, the care a mount needs, fighting on creatureback, and what happens when the rider falls. How a creature comes under a player's control in the first place, and how that control is kept, belongs to [Taming and Control](Taming-and-control.md); flying mounts follow everything here and add the rules of [Flight](Flight.md).
 
+This document is the conceptual design. Its implementation in Unreal Engine 5 — the rider and mount architecture, intent and refusal, gaits and stamina, mounted combat, and the networking of ridden creatures — is set out in [Creature Riding (Technical)](<Creature-riding (Technical).md>).
+
 ## Reins and Intent
 
 Riding uses direct control of heading and pace. The rider steers with the reins and chooses a gait, and the mount carries that intent out in its own body: it picks its footing on broken ground, steps around a stump or a sleeping dog without being asked, slows itself on a steep descent, and keeps to firm earth at the edge of a bog. Nothing about the rider's input is vague or delayed, so the first ride feels responsive and readable. What the rider does not control is the animal's judgement about danger. A mount keeps its instincts, and above all its will to survive, so it will balk at a cliff edge, refuse to swim water too deep for it, and shy from a charge into something far stronger than itself.
@@ -72,7 +74,7 @@ Rider and mount cross region boundaries as a single group under the [Server Arch
 
 ## Continue Reading
 
-Continue with [Flight](Flight.md) for flying mounts and gliders, [Taming and Control](Taming-and-control.md) for how a mount is won and its bond kept, and [Travel and Mounts](Travel-and-mounts.md) for where riding fits among the ways of crossing the world.
+Continue with [Flight](Flight.md) for flying mounts and gliders, [Taming and Control](Taming-and-control.md) for how a mount is won and its bond kept, and [Travel and Mounts](Travel-and-mounts.md) for where riding fits among the ways of crossing the world, and [Creature Riding (Technical)](<Creature-riding (Technical).md>) for how it is built in Unreal Engine 5.
 
 ## Draft
 
