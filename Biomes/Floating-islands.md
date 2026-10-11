@@ -16,11 +16,11 @@ The signature inhabitants of the biome are the [Flying Leviathans](../Creatures/
 
 ## Access and Travel
 
-Reaching the floating islands is a challenge in its own right and a test of everything the travel systems offer. Players ascend by climbing and grappling, or by taming the flying creatures described in [Travel and Mounts](../Travel-and-mounts.md), and a [Flying Leviathan](../Creatures/Flying-leviathan.md) raised from a calf on the islands becomes the grandest route of all between the high country and the world below. Once aloft, the islands reward the effort: their stable ground and unmatched isolation make them prime sites for the kind of aerial foothold the [Building System](../Building-system.md) supports, a base no ground-bound raider can easily reach.
+Reaching the floating islands is a challenge in its own right and a test of everything the travel systems offer. Players ascend by climbing and grappling, or on the flying mounts described in [Flight](../Flight.md), and a [Flying Leviathan](../Creatures/Flying-leviathan.md) raised from a calf on the islands becomes the grandest route of all between the high country and the world below. Leaving is far easier than arriving: a crafted wing-rig carries a traveller down from an island's rim in one long glide. Once aloft, the islands reward the effort: their stable ground and unmatched isolation make them prime sites for the kind of aerial foothold the [Building System](../Building-system.md) supports, a base no ground-bound raider can easily reach.
 
 ## Continue Reading
 
-Continue with the [Flying Leviathan](../Creatures/Flying-leviathan.md) raised on the islands, [Travel and Mounts](../Travel-and-mounts.md) for the flight and climbing that reach them, and [Magic](../Magic.md) for what their crystals power.
+Continue with the [Flying Leviathan](../Creatures/Flying-leviathan.md) raised on the islands, [Flight](../Flight.md) and [Travel and Mounts](../Travel-and-mounts.md) for the flight and climbing that reach them, and [Magic](../Magic.md) for what their crystals power.
 
 ## Draft
 

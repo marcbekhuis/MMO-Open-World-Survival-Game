@@ -22,7 +22,7 @@ The turtles migrate by season between the [Plains](../Biomes/Plains.md), the [Fo
 
 A titan turtle cannot be killed by one player or one party. It can be brought down only in a world-event hunt, in which many players and siege weapons spend a long fight working on those weak points. The hunt has a cost beyond the turtle itself: anyone living on its shell loses their home when it falls, so settlements on its back have every reason to defend it. A turtle that lives leaves rewards in its wake, shed shell scutes that can be gathered where it has passed, and rare eggs.
 
-A titan turtle can be made to serve, but only by force. It follows the coercive route of [Taming and Control](../Taming-and-control.md) and the model in which a rider guides the creature's own will instead of puppeting it: players strap a saddle structure onto the shell and steer the turtle by hauling its head in the direction they want it to go with chains and reins, the way a rider controls an unwilling horse. The turtle resists, so the control has to be kept up, and when it fails the turtle goes its own way, which is dangerous for anything built on it.
+A titan turtle can be made to serve, but only by force. It follows the coercive route of [Taming and Control](../Taming-and-control.md) and the model of [Creature Riding](../Creature-riding.md) in which a rider guides the creature's own will instead of puppeting it: players strap a saddle structure onto the shell and steer the turtle by hauling its head in the direction they want it to go with chains and reins, the way a rider controls an unwilling horse. The turtle resists, so the control has to be kept up, and when it fails the turtle goes its own way, which is dangerous for anything built on it.
 
 ## Settlements on the Shell
 
@@ -32,7 +32,7 @@ A turtle large enough to carry a wood on its back can carry a town, and both NPC
 
 A thriving market town has stood on one ancient turtle's shell for three generations, its people long since used to waking to a different horizon each morning. Now the creature has turned, for the first time in living memory, toward the coast and the open sea, and the town must decide whether to evacuate the only home some of them have known, try to haul the great head around with chains, or trust that it will turn back before the water rises past the lowest streets.
 
-See also: [Creatures index](../Creatures.md), the [Plains](../Biomes/Plains.md), [Forest](../Biomes/Forest.md), and [Swamp](../Biomes/Swamp.md) it crosses, the [Coast](../Biomes/Coast.md) it sometimes wades into, and [Taming and Control](../Taming-and-control.md).
+See also: [Creatures index](../Creatures.md), the [Plains](../Biomes/Plains.md), [Forest](../Biomes/Forest.md), and [Swamp](../Biomes/Swamp.md) it crosses, the [Coast](../Biomes/Coast.md) it sometimes wades into, [Taming and Control](../Taming-and-control.md), and [Creature Riding](../Creature-riding.md).
 
 ## Concept Drawing
 

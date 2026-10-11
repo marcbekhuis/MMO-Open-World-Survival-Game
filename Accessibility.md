@@ -4,7 +4,7 @@ A demanding game does not have to be an exclusionary one. The frontier is meant 
 
 ## Seeing the Game
 
-The interface is built to be read by as many players as possible. Text and HUD elements scale, important cues carry colourblind-safe shapes and contrast rather than leaning on colour alone, and the adaptive contrast described in [UI and HUD](UI-and-HUD.md) keeps information legible against everything from snowfields to blood-dark interiors. Players sensitive to intense imagery have the gore controls of [Content and Tone](Content-and-tone.md) together with options to temper flashing and harsh effects, so that the game's extremes of beauty and horror stay something a player tunes rather than simply endures.
+The interface is built to be read by as many players as possible. Text and HUD elements scale, important cues carry colourblind-safe shapes and contrast rather than leaning on colour alone, and the adaptive contrast described in [UI and HUD](UI-and-HUD.md) keeps information legible against everything from snowfields to blood-dark interiors. Players sensitive to intense imagery have the gore controls of [Content and Tone](Content-and-tone.md) together with options to temper flashing and harsh effects, so that the game's extremes of beauty and horror stay something a player tunes rather than simply endures. Fast first-person movement, at the gallop and above all in [Flight](Flight.md#flying-in-first-person), has its own motion comfort options, such as horizon stabilisation, reduced camera roll, and softened camera motion, which change how movement looks and never how it plays.
 
 ## Hearing the Game
 

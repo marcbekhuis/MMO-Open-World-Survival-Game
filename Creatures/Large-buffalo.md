@@ -24,7 +24,7 @@ The Large Buffalo gives the plains a peaceful spectacle and a practical teaching
 
 For hunters and crafters, the creature is valuable because of scale rather than rarity. One animal provides a great quantity of meat, hide, horn, bone, and coarse fibre, all useful to the survival and [Crafting](../Crafting.md) loops, but bringing one down never feels like harvesting a passive node. The hunt is loud, messy, and morally legible in a beginner-friendly biome; wounded animals bellow, nearby buffalo react, and a careless party can turn an easy-looking resource run into a riverbank panic.
 
-The buffalo also has a place in [Taming and Control](../Taming-and-control.md), especially for players who want a slow hauling beast rather than a fast mount. Young animals raised through patient care become powerful pack creatures for plains travel and river settlement work, but even a bonded buffalo keeps its instincts: it refuses to cross unstable bridges or to abandon a frightened herd unless the bond with its handler is strong.
+The buffalo also has a place in [Taming and Control](../Taming-and-control.md), especially for players who want a slow hauling beast rather than a fast mount. Young animals raised through patient care become powerful [pack beasts](../Creature-riding.md#kinds-of-mount) for plains travel and river settlement work, but even a bonded buffalo keeps its instincts: it refuses to cross unstable bridges or to abandon a frightened herd unless the bond with its handler is strong.
 
 ## Story Hook
 

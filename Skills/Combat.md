@@ -12,7 +12,7 @@ New combat techniques become available when related skills reach meaningful thre
 
 ## Combat Roles
 
-Combat skills should support multiple identities: agile skirmishers, shield-bearing defenders, heavy weapon bruisers, ranged hunters, mounted fighters, and battlefield support. None of these roles should depend only on damage numbers; positioning, timing, terrain, stamina, and equipment weight all matter.
+Combat skills should support multiple identities: agile skirmishers, shield-bearing defenders, heavy weapon bruisers, ranged hunters, [mounted fighters](../Creature-riding.md#fighting-from-the-saddle), and battlefield support. None of these roles should depend only on damage numbers; positioning, timing, terrain, stamina, and equipment weight all matter.
 
 ## Brutality And Finishers
 

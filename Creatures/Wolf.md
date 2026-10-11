@@ -20,7 +20,7 @@ Fighting them rewards positioning over raw damage. Putting your back to a tree o
 
 ## Drops and Taming
 
-A dead wolf yields hide, meat, bone and fangs, the staple materials of early clothing, food and crude weapons. Wolf pups found at a den can be raised through [Parental Bonding](../Taming-and-control.md), the strongest of the taming methods, which turns a dangerous hunter into a companion or a mount and gives the den a reason to be approached with something other than a spear.
+A dead wolf yields hide, meat, bone and fangs, the staple materials of early clothing, food and crude weapons. Wolf pups found at a den can be raised through [Parental Bonding](../Taming-and-control.md), the strongest of the taming methods, which turns a dangerous hunter into a companion or a [war mount](../Creature-riding.md#kinds-of-mount) and gives the den a reason to be approached with something other than a spear.
 
 ## Story Hook
 

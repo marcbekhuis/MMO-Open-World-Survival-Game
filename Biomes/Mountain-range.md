@@ -18,7 +18,7 @@ Lower down, the foothills are goblin country of two very different kinds. [Red G
 
 ## Hazards and Travel
 
-The mountains threaten in more ways than combat. Avalanches, chasms, and falling rock endanger any route, and the cold exposure and thin air of altitude press hardest on low-endurance characters, draining the reserves of [Survival](../Survival.md) and demanding the right clothing and preparation rather than raw toughness. The same long sightlines that aid navigation also leave travellers open to flying threats, ranged attackers, and the fast weather changes that sweep the peaks.
+The mountains threaten in more ways than combat. Avalanches, chasms, and falling rock endanger any route, and the cold exposure and thin air of altitude press hardest on low-endurance characters, draining the reserves of [Survival](../Survival.md) and demanding the right clothing and preparation rather than raw toughness. The same long sightlines that aid navigation also leave travellers open to flying threats, ranged attackers, and the fast weather changes that sweep the peaks. The wind driven up the ridges gives flyers lift for hours, and a summit is the best launch point in the world for a wing-rig glide back down (see [Flight](../Flight.md)).
 
 ## Settlement Patterns
 

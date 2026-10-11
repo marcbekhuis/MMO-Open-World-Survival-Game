@@ -8,7 +8,7 @@ The baseline is travel on foot, and most of the world is crossed that way, at le
 
 ## Mounts
 
-A mount is the first real answer to distance, and here it is a living creature rather than a vehicle conjured from a menu. Mounts are tamed through the methods set out in [Taming and Control](Taming-and-control.md), and the strength of that bond decides how well the animal answers under saddle, so a mount is something a player wins and maintains rather than simply owns. A good mount carries its rider faster and can bear extra load against the weight limits of [Inventory](Inventory.md), making mounted players the backbone of caravans and the trade routes of [Economy and Trade](Economy.md). A mount is also a liability: it is vulnerable, it can be killed or taken, and its steady gait across open ground is exactly the rhythm that draws a [Sandworm](Creatures/Sandworm.md) up through the dunes. Different country suits different mounts, and no single animal is at home everywhere.
+A mount is the first real answer to distance, and here it is a living creature rather than a vehicle conjured from a menu. No settlement sells one. A traveller can hire a horse from a stable to ride between towns, but owning a mount always means taming it through the methods of [Taming and Control](Taming-and-control.md), and the strength of that bond decides how well the animal answers under saddle. A good mount carries its rider faster and can bear extra load against the weight limits of [Inventory](Inventory.md), which makes mounted players the backbone of caravans and of the trade routes in [Economy and Trade](Economy.md). A mount is also a liability. It needs feeding, tack, and care, it can be hurt or killed, and its gallop across open sand is exactly the rhythm that draws a [Sandworm](Creatures/Sandworm.md) up through the dunes. How riding works, from the reins and gaits to mounted combat and what happens when a rider falls, is set out in [Creature Riding](Creature-riding.md).
 
 ## Sailing and the Sea
 
@@ -20,7 +20,7 @@ The world is built upward as much as outward, and reaching its heights is a trav
 
 ## Flight
 
-Flight is the rarest and most coveted form of travel, the easiest way to reach the highest country and the late-game prize that opens the world fully. The [Floating Islands](Biomes/Floating-islands.md) can be reached on the back of any capable flying creature or, far more slowly and dangerously, with climbing and grappling gear, and a player who masters a flying mount, one of the great winged creatures of the [bestiary](Creatures.md) such as a [Flying Leviathan](Creatures/Flying-leviathan.md) raised from a calf on the islands or a [Royal Dragon](Creatures/Royal-dragon.md), commands a freedom of movement nothing on the ground can match. That power is gated hard, behind taming creatures that are themselves apex threats, so flight is something a player works toward across a long stretch of the game rather than a convenience handed out early. The synchronization demands of fast, high-flying entities are part of why the design treats them carefully in [Dynamic Culling and Render Distance](Dynamic-culling-and-render-distance.md).
+Flight is the rarest and most coveted form of travel, the easiest way to reach the highest country and the late-game prize that opens the world fully. Anyone can glide down from a height on a crafted wing-rig, but only a flying mount climbs. The [Floating Islands](Biomes/Floating-islands.md) can be reached on the back of any capable flying creature or, far more slowly and dangerously, with climbing and grappling gear, and a player who masters one of the great winged creatures of the [bestiary](Creatures.md), such as a [Flying Leviathan](Creatures/Flying-leviathan.md) raised from a calf on the islands or a [Royal Dragon](Creatures/Royal-dragon.md), commands a freedom of movement nothing on the ground can match. That power is gated hard, behind taming creatures that are themselves apex threats, and held in check once won: a flyer tires and must land, carries little beyond its rider, and is grounded by storms and slowed by cold, thin air. Gliding, flying mounts, and their limits are set out in [Flight](Flight.md).
 
 ## Portals and Express Routes
 
@@ -28,7 +28,7 @@ The fastest travel of all is magical, and the most strictly limited. The portals
 
 ## Continue Reading
 
-Continue with [Taming and Control](Taming-and-control.md) for the mounts these journeys depend on, [World Design](World.md) for the world they cross, and [Economy and Trade](Economy.md) for the caravans and trade routes travel makes possible.
+Continue with [Creature Riding](Creature-riding.md) and [Flight](Flight.md) for how mounts are ridden and flown, [Taming and Control](Taming-and-control.md) for how they are won, [World Design](World.md) for the world they cross, and [Economy and Trade](Economy.md) for the caravans and trade routes travel makes possible.
 
 ## Draft
 

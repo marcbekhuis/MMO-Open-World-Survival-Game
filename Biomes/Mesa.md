@@ -16,7 +16,7 @@ The cliffs and canyons are the territory of dragons, with the [Royal Dragon](../
 
 ## Hazards and Travel
 
-Heat, dehydration, sudden dust storms, and long stretches without shelter make the mesa a genuine survival test, milder than the desert but unforgiving to the unprepared. The terrain adds its own threats: cliff predators strike from above, raiders who know the canyon routes prey on those who do not, and the mining sites that make the biome valuable are also its most lethal ground, where cave-ins, unstable ledges, and monster lairs overlap. Routes, water, and timing all have to be planned rather than improvised.
+Heat, dehydration, sudden dust storms, and long stretches without shelter make the mesa a genuine survival test, milder than the desert but unforgiving to the unprepared. The terrain adds its own threats: cliff predators strike from above, raiders who know the canyon routes prey on those who do not, and the mining sites that make the biome valuable are also its most lethal ground, where cave-ins, unstable ledges, and monster lairs overlap. Routes, water, and timing all have to be planned rather than improvised. The same sun-hot rock throws up thermals by day, which makes the mesa good flying country for anyone who can read them (see [Flight](../Flight.md)).
 
 ## Settlement Patterns
 

@@ -57,7 +57,10 @@ generators can find the reference; keep it when restructuring the file.
 
 State the physical facts concretely, because artists, 3D modellers, animators, and image generators
 work from them: metric size (comma decimals), limb count and where limbs attach, posture and how it
-moves, and colour zones. Describe encounters by what the creature does, the tell before its attacks,
+moves, and colour zones. For a flying creature, also state its launch type — standing, run-up, or
+drop, as defined in [Flight](../../../../Flight.md#taking-off-and-landing) — or that it is mana-borne. For a
+tameable creature, state its shelter needs: the climate it requires and the space its body takes, as
+used by [Shelter for Creatures](../../../../Building-system.md#shelter-for-creatures). Describe encounters by what the creature does, the tell before its attacks,
 how players counter it, and what it drops, without stat numbers. When a species has several distinct
 sizes or forms (such as Treant Sapling, Guardian, and Elder), keep the species file as a hub for what
 they share and give each form its own file.

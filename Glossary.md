@@ -42,11 +42,17 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Outpost** — a small, often hidden foothold that provides safety and limited services away from the great cities, well suited to solo players and frontier groups.
 
-**Guild hall** — a group's home structure and organizing point for shared activity, territory, and identity.
+**Guild hall** — a group's home structure and organising point for shared activity, territory, and identity.
 
 **Base** — the general word for a player-built holding of any size, from a hidden cabin to a fortified keep, where a player or group stores goods, crafts, and defends against raids. An outpost, a guild hall, and a settlement are particular kinds or scales of what a base can be: the outpost is a small, often hidden foothold, the guild hall is a group's home structure, and a settlement is an inhabited place on the scale from camp to town, whether player-built or pre-placed. Goods banked in a base are safe from a death in the field but not from a raid. See [Building system](Building-system.md) and [Raids and Conquest](Raids.md).
 
 **Station / workshop** — a station is a piece of crafting infrastructure, such as a forge, tannery, alchemy bench, or cooking fire, that enables its own kind of work, and the better the station the better the goods it supports. A workshop is a structure built around one or more stations, and settlements provide stations of their own for players who have none. See [Crafting](Crafting.md) and [Building system](Building-system.md).
+
+**Building piece** — a crafted structural item, such as a foundation, pillar, wall, ceiling, or roof, that is made at a station, carried with its full weight, and snapped into place. Upgrading a piece means replacing it with one of a stronger material. See [Building system](Building-system.md).
+
+**Stability** — the share of support a building piece receives, full on a foundation or pillar resting on the ground and lessening with each connection away from it. Builders see it as a colour from blue to red, and a piece that loses all of it collapses. See [Building system](Building-system.md#stability-and-support).
+
+**Claim marker** — the crafted piece that claims land for a base, projecting building rights outward from every foundation connected to it and holding the materials the base draws on each day as upkeep. When the store runs dry the base decays, and in time the claim lapses and the land returns to the world. See [Building system](Building-system.md#claims-upkeep-and-decay).
 
 **Portal** — a costly fast-travel link between great cities, priced so that ordinary travel and trade remain the normal way to move goods and project power. Its toll and limits are set out in [Travel and mounts](Travel-and-mounts.md#portals-and-express-routes); see also [Great cities](Structures/Great-cities.md).
 
@@ -98,6 +104,8 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Pouch** — a small storage container for lightweight essentials such as food, coins, arrows, reagents, or tools, usually supplied by a belt, pants, bandolier, or similar gear. A pouch adds convenience rather than bulk capacity. See [Inventory](Inventory.md).
 
+**Breath** — the short clock that runs only underwater and in the thin air above the highest peaks and floating islands, shown on the HUD only while it drains. When it runs out the character passes out, which means drowning underwater and falling in the air. Flying creatures hold out in thin air far longer than riders. See [Survival](Survival.md#breath) and [Flight](Flight.md#weather-and-altitude).
+
 ## Creatures and magic
 
 **Elder beast / mythic creature** — one of the primordial creatures older than any realm, born with the world rather than salvaged from its collapse, such as the Stone Giant, the Titan Turtle, and the Royal Dragon. They are treated as pieces of the world's own myth rather than monsters to be farmed, and the great mythic creatures such as the Kraken and the Flying Leviathan are counted among the wild's own powers. See [Setting and lore](Setting-and-lore.md), [Stone Giant](Creatures/Stone-giant.md), and [Titan Turtle](Creatures/Titan-turtle.md).
@@ -112,7 +120,23 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Bonding** — the control a player keeps over a tamed creature, which must be actively maintained rather than granted permanently by taming. There are three methods: slave bonding forces obedience through coercion and is the easiest and most dangerous, parental bonding raises a creature from birth or near birth and gives the strongest control, and trust bonding earns a wild creature's trust through consistent care and is the slowest. See [Taming and control](Taming-and-control.md).
 
-**Bond strength** — how firmly a creature is under its handler's control. The stronger the bond, the better the creature answers commands and the more readily it follows guidance into danger it would otherwise refuse, while a fraying bond leaves its own instincts in charge. A bond holds steady only in a stable stocked with food; elsewhere, time away weakens it slowly but never breaks it while the owner is offline. See [Taming and control](Taming-and-control.md#bonds-while-away).
+**Bond strength** — how firmly a creature is under its handler's control. The stronger the bond, the better the creature answers commands and the more readily it follows guidance into danger it would otherwise refuse, while a fraying bond leaves its own instincts in charge. A bond holds steady only while the creature is sheltered with a stocked trough; elsewhere, time away weakens it slowly but never breaks it while the owner is offline. See [Taming and control](Taming-and-control.md#bonds-while-away).
+
+**Shelter** — the condition that keeps a tamed creature's bond steady, met wherever the pieces around it provide a stocked feeding trough within reach, a roof overhead, the warmth or shade its kind needs, and room for its body. A stable is any place that meets those conditions rather than a single building. See [Building system](Building-system.md#shelter-for-creatures).
+
+**Refusal** — a mount's refusal of an order it judges deadly, such as a cliff edge, deep water, or a charge into something far stronger. It is always preceded by a readable tell (ears back, head up, a sidestep) and grows rarer as bond strength rises. See [Creature riding](Creature-riding.md#reading-the-animal-in-first-person).
+
+**Hired horse** — a trained horse lent by a realm's stable for a fee and a deposit and returned at any stable of the same realm. Its bond is to the stable, not the rider, so it is steady on roads but timid in danger. No settlement sells a mount outright. See [Creature riding](Creature-riding.md#hired-horses).
+
+**Tack** — the crafted gear that lets a mount do its work: bridle and reins, riding, pack, and war saddles, barding, and the saddle structures of colossal mounts. Tack is made to fit one kind of body, and a mount's carrying capacity comes only from the tack strapped to it. See [Creature riding](Creature-riding.md#care-and-tack).
+
+**Wing-rig** — a crafted folding glider that lets any character descend from a height in a long, controlled glide. It never climbs above its launch point, leaves no hand free, and fails under heavy loads. See [Flight](Flight.md#gliding).
+
+**Chain of landings** — the series of known ledges, clearings, and hilltops along which a long journey by air is flown, because every flyer must land to rest and eat. See [Flight](Flight.md#endurance-and-the-chain-of-landings).
+
+**Launch type** — how a flying species gets into the air, fixed by its body. A standing launch springs straight up from a standstill and is strenuous and loud; a run-up launch needs a running start along firm, open, level ground; a drop launch falls from a height to gain speed and is open to every flyer. Load lengthens every launch, and a headwind shortens a run-up. See [Flight](Flight.md#taking-off-and-landing).
+
+**Mana-borne flight** — flight held up by mana rather than wings, as the Flying Leviathan flies. A mana-borne flyer never lands or tires of staying aloft and can carry real weight, but climbing, surging, holding against wind, and every tonne it carries drain a mana reserve that refills from the leylines it passes over. See [Flight](Flight.md#mana-borne-flight).
 
 **Mana** — the magical force that casters spend and that quickens the world's elder creatures. It wells from the living world itself rather than from the gods, and it is the resource that gates spellcasting and spells such as the Item Box. See [Setting and lore](Setting-and-lore.md) and [Magic](Magic.md).
 

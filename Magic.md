@@ -6,7 +6,7 @@ Magic is divided into distinct elements such as water, fire, earth, wind, light,
 
 The foundation spells are the common language of practical magic. Trainers, field manuals, and early discoveries make them broadly accessible, but a new caster learns only a small selection rather than receiving the whole set at once. Each element covers two clear jobs and teaches its own rhythm: fire creates pressure, water controls space, earth holds ground, wind changes position, light preserves and reveals, and lightning exploits brief openings.
 
-Foundation spells remain useful after their introductory role. Their upgrades change delivery, area, reliability, or interaction with the world rather than merely inflating damage, allowing a familiar spell to become part of a specialised end-game build. Advanced spells such as [Thunder](Magic/Spells/Lightning/Thunder.md) and [Nature Growth](Magic/Spells/Earth/Nature-growth.md) build on this vocabulary with greater power or narrower purposes.
+Foundation spells remain useful after their introductory role. Their upgrades change delivery, area, reliability, or interaction with the world rather than merely inflating damage, allowing a familiar spell to become part of a specialised end-game build. Advanced spells such as [Thunder](Magic/Spells/Lightning/Thunder.md), [Nature Growth](Magic/Spells/Earth/Nature-growth.md), and [Fireball](Magic/Spells/Fire/Fireball.md) build on this vocabulary with greater power or narrower purposes.
 
 ## Spell Progression
 
@@ -27,6 +27,7 @@ The system should reward experimentation without requiring players to memorize o
 
 - [Ember Bolt](Magic/Spells/Fire/Ember-bolt.md) — a quick projectile that applies steady pressure and ignites vulnerable materials.
 - [Flame Wall](Magic/Spells/Fire/Flame-wall.md) — a visible barrier that divides a fight and punishes pursuit.
+- [Fireball](Magic/Spells/Fire/Fireball.md) — an advanced siege blast, channelled in plain sight and hurled to detonate with enough force to break stone.
 
 ### Water
 
