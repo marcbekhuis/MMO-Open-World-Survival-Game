@@ -92,7 +92,7 @@ There is no single stable building. A tamed creature counts as sheltered whereve
 - **The right climate**: warmth for creatures that suffer in the cold, from a hearth or brazier in the same space, and shade and cool air for creatures that suffer in heat. Which a creature needs is part of its nature.
 - **Room for its body**: enough space to stand, turn, and lie down. A wolf fits a lean-to, a buffalo needs a barn, and a dragon needs a hall.
 
-A sheltered creature holds its bond exactly as it was for as long as its trough stays stocked, which is what lets a player leave for a week without losing a mount, as set out in [Taming and Control](Taming-and-control.md#bonds-while-away). A shelter keeps a creature in good condition, and wounds heal fastest there. A flyer's shelter also has to open onto the launch its body needs, as [Flight](Flight.md#taking-off-and-landing) describes, so where a base stands decides which flyers it can keep. A shelter inside a claim falls with the base, and what raiders can do to the creatures inside is set out in [Taming and Control](Taming-and-control.md#bonds-while-away).
+A sheltered creature holds its bond exactly as it was for as long as its trough stays stocked, which is what lets a player leave for a week without losing a mount, as set out in [Taming and Control](Taming-and-control.md#bonds-while-away). A shelter keeps a creature in good condition, and wounds heal fastest there. Flyers follow exactly the same rules; how a rider gets their flyer out and into the air is the rider's own affair. A shelter inside a claim falls with the base, and what raiders can do to the creatures inside is set out in [Taming and Control](Taming-and-control.md#bonds-while-away).
 
 ## Bases on Creatures
 
