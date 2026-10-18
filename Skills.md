@@ -16,6 +16,8 @@ Skills define active and passive abilities learned through use, training, and in
 
 Skills improve through repeated use, dedicated training resources, and occasional milestone choices. A player should feel steady progress from ordinary play, but deeper specialization should require intention. Broadly, early ranks unlock reliability, middle ranks unlock new actions or recipes, and high ranks unlock specializations that change how the player approaches a role.
 
+Skill ranks have no ceiling and no shared limit. Each rank asks for more practice than the one before, on the same slowing curve as character levels in [Player Progression](Player.md#experience-and-levelling), so the first ranks come quickly and mastery takes a long time. A character can practise every skill in the game, and the only thing that stops them mastering everything is the time it would take; the ranks a character holds are the record of how they actually spent it, which is what the requirements of weapons and spells read.
+
 Unlock cadence should be readable rather than rigid. A skill can offer small benefits frequently, such as improved yield or reduced stamina cost, while saving major branch choices for meaningful thresholds. This lets players experiment early before committing to a long-term identity.
 
 ## Design Notes

@@ -94,9 +94,7 @@ public:
     UPROPERTY(EditAnywhere) float LimbInertiaKgM2 = 0.15f;      // the arm or limb that moves with it
     UPROPERTY(EditAnywhere) bool  bTwoHanded = false;
     UPROPERTY(EditAnywhere) FGameplayTag Family;                // Weapon.Family.HeavyHammer, .Greatsword, .Dagger; Creature.* for bodies
-    UPROPERTY(EditAnywhere) uint8 Grade = 1;                    // 1 = simple; rises to the end-game masterworks
-    UPROPERTY(EditAnywhere) float MinStrength = 0.f;            // section 9; rises with grade
-    UPROPERTY(EditAnywhere) uint8 MinFamilySkillRank = 0;       // rank in the family's combat skill; rises with grade
+    UPROPERTY(EditAnywhere) TArray<FRequirement> Requirements;  // section 9: plain values, e.g. Stat.MeleeForce >= 45, Skill.HeavyHammer >= 60
     UPROPERTY(EditAnywhere) TArray<FStrikeRegion> Regions;
     UPROPERTY(EditAnywhere) TMap<FGameplayTag, TObjectPtr<UStrikeArc>> Arcs; // Strike.Arc.Overhead, .Left, .Right, .Rising, .Thrust
     UPROPERTY(EditAnywhere) TObjectPtr<UPhysicalMaterial> Material; // for impact resolution, section 7
@@ -315,7 +313,7 @@ FImpactResult ResolveImpact(const FStrikeState& S, const UStrikeDefinition& Def,
 
 The impact table is project data, one row per strike region kind and target material: flesh, hide, mail, plate, wooden shield, metal shield, wood, earth, and stone. Each row holds the alignment below which a blow glances, the energy that breaks through a glance anyway, the energy the material stops, how much of a stopped blow it absorbs, how rigid it is, and whether an edge can bite and stick. Physical materials on character hit volumes, armour pieces, shields, building pieces, and world geometry name the row.
 
-The result goes three ways. The delivered energy and damage kind go to the target's vitals, where armour and wounds turn them into injury, or to the [Building System (Technical)](<Building-system (Technical).md>) damage path for a building piece, where crushing is what stone fears. The recoil momentum goes back to the attacker's strike and body: a stop sets the strike into its recoil phase, and a large recoil staggers the attacker through the movement component. The target push goes to the target's body against its mass and its brace, as a stagger or a knockback. A bite holds the strike in place until the wielder's next input works it free, at a stamina cost, and a carry-through continues the sweep with the strike's speed reduced.
+The result goes three ways. The delivered energy and damage kind go to the target's vitals, where [Armour](Armour.md) and [Health and Wounds](Health-and-wounds.md) turn them into injury, or to the [Building System (Technical)](<Building-system (Technical).md>) damage path for a building piece, where crushing is what stone fears. The recoil momentum goes back to the attacker's strike and body: a stop sets the strike into its recoil phase, and a large recoil staggers the attacker through the movement component. The target push goes to the target's body against its mass and its brace, as a stagger or a knockback. A bite holds the strike in place until the wielder's next input works it free, at a stamina cost, and a carry-through continues the sweep with the strike's speed reduced.
 
 ## 8. Blocking and Parrying
 
@@ -332,16 +330,16 @@ FStrikeDrive ComputeDrive(const UStrikeDefinition& Def, const FCharacterStats& S
                           float StanceFactor, float TechniqueEfficiency)
 {
     FStrikeDrive D;
-    D.TorqueNm = BaseTorqueNm(Stats.Strength) * (Def.bTwoHanded ? TwoHandFactor : 1.f) * StanceFactor;
+    D.TorqueNm = BaseTorqueNm(Stats.MeleeForce) * (Def.bTwoHanded ? TwoHandFactor : 1.f) * StanceFactor;
     if (Body.bWinded) { D.TorqueNm *= WindedTorqueFactor; }    // a winded fighter's strikes start slowly
     D.BrakeFraction = 0.8f;                                      // arms stop a weapon a little less well than they start it
-    D.LimbSpeedCapDegS = LimbSpeedCap(Stats.Agility);
+    D.LimbSpeedCapDegS = LimbSpeedCap(Stats.Handling);
     D.StaminaPerJoule = BaseStaminaPerJoule * TechniqueEfficiency;
     return D;
 }
 ```
 
-A weapon's requirements are enforced when it is readied, as a ready action of section 4.1 that the server refuses when the character's Strength is below `MinStrength` or their rank in the combat skill named by `Family` is below `MinFamilySkillRank`. A weapon that fails the check can be carried, traded, and stored like any item, but it never enters the strike simulation. Both requirements are authored per grade from one project table, so every heavy hammer of a grade asks the same of its wielder and the first grade asks almost nothing. Spells carry the same pair, a minimum Intelligence and their prerequisite spells, checked when a cast action begins, which is the rule [Player Progression](Player.md#requirements-and-commitment) sets for both. Above the minimum the torque curve rises smoothly with Strength. Agility raises the limb's speed cap, which is what light weapons are limited by, so Strength rewards heavy weapons and Agility rewards light ones without either stat touching the other's weapons directly. Technique from the [Combat Skills](Skills/Combat.md) enters as three bounded factors: stamina efficiency, a tighter glance alignment threshold in the impact table lookup, and a shorter recover phase. None of them touches inertia.
+A weapon's requirements are enforced when it is readied, as a ready action of section 4.1. Each requirement is a plain value, a stat or a skill rank and the minimum it must reach, and the server refuses the ready when any one of them is not met. A weapon that fails the check can be carried, traded, and stored like any item, but it never enters the strike simulation. There are no tiers: each item's values are authored for that item. Above its requirements the torque curve rises smoothly with Melee Force, and Handling raises the limb's speed cap, which is what light weapons are limited by, so Melee Force rewards heavy weapons and Handling rewards light ones without either stat touching the other's weapons directly. Spells carry requirements in the same form, Spell Power and the ranks of their prerequisite spells, checked when a cast action begins, which is the rule [Player Progression](Player.md#requirements-and-commitment) sets for both. Technique from the [Combat Skills](Skills/Combat.md) enters as three bounded factors: stamina efficiency, a tighter glance alignment threshold in the impact table lookup, and a shorter recover phase. None of them touches inertia.
 
 ## 10. Creatures and Tools
 
@@ -351,13 +349,13 @@ Tools are strike definitions on items. A felling axe, a pick, and a builder's ha
 
 ## 11. Open Implementation Questions
 
-The first question for the prototype is how much drag a light weapon can allow before directional swings become flailing, and how little a heavy one can allow before they feel unresponsive; `MaxDragDegS` and the momentum scale are tuning, and the weapon table in the specification is the target to tune against. Mouse gesture recognition at the start of a strike needs a dead zone and a short sampling window, and whether that window adds noticeable delay to a light weapon is the second. The server's hit-volume history costs memory per character; 250 milliseconds at the server tick rate of [Server Architecture (Technical)](<Server-architecture (Technical).md>) is the starting budget. Whether creature strikes on large bodies need more spheres per region than the sweep budget allows in a crowded fight is the third. How armour turns delivered energy and damage kind into wounds belongs to the item and vitals systems, which are not yet designed. Holding through the end of an action replaces the input buffer most combat systems need, because a held button begins the next strike in the same move the last one completes. Whether a bow's `ReleaseThreshold` near half the draw reads clearly to players, and whether a tap on a heavy weapon, which wastes a wind-up by design, feels like a deliberate cost or a misfire, are questions for play; any change should be proposed as a change to [Actions](Actions.md) rather than added quietly.
+The first question for the prototype is how much drag a light weapon can allow before directional swings become flailing, and how little a heavy one can allow before they feel unresponsive; `MaxDragDegS` and the momentum scale are tuning, and the weapon table in the specification is the target to tune against. Mouse gesture recognition at the start of a strike needs a dead zone and a short sampling window, and whether that window adds noticeable delay to a light weapon is the second. The server's hit-volume history costs memory per character; 250 milliseconds at the server tick rate of [Server Architecture (Technical)](<Server-architecture (Technical).md>) is the starting budget. Whether creature strikes on large bodies need more spheres per region than the sweep budget allows in a crowded fight is the third. How armour coverage and wounds are represented on the body, and how they consume delivered energy and damage kind, is specified in [Armour](Armour.md) and [Health and Wounds](Health-and-wounds.md) and still needs its own technical guide. Holding through the end of an action replaces the input buffer most combat systems need, because a held button begins the next strike in the same move the last one completes. Whether a bow's `ReleaseThreshold` near half the draw reads clearly to players, and whether a tap on a heavy weapon, which wastes a wind-up by design, feels like a deliberate cost or a misfire, are questions for play; any change should be proposed as a change to [Actions](Actions.md) rather than added quietly.
 
 ## 12. Design Validation Cases
 
 | Case | Expected result |
 |---|---|
-| A fighter of the minimum Strength swings a war hammer, then a much stronger fighter swings the same hammer. | The weaker fighter's wind-up is visibly slower and the hammer reaches its peak later in the arc; the stronger fighter's blow lands with more energy at the same point. |
+| A fighter who just meets a war hammer's Melee Force requirement swings it, then a fighter with far more Melee Force swings the same hammer. | The weaker fighter's wind-up is visibly slower and the hammer reaches its peak later in the arc; the stronger fighter's blow lands with more energy at the same point. |
 | A dagger strike is begun, feinted, and redirected twice. | Each stop and turn is near-instant and costs almost no stamina. |
 | A greatsword strike is checked early in its wind-up, and another near the end of its swing. | The early check is cheap and quick; the late one costs most of a stamina pool and the blade still travels a long way before it stops. |
 | A sword cut lands on a plate breastplate at a poor angle. | The blow glances, delivers little energy, and the sword recovers quickly. |

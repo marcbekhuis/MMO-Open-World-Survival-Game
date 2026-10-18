@@ -108,6 +108,8 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Action** — anything a character or creature does with its hands or attention: a strike, a guard, a spell, eating, or readying an item. A body performs one action at a time and can begin another only once the current one has completed or been cancelled. See [Actions](Actions.md).
 
+**Wound** — an injury to one region of a body, a cut, pierce, crush, fracture, or burn, with a severity. Wounds hamper the region they are in, deep cuts and pierces bleed until treated, and serious wounds do not heal without treatment. See [Health and Wounds](Health-and-wounds.md).
+
 **Gait** — a pace a body can move at, belonging to one of three roles: a recovering gait such as a walk, a travelling gait such as a jog or a trot, and a burst gait such as a sprint or a gallop. Players, creatures, and mounts share the same gait rules with numbers of their own. See [Movement](Movement.md).
 
 **Winded** — the state of a body whose stamina has run out, held to its recovering gaits until a quarter of its pool returns. An exhausted mount and a tired wolf are winded by the same rule. See [Movement](Movement.md#stamina).

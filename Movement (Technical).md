@@ -174,7 +174,7 @@ struct FLocomotionState
 };
 ```
 
-The conditions are what the server decides about the body from outside the move: the load fraction from the inventory, the stat modifiers from Agility and Endurance, the recovery and ceiling dials that hunger and fatigue turn, and any extra role cap another system imposes, such as a mount's injury. They change rarely and are never predicted. They replicate to the owning client as one struct stamped with the server move time at which they took effect, the same pattern section 12.1 of the riding guide uses for mount rule state, so a replayed move reads the conditions that were in force when it was first made.
+The conditions are what the server decides about the body from outside the move: the load fraction from the inventory, the stat modifiers from Speed, Handling, and Stamina, the recovery and ceiling dials that hunger and fatigue turn, and any extra role cap another system imposes, such as a mount's injury. They change rarely and are never predicted. They replicate to the owning client as one struct stamped with the server move time at which they took effect, the same pattern section 12.1 of the riding guide uses for mount rule state, so a replayed move reads the conditions that were in force when it was first made.
 
 ```cpp
 USTRUCT()
@@ -183,12 +183,12 @@ struct FLocomotionConditions
     GENERATED_BODY()
 
     float     LoadFraction = 0.f;         // carried mass / capacity
-    float     AccelerationScale = 1.f;    // Agility
-    float     TurnRateScale = 1.f;        // Agility; scales the in-place and moving turn rates
-    float     BurstCostScale = 1.f;       // Agility
-    float     TopSpeedScale = 1.f;        // a few per cent at most across all builds
-    float     PoolScale = 1.f;            // Endurance
-    float     RecoveryScale = 1.f;        // Endurance, hunger, fatigue
+    float     AccelerationScale = 1.f;    // Handling
+    float     TurnRateScale = 1.f;        // Handling; scales the in-place and moving turn rates
+    float     BurstCostScale = 1.f;       // Handling
+    float     TopSpeedScale = 1.f;        // Speed, with diminishing returns toward about 1.2
+    float     PoolScale = 1.f;            // Stamina stat
+    float     RecoveryScale = 1.f;        // Stamina stat, hunger, fatigue
     float     CeilingFraction = 1.f;      // fatigue on mounts
     EGaitRole RoleCap = EGaitRole::Burst; // external caps: injury, the riding layer
     float     EffectiveFromServerTime = 0.f;
@@ -304,7 +304,7 @@ void AdvanceLocomotionState(FLocomotionState& State, const FLocomotionStep& Step
     }
     else
     {
-        Rate *= Cond.RecoveryScale;                         // hunger, fatigue, Endurance
+        Rate *= Cond.RecoveryScale;                         // hunger, fatigue, the Stamina stat
     }
 
     State.Stamina = FMath::Clamp(State.Stamina - Rate * DeltaSeconds - SpentThisMove, 0.f, Pool);
