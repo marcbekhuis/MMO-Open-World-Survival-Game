@@ -114,6 +114,10 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Winded** — the state of a body whose stamina has run out, held to its recovering gaits until a quarter of its pool returns. An exhausted mount and a tired wolf are winded by the same rule. See [Movement](Movement.md#stamina).
 
+**Bundle** — a single object on the ground that gathers small items of different kinds lying together, opened like a container. Stacks of the same item merge instead, and large items and items with their own condition always lie separately. See [Inventory](Inventory.md#items-in-the-world).
+
+**Condition** — how worn an item is, against its maximum condition. Use lowers both; repair restores condition up to the maximum but never lowers the maximum, which records how hard the item has been used over its life. See [Inventory](Inventory.md#wear-and-repair).
+
 **Breath** — the short clock that runs only underwater and in the thin air above the highest peaks and floating islands, shown on the HUD only while it drains. When it runs out the character passes out, which means drowning underwater and falling in the air. Flying creatures hold out in thin air far longer than riders. See [Survival](Survival.md#breath) and [Flight](Flight.md#weather-and-altitude).
 
 ## Creatures and magic

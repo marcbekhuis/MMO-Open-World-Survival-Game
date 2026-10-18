@@ -35,7 +35,7 @@ The helmet decides more fights than any other piece, because a blow to the head 
 
 ## Wear and Repair
 
-Armour that takes blows is damaged by them. A dented plate, a split run of mail, or a cut strap protects less in the place it was struck until it is repaired, so a long fight wears holes in a harness exactly where it was hit hardest. Repair is the work of the armourer's and leatherworker's stations of [Crafting](Crafting.md), and the wear that every death puts on carried equipment under [Death and Loss](Death-and-loss.md) falls on armour as on everything else.
+Armour that takes blows is damaged by them. A dented plate, a split run of mail, or a cut strap protects less in the place it was struck until it is repaired, so a long fight wears holes in a harness exactly where it was hit hardest. Like all gear, armour has a condition and a maximum condition that wear and are repaired by the rules of [Inventory](Inventory.md#wear-and-repair). Repair is the work of the armourer's and leatherworker's stations of [Crafting](Crafting.md), and the wear that every death puts on carried equipment under [Death and Loss](Death-and-loss.md) falls on armour as on everything else.
 
 ## Shields
 

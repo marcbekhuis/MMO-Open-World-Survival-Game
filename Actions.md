@@ -28,9 +28,17 @@ The cost of cancelling follows from what the action is. A strike is stopped by t
 
 ## Hands, Items, and Readiness
 
-What a character holds is part of what they can do. Changing it is an action of its own, and how long it takes follows from where the item is and how heavy it is. Drawing a sword from a belt is quick; unslinging a war hammer from the back takes longer; fetching anything from inside a backpack means opening the pack and searching it, which is slow and leaves both hands busy. This gives the pouches of [Inventory](Inventory.md) their purpose in a fight. A ration, a bandage, or a potion carried in a belt pouch can be reached in a moment, while the same item buried in a pack costs a long, exposed action to reach. Preparing for a fight therefore means deciding what goes where before it starts.
+What a character holds is part of what they can do. Changing it is an action of its own, and how long it takes follows from where the item is and how heavy it is. Drawing a sword from a belt is quick; unslinging a war hammer from the back takes longer; fetching anything from inside a backpack means opening the pack and searching it, which is slow and leaves both hands busy. A ration, a bandage, or a potion carried in a belt pouch can be brought to hand in a moment, while the same item readied straight from the pack costs a long, exposed action. Rearranging what is carried takes no time at all, as [Inventory](Inventory.md#reach-and-the-hotbar) sets out, so the cost of reach falls only on bringing an item to hand.
 
-The hotbar of [UI and HUD](UI-and-HUD.md) chooses what to ready next; it does not skip the action of readying it. Selecting a different weapon while a strike is under way does nothing until the strike ends, and selecting it while idle begins the swap, which can itself be interrupted.
+The hotbar of [UI and HUD](UI-and-HUD.md) shows what is within quick reach and chooses what to ready next; it does not skip the action of readying it. Selecting a different weapon while a strike is under way does nothing until the strike ends, and selecting it while idle begins the swap, which can itself be interrupted.
+
+## Interacting with the World
+
+Everything a character does to the world with their hands is an action too, begun with the interact key and held like any other. Quick interactions, opening a door, pulling a lever, picking up a sword from the grass, finish almost as soon as they begin. Timed ones last as long as the key is held: searching a corpse, opening a strange chest, harvesting a plant, working a lock, binding another character's wound. Letting go cancels them, and a blow that staggers the character breaks them, exactly as with a strike.
+
+Searching is how a container is opened. A short held search crouches the character over a corpse or kneels them at a chest or a bundle on the ground, and once it completes the contents open in a window and move as freely and instantly as anything in the character's own inventory. The search is the exposed moment; while the window stays open the hands are busy and nothing else can begin, and stepping away or closing it ends the action. Stripping a body after a fight therefore costs the few seconds of the search and the attention it takes, in country where someone else may have heard the fight too.
+
+Large things are picked up into both hands, and a character carrying a log or a stone block in their arms has no hand free for anything else until they put it down, which is itself a quick interaction. What becomes of items left lying in the world is set out in [Inventory](Inventory.md#items-in-the-world).
 
 ## Creatures
 
