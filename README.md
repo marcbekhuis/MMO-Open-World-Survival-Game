@@ -103,6 +103,7 @@ The game is funded by a single subscription, with no box price and nothing that 
 - [Dynamic Culling & Render Distance](Dynamic-culling-and-render-distance.md)
 - [Monetization and Platforms](Monetization.md)
 - [Glossary](Glossary.md)
+- [Prototype Findings](Prototype-findings.md)
 
 ## Contributing And Community
 

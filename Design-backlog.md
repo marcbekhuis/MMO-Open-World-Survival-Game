@@ -63,4 +63,4 @@ Choices intentionally left open for now, each with a short note on why, so a lat
 
 ## Continue Reading
 
-See [AGENTS.md](AGENTS.md) for the working conventions, [README.md](README.md) for the project index, and [Glossary.md](Glossary.md) for shared terminology.
+See [AGENTS.md](AGENTS.md) for the working conventions, [README.md](README.md) for the project index, [Glossary.md](Glossary.md) for shared terminology, and [Prototype-findings.md](Prototype-findings.md) for what the Unreal prototype has learned.

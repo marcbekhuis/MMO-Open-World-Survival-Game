@@ -32,7 +32,7 @@ The script scans every design Markdown file (it skips `.claude/` and `.git/`) an
 - **Orphaned files** — design files no other file links to, invisible to navigation.
 - **Missing Draft appendix** — design files without the required `## Draft` section
   (the plumbing files are exempt: README, CLAUDE.md, AGENTS.md, GEMINI.md,
-  Design-backlog.md, and the transient GDD-REVIEW.md report).
+  Design-backlog.md, Prototype-findings.md, and the transient GDD-REVIEW.md report).
 - **Unintegrated Draft notes** — Draft sections holding raw content that should be reworked into
   the body and cleared.
 - **Missing related-links closer** — files without a Continue Reading or See also section.
