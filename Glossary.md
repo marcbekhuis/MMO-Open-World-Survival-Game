@@ -106,6 +106,12 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Pouch** — a small storage container for lightweight essentials such as food, coins, arrows, reagents, or tools, usually supplied by a belt, pants, bandolier, or similar gear. A pouch adds convenience rather than bulk capacity. See [Inventory](Inventory.md).
 
+**Action** — anything a character or creature does with its hands or attention: a strike, a guard, a spell, eating, or readying an item. A body performs one action at a time and can begin another only once the current one has completed or been cancelled. See [Actions](Actions.md).
+
+**Gait** — a pace a body can move at, belonging to one of three roles: a recovering gait such as a walk, a travelling gait such as a jog or a trot, and a burst gait such as a sprint or a gallop. Players, creatures, and mounts share the same gait rules with numbers of their own. See [Movement](Movement.md).
+
+**Winded** — the state of a body whose stamina has run out, held to its recovering gaits until a quarter of its pool returns. An exhausted mount and a tired wolf are winded by the same rule. See [Movement](Movement.md#stamina).
+
 **Breath** — the short clock that runs only underwater and in the thin air above the highest peaks and floating islands, shown on the HUD only while it drains. When it runs out the character passes out, which means drowning underwater and falling in the air. Flying creatures hold out in thin air far longer than riders. See [Survival](Survival.md#breath) and [Flight](Flight.md#weather-and-altitude).
 
 ## Creatures and magic

@@ -20,7 +20,7 @@ Combat is meant to feel brutal and consequential, in line with the game's [Conte
 
 ## Continue Reading
 
-See also: [Skills overview](../Skills.md), [Player Progression](../Player.md), and [Inventory](../Inventory.md).
+See also: [Melee Combat](../Melee-combat.md) for the weighted strikes these skills refine, [Actions](../Actions.md), [Skills overview](../Skills.md), [Player Progression](../Player.md), and [Inventory](../Inventory.md).
 
 ## Draft
 

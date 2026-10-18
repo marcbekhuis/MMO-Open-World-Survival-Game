@@ -12,7 +12,7 @@ All inventory slots appear in a single unified grid for easy management. Slot co
 
 ## Storage Options
 
-Pouches are small storage containers for lightweight essentials such as food, coins, arrows, reagents, or tools. They provide limited convenience rather than bulk capacity and usually come from belts, pants, bandoliers, or similar gear.
+Pouches are small storage containers for lightweight essentials such as food, coins, arrows, reagents, or tools. What sits in a pouch can be reached in a moment, while the same item buried in a pack takes a long, exposed action to fetch, as [Actions](Actions.md#hands-items-and-readiness) describes. They provide limited convenience rather than bulk capacity and usually come from belts, pants, bandoliers, or similar gear.
 
 Bags and backpacks are the primary storage containers. Only one main bag or backpack can be equipped at a time, with early versions offering modest capacity and late-game versions scaling significantly. Larger backpacks should create trade-offs through weight, movement penalties, durability concerns, or reduced combat convenience.
 
@@ -22,7 +22,7 @@ The [Item Box](Magic/Spells/Misc/Item-box.md) spell is mage-exclusive personal s
 
 ## Weight And Strength Mechanics
 
-All items have weight measured in kilograms, and stacked items combine their weight. The interface should show current burden and maximum carrying capacity clearly. Capacity scales with the Strength stat, so characters built for heavy armour, hauling, mining, or group logistics can carry more without becoming immobile.
+All items have weight measured in kilograms, and stacked items combine their weight. The interface should show current burden and maximum carrying capacity clearly. Capacity scales with the Strength stat, so characters built for heavy armour, hauling, mining, or group logistics can carry more without becoming immobile. How each burden tier slows a character, takes away the sprint, and weighs on every start, stop, and turn is set out in [Movement](Movement.md#carrying-weight).
 
 | Strength Increase | Effect |
 |---|---|

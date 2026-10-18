@@ -23,9 +23,15 @@ Each level grants a **stat point** that can be invested in core attributes:
 | **Endurance** | Health, stamina, damage resistance |
 | **Wisdom** | Regeneration, perception, status effect resistance |
 
-### Customization And Respec
+### Customisation And Respec
 
 Progression should support combat specialists, crafters, mages, survivalists, traders, explorers, and hybrids. It should equally support players who opt out of whole survival activities: a city-dwelling merchant or adventurer who never builds a base or crafts an item, living entirely by trade and combat, is a first-class way to play rather than a handicap, in line with the play-your-way principle reflected in [Economy and Trade](Economy.md). Respec options can exist through dedicated NPCs or costly services, but changing a build should feel like a meaningful decision rather than a frictionless menu action. Over time, a character's build should reflect both mechanical choices and the story of what that player has spent time doing.
+
+### Requirements And Commitment
+
+The best things in the game ask for a character who has built toward them. Weapons and spells both come in grades, from the simple to the end-game, and every grade above the first carries requirements: a minimum in the stat that drives it and a minimum rank in the skill that uses it. Heavy weapons ask for Strength and practice with their family, as [Melee Combat](Melee-combat.md#strength-stamina-and-technique) describes; advanced spells ask for Intelligence and mastery of the spells they grow from, as [Magic](Magic.md#unlocks-and-combination) describes. First-grade weapons and the foundation spells ask for almost nothing, so any character can try any way of fighting on the first day.
+
+The requirements are what make a build mean something. A character built as a mage cannot pick up a late-game war hammer and start swinging it, and a heavy-weapon fighter cannot cast an end-game spell because they found the book and wanted to try it; each would have to spend the time the other already has. Because the requirements rise grade by grade rather than locking whole families away, a character can still branch out, and a dwarf who chooses to become a mage reaches the great spells by the same road as anyone else. What no character can do is have everything at once, which is why two characters at the end of the game are rarely alike.
 
 ## Character Growth
 
@@ -33,7 +39,7 @@ Growth is not just mechanical; it is narrative. Race, stats, skills, [reputation
 
 ## Continue Reading
 
-Continue with [Skills](Skills.md), [Magic](Magic.md), and [Reputation System](Reputation-system.md).
+Continue with [Movement](Movement.md) for how Agility and Endurance shape a character's pace and stamina, [Skills](Skills.md), [Magic](Magic.md), and [Reputation System](Reputation-system.md).
 
 ## Draft
 

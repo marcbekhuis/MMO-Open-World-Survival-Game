@@ -1,6 +1,6 @@
 # Magic
 
-Magic is divided into distinct elements such as water, fire, earth, wind, light, lightning, and other specialized schools. Players begin with a small set of basic spells so every caster has something useful to practise immediately, but long-term strength comes from repeated use, upgrade choices, and unlocking advanced spell relationships. Where this power comes from is a question of [Setting and Lore](Setting-and-lore.md): magic wells from the living world itself rather than from the distant gods, which is why it runs strongest in wild, leyline-rich places.
+Magic is divided into distinct elements such as water, fire, earth, wind, light, lightning, and other specialised schools. Players begin with a small set of basic spells so every caster has something useful to practise immediately, but long-term strength comes from repeated use, upgrade choices, and unlocking advanced spell relationships. Where this power comes from is a question of [Setting and Lore](Setting-and-lore.md): magic wells from the living world itself rather than from the distant gods, which is why it runs strongest in wild, leyline-rich places.
 
 ## Foundation Spell Set
 
@@ -19,7 +19,9 @@ This makes spellcraft a build choice rather than a simple linear climb. Two play
 Advanced spells can unlock when a player reaches thresholds in one or more prerequisite spells. Some unlocks remain within a single element, while others combine schools: earth and water might support growth magic, lightning and wind might support storm spells, and light magic might interact with healing, wards, or visibility tools.
 <!-- REVIEW(producer): This describes a combinatorial spell tree with no stated ceiling while fifteen spells are authored — give a rough content-count target (spells, and by extension creatures/biomes/structures at launch) and mark which lists are closed vs open-ended so the pipeline has a bounded number to staff against. -->
 
-The system should reward experimentation without requiring players to memorize opaque recipes. Hints can come from trainers, ruins, quests, rare books, creature drops, or repeated use of related spells in the world.
+Advanced spells also ask for the mind to hold them. Every spell above the foundation set carries a minimum Intelligence that rises with its power, alongside its prerequisite spells, so the great spells of each school belong to characters who have built toward magic. A heavy-weapon fighter who finds an end-game spell in a ruin can read it, sell it, or give it to a caster, but cannot cast it until they have put in the same years of study a mage has; the principle is the same one that keeps a mage from swinging a great war hammer, set out in [Player Progression](Player.md#requirements-and-commitment).
+
+The system should reward experimentation without requiring players to memorise opaque recipes. Hints can come from trainers, ruins, quests, rare books, creature drops, or repeated use of related spells in the world.
 
 ## Spell Index
 
@@ -62,7 +64,7 @@ The system should reward experimentation without requiring players to memorize o
 
 ## Continue Reading
 
-Continue with [Skills](Skills.md), [Player Progression](Player.md), and [Inventory](Inventory.md).
+Continue with [Skills](Skills.md), [Player Progression](Player.md), [Inventory](Inventory.md), and [Actions](Actions.md) for why a spell is cast with nothing else in hand.
 
 ## Draft
 

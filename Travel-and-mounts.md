@@ -4,7 +4,7 @@ Travel is not the space between the game's content; it is the content. The seaml
 
 ## On Foot and the Value of Distance
 
-The baseline is travel on foot, and most of the world is crossed that way, at least at first. Walking keeps the player inside the survival pressures of [Survival](Survival.md), the food carried, the fatigue accrued, the weather endured, and inside the open danger of [Conflict and PvP](Conflict-and-pvp.md), where every stretch of road is a risk taken in the open. This is deliberate: because distance has weight, the landmarks, routes, and shortcuts a player learns become real knowledge, and the cartography skill of [Cartography](Skills/Artisan/Cartography.md) turns that knowledge into something other players will pay for. Faster travel is measured against this baseline, and earns its place only by being limited, costly, or hard to reach.
+The baseline is travel on foot, and most of the world is crossed that way, at least at first, at the paces, stamina, and momentum set out in [Movement](Movement.md). Walking keeps the player inside the survival pressures of [Survival](Survival.md), the food carried, the fatigue accrued, the weather endured, and inside the open danger of [Conflict and PvP](Conflict-and-pvp.md), where every stretch of road is a risk taken in the open. This is deliberate: because distance has weight, the landmarks, routes, and shortcuts a player learns become real knowledge, and the cartography skill of [Cartography](Skills/Artisan/Cartography.md) turns that knowledge into something other players will pay for. Faster travel is measured against this baseline, and earns its place only by being limited, costly, or hard to reach.
 
 ## Mounts
 

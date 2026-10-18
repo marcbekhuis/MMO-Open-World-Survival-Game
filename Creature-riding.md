@@ -18,7 +18,7 @@ A refusal never comes out of nowhere. Before a mount balks it gives its tell: ea
 
 ## Gaits, Stamina, and Ground
 
-Every mount moves in four gaits. A walk is quiet and sustainable, the pace at which a mount recovers its breath and can snatch grazing along the way. A trot covers ground steadily at little cost. A canter is the travelling pace for a long day on a road. A gallop is a sprint: fast, loud, and expensive, draining stamina quickly and leaving an exhausted mount that will drop to a walk and refuse to run again until it has recovered. Riders save the gallop for escapes and charges.
+A mount moves by the same rules of gaits, stamina, and momentum as every other walking body, set out in [Movement](Movement.md), with numbers of its own. Every mount moves in four gaits. A walk is quiet and sustainable, the pace at which a mount recovers its breath and can snatch grazing along the way. A trot covers ground steadily at little cost. A canter is the travelling pace for a long day on a road. A gallop is a sprint: fast, loud, and expensive, draining stamina quickly and leaving an exhausted mount that will drop to a walk and refuse to run again until it has recovered. Riders save the gallop for escapes and charges.
 
 Ground shapes every gait. Roads and open grassland are where mounts are fastest, forest and scrub slow them, and scree, ice, bog, and deep snow force the animal to pick its way, so a rider who demands speed on bad ground invites a stumble, a thrown rider, or an injured leg. Noise matters as much as speed. A galloping mount is heard well before it is seen, its rhythm carries through the ground to the [Sandworm](Creatures/Sandworm.md) in the desert, and a column of riders at the canter announces itself to anyone on the road ahead. A mount also tires over a long day beyond its stamina, much as a character does under the fatigue of [Survival](Survival.md), and a mount ridden from dawn to dusk without rest starts the next day short of its best.
 
@@ -74,7 +74,7 @@ Rider and mount cross region boundaries as a single group under the [Server Arch
 
 ## Continue Reading
 
-Continue with [Flight](Flight.md) for flying mounts and gliders, [Taming and Control](Taming-and-control.md) for how a mount is won and its bond kept, and [Travel and Mounts](Travel-and-mounts.md) for where riding fits among the ways of crossing the world, and [Creature Riding (Technical)](<Creature-riding (Technical).md>) for how it is built in Unreal Engine 5.
+Continue with [Movement](Movement.md) for the gaits, stamina, and momentum every mount shares with its rider, [Flight](Flight.md) for flying mounts and gliders, [Taming and Control](Taming-and-control.md) for how a mount is won and its bond kept, and [Travel and Mounts](Travel-and-mounts.md) for where riding fits among the ways of crossing the world, and [Creature Riding (Technical)](<Creature-riding (Technical).md>) for how it is built in Unreal Engine 5.
 
 ## Draft
 

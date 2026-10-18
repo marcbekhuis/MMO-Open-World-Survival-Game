@@ -8,7 +8,7 @@ This guide follows the same Unreal Engine 5.8 baseline as [Server Architecture (
 
 The same migration boundary applies as in the server guide. Everything the specification decides — a mount's bond-gated willingness, its fear, its gaits and stamina, what its tack lets it carry, what it does when its rider dies, and the terms of a hired horse — is plain data and plain rules, specified independently of Unreal actors. Unreal is the integration layer: it reads the rider's input, moves the creature's body, animates it, and replicates the result. That layer can be replaced, including the movement component itself as section 2 describes, without changing a stored mount or a single rule.
 
-Three companion guides share this architecture. [Taming and Control (Technical)](<Taming-and-control (Technical).md>) owns the bond, the creature's needs, and the creature's AI, which this guide calls whenever the mount has to judge or act for itself. [Flight (Technical)](<Flight (Technical).md>) builds flying on the movement baseline and intent layer set out here. [Building System (Technical)](<Building-system (Technical).md>) owns the saddle structures and decks of colossal mounts and the shelters a mount returns to.
+Four companion guides share this architecture. [Movement (Technical)](<Movement (Technical).md>) owns the walking body every mount is built on: its gaits, stamina, momentum, ground, and noise. [Taming and Control (Technical)](<Taming-and-control (Technical).md>) owns the bond, the creature's needs, and the creature's AI, which this guide calls whenever the mount has to judge or act for itself. [Flight (Technical)](<Flight (Technical).md>) builds flying on the movement baseline and intent layer set out here. [Building System (Technical)](<Building-system (Technical).md>) owns the saddle structures and decks of colossal mounts and the shelters a mount returns to.
 
 ---
 
@@ -67,7 +67,7 @@ Epic's [comparison of Mover and the Character Movement Component](https://dev.ep
 
 Mover suits this game in the long run. Its movement modes are modular and can be added from plugins at runtime, its layered moves persist across mode changes, and its plugin already ships walking, falling, swimming, and several flying modes, with navigation-driven movement through `UNavMoverComponent` ([Mover features and concepts](https://dev.epicgames.com/documentation/unreal-engine/mover-features-and-concepts-in-unreal-engine), [Mover API](https://dev.epicgames.com/documentation/unreal-engine/API/Plugins/Mover)). Mover is therefore the documented migration path, and the code is arranged so that switching touches only the integration layer.
 
-The boundary is the intent layer. Game rules never call the CMC. They read and write the rider's `FRiderIntent`, the mount's rule state held by `UMountComponent`, and a steering solve that turns the two into a desired velocity and facing for the step. A thin adapter, the CMC subclass `UMountMovementComponent` today, consumes that result and moves the body. The component exposes the rider's current intent through `GetCurrentRiderIntent()`, which is how the flight component reads the vertical fields. On the ground the rules produce an `FMountSteeringResult`; in the air `UFlightComponent` produces the [flight guide's](<Flight (Technical).md>) `FFlightStep`. `UMountMovementComponent` consumes both, and no game rule calls the CMC directly. Under Mover the same solve would feed a Mover input producer instead, and because Mover has no built-in input handling and no directly writable velocity, the adapter is exactly the part that changes.
+The boundary is the intent layer. Game rules never call the CMC. They read and write the rider's `FRiderIntent`, the mount's rule state held by `UMountComponent`, and a steering solve that turns the two into a desired velocity and facing for the step. A thin adapter, `UMountMovementComponent` today, consumes that result and moves the body. It derives from the shared `ULocomotionMovementComponent` of [Movement (Technical)](<Movement (Technical).md>), the CMC subclass every walking body uses, so a mount's gaits, stamina, momentum, ground, and noise are the same model a player's and a wild creature's are. The component exposes the rider's current intent through `GetCurrentRiderIntent()`, which is how the flight component reads the vertical fields. On the ground the rules produce an `FMountSteeringResult`; in the air `UFlightComponent` produces the [flight guide's](<Flight (Technical).md>) `FFlightStep`. `UMountMovementComponent` consumes both, and no game rule calls the CMC directly. Under Mover the same solve would feed a Mover input producer instead, and because Mover has no built-in input handling and no directly writable velocity, the adapter is exactly the part that changes.
 
 ```cpp
 // The only contract between riding rules and the movement backend.
@@ -101,7 +101,8 @@ public:
     UPROPERTY(EditAnywhere) FGameplayTag TackFit;                       // Tack.Fit.Horse, Tack.Fit.Wolf, ...
     UPROPERTY(EditAnywhere) float StrengthKg = 400.f;                   // load it bears before overload; see below for flyers
     UPROPERTY(EditAnywhere) float WadingDepthCm = 120.f;                // deeper water triggers the refusal check
-    UPROPERTY(EditAnywhere) TObjectPtr<UGaitTable> Gaits;               // section 5
+    UPROPERTY(EditAnywhere) TObjectPtr<ULocomotionProfile> Locomotion;  // section 5; the shared body model
+    UPROPERTY(EditAnywhere) uint8 GrazeGait = 1;                        // the gait at which it can graze: the walk
     UPROPERTY(EditAnywhere) TObjectPtr<UMountTemperament> Temperament;  // section 6
     UPROPERTY(EditAnywhere) TObjectPtr<UFlightDefinition> Flight;       // null on the ground; see the flight guide
 };
@@ -159,33 +160,34 @@ The steering solve is where the creature decides how to put its feet down. It ru
 
 ```cpp
 FMountSteeringResult SolveSteering(const FRiderIntent& Intent, const FMountRuleState& Rules,
-                                   const FMountFloorInfo& Floor, const FMountProbe& Probe,
-                                   const UMountDefinition& Def)
+                                   const FLocomotionState& BodyState, const FMountFloorInfo& Floor,
+                                   const FMountProbe& Probe, const UMountDefinition& Def)
 {
     if (Rules.Override != EMountOverride::None)            // bolt, refusal stop, wheel away
     {
         return SolveOverride(Rules, Floor, Probe, Def);    // the rider's intent is ignored outright
     }
 
-    const FGaitRow& Row = Def.Gaits->Row(FMath::Min(Intent.Gait, Rules.GaitCap));
+    // Gait, load, ground, slope, and stamina limits come from the shared body model.
+    const FLocomotionIntent Body{ static_cast<uint8>(FMath::Min(Intent.Gait, Rules.GaitCap)), false };
+    const FLocomotionStep Step = SolveLocomotion(Body, BodyState, Rules.Conditions, Floor.Ground,
+                                                 *Def.Locomotion, GroundTable());
 
     float Yaw = DequantiseYaw(Intent.DesiredYaw);
     Yaw = BlendYaw(Yaw, Rules.DriftYaw, Rules.DriftWeight);  // a fraying bond drifts toward its own wants
     Yaw = AvoidSmallObstacles(Yaw, Probe);                   // stumps, sleeping dogs, rocks
 
-    float Speed = Row.SpeedCmS * Floor.SurfaceSpeedFactor * Rules.LoadSpeedFactor;
-    Speed *= SlopeFactor(Floor.SlopeDegrees, Probe.bDescending);   // slows itself on a steep descent
-    Speed = KeepToFirmGround(Speed, Probe);                        // checks at bog edges and soft ground
+    float Speed = KeepToFirmGround(Step.MaxSpeedCmS, Probe); // checks at bog edges and soft ground
 
     FMountSteeringResult Out;
     Out.DesiredYaw = Yaw;
     Out.DesiredVelocity = FRotator(0.f, Yaw, 0.f).Vector() * Speed;
-    Out.MaxAcceleration = Row.AccelerationCmS2 * Rules.ResponseFactor;   // a weak bond answers late
+    Out.MaxAcceleration = Step.AccelerationCmS2 * Rules.ResponseFactor;   // a weak bond answers late
     return Out;
 }
 ```
 
-Bond strength reaches the solve through values the server sets from the bond band. `ResponseFactor` scales acceleration and turn rate, so a fraying bond answers the reins late without adding any network delay. `DriftYaw` and `DriftWeight` bend the heading toward what the creature wants at that moment — pasture, home, or away from what it fears — so a mount drifts before it ever disobeys. The probe is a short forward sweep against static geometry and nearby blocking actors. Static geometry agrees on both machines; a moving obstacle may cause a small correction, which is acceptable.
+Bond strength reaches the solve through values the server sets from the bond band. `ResponseFactor` scales acceleration and turn rate, so a fraying bond answers the reins late without adding any network delay. The mount turns toward `DesiredYaw` under the shared turn model of [section 4.1 of the movement guide](<Movement (Technical).md#41-turning>), with its species' turn-in-place rate, radius, and speed factor, so a galloping horse runs wide and a rider cannot haul it round on the spot. `DriftYaw` and `DriftWeight` bend the heading toward what the creature wants at that moment — pasture, home, or away from what it fears — so a mount drifts before it ever disobeys. The probe is a short forward sweep against static geometry and nearby blocking actors. Static geometry agrees on both machines; a moving obstacle may cause a small correction, which is acceptable.
 
 The steering solve never refuses. A cliff edge, water too deep, or a charge into something stronger is caught by the server's refusal check in section 6, which then sets an override that the following moves on both machines obey.
 
@@ -193,40 +195,19 @@ The steering solve never refuses. A cliff edge, water too deep, or a charge into
 
 ### 5.1 The Gait Table
 
-Each species has a gait table with one row per gait. The values are tuning; what the specification fixes is their relationship — the walk quiet and recovering, the trot cheap, the canter a day's travelling pace, the gallop fast, loud, and expensive.
-
-```cpp
-USTRUCT()
-struct FGaitRow
-{
-    GENERATED_BODY()
-
-    UPROPERTY(EditAnywhere) float SpeedCmS = 0.f;
-    UPROPERTY(EditAnywhere) float AccelerationCmS2 = 0.f;
-    UPROPERTY(EditAnywhere) float TurnRateDegS = 0.f;
-    UPROPERTY(EditAnywhere) float StaminaPerSecond = 0.f;   // negative recovers (halt, walk)
-    UPROPERTY(EditAnywhere) float FatiguePerSecond = 0.f;   // long-day fatigue, cleared only by rest
-    UPROPERTY(EditAnywhere) float NoiseLoudness = 0.f;      // AI hearing and ground tremor
-    UPROPERTY(EditAnywhere) float StumbleRiskScale = 0.f;   // multiplied by the ground's roughness
-    UPROPERTY(EditAnywhere) bool  bCanGraze = false;        // the walk only
-};
-```
+A mount's gaits are the rows of its species' `ULocomotionProfile`, the shared body model of [Movement (Technical)](<Movement (Technical).md#2-the-locomotion-profile>): a halt as a zero-speed recovering row, then walk, trot, and canter as travelling rows and the gallop as the burst row, so `EGait` indexes the rows directly. The values are tuning; what the specification fixes is their relationship — the walk quiet and recovering, the trot cheap, the canter a day's travelling pace, the gallop fast, loud, and expensive. The one riding-only gait property, the gait at which a mount can graze, lives on `UMountDefinition` as `GrazeGait`.
 
 ### 5.2 Stamina and the Long Day
 
-A mount carries two pools. Stamina drains and recovers by the second with the gait. Fatigue builds slowly across a day in the saddle, mirroring the character fatigue of [Survival](Survival.md), and lowers the stamina ceiling until the mount has rested, which is why a mount ridden from dawn to dusk starts the next day short of its best.
-
-At zero stamina the mount is exhausted: its gait cap drops to the walk and stays there until stamina passes a recovery threshold. Because stamina, fatigue, and the exhausted flag shape the predicted move, they are predicted state, simulated in the client's saved moves and corrected by the server (section 12.1). The mount stamina indicator in [UI and HUD](UI-and-HUD.md) reads the same local value and appears only below a pressing threshold.
+A mount's stamina is the shared pool of [section 5 of the movement guide](<Movement (Technical).md#5-stamina>): it drains and recovers by the second with the gait, and at zero the mount is winded, held to its recovering gaits until the pool passes the recovery threshold. Because the pool is predicted state, it is simulated in the client's saved moves and corrected by the server through the shared component (section 12.1). Fatigue is the riding layer's own second pool. It builds slowly across a day in the saddle from each gait's `FatiguePerSecond`, mirroring the character fatigue of [Survival](Survival.md), and the riding layer writes it into the body model's `CeilingFraction`, which lowers the stamina ceiling until the mount has rested; that is why a mount ridden from dawn to dusk starts the next day short of its best. The mount stamina indicator in [UI and HUD](UI-and-HUD.md) reads the same local value and appears only below a pressing threshold.
 
 ### 5.3 Ground
 
-The CMC's floor result says what the mount stands on. Each surface carries a physical material whose [surface type](https://dev.epicgames.com/documentation/unreal-engine/add-a-surface-type-in-unreal-engine) ([Physical Materials User Guide](https://dev.epicgames.com/documentation/unreal-engine/physical-materials-user-guide-for-unreal-engine)) maps, through a project table, to a speed factor (roads and open grass fastest, forest and scrub slower), a roughness for stumble risk (scree, ice, bog, deep snow), and a gait above which the mount picks its way rather than running. Water depth comes from the [water body](https://dev.epicgames.com/documentation/unreal-engine/water-system-in-unreal-engine) under the mount and is compared against its wading depth.
-
-On ground beyond its comfortable gait the mount slows itself unless pressed. If pressed, the server rolls a stumble each second from `StumbleRiskScale` times roughness, and a stumble can stagger the mount, throw the rider (section 8.3), or injure a leg (section 7.3). The roll is server-only and the stagger reaches the owning client as a replicated event, so a fall is never predicted that did not happen.
+Ground is read through the shared ground table of [section 9.1 of the movement guide](<Movement (Technical).md#91-ground>), which maps each surface type to a speed factor, a roughness, a noise factor, and a role cap for every walking body. Riding adds two things. Water depth comes from the [water body](https://dev.epicgames.com/documentation/unreal-engine/water-system-in-unreal-engine) under the mount and is compared against its wading depth. And on ground beyond its comfortable gait the mount slows itself unless pressed; if pressed, the shared server-side stumble roll applies, and for a mount a stumble can also throw the rider (section 8.3) or injure a leg (section 7.3). The roll is server-only and the stagger reaches the owning client as a replicated event, so a fall is never predicted that did not happen.
 
 ### 5.4 Noise
 
-Each gait reports its loudness through a [Report Noise Event](https://dev.epicgames.com/documentation/unreal-engine/ai-perception-in-unreal-engine), which the AI Hearing sense of creatures and NPCs picks up, so a column at the canter is heard well before it is seen. Ground tremor is separate from airborne sound: a gallop also posts a vibration event to a server-side tremor register that burrowing listeners such as the [Sandworm](Creatures/Sandworm.md) query. How that creature responds belongs to its AI in the taming guide; riding only reports the rhythm.
+Each gait reports its loudness through the shared noise reporting of [section 9.3 of the movement guide](<Movement (Technical).md#93-noise>), which the AI Hearing sense of creatures and NPCs picks up, so a column at the canter is heard well before it is seen. Ground tremor is separate from airborne sound: a gallop also posts a vibration event to a server-side tremor register that burrowing listeners such as the [Sandworm](Creatures/Sandworm.md) query. How that creature responds belongs to its AI in the taming guide; riding only reports the rhythm.
 
 ## 6. Fear, Refusal, and Tells
 
@@ -279,7 +260,7 @@ A mount's equipment is a fixed set of tack slots: bridle, saddle, pack, and bard
 
 ### 7.2 Load
 
-Carried mass is the sum of the tack, the contents of the pack containers, and the rider with everything the rider carries; for a colossal mount it includes the carried weight of its structure, read with `GetCarriedWeightKg` and kept current by `OnCarriedWeightChanged` (section 3.3). The load ratio against `StrengthKg` sets `LoadSpeedFactor`, a stamina-drain multiplier, and, once overloaded, a gait cap that forbids running. This is the gear-driven rule of [Inventory](Inventory.md) applied to animals. Pack containers are ordinary inventory containers attached to the mount rather than the rider, so the packs go wherever the mount goes, which section 9 depends on.
+Carried mass is the sum of the tack, the contents of the pack containers, and the rider with everything the rider carries; for a colossal mount it includes the carried weight of its structure, read with `GetCarriedWeightKg` and kept current by `OnCarriedWeightChanged` (section 3.3). The load ratio against `StrengthKg` is the `LoadFraction` of the shared body model, which turns it into a slower pace, a heavier stamina drain, and, once overloaded, a gait cap that forbids running, as [section 9.2 of the movement guide](<Movement (Technical).md#92-load>) sets out. This is the gear-driven rule of [Inventory](Inventory.md) applied to animals. Pack containers are ordinary inventory containers attached to the mount rather than the rider, so the packs go wherever the mount goes, which section 9 depends on.
 
 ### 7.3 Food, Injury, and Healing
 
@@ -352,7 +333,7 @@ The whistle's path query runs against the navigation mesh for the mount's body s
 
 ### 12.1 Predicting the Ridden Creature
 
-The owning client predicts the mount through the saved moves of `UMountMovementComponent`, following Epic's [networked movement guide](https://dev.epicgames.com/documentation/unreal-engine/understanding-networked-movement-in-the-character-movement-component-for-unreal-engine). Each move carries the `FRiderIntent` in a subclass of `FCharacterNetworkMoveData`, filled and serialised through its overrides and registered with `SetNetworkMoveDataContainer`. The predicted state that must agree — stamina, fatigue, the exhausted flag, the current gait — lives in a subclass of `FSavedMove_Character` so it is saved and replayed with each move, and an extended move response returns it with every correction.
+The owning client predicts the mount through the saved moves of `UMountMovementComponent`, following Epic's [networked movement guide](https://dev.epicgames.com/documentation/unreal-engine/understanding-networked-movement-in-the-character-movement-component-for-unreal-engine). Each move carries the `FRiderIntent` in a subclass of `FCharacterNetworkMoveData`, filled and serialised through its overrides and registered with `SetNetworkMoveDataContainer`. The predicted state that must agree — stamina, fatigue, the winded flag, the current gait — lives in a subclass of `FSavedMove_Character` so it is saved and replayed with each move, and an extended move response returns it with every correction. The body-model part of that state, and the move data and response that carry it, are the shared ones of [section 7 of the movement guide](<Movement (Technical).md#7-players-prediction-and-correction>); the riding subclasses extend them with the rider's intent and the mount's fatigue.
 
 Server-decided rule state — gait caps from injury, load, and ground, `ResponseFactor`, drift, fear, the tell cue, and any override — is not predicted. It replicates to the owning client as a compact struct stamped with the server move time at which it took effect, and the steering solve reads the value in force for each move it replays. Because the client replays saved moves after a correction, every value the solve reads must be in the saved move or stamped to a move time; a value read from "now" would replay wrongly. Mispredictions are confined to the moves between a server decision and its arrival, and the tell window makes the first of those decisions a cue rather than a change of course.
 
@@ -439,7 +420,7 @@ Quadruped locomotion has no Epic reference. [Motion Matching](https://dev.epicga
 
 ## Continue Reading
 
-Continue with the [Creature Riding specification](Creature-riding.md) this guide implements, [Flight (Technical)](<Flight (Technical).md>) for the flight modes built on this movement baseline, [Taming and Control (Technical)](<Taming-and-control (Technical).md>) for the bond, needs, and AI that riding calls into, [Building System (Technical)](<Building-system (Technical).md>) for saddle structures, decks, and shelters, and [Server Architecture (Technical)](<Server-architecture (Technical).md>) for the replication, ghosts, and transfer groups it relies on.
+Continue with the [Creature Riding specification](Creature-riding.md) this guide implements, [Movement (Technical)](<Movement (Technical).md>) for the shared walking body a mount is built on, [Flight (Technical)](<Flight (Technical).md>) for the flight modes built on this movement baseline, [Taming and Control (Technical)](<Taming-and-control (Technical).md>) for the bond, needs, and AI that riding calls into, [Building System (Technical)](<Building-system (Technical).md>) for saddle structures, decks, and shelters, and [Server Architecture (Technical)](<Server-architecture (Technical).md>) for the replication, ghosts, and transfer groups it relies on.
 
 ## Draft
 
