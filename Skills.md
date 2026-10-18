@@ -6,7 +6,7 @@ Skills define active and passive abilities learned through use, training, and in
 
 - [Combat](Skills/Combat.md) - Weapon handling, defensive maneuvers, battlefield movement, and role-specific techniques.
 - **Magic** - Spellcasting disciplines and elemental mastery. See [Magic](Magic.md) for spell progression and upgrade rules.
-- **Gathering** - Resource-focused skills such as logging, mining, harvesting, skinning, fishing, and salvage.
+- **Gathering** - Resource-focused skills such as logging, mining, harvesting, skinning, fishing, and salvage. See [Gathering](Gathering.md) for the work these skills improve.
 - **Artisan** - Crafting, refinement, construction support, repair, and specialist production. See [Crafting](Crafting.md) for the production system these skills feed, and [Cartography](Skills/Artisan/Cartography.md) for an example artisan-adjacent utility skill.
 - **Survival** - Navigation, campcraft, weather resistance, cooking, tracking, and wilderness preparation. See [Survival](Survival.md) for the pressures these skills answer.
 - **Taming and handling** - Long-term interaction with trainable animals, mounts, pack creatures, or utility companions where the design supports them. See [Taming and Control](Taming-and-control.md) for how those bonds are built and kept. Horsemanship, the skill of riding well, belongs to this family; see [Creature Riding](Creature-riding.md#horsemanship).

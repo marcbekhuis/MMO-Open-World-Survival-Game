@@ -58,7 +58,7 @@ The impact rules apply to creatures in full. A creature that sinks its teeth int
 
 ## Tools and Labour
 
-The same model covers every swing that is not a fight. A woodcutter's axe, a miner's pick, and a builder's hammer are weights moved along an arc, and they bite, glance, and recoil by the same rules: a heavy felling axe takes a deep bite from a trunk at a high stamina cost, a light hatchet takes many shallow ones, and a pick driven into hard rock with too little behind it jars back up the arm. Gathering therefore rewards the right tool and the strength to use it, and the raider with a pickaxe working at a stone wall in the [Building System](Building-system.md) is spending real effort on every blow.
+The same model covers every swing that is not a fight. A woodcutter's axe, a miner's pick, and a builder's hammer are weights moved along an arc, and they bite, glance, and recoil by the same rules: a heavy felling axe takes a deep bite from a trunk at a high stamina cost, a light hatchet takes many shallow ones, and a pick driven into hard rock with too little behind it jars back up the arm. Gathering therefore rewards the right tool and the strength to use it, and the raider with a pickaxe working at a stone wall in the [Building System](Building-system.md) is spending real effort on every blow. How resources are worked, run out, and come back is set out in [Gathering](Gathering.md).
 
 ## Continue Reading
 

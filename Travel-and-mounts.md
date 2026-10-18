@@ -16,7 +16,7 @@ Water is its own domain of travel, and it comes in two halves. Ships leave from 
 
 ## Climbing and Verticality
 
-The world is built upward as much as outward, and reaching its heights is a travel problem in itself. Players descend into caves and ruins, scale the ridges and exposed faces of the [Mountain Range](Biomes/Mountain-range.md), and pick their way up cliffs to reach ground that cannot be walked to. Climbing draws on stamina and on the survival skills that keep a climber from a fatal fall, and it rewards the effort with vantage, shortcuts, and access to places most travellers never see. Verticality is what keeps the world from being a flat map: the most valuable ground is often the hardest to reach, and reaching it is part of the achievement.
+The world is built upward as much as outward, and reaching its heights is a travel problem in itself. Players descend into caves and ruins, scale the ridges and exposed faces of the [Mountain Range](Biomes/Mountain-range.md), and pick their way up cliffs to reach ground that cannot be walked to. Climbing draws on stamina and on the survival skills that keep a climber from a fatal fall, under the rules of [Movement](Movement.md#climbing), which also covers swimming and the vaults and mantles of rough ground, and it rewards the effort with vantage, shortcuts, and access to places most travellers never see. Verticality is what keeps the world from being a flat map: the most valuable ground is often the hardest to reach, and reaching it is part of the achievement.
 
 ## Flight
 

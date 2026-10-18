@@ -83,6 +83,26 @@ Falls hurt. A drop of a few metres is taken in a stumble that costs speed; from 
 
 Crouching lowers the body, quietens it, and slows it to the crouched pace. It fits under low branches and through crawlspaces, and it is the stance from which a stalking player watches the ground ahead.
 
+## Vaulting and Mantling
+
+Low obstacles are crossed on the move. A jump at a fence, a fallen trunk, or a wall up to about waist height vaults it, a hand on the top and the legs swung over, keeping most of the body's momentum, so a running player clears a field wall without breaking stride. A jump at a ledge between chest and head height mantles it instead: the character grips the edge and pulls themselves up, which takes a moment and a share of stamina that grows with the height, about a twentieth of a full pool for a chest-high ledge and a seventh for one at the full reach of the arms. Higher than that, the ledge is a climb. The same jump key does all of it, and the obstacle decides what the jump becomes.
+
+A mantle needs both hands and a body light enough to lift. A character with both hands full, carrying a log or a stone block, or over their carrying limit cannot mantle at all, and a heavily burdened one vaults slowly and loses most of their momentum doing it. A character with a weapon in hand vaults one-handed and keeps the weapon.
+
+## Climbing
+
+Rock with holds can be climbed. Cliffs, rough crags, boulders, rubble, and trees with low branches all offer holds, and a character who reaches one with free hands can climb it, moving across and up the face at a slow, deliberate pace and paying stamina the whole time they hang there. On easy rock a full pool carries a fit climber fifteen to twenty metres; on hard rock, much less. A ledge or a crack wide enough to stand in lets the climber rest and recover before going on, and a climber whose stamina runs out falls, under the rules of falling above. Reading a face for its resting places before setting out on it is the climber's real skill.
+
+Not everything can be climbed. Smooth stone, sheer ice, and anything built, walls, palisades, and towers, offer no holds to bare hands. They are climbed with gear: a ladder set against them, a rope fixed from above, a grapnel thrown up and caught, or ice picks driven into a frozen face. This keeps the walls of the [Building System](Building-system.md) meaningful, since a raider has to bring ladders or grapnels and be seen using them, and it makes the climbing gear of [Crafting](Crafting.md) the key to the high ground of the [Mountain Range](Biomes/Mountain-range.md) and the drops of the [Deep Caverns](Biomes/Deep-caverns.md).
+
+Climbing takes both hands, so a character who starts a climb stows what they are holding in its place on the body, at the time each item takes to put away, and cannot start one while carrying something too large to stow. Weight pulls at a climber: every kilogram of burden makes each metre cost more stamina, and a character over their carrying limit cannot climb at all. The climbing disciplines of [Skills](Skills.md) let a practised climber manage harder rock, spend less stamina on it, and recover faster on a ledge. Creatures climb by their own nature, a goat on a crag or a spider on a wall, and are bound by the same stamina and the same falls.
+
+## Swimming
+
+Deep water is crossed by swimming, slowly and at a cost. A swimmer moves at about a metre a second, or half again as fast with a hard stroke that spends stamina quickly, and swimming drains stamina all the time, more the more the swimmer carries. A swimmer who runs out of stamina can only tread water; one who also runs out of breath, under the rules of [Survival](Survival.md#breath), drowns.
+
+Weight decides whether a body floats. A swimmer with up to about a quarter of their carrying capacity on them swims freely. Between a quarter and a half, the burden drags them down, every stroke costs more, and they ride low in the water. Beyond half, they cannot stay up at all and sink, and the only answers are to reach the shallows, find their footing, or drop gear before their breath runs out. Mail and plate are therefore a real danger at a river crossing, and an armoured party planning to cross deep water plans for a boat, a ford, or a bridge. Water also soaks a swimmer through, which the body heat of [Survival](Survival.md#temperature-and-exposure) feels at once, so a winter swim is a test of how quickly the swimmer can reach a fire. Creatures swim, or do not, by their nature, and a predator that cannot swim stops at the bank.
+
 ## Noise
 
 Every gait has a loudness, and the creatures and NPCs of the world hear it. Crouching is close to silent, walking is quiet, a jog carries to around fifteen metres, and a sprint to twice that, with dry leaves, gravel, and shallow water making every pace louder and moss, sand, and fresh snow making it quieter. What a character wears and carries adds its own noise, the clank of plate and the rattle of a laden pack carrying well beyond the footsteps beneath them. This is how pace connects to the encounters described in [Creatures](Creatures.md): a player who jogs into a valley announces themselves to everything in it, while one who walks the last stretch may see a [Wolf](Creatures/Wolf.md) pack before it hears them. Heavy bodies also carry through the ground as well as the air, which is what the [Sandworm](Creatures/Sandworm.md) listens for.
@@ -97,7 +117,7 @@ A mount is a creature whose gait is chosen by its rider. Everything the rider as
 
 ## Continue Reading
 
-Continue with [Movement (Technical)](<Movement (Technical).md>) for how the shared model is built in Unreal Engine 5, [Melee Combat](Melee-combat.md) for the weighted strikes the same bodies make, [Creature Riding](Creature-riding.md) for the mounts that use it, [Survival](Survival.md) for the needs that act on stamina, [Inventory](Inventory.md) for the weight that shapes it, and [Travel and Mounts](Travel-and-mounts.md) for the journeys it measures.
+Continue with [Movement (Technical)](<Movement (Technical).md>) for how the shared model is built in Unreal Engine 5, [Gathering](Gathering.md) for the work bodies do on the world, [Melee Combat](Melee-combat.md) for the weighted strikes the same bodies make, [Creature Riding](Creature-riding.md) for the mounts that use it, [Survival](Survival.md) for the needs that act on stamina, [Inventory](Inventory.md) for the weight that shapes it, and [Travel and Mounts](Travel-and-mounts.md) for the journeys it measures.
 
 ## Draft
 

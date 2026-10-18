@@ -80,6 +80,7 @@ The game is funded by a single subscription, with no box price and nothing that 
 - [Melee Combat (Technical)](<Melee-combat (Technical).md>)
 - [Health and Wounds](Health-and-wounds.md)
 - [Armour](Armour.md)
+- [Gathering](Gathering.md)
 - [Inventory System](Inventory.md)
 - [Economy and Trade](Economy.md)
 - [Crafting](Crafting.md)

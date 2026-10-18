@@ -345,6 +345,16 @@ Survival never owns a second pool. It charges food and water for the work each m
 
 Crouching uses the CMC's own crouch, which resizes the capsule and replicates the crouched flag; the component only replaces its speed with the profile's crouch row. Fall damage is applied by the server alone through the vitals system, so the client predicts the stumble and never a wound that did not happen. Climbing, swimming, and the flight modes are later movement modes on the same component, and each spends stamina through the pool of section 5 inside its own physics.
 
+### 6.1 Movement Modes
+
+Vaulting, mantling, climbing, and swimming are movement modes of the same component, so they share its prediction, its stamina pool, and its conditions.
+
+Swimming uses the CMC's own swimming mode inside water volumes, with the component's `PhysSwimming` override applying the specification's speeds and stamina drain. Whether the body floats is set each move through the CMC's `Buoyancy` from the load fraction: full buoyancy below a quarter of capacity, falling through the middle band, and below neutral beyond half, so an overloaded swimmer sinks under the same physics that floats a light one.
+
+Climbing is a custom mode in `PhysCustom`. A short forward trace each move finds the surface in reach, and the surface's physical material names a row in the ground table of section 9.1 that now also carries a climb rating: none for smooth stone, ice, and every building piece, and a difficulty for rock, crags, and trees. Climbing gear changes what a surface accepts: a fixed rope, a ladder, or a grapnel line is an actor with its own climbable surface, and ice picks in the hands let ice count as hard rock. The climb mode moves the capsule across the surface plane at a speed and stamina cost from the profile, scaled by the rating and the load, and ends on a ledge, at the top, or in a fall when stamina runs out.
+
+Vaults and mantles are short, fixed traversals. When a jump begins, capsule sweeps ahead of the body measure the obstacle's height and the space on top of it; a vault or a mantle is chosen from the height, refused when the hands are full or the load is over the limit, and then played as a custom sub-mode that moves the capsule along a path fitted to the obstacle over a duration from the height. The jump input, the measured obstacle, and the progress through the traversal all live in the saved move, so a mantle is predicted and replayed like any other movement.
+
 ## 7. Players: Prediction and Correction
 
 The owning client predicts its own body through the CMC's saved moves, following Epic's [networked movement guide](https://dev.epicgames.com/documentation/unreal-engine/understanding-networked-movement-in-the-character-movement-component-for-unreal-engine). Three pieces carry the shared model through it.
