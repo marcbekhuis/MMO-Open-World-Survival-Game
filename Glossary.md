@@ -110,6 +110,8 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Wound** — an injury to one region of a body, a cut, pierce, crush, fracture, or burn, with a severity. Wounds hamper the region they are in, deep cuts and pierces bleed until treated, and serious wounds do not heal without treatment. See [Health and Wounds](Health-and-wounds.md).
 
+**Fatigue** — the measure of a play session rather than of the body's effort. It runs down over hours of play and refills while the player is logged out, faster in a bed; when it is empty, progress slows, and long play past empty tires the body. A mount's long-day weariness is a separate, physical thing. See [Survival](Survival.md#fatigue-and-rest).
+
 **Gait** — a pace a body can move at, belonging to one of three roles: a recovering gait such as a walk, a travelling gait such as a jog or a trot, and a burst gait such as a sprint or a gallop. Players, creatures, and mounts share the same gait rules with numbers of their own. See [Movement](Movement.md).
 
 **Winded** — the state of a body whose stamina has run out, held to its recovering gaits until a quarter of its pool returns. An exhausted mount and a tired wolf are winded by the same rule. See [Movement](Movement.md#stamina).

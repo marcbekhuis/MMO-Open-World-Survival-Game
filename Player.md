@@ -34,6 +34,14 @@ Points are spent one step at a time, and a stat's next step costs more the highe
 
 Race enters as a starting tendency, a handful of free steps in the stats its people lean toward, as [Races](Races.md) describes: a dwarf begins with steps in Health, Carry Weight, and Melee Force, an elf in Handling, Mana, and Perception, and a human with the same number to place wherever they choose.
 
+### How Growth Is Recorded
+
+A character's record holds what they earned and what they chose, never the numbers that follow from them. It stores the total experience the character has earned, the stat points they have spent in each stat, and the practice they have earned in each skill. Everything else is worked out from those whenever it is needed: the level from the experience and the levelling curve, the steps in each stat from the points spent and the cost of each step, the value of each stat from its steps and what a step is worth, and each skill's rank from its practice and the rank curve.
+
+Because only the earned and chosen amounts are kept, every curve and every multiplier in this document can change without breaking a single character. If a step of Health is made worth more, or the cost of steps beyond twenty is lowered, or a server doubles the value of Carry Weight, every character lands exactly where the new rules put them the next time they are loaded, as if they had grown under those rules from the start. The one case that needs a rule of its own is a change that leaves a character with more points spent than their level now grants; that character's stat points are returned to them to spend again, free of the usual cost of a respec.
+
+Every number in this section, the levelling curve's eight per cent, the cost of a step in each band of twenty, what a step of each stat is worth, and how quickly Speed's gains thin out, is a default. Official servers use the defaults, and the host of any other server can change them, as [Server Settings](Server-settings.md#official-and-community-servers) sets out.
+
 ### Customisation And Respec
 
 Progression should support combat specialists, crafters, mages, survivalists, traders, explorers, and hybrids. It should equally support players who opt out of whole survival activities: a city-dwelling merchant or adventurer who never builds a base or crafts an item, living entirely by trade and combat, is a first-class way to play rather than a handicap, in line with the play-your-way principle reflected in [Economy and Trade](Economy.md). Respec options can exist through dedicated NPCs or costly services, but changing a build should feel like a meaningful decision rather than a frictionless menu action. Over time, a character's build should reflect both mechanical choices and the story of what that player has spent time doing.

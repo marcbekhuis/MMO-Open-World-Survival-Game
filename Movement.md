@@ -31,7 +31,7 @@ Stamina is the short-term budget of effort, and every body has one pool of it. T
 
 A body that empties its pool is winded. It is held to its recovering gaits, unable to jog or sprint, until the pool has refilled past a quarter, and then it is free again. The rule is the same for an exhausted mount and a tired wolf, and it is meant to bite: a player who runs themselves empty to escape and then finds the thing behind them still coming has made a real mistake, and the slow walk that follows is the cost of it. The body shows it first. Breathing grows loud and ragged as the pool runs low, the view sways with each stride, and the sound of a winded player carries further than their footsteps, so neither the player nor anyone hunting them needs a bar to know.
 
-Two longer pressures from [Survival](Survival.md) work through the same pool rather than beside it. Hunger and fatigue each turn one of two dials, how fast the pool refills and how full it can get, so a hungry, tired traveller recovers more slowly and, for a mount ridden all day, starts the next morning short of its best. The pool itself never becomes a second meter to tend; it is how those needs are felt in the legs.
+Refilling the pool is paid for with food and water, as [Survival](Survival.md#the-bodys-fuel) sets out, so a hungry or thirsty body refills slowly and a starving or parched one barely at all, and the cold and heat of the world press on the pool the same way. A mount ridden from dawn to dusk also builds a long-day weariness that lowers how full its pool can get until it has rested, as [Creature Riding](Creature-riding.md#gaits-stamina-and-ground) describes. The pool itself never becomes a second meter to tend; it is how those needs are felt in the legs.
 
 ## Momentum
 

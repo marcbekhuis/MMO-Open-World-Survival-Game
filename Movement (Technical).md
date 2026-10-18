@@ -75,7 +75,7 @@ struct FGaitRow
     UPROPERTY(EditAnywhere) float AccelerationCmS2 = 0.f;
     UPROPERTY(EditAnywhere) float BrakingCmS2 = 0.f;
     UPROPERTY(EditAnywhere) float StaminaPerSecond = 0.f;       // negative recovers
-    UPROPERTY(EditAnywhere) float FatiguePerSecond = 0.f;       // read by survival (characters) and the riding layer (mounts)
+    UPROPERTY(EditAnywhere) float FatiguePerSecond = 0.f;       // long-day weariness, read by the riding layer (mounts only)
     UPROPERTY(EditAnywhere) float NoiseLoudness = 0.f;          // AI hearing, section 9.3
     UPROPERTY(EditAnywhere) float StumbleRiskScale = 0.f;       // multiplied by ground roughness
 };
@@ -325,7 +325,7 @@ A sword swing, a shield block, a jump, and a climbing hold spend from the same p
 
 ### 5.3 Survival and Riding Read the Pool
 
-Survival never owns a second pool. It reads `FatiguePerSecond` from the granted gait to accrue the character's fatigue, and it writes the `RecoveryScale` dial that hunger and fatigue turn, as [Survival](Survival.md) describes. For a mount, the riding layer writes `CeilingFraction` from the mount's fatigue, which is how a mount ridden all day starts the next morning short of its best. The HUD's stamina indicator, the [UI and HUD](UI-and-HUD.md) element that appears only while it presses, reads the locally predicted value for the possessed body, whether that is the player or the mount under them.
+Survival never owns a second pool. It charges food and water for the work each move reports, the gait's effort and the stamina actually refilled, and writes `RecoveryScale` from how much fuel is left: full rate while fed and watered, slower when hungry or thirsty, and only a trickle when either store is empty, as [Survival](Survival.md#the-bodys-fuel) describes. Body heat outside the comfort band lowers `RecoveryScale` and, in heat, `CeilingFraction`. A character's session fatigue touches the pool only in its last stage, when it lowers `CeilingFraction` and `RecoveryScale` together. For a mount, the riding layer writes `CeilingFraction` from the mount's long-day weariness, built from each gait's `FatiguePerSecond`, which is how a mount ridden all day starts the next morning short of its best. The HUD's stamina indicator, the [UI and HUD](UI-and-HUD.md) element that appears only while it presses, reads the locally predicted value for the possessed body, whether that is the player or the mount under them.
 
 ## 6. The Movement Component
 

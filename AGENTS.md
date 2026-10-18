@@ -10,7 +10,7 @@ This repository is a living game-design document for a large-scale, persistent o
 
 This section summarises facts the design documents already settle, so every assistant starts from the same picture. The linked documents remain the authority: when one of them changes a fact listed here, update this section in the same edit.
 
-**What it is.** A persistent survival RPG at MMO scale in one seamless world, with no instancing or loading walls, built on Unreal Engine 5 for PC first, with consoles kept within reach. It is funded by a single subscription with no box price; any store sells cosmetics only, and nothing that affects power is ever for sale ([Monetization and Platforms](Monetization.md)). The six design pillars and the core loop are in [README.md](README.md).
+**What it is.** A persistent survival RPG at MMO scale in one seamless world, with no instancing or loading walls, built on Unreal Engine 5 for PC first, with consoles kept within reach. It is funded by a single subscription with no box price; any store sells cosmetics only, and nothing that affects power is ever for sale ([Monetization and Platforms](Monetization.md)). The six design pillars and the core loop are in [README.md](README.md). Official and community servers run it; every balancing number is an overridable default ([Server Settings](Server-settings.md#official-and-community-servers)).
 
 **How it is seen.** The game is played in first person only, with no third-person camera and no option to pull back ([UI and HUD](UI-and-HUD.md)). Art is photoreal and built on deliberate contrast, from the most beautiful and peaceful places to scenes out of the worst horror ([Art Direction](Art-direction.md)). Describe things as a player would meet them at eye level.
 

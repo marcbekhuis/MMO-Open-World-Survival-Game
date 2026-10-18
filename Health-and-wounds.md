@@ -43,7 +43,7 @@ This is where light weapons find their purpose against armour. A dagger that sli
 
 ## Recovery and Treatment
 
-Health returns slowly on its own, and only while the body is cared for. A character who is fed and not exhausted, by the measures of [Survival](Survival.md), recovers health gradually as they go about their business, and much faster while resting in a bed or a proper shelter. A hungry or exhausted character recovers nothing.
+Health returns slowly on its own, and only while the body has the fuel for it. Healing draws on food, as [Survival](Survival.md#the-bodys-fuel) sets out, so a fed character recovers health gradually as they go about their business, and much faster while resting in a bed or a proper shelter, while a starving one recovers nothing.
 
 Wounds do not heal past a point by themselves. A scratch closes, a bruise fades, but a bleeding wound needs binding, a fracture needs a splint and then rest, and a wound left dirty in the wrong country, above all the [Swamp](Biomes/Swamp.md), turns to infection and worsens until it is treated with the remedies of [Crafting](Crafting.md). Treating a wound is an action under [Actions](Actions.md): binding a cut takes both hands and a few seconds, setting a bone takes longer, and none of it can be done mid-fight without giving the fight away. Treatment stops the wound from getting worse; healing it back to nothing takes time and rest, or magic.
 
