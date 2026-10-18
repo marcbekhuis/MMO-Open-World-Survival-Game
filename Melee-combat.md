@@ -62,7 +62,7 @@ The same model covers every swing that is not a fight. A woodcutter's axe, a min
 
 ## Continue Reading
 
-Continue with [Melee Combat (Technical)](<Melee-combat (Technical).md>) for how weighted strikes are built in Unreal Engine 5, [Combat Skills](Skills/Combat.md) for the techniques fighters learn, [Movement](Movement.md) for the body behind every strike, and [Conflict and PvP](Conflict-and-pvp.md) for the fights these weapons settle.
+Continue with [Melee Combat (Technical)](<Melee-combat (Technical).md>) for how weighted strikes are built in Unreal Engine 5, [Ranged Combat](Ranged-combat.md) for the same impact rules at a distance, [Combat Skills](Skills/Combat.md) for the techniques fighters learn, [Movement](Movement.md) for the body behind every strike, and [Conflict and PvP](Conflict-and-pvp.md) for the fights these weapons settle.
 
 ## Draft
 

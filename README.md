@@ -81,6 +81,7 @@ The game is funded by a single subscription, with no box price and nothing that 
 - [Health and Wounds](Health-and-wounds.md)
 - [Armour](Armour.md)
 - [Gathering](Gathering.md)
+- [Ranged Combat](Ranged-combat.md)
 - [Inventory System](Inventory.md)
 - [Economy and Trade](Economy.md)
 - [Crafting](Crafting.md)

@@ -12,7 +12,7 @@ Because sound is genuine information in this world and not only atmosphere, as s
 
 ## Operating the Game
 
-Controls are fully remappable, and the interface supports the range of ways players actually play, from alternative input devices to options that ease timing-heavy or simultaneous inputs. This commitment is also what makes the eventual move to console controls noted in [UI and HUD](UI-and-HUD.md) a natural extension rather than a rebuild, since a control scheme designed to flex for accessibility is already designed to flex for a gamepad.
+Aiming has no crosshair by design, so a player who needs one can turn on a small dot that follows the aim's sway, as [Ranged Combat](Ranged-combat.md#aiming-without-a-crosshair) describes; it shows where a shot points without steadying it. Controls are fully remappable, and the interface supports the range of ways players actually play, from alternative input devices to options that ease timing-heavy or simultaneous inputs. This commitment is also what makes the eventual move to console controls noted in [UI and HUD](UI-and-HUD.md) a natural extension rather than a rebuild, since a control scheme designed to flex for accessibility is already designed to flex for a gamepad.
 
 ## Fairness Without Compromise
 
