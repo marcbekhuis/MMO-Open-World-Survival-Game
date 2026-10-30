@@ -30,9 +30,8 @@ Three engine gaps shape the design. Epic's 5.8 documentation describes no built-
 12. [Air Conflict Hooks](#12-air-conflict-hooks)
 13. [Relevance, Handoff, and the View](#13-relevance-handoff-and-the-view)
 14. [Persistence](#14-persistence)
-15. [Open Implementation Questions](#15-open-implementation-questions)
-16. [Design Validation Cases](#16-design-validation-cases)
-17. [Further Reading](#17-further-reading)
+15. [Design Validation Cases](#15-design-validation-cases)
+16. [Further Reading](#16-further-reading)
 
 ---
 
@@ -347,24 +346,36 @@ struct FBreathState
     bool bUnconscious = false;
 };
 
-float BreathRules::DrainPerSecond(const FBreathProfile& P, const FAirContext& Air)
+// Each breathing aid carries the one medium it works in, so the two kinds of gear never mix.
+struct FBreathModifiers
+{
+    float WaterFactor = 1.f;          // water-breathing gear, such as Mermaid-scale pieces; used only when submerged
+    float ThinAirGearFactor = 1.f;    // the worn breathing mask; used only above the thin-air line
+    float ThinAirDraughtFactor = 1.f; // an active alchemical draught, a timed effect; used only above the line
+};
+
+constexpr float MaxThinAirRelief = 3.f;   // reference value: the most any stack can slow the thin-air drain
+
+float BreathRules::DrainPerSecond(const FBreathProfile& P, const FAirContext& Air, const FBreathModifiers& Mod)
 {
     if (Air.bSubmerged)
     {
-        return 1.f / P.CapacitySeconds;
+        return 1.f / (P.CapacitySeconds * Mod.WaterFactor);
     }
-    const float Above = Air.AltitudeM - Air.ThinAirAltitudeM;     // world-level threshold above the highest peaks
+    const float Above = Air.AltitudeM - Air.ThinAirAltitudeM;     // the one world-level thin-air height
     if (Above <= 0.f)
     {
         return -P.RefillPerSecond;                                 // good air: refills
     }
     const float Severity = 1.f + Above / Air.ThinAirScaleM;        // faster the higher the climb
-    return Severity / (P.CapacitySeconds * P.ThinAirTolerance);
+    const float Relief = FMath::Min(Mod.ThinAirGearFactor * Mod.ThinAirDraughtFactor, MaxThinAirRelief);
+    return Severity / (P.CapacitySeconds * P.ThinAirTolerance * Relief);
 }
 ```
 
-Submersion comes from the swimming state the movement component already tracks in water. Thin air begins at one world-level altitude above the highest peaks and the floating islands, and drains faster with height. Flying species carry a `ThinAirTolerance` far above a character's, which makes the rider fail first without any special rule. The warnings in the Survival specification — loud breathing, heartbeat, dulled sound, draining colour, closing vision — are staged client effects driven from the replicated fraction. The thin air that only shortens a climber's stamina on the high passes is a stamina modifier in the survival layer, not breath. Nothing extends breath in thin air; whether anything should is an open question in the [Design Backlog](Design-backlog.md), and the stat has no modifier slot for it until that is decided.
+Submersion comes from the swimming state the movement component already tracks in water. Thin air begins at one world-level altitude above the highest peaks and the floating islands, and drains faster with height. The altitude is a single world setting, `ThinAirAltitudeM`, with a default above the highest terrain and floating island in the world and an override per server through [Server Settings](Server-settings.md); no per-region threshold exists. Flying species carry a `ThinAirTolerance` far above a character's, which makes the rider fail first without any special rule.
 
+The mask and the draught reach the stat as `FBreathModifiers`, read from the character's worn gear and active effects whenever either changes. The two thin-air factors multiply, so they stack, and the product is capped at `MaxThinAirRelief`. The cap is what keeps the ceiling: above the line the drain stays positive whatever is worn, so the aids lengthen the time a rider lasts and never turn the drain into a refill, and neither moves `ThinAirAltitudeM` or a species' `CeilingAltitudeM`. A gear item or draught declares its medium, and a factor outside its medium is ignored, so water-breathing gear does nothing in thin air. The warnings in the Survival specification — loud breathing, heartbeat, dulled sound, draining colour, closing vision — are staged client effects driven from the replicated fraction. The thin air that only shortens a climber's stamina on the high passes is a stamina modifier in the survival layer, not breath.
 ### 8.2 Blackout and Waking
 
 At zero the character or creature becomes unconscious. A rider who blacks out triggers the harness release of [section 10](#10-the-harness-and-falling) and falls. While falling, the drain function returns a refill once the body drops below the thin-air altitude, and consciousness returns when breath passes a wake threshold, so a rider who fell from high enough comes to with a few seconds of fall left. The same rules apply to a creature.
@@ -389,11 +400,15 @@ The flight saddle's harness is a small state machine on the rider's seat in the 
 
 Harness failure is tack failure: the harness is part of the flight saddle and wears under the riding layer's tack rules. On release the server detaches the rider from the seat socket, re-enables the rider's own movement in falling mode with the flyer's velocity, and bumps the membership version of the mount-and-rider transfer group as [Server Architecture (Technical)](<Server-architecture (Technical).md#72-preparation-cutover-and-group-state>) requires. A conscious rider with a rig can open it while height remains. Impact damage follows the ordinary fall rules, and a rider who dies leaves a corpse where they land under [Death and Loss](Death-and-loss.md). A flyer that dies aloft falls with its packs, which stay on the carcass for looting at the crash site. A flyer that has lost its rider hands over to the riding guide's rider-lost behaviour, which decides by bond whether it stays near the body or heads home.
 
+### 10.1 Logging Out and Disconnecting Aloft
+
+A logout request is a server transaction, and it is refused whenever the character's flight state is anything but on the ground: the rider is seated on a flyer whose sub-mode is not `None`, or the character is in `RigGlide`. The refusal is returned to the client as a notice, and the request is accepted only once the character is standing, in the walking or falling mode of the ground rules. A connection that drops instead is a disconnect, which the server cannot refuse. When the owning connection of a flying mount is lost, the server hands the mount to its AI controller with a forced-landing order, which runs the landing of [section 4.3](#43-landing) with the "can it leave" test dropped, and the buckled harness keeps the rider aboard. On touchdown the mount takes the standing command of an unsheltered mount, the rider is dismounted beside it by the dismount path of the riding guide, and the character becomes the sleeping body of [Death and Loss](Death-and-loss.md#logging-out). A disconnected wing-rig glider keeps `RigGlide` on its last heading with zero input, so it descends in a straight glide and lands under the ordinary impact rules before the same sleeping state begins. An anchored leviathan's deck counts as a base for this rule: a character based on the deck of an anchored leviathan is not in flight and may log out as on any base.
+
 ## 11. Mana-Borne Flight
 
 ### 11.1 Movement
 
-The [Flying Leviathan](Creatures/Flying-leviathan.md) uses only `ManaDrift` and `ManaSurge`. Neither has launch, landing, stall, or dive branches; lift is not a function of airspeed, so the leviathan can hover at zero airspeed. Its turn rate and acceleration are low and its momentum large, so a pilot's heading intent produces a wide, ship-like turn. The surge is the bestiary entry's short burst, available while the reserve allows. The pilot steers from the steering station that the riding guide defines for [colossal mounts](<Creature-riding (Technical).md#33-colossal-mounts>), so the station's intent feeds the same drift and surge branches. Players walk on the deck as on any moving base: the Character Movement Component's based movement keeps a character standing on a moving actor and carries the base in its replicated movement. How deck occupants and built pieces join the leviathan's transfer group across a region handoff is pending the backlog item [Connected structures and mobile bases](Design-backlog.md), and until it is decided the deck's membership in the group is not specified.
+The [Flying Leviathan](Creatures/Flying-leviathan.md) uses only `ManaDrift` and `ManaSurge`. Neither has launch, landing, stall, or dive branches; lift is not a function of airspeed, so the leviathan can hover at zero airspeed. Its turn rate and acceleration are low and its momentum large, so a pilot's heading intent produces a wide, ship-like turn. The surge is the bestiary entry's short burst, available while the reserve allows. The pilot steers from the steering station that the riding guide defines for [colossal mounts](<Creature-riding (Technical).md#33-colossal-mounts>), so the station's intent feeds the same drift and surge branches. Players walk on the deck as on any moving base: the Character Movement Component's based movement keeps a character standing on a moving actor and carries the base in its replicated movement. Deck occupants and the built base join the leviathan's transfer group across a region handoff, with the base's pieces and stored contents in its membership list, as the server guide's [structure persistence](<Server-architecture (Technical).md#85-structure-persistence>) sets out.
 
 ### 11.2 The Mana Reserve
 
@@ -432,7 +447,7 @@ Before logging out, the keeper anchors the leviathan at a point on a leyline. Th
 
 ### 11.5 The Raid Climb
 
-The bestiary entry sets the rule that when the threat is on its own back, running cannot shake it and the leviathan climbs ([Flying Leviathan](Creatures/Flying-leviathan.md)). The deck condition is therefore the trigger: when the leviathan is harmed by someone standing on its own deck, the creature's AI enters a defensive climb: flight climbs at the best rate the reserve allows toward its current ceiling and holds there while the threat lasts. Anyone aboard runs out of breath and collapses on the deck. Looting the deck does not trigger the climb; only harming the creature does. Killing a leviathan carries the reputation cost the bestiary entry sets out, applied through the [Reputation System](Reputation-system.md).
+The bestiary entry sets the rule that when the threat is on its own back, running cannot shake it and the leviathan climbs ([Flying Leviathan](Creatures/Flying-leviathan.md)). The deck condition is therefore the trigger: when the leviathan is harmed by someone standing on its own deck, the creature's AI enters a defensive climb: flight climbs at the best rate the reserve allows toward its current ceiling and holds there while the threat lasts. Anyone aboard runs out of breath and collapses on the deck, later than a character who wears a breathing mask or has drunk a draught ([section 8.1](#81-one-stat-two-media)). The climb holds only while a threat exists, and the AI computes the threat set each tick from characters aboard who are conscious and have harmed the creature within a short window; an unconscious body is never in the set. When the set has been empty for `RaidHoldSeconds`, a reference value of 60 seconds, the AI ends the climb and descends toward its drift height, the drain function returns a refill below the thin-air line, and the raiders wake aboard once their breath passes the wake threshold. Looting the deck does not trigger the climb; only harming the creature does. Killing a leviathan carries the reputation cost the bestiary entry sets out, applied through the [Reputation System](Reputation-system.md).
 
 ### 11.6 Boarding and Leaving
 
@@ -467,13 +482,7 @@ Flight supplies data to combat systems rather than resolving fights itself.
 
 Only three flight-related facts are written to the world database. The leviathan's mana reserve and its anchor record are persisted with the creature, so a restart reproduces an anchored leviathan in its circle with its reserve. Wing-rig and harness wear are item durability, stored with the item. Everything else — sub-mode, airspeed, pull-out progress, breath — is transient and travels only in the movement state of a region handoff or a crash-recovery snapshot, as the server guide's payload already covers.
 
-## 15. Open Implementation Questions
-
-- **Logging out aloft.** The specification covers a mount left unsheltered at logout, but not a rider who disconnects or logs out in the air. The options are that the mount makes a forced landing under its AI and becomes an ordinary unsheltered mount with the sleeping rider beside it; that rider and mount hold position aloft for a short grace period before that landing; or that logout in the air is refused while a disconnect falls back to the forced landing.
-- **Ending the raid climb.** The specification says the leviathan does not come down until the threat is over, but leaves open what ends it once raiders lie senseless on the deck. The options are to hold the climb while any hostile body remains aboard, conscious or not; to treat an unconscious raider as no threat, so the leviathan descends after a hold time and the raiders wake; or to have prolonged blackout in thin air kill, which Survival does not currently state.
-- **Thin-air altitude.** A single world-level threshold is the simplest reading of "above the highest peaks and the floating islands". If the islands' heights vary widely across the world, a regional threshold may read better and needs a ruling.
-
-## 16. Design Validation Cases
+## 15. Design Validation Cases
 
 Prototyping should demonstrate each of the following before the system is considered sound:
 
@@ -488,9 +497,12 @@ Prototyping should demonstrate each of the following before the system is consid
 | A rider who climbs past their breath tells on a strongly bonded mount | The rider blacks out, falls, and wakes in thicker air in time to open a rig if the fall is long enough; the mount turns down before its own breath runs out |
 | A wing-rig in strong ridge lift | It holds height for a long stretch but never rises above its launch point |
 | A leviathan with a light deck and with a heavy fortress | The heavy one drains its reserve at cruise, surges for less time, and reaches a lower ceiling |
+| A rider asks to log out at cruising height, then loses their connection there | The logout is refused with a notice; the disconnect brings a forced landing, and the rider ends asleep beside an unsheltered mount |
+| Raiders knocked senseless on a climbing leviathan, with and without a conscious one among them | With none conscious the hold timer runs out, the leviathan descends, and they wake aboard; a conscious raider who keeps harming it holds the climb |
+| A rider in a mask who has drunk a draught, against an unprepared rider, climbing together | The prepared rider lasts longer above the line; neither changes the line or the ceiling, and the drain never turns into a refill |
 | An anchored leviathan whose troughs run dry during a week away, and one across a server restart | The first is found along its migration path from the slip time with its base aboard; the second reappears circling its anchor with the same reserve |
 
-## 17. Further Reading
+## 16. Further Reading
 
 - [Understanding Networked Movement in the Character Movement Component](https://dev.epicgames.com/documentation/unreal-engine/understanding-networked-movement-in-the-character-movement-component-for-unreal-engine)
 - [Comparing Mover and the Character Movement Component](https://dev.epicgames.com/documentation/unreal-engine/comparing-mover-and-character-movement-component-in-unreal-engine)

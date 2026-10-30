@@ -24,7 +24,7 @@ Unreal has no structural-integrity system to build on. [Chaos Geometry Collectio
 8. [Spatial Queries for Other Systems](#8-spatial-queries-for-other-systems)
 9. [Bases on Creatures](#9-bases-on-creatures)
 10. [Rendering, Replication, and Persistence](#10-rendering-replication-and-persistence)
-11. [Open Implementation Questions](#11-open-implementation-questions)
+11. [Outskirts Plots](#11-outskirts-plots)
 12. [Design Validation Cases](#12-design-validation-cases)
 13. [Further Reading](#13-further-reading)
 
@@ -75,11 +75,11 @@ public:
     UPROPERTY(EditAnywhere) bool bFlammable = false;               // burns and passes fire to flammable neighbours
     UPROPERTY(EditAnywhere) float WeatherRate = 1.f;               // health lost per day when unprotected
     UPROPERTY(EditAnywhere) TMap<FGameplayTag, float> BiomeExposure; // Biome.Jungle -> 3.0 for untreated timber
-    UPROPERTY(EditAnywhere) TArray<FItemQuantity> UpkeepPerPiece;  // daily materials per piece, before the size factor
+    UPROPERTY(EditAnywhere) TArray<FItemQuantity> UpkeepPerPiece;  // daily materials per structural piece, before the size and holding factors
 };
 ```
 
-The two loss values are what make stone and timber behave differently. Dressed stone has a small vertical loss and a large lateral one, so it rises tall and spans poorly; timber has a larger vertical loss and a smaller lateral one, so it spans further but cannot rise as high; reinforced stone is low on both. Losses are integers on a scale of 1000 so that the stability arithmetic in [section 5](#5-stability-and-collapse) is exact and identical on every machine.
+The two loss values are what make stone and timber behave differently. Dressed stone has a small vertical loss and a large lateral one, so it rises tall and spans poorly; timber has a larger vertical loss and a smaller lateral one, so it spans further but cannot rise as high; reinforced stone is low on both. The reference tuning is dressed stone at 20 vertical and 350 lateral, rough timber at 60 and 250. Losses are integers on a scale of 1000 so that the stability arithmetic in [section 5](#5-stability-and-collapse) is exact and identical on every machine.
 
 ### 2.2 Piece Definitions
 
@@ -106,9 +106,19 @@ struct FSnapPoint
 
     UPROPERTY(EditAnywhere) FTransform Local;                 // baked from the mesh socket
     UPROPERTY(EditAnywhere) FGameplayTag Type;                // Snap.Wall.Bottom, Snap.Pillar.Face.FlushLeft
-    UPROPERTY(EditAnywhere) FGameplayTagContainer Accepts;    // snap types this point can meet
-    UPROPERTY(EditAnywhere) EJointKind Joint = EJointKind::Lateral;
     UPROPERTY(EditAnywhere) uint8 JointSlot = 0;              // which side of the piece, for joint variants (section 4)
+};
+
+// What may meet what, and as which joint, is a property of the pair, not of either point: the top of a wall
+// is a vertical joint for a wall stacked on it and a lateral one for a ceiling laid across it.
+USTRUCT()
+struct FSnapPairRule
+{
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere) FGameplayTag TypeA;               // Snap.Wall.Top
+    UPROPERTY(EditAnywhere) FGameplayTag TypeB;               // Snap.Wall.Bottom, or the broader Snap.Wall
+    UPROPERTY(EditAnywhere) EJointKind Joint = EJointKind::Lateral;
 };
 
 UCLASS()
@@ -123,16 +133,20 @@ public:
     UPROPERTY(EditAnywhere) float WeightKg = 0.f;              // the carried weight, also counted on creature bases
     UPROPERTY(EditAnywhere) TArray<FSnapPoint> SnapPoints;
     UPROPERTY(EditAnywhere) FBox CoreBounds;                   // shrunk volume used for overlap tests (section 3.4)
-    UPROPERTY(EditAnywhere) float GroundSkirtCm = 0.f;         // how far a foundation may sink to settle (section 3.3)
+    UPROPERTY(EditAnywhere) float GroundSkirtCm = 0.f;         // ground spread a foundation can hide (section 3.3)
+    UPROPERTY(EditAnywhere) float MaxRaiseCm = 0.f;            // free-standing foundations: 100 (section 3.3)
+    UPROPERTY(EditAnywhere) float RaiseStepCm = 10.f;
+    UPROPERTY(EditAnywhere) float LossScale = 1.f;             // multiplies the material's joint losses; frames and beams start at 0.2
     UPROPERTY(EditAnywhere) bool bProvidesCover = false;       // roofs: the space below counts as covered
     UPROPERTY(EditAnywhere) uint8 OverlapPriority = 0;         // section 4.2
     UPROPERTY(EditAnywhere) TArray<FPieceStyle> Styles;        // rough, planked, carved: each with its joint variants
     UPROPERTY(EditAnywhere) float ReachRadiusCm = 0.f;         // troughs, hearths, braziers: effect radius
     UPROPERTY(EditAnywhere) float HeatOutput = 0.f;            // hearths and braziers
+    UPROPERTY(EditAnywhere) float CoolOutput = 0.f;            // cooling sources: the mirror of HeatOutput, for heat-sensitive creatures
 };
 ```
 
-Square and triangular shapes are separate definitions with their own snap points. Frames and beams carry snap points and joint slots like any structural piece but give and take no stability, pending the backlog item on [whether frames and beams carry load](Design-backlog.md).
+Square and triangular shapes are separate definitions with their own snap points. Frames and beams carry snap points and joint slots like any structural piece and are ordinary members of the stability graph, with a `LossScale` that gives them small losses of their own, so a brace or crossbeam laid along a long run hands support on at little cost. The piece registry holds one `TArray<FSnapPairRule>` for the whole kit.
 
 ### 2.3 Runtime Records
 
@@ -168,15 +182,23 @@ struct FPieceRecord
     TArray<FPieceLink> Links;            // the snap joints this piece shares, both directions stored
 };
 
+struct FUpkeepLine
+{
+    FPrimaryAssetId Item;                // one upkeep material
+    double PaidUntilDay = 0.0;           // the day this material's stock runs out (section 7.2)
+    double StarvingSinceDay = -1.0;      // -1 while this material is paid
+};
+
 struct FClaimRecord
 {
+    enum class EKind : uint8 { Standard, Outskirts } Kind = EKind::Standard;   // Outskirts: section 11
+    enum class EState : uint8 { Active, Starving, Unprotected, Lapsed } State = EState::Active;
+
     uint64 ClaimId = 0;
-    uint32 MarkerPiece = 0;
+    uint32 MarkerPiece = 0;              // 0 for an outskirts plot, which has a deed instead of a marker
     FGuid Owner;                         // character or guild; access grants come from the guild system
     FGuid MarkerStore;                   // container holding the upkeep materials
-    double PaidUntilDay = 0.0;           // section 7.2
-    double StarvingSinceDay = -1.0;      // -1 while upkeep is paid
-    enum class EState : uint8 { Active, Starving, Unprotected, Lapsed } State = EState::Active;
+    TArray<FUpkeepLine> Lines;           // one per upkeep material, section 7.2
 };
 
 struct FBaseRecord
@@ -200,11 +222,11 @@ A base is any connected set of pieces. Pieces placed with no connection to an ex
 
 ### 3.1 Snap Compatibility
 
-Two snap points can meet when each one's `Accepts` contains the other's `Type`. The tag hierarchy keeps the tables short: a wall bottom accepts `Snap.Foundation.Edge` and `Snap.WallFoundation.Top`, a ceiling edge accepts `Snap.Wall.Top` and `Snap.Pillar.Top`, and a stair foot accepts `Snap.Floor.Edge`. Pillars carry three points on every face at every height step — centred, flush left, and flush right — which gives the specification's choice of a wall meeting a post in its middle or at either outer corner, from any of four sides. Walls carry frame points along their edges, middle, and quarter lines on both faces for frames, crossbeams, braces, and trims.
+Two snap points can meet when the registry's pair table holds a rule for their two types, and that rule also names the joint they form. A rule matches in either order, and each of its two tags matches a point's type hierarchically through the gameplay-tag tree, the most specific matching rule winning, so a handful of broad rules covers the kit: a wall bottom meets `Snap.Foundation.Edge` and `Snap.WallFoundation.Top` as a vertical joint, a ceiling edge meets `Snap.Wall.Top` and `Snap.Pillar.Top` as a lateral one, and a stair foot meets `Snap.Floor.Edge`. The joint is a fact about the pair: the top of a wall is a vertical joint for a wall stacked on it and a lateral one for a ceiling laid across it, and a pillar under a ceiling forms a lateral joint, which is what lets a pillar carry a span back to green. Pillars carry three points on every face at every height step — centred, flush left, and flush right — which gives the specification's choice of a wall meeting a post in its middle or at either outer corner, from any of four sides. Walls carry frame points along their edges, middle, and quarter lines on both faces for frames, crossbeams, braces, and trims.
 
 ### 3.2 Candidate Selection on the Client
 
-While a piece is in hand, the client gathers every snap point on pieces within reach whose type the held piece can meet, transforms each into world space, and lights them all as markers. The candidate nearest the builder's aim ray becomes the highlighted one, and a cycle input steps through the others at the same spot in order of distance, breaking ties by piece id and snap index so the order never flickers. The preview is placed by aligning one of the held piece's snap points to the chosen candidate, then rotated by the piece's allowed rotation steps.
+While a piece is in hand, the client gathers every snap point on pieces within reach whose type the held piece can meet, transforms each into world space, and lights them all as markers. Each marker is drawn offset just outside the owning piece's surface, along the joint's axis, as a small arrow, and a pillar face's centred, flush-left, and flush-right points carry three distinct colours; neither depends on the snap point's own transform, which can lie inside the piece. The candidate nearest the builder's aim ray becomes the highlighted one, its snap type is passed to the HUD to be named on screen, and a cycle input steps through the others at the same spot in order of distance, breaking ties by piece id and snap index so the order never flickers. The preview is placed by aligning one of the held piece's snap points to the chosen candidate, then rotated by the piece's allowed rotation steps.
 
 The client never sends that transform. A placement request names the target base, target piece, target snap index, the held definition, its own snap index, the rotation step, and the style, and the server recomputes the transform from the same baked data. A forged position cannot be placed, and the server's transform is the one recorded and replicated, so a client's preview never drifts from what stands.
 
@@ -212,7 +234,11 @@ Free-standing pieces — the first foundation of a base, wall foundations on ope
 
 ### 3.3 Ground Contact
 
-A foundation settles onto uneven ground by sinking into it. The server samples the terrain under the foundation's corners and centre with [`UWorld::LineTraceSingleByChannel`](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UWorld) against the landscape channel. When the highest and lowest samples differ by no more than the definition's `GroundSkirtCm`, the foundation is level with its highest sample, its skirt hides the gap below, and it is flagged `GroundSupported`. When the ground falls away further, the foundation can still be placed if a joint gives it stability, but it is not a ground source: it is held by its neighbour, as in the specification's worked example, until a pillar beneath it reaches the ground. A pillar is a ground source when its foot rests on terrain within the same tolerance or on a foundation.
+Every foundation touches the ground, and every foundation is a stability source. The server samples the terrain under the foundation's four corners and centre with [`UWorld::LineTraceSingleByChannel`](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UWorld) against the landscape channel. When the highest and lowest samples differ by no more than the definition's `GroundSkirtCm`, the foundation is level with its highest sample, its skirt hides the gap below, and it is flagged `GroundSupported`. When the ground falls away further, the placement is refused with a reason code: there is no joint that lets a foundation hang over falling ground held by its neighbour. A foundation snapped down a slope runs the same test and settles to its own highest sample, stepping down from its neighbour, so a terrace of foundations follows the hill. Where the slope is too steep for any foundation, the builder sets pillars into the ground and lays floors across them.
+
+A pillar is a ground source only when its foot rests on terrain, within the same tolerance. A pillar whose foot is on a foundation, a floor, or a ceiling is an ordinary vertical joint, so stacking storeys on pillars loses stability at every level instead of restarting at full strength.
+
+A free-standing foundation, one with no target snap, may be raised above flush by up to the definition's `MaxRaiseCm`, 100, in steps of `RaiseStepCm`, 10. The raise sits inside the skirt, which extends down by the raised height, so the foundation still touches the ground, passes the same test, and stays a source; the raise does not count against `GroundSkirtCm`. Anything snapped to a raised foundation inherits the raise offset through the snap, applied on top of the ground height the new piece settles to.
 
 ### 3.4 Server Validation
 
@@ -222,10 +248,11 @@ The server accepts a placement only when every check passes, in an order that pu
 2. **Reach.** The computed transform lies within the builder's reach.
 3. **Rights.** Inside a claim, the builder holds building rights there or the piece is a siege piece; outside any claim, anyone may build (section 7.1). A foundation placed by a rights holder must keep its claim radius clear of every other claim by the claim gap.
 4. **Exclusion.** The piece does not overlap a resource node, a road, or the protected ground of an NPC settlement or great city. Roads and protected ground are authored exclusion volumes in the level; resource nodes are found with [`UWorld::OverlapMultiByChannel`](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UWorld) against their collision channel.
-5. **Snap.** The two snap points are compatible and the target snap is not already occupied.
-6. **Overlap.** The piece's `CoreBounds` does not intersect another piece's core, a character, or a creature, tested with `OverlapBlockingTestByChannel`. Core bounds are shrunk so that pieces meeting at a joint, which are expected to overlap at their edges, never fail this test.
-7. **Stability.** The stability the piece would receive (section 5.1) is above zero.
-8. **Ceiling.** The base has room under its claim's piece ceiling or its creature's piece budget.
+5. **Snap.** The two snap points are covered by a rule in the pair table. Snap points are not occupied: any number of links may meet at one point, and double placement is stopped by the overlap test that follows.
+6. **Overlap.** The piece's `CoreBounds` does not intersect another piece's core, a character, or a creature, tested with `OverlapBlockingTestByChannel`. Core bounds are shrunk so that pieces meeting at a joint, which are expected to overlap at their edges, never fail this test, and the same test refuses a second ceiling slid into a span from another edge.
+7. **Ground.** A foundation passes the ground test of section 3.3 and a raise within range.
+8. **Stability.** The stability the piece would receive (section 5.1) is above zero.
+9. **Ceiling.** The base has room under its claim's piece ceiling or its creature's piece budget.
 
 A rejected request returns a reason code so the preview can show why, such as an exclusion zone, a rival claim, or a piece that would not stand.
 
@@ -235,7 +262,7 @@ Stations, chests, beds, hearths, troughs, furniture, and decoration are placed f
 
 ### 3.6 Replacing, Restyling, and Removing
 
-Upgrading is removal followed by placement, exactly as the specification describes, so there is no upgrade code path. Removal by a rights holder deletes the record, returns a fraction of the piece's materials to the remover's inventory, and runs the stability removal pass, which is what opens the moment of weakness the specification describes. A style change rewrites the record's `Style` and nothing else: health, stability, links, and piece id are untouched, and clients swap the instance into the component for the new style's mesh.
+Upgrading is removal followed by placement, exactly as the specification describes, so there is no upgrade code path. Removal by a rights holder deletes the record, returns a fraction of the piece's materials to the remover's inventory, and runs the stability removal pass, which is what opens the moment of weakness the specification describes. A style change is available to anyone with rights, in place, on any piece. It rewrites the record's `Style` and nothing else: health, stability, links, and piece id are untouched, and clients swap the instance into the component for the new style's mesh.
 
 ## 4. Clean Joints
 
@@ -276,14 +303,16 @@ The hiding is done in the material. Each instance carries [per-instance custom d
 
 ### 5.1 The Rule
 
-Stability is an integer from 0 to 1000. A piece flagged `GroundSupported` and a creature foundation are sources at 1000. Every other structural piece takes the best value any linked neighbour offers it, where a neighbour offers its own stability minus the receiving piece's material loss for that joint's kind:
+Stability is an integer from 0 to 1000. A piece flagged `GroundSupported`, which is every foundation and every pillar whose foot is on terrain, and a creature foundation are sources at 1000. Every other structural piece takes the best value any linked neighbour offers it, where a neighbour offers its own stability minus the receiving piece's material loss for that joint's kind, scaled by the receiving piece's `LossScale`:
 
 ```
 Stability(P) = 1000                                                    if P is a source
-Stability(P) = max over links L of  Stability(L.Other) - Loss(Material(P), L.Joint)   otherwise, floored at 0
+Stability(P) = max over links L of  Stability(L.Other) - Loss(Material(P), L.Joint) × LossScale(P)   otherwise, floored at 0
 ```
 
-Because the loss belongs to the receiving piece's material, a timber balcony on a stone wall spans like timber, and a stone tower on timber pillars loses height like stone. Frames, beams, placeables, and siege pieces are outside the graph.
+Because the loss belongs to the receiving piece's material, a timber balcony on a stone wall spans like timber, and a stone tower on timber pillars loses height like stone. Frames and beams are ordinary members of the graph, with their own small `LossScale`. Placeables and siege pieces are outside it.
+
+The reference tuning reproduces the specification's worked example exactly, in unit tests and over the network, with the bands at blue from 900, green from 600, yellow from 350, and red below: see [section 12](#12-design-validation-cases).
 
 ### 5.2 Local Recalculation
 
@@ -363,7 +392,7 @@ Both passes touch only the pieces whose values actually change, which is the pro
 
 Collapsed pieces are removed in the same commit that destroyed their support. Removing a piece at zero changes nobody else's value, because a piece at zero offers nothing, so collapse needs no second stability pass. Each collapsed piece then drops rubble: the server finds the pieces beneath its footprint with an overlap test against the building channel and applies crushing damage scaled by the collapsed piece's weight. That damage can destroy further pieces, which run their own removal pass in turn. Cascades are processed in waves with a per-tick budget, continuing on the next tick when the budget is spent, so the collapse of a keep plays out over a few frames rather than stalling the region.
 
-Placeables whose host piece collapses are handled as [section 11](#11-open-implementation-questions) records.
+A placeable whose host piece collapses is not destroyed with it: it drops as an item at its stored condition, damaged by the fall, and, if it is a container, its contents spill into a loot pile at the same spot, which the inventory system creates under the same rules as any other pile.
 
 ### 5.4 What the Builder Sees
 
@@ -383,7 +412,7 @@ A burning piece loses health on a fixed tick, scaled by its fire resistance, unt
 
 ### 6.3 Repair and the Lockout
 
-Repair with a hammer restores health in exchange for materials in proportion to the health restored. It is refused while `Now - LastDamageTime` is shorter than the repair lockout, a single tuning value, so every hit restarts the piece's lockout and a wall under steady attack cannot be mended. The lockout is per piece, which means defenders can still repair the far side of the base during a raid on the gate.
+Repair with a hammer restores health in exchange for materials in proportion to the health restored. It is refused while `Now - LastDamageTime` is shorter than the repair lockout, a single tuning value, so every hit restarts the piece's lockout and a wall under steady attack cannot be mended. The lockout is per piece, which means defenders can still repair the far side of the base during a raid on the gate. Upkeep never repairs combat damage: it offsets weathering only (section 7.2), so health lost to a weapon, fire, or rubble returns only through the hammer.
 
 ### 6.4 Siege Pieces
 
@@ -397,32 +426,39 @@ A claim's area is the union of horizontal discs of a fixed claim radius centred 
 
 Connectivity is checked whenever a removal could split the graph. The server walks from the marker's foundation, bounded by the base, and any pieces it cannot reach split off into a new, unclaimed base record whose foundations and pillars start the unclaimed timer in section 7.5.
 
+A base can straddle the line between two regions. The region that holds the claim marker owns the whole base record, its stability graph, and its claim; the neighbouring region keeps only the replicated view of the pieces on its side, and a placement, removal, or repair requested there is forwarded to the owning region, which validates it and returns the result. If a replacement marker (section 7.4) is placed in the other region, ownership of the whole base moves there as a unit.
+
 ### 7.2 The Upkeep Ledger
 
-Upkeep is not simulated per day. The claim stores the day on which its marker's stock will run out, and that day is recomputed only when the stock or the set of pieces changes.
+Upkeep is not simulated per day. The claim stores, for each upkeep material, the day on which the marker's stock of it will run out, and that day is recomputed only when the stock, the set of pieces, or the owner's holdings change.
 
 ```
-DailyNeed(item) = SizeFactor(structural piece count) × Σ over structural pieces  UpkeepPerPiece(material, item) × BiomeExposure(material, base biome)
-PaidUntilDay    = Now + min over items  Stock(item) / DailyNeed(item)            -- see section 11 on mixed stores
+DailyNeed(item)   = HoldingFactor(owner's claim count) × SizeFactor(structural piece count)
+                    × Σ over structural pieces  UpkeepPerPiece(material, item) × BiomeExposure(material, base biome)
+Line(item).PaidUntilDay = Now + Stock(item) / DailyNeed(item)
 ```
 
-`SizeFactor` is a curve that rises with the piece count and rises faster for very large bases.
+`SizeFactor` is a curve that rises with the piece count and rises faster for very large bases. Only structural pieces are summed: placeables count toward the piece ceiling but pay nothing. `HoldingFactor` is a curve over the number of live claims the same owner holds, 1 for the first and rising with each further one, so the owner's second claim costs more than its first and its fifth more than its fourth. The count is kept in a per-owner index beside the claim grid. When it changes, each of the owner's claims settles its draw-down at the old rate and recomputes its lines at the new one, in the same lazy way as for any other change.
 
-The stock is drawn down lazily: whenever the store is opened, a piece changes, or a daily housekeeping pass visits the base, the elapsed days' worth of materials is removed and `PaidUntilDay` recomputed. Weathering is folded into this ledger rather than simulated alongside it. While upkeep is paid, the marker is keeping every connected piece in repair, so weathering appears as cost — scaled by the material's exposure to the base's biome, which is how untreated timber in the [Jungle](Biomes/Jungle.md) becomes an expensive habit — and never as lost health. The specification's other biome challenges find their homes in the same data: rot and flooding in the [Jungle](Biomes/Jungle.md) and [Swamp](Biomes/Swamp.md) are high `BiomeExposure` entries for untreated materials, while treated timber and waterproof materials carry low ones; snow loads and avalanches in the [Tundra](Biomes/Tundra.md) and [Mountain Range](Biomes/Mountain-range.md) are likewise a heavier weathering cost on weak materials, answered by reinforced materials; and the cold itself is answered by `Insulation` and by `HeatOutput` from hearths and braziers, the specification's heated foundations being a foundation definition with a `HeatOutput` of its own. The same catch-up arithmetic serves a base whose region nobody has visited for a week, which is what the shared-clocks item in the [Design Backlog](Design-backlog.md) asks of every absent system.
+The lines make a shortage local. A material whose line runs dry starves only the pieces whose definitions list that material in `UpkeepPerPiece`; pieces made of materials still in stock keep being maintained. Each line has its own `StarvingSinceDay`, and a piece is `Decaying` only while a line it depends on is starving.
+
+The stock is drawn down lazily: whenever the store is opened, a piece changes, or a daily housekeeping pass visits the base, the elapsed days' worth of each material is removed and its line recomputed. Weathering is folded into this ledger rather than simulated alongside it. While upkeep is paid, the marker is keeping every connected piece in repair, so weathering appears as cost — scaled by the material's exposure to the base's biome, which is how untreated timber in the [Jungle](Biomes/Jungle.md) becomes an expensive habit — and never as lost health. That is all upkeep does: it offsets weathering and mends nothing that a weapon, fire, or falling rubble has done. The specification's other biome challenges find their homes in the same data: rot and flooding in the [Jungle](Biomes/Jungle.md) and [Swamp](Biomes/Swamp.md) are high `BiomeExposure` entries for untreated materials, while treated timber and waterproof materials carry low ones; snow loads and avalanches in the [Tundra](Biomes/Tundra.md) and [Mountain Range](Biomes/Mountain-range.md) are likewise a heavier weathering cost on weak materials, answered by reinforced materials; and the cold itself is answered by `Insulation` and by `HeatOutput` from hearths and braziers, the specification's heated foundations being a foundation definition with a `HeatOutput` of its own. The same catch-up arithmetic serves a base whose region nobody has visited for a week, which is what the shared-clocks item in the [Design Backlog](Design-backlog.md) asks of every absent system.
 
 ### 7.3 Decay from the Outside In
 
-When `PaidUntilDay` passes, the claim enters `Starving` and weathering turns into lost health. Decay is processed in daily steps, caught up on load in the same way as upkeep. Each step finds the base's exposed pieces with a coarse flood fill of open air from the edge of the base's bounds: a piece is exposed when it borders a cell the outside air reaches. Only exposed pieces decay, each losing its material's `WeatherRate` scaled by its biome exposure, so weak materials go first. A piece that decays to nothing is destroyed through the ordinary removal pass and may expose the pieces behind it to the next step, which is what carries decay inward. The flood fill is a whole-base operation, but it runs only on bases that are already starving, once per in-game day, so it stays off the path that live building and raiding use.
+When any line's `PaidUntilDay` passes, the claim enters `Starving` and weathering turns into lost health for the pieces that line feeds. Decay is processed in daily steps, caught up on load in the same way as upkeep. Each step finds the base's exposed pieces with a coarse flood fill of open air from the edge of the base's bounds: a piece is exposed when it borders a cell the outside air reaches. Only exposed pieces on a starving line decay, each losing its material's `WeatherRate` scaled by its biome exposure, so weak materials go first. A piece that decays to nothing is destroyed through the ordinary removal pass and may expose the pieces behind it to the next step, which is what carries decay inward. The flood fill is a whole-base operation, but it runs only on bases that are already starving, once per in-game day, so it stays off the path that live building and raiding use.
 
-After a fixed number of days in `Starving`, the claim becomes `Lapsed`: its discs leave the claim grid, the land is open to anyone, and any player may demolish its pieces and salvage their materials as if they held rights. Refilling the store before the lapse returns the claim to `Active` and stops decay.
+After a fixed number of days in which every line has been starving, the claim becomes `Lapsed`: its discs leave the claim grid, the land is open to anyone, and any player may demolish its pieces and salvage their materials as if they held rights. Refilling a material before the lapse returns its line to paid and stops decay on the pieces it feeds.
 
 ### 7.4 Destroying the Marker
 
 The claim marker is a piece with health like any other. When it is destroyed, the claim enters `Unprotected` at once: its discs stop granting exclusive rights, so attackers can place any piece inside the walls, and decay starts as in a starving claim without waiting for the store to run out.
 
+An unprotected base can be reclaimed by anyone. The first claim marker that passes validation on the base's foundations, placed by whoever gets there first, the previous owner included, becomes the claim: the server writes the placer into `Owner`, gives the claim an empty store and fresh lines, and returns the state to `Active`. A second marker placed afterwards is refused as an ordinary claim overlap, so the race is decided by the first commit the owning region processes.
+
 ### 7.5 Unclaimed Pieces and Ceilings
 
-A foundation or pillar placed outside any claim's connected component carries an `ExpiresAt` a few days ahead and is destroyed when it passes, together with whatever its loss brings down. Linking it to a claimed base clears the timer; splitting it off sets it again. Every claim also has a ceiling on its piece count. Placeables count toward the ceiling, because its purpose is to bound what a region server must hold and replicate; whether they also pay upkeep is an open question in [section 11](#11-open-implementation-questions).
+A foundation or pillar placed outside any claim's connected component carries an `ExpiresAt` a few days ahead and is destroyed when it passes, together with whatever its loss brings down. Linking it to a claimed base clears the timer; splitting it off sets it again. Every claim also has a ceiling on its piece count. Placeables count toward the ceiling, because its purpose is to bound what a region server must hold and replicate; they pay no upkeep, which is charged on structural pieces alone (section 7.2).
 
 ## 8. Spatial Queries for Other Systems
 
@@ -439,6 +475,7 @@ struct FShelterFacts
 {
     bool bRoofed = false;          // a cover-providing piece lies straight above
     float Warmth = 0.f;            // summed heat from sources that reach this point in the same space
+    float Coolness = 0.f;          // summed cooling from cooling sources that reach this point in the same space
     float Insulation = 0.f;        // mean insulation of the enclosing pieces, 0 in the open
 };
 
@@ -469,7 +506,7 @@ Each query returns a building fact and leaves the judgement to the caller; the f
 
 - **`IsRoofed`** walks the cells straight above the point within the base's bounds for a piece with `bProvidesCover`. Only roofs carry the flag, so cover is judged from the roofs above, as the specification says, and walls around a point never count.
 - **`TroughsInReach`** returns every trough whose `ReachRadiusCm` contains the point. The trough's stock is held in the container its piece record names; how fast creatures eat from it is taming's concern.
-- **`SampleShelter`** sums the heat of every hearth and brazier whose reach contains the point and whose line to it, traced with `LineTraceSingleByChannel` on the building channel, crosses no wall. That unbroken line is how "the same space" is decided without computing rooms. It also returns whether the point is roofed, which is the shade, and the mean insulation of the pieces found by short horizontal traces around the point, which is what lets clay and brick keep a space cool. [Survival](Survival.md#temperature-and-exposure) can call the same query for a player's exposure.
+- **`SampleShelter`** sums the heat of every hearth and brazier, and the cooling of every cooling source, whose reach contains the point and whose line to it, traced with `LineTraceSingleByChannel` on the building channel, crosses no wall. A cooling source is a placeable with a `CoolOutput` and a `ReachRadiusCm`, the exact mirror of a hearth, and it is what gives a heat-sensitive creature the "right climate" the specification asks for in the same way a hearth does for a cold-sensitive one. That unbroken line is how "the same space" is decided without computing rooms. It also returns whether the point is roofed, which is the shade, and the mean insulation of the pieces found by short horizontal traces around the point, which is what lets clay and brick keep a space cool. [Survival](Survival.md#temperature-and-exposure) can call the same query for a player's exposure.
 - **`HasClearance`** tests a standing box and a turning cylinder against the building channel with `OverlapBlockingTestByChannel`, using extents the caller derives from the creature's body size. On top of a wall or in a yard, the same test tells flight whether a flyer has room to land.
 - **`AnyPieceInBox`** answers whether any placed piece lies in a volume, which flight uses to keep a take-off run clear of structures.
 
@@ -477,13 +514,17 @@ Taming's shelter evaluation, described in [Taming and Control (Technical)](<Tami
 
 ## 9. Bases on Creatures
 
-A base on a creature is an ordinary `FBaseRecord` whose `CarrierCreature` (the creature's `FGuid`) is set. It begins with a creature foundation, a piece family that can only be placed against the attachment socket authored on that species' skeleton — along the [Flying Leviathan](Creatures/Flying-leviathan.md)'s back for a deck, on the [Titan Turtle](Creatures/Titan-turtle.md)'s shell for a saddle structure. A creature foundation is a stability source, so everything above it follows the rules of section 5 unchanged. Each carrying species has a small `UCreatureBaseProfile` data asset naming its attachment socket and its piece budget, which takes the place of a claim's piece ceiling.
+A base on a creature is an ordinary `FBaseRecord` whose `CarrierCreature` (the creature's `FGuid`) is set. It begins with a creature foundation, a piece family that can only be placed against the attachment socket authored on that species' skeleton — along the [Flying Leviathan](Creatures/Flying-leviathan.md)'s back for a deck, on the [Titan Turtle](Creatures/Titan-turtle.md)'s shell for a saddle structure. A creature foundation is a stability source, so everything above it follows the rules of section 5 unchanged. Each carrying species has a small `UCreatureBaseProfile` data asset naming its attachment socket, its piece budget, and a `bBondedKeeperHoldsRights` flag, true for the leviathan and false for the turtle. The budget is the piece ceiling of the base: it takes the place of a claim's ceiling for the leviathan and sets the ceiling of the turtle's claim.
 
 The base actor is attached to the creature's mesh at that socket, so its pieces' collision moves with the creature. Characters walking the deck ride it through the [Character Movement Component](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UCharacterMovementComponent)'s movement-base support, which keeps a character standing on a moving object based on it and can impart the base's velocity when they step or fall off.
 
-Building rights on a creature base come from the creature's keeper, read from its `FBondRecord`, rather than from a claim; there is no claim marker and no upkeep ledger, because the creature's care takes the place of upkeep. The building system keeps the base's carried weight in `FBaseRecord::CarriedWeightKg` — the sum of every piece's `WeightKg` and the weight of the containers' contents as the inventory system reports it — and exposes it through `UBuildingQuerySubsystem::GetCarriedWeightKg`, broadcasting `OnCarriedWeightChanged` whenever it changes. The turtle's burden on its gait and steering is applied by the `UMountComponent` described in [Creature Riding (Technical)](<Creature-riding (Technical).md>), and the leviathan's mana draw by the `UFlightComponent` described in [Flight (Technical)](<Flight (Technical).md>); this guide owns only the number.
+Building rights on a leviathan's deck come from its keeper, read from its `FBondRecord`, rather than from a claim; there is no claim marker and no upkeep ledger, because the creature's care takes the place of upkeep.
 
-The base record travels with its creature as part of the creature's transfer group under the [group rules](<Server-architecture (Technical).md#72-preparation-cutover-and-group-state>) of the server guide. Its exact membership rules — placed pieces, stored contents, and occupants walking the deck — are pending the backlog item on [connected structures and mobile bases](Design-backlog.md), and this guide treats the record as one unit until that item is settled.
+A turtle's base is an ordinary claimed base. The bond is never read for rights: the base carries a `FClaimRecord` with a marker, an upkeep ledger, and a piece ceiling from the profile, and rights, raiding, offline exposure, and decay all follow sections 3 and 7 unchanged, whether the turtle is bonded, wild, or abandoned. The claim's discs cover only the shell. They are generated in base-local space from the shell's foundations, ride with the creature, and are left out of the world claim grid, so a walking turtle never blocks, overlaps, or takes ground claims, and ground claims never block it. Destroying the marker follows section 7.4, so a raid on a shell ends with the first new marker, and a turtle's death destroys the base with it. The turtle has no entry in the shelter evaluation: its `FCreatureNeeds` carry no shelter requirement, so it is never judged sheltered or unsheltered.
+
+The building system keeps the base's carried weight in `FBaseRecord::CarriedWeightKg` — the sum of every piece's `WeightKg` and the weight of the containers' contents as the inventory system reports it — and exposes it through `UBuildingQuerySubsystem::GetCarriedWeightKg`, broadcasting `OnCarriedWeightChanged` whenever it changes. The turtle's burden on its gait and steering is applied by the `UMountComponent` described in [Creature Riding (Technical)](<Creature-riding (Technical).md>), and the leviathan's mana draw by the `UFlightComponent` described in [Flight (Technical)](<Flight (Technical).md>); this guide owns only the number.
+
+The base record travels with its creature as part of the creature's transfer group under the [group rules](<Server-architecture (Technical).md#72-preparation-cutover-and-group-state>) of the server guide. The group's versioned membership list carries the base ID, its placed pieces, its stored contents, and every occupant walking the deck, so boarding or stepping off during preparation changes the membership version like any other member, as the server guide's [structure persistence](<Server-architecture (Technical).md#85-structure-persistence>) sets out.
 
 ## 10. Rendering, Replication, and Persistence
 
@@ -497,13 +538,13 @@ The server spawns the same actor with the same components for collision, which c
 
 The base actor replicates its pieces as a [`FFastArraySerializer`](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/NetCore/FFastArraySerializer) of `FBuildingPiece` entries, each a compact copy of a record: piece id, an index into a registry of piece definitions and styles built identically on server and client from cooked content, a quantised local transform, health and stability as single bytes, flags, and host piece. Links are not replicated; clients rebuild them from the snap data, which is all variant resolution needs. The server calls `MarkItemDirty` after adding or changing an entry and `MarkArrayDirty` after a removal, and clients react in `PostReplicatedAdd`, `PostReplicatedChange`, and `PreReplicatedRemove` by updating the affected instances and re-resolving joints around them.
 
-A base at rest changes rarely, so its actor uses [network dormancy](https://dev.epicgames.com/documentation/unreal-engine/actor-network-dormancy-in-unreal-engine), set to `DORM_DormantAll` in its constructor, since Epic reserves `DORM_Initial` for actors placed in the map, and returned to dormancy after a quiet period, with `FlushNetDormancy` called before any change to the array. Which clients receive a base is decided by the [Replication Graph](https://dev.epicgames.com/documentation/unreal-engine/replication-graph-in-unreal-engine) setup in the [server guide](<Server-architecture (Technical).md#5-replication-graph-visibility-driven-sync>), and bases use the stationary radius described in [Dynamic Culling and Render Distance](Dynamic-culling-and-render-distance.md), except that a creature-borne base takes the relevancy radius of its carrier creature, so a deck is relevant to exactly the clients that can see the leviathan beneath it. Epic's 5.8 [release notes](https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-5-8-release-notes) call the Iris replication system production-ready while its 5.8 documentation pages still label it Experimental; Iris cannot be combined with the Replication Graph and has its own fast array type, so whether to move to it is an open question recorded in the [Design backlog](Design-backlog.md), and nothing here depends on the answer. The size and time of a client's first replication of a base near the piece ceiling must be measured early, because that is the moment a large base costs the most.
+A base at rest changes rarely, so its actor uses [network dormancy](https://dev.epicgames.com/documentation/unreal-engine/actor-network-dormancy-in-unreal-engine), set to `DORM_DormantAll` in its constructor, since Epic reserves `DORM_Initial` for actors placed in the map, and returned to dormancy after a quiet period, with `FlushNetDormancy` called before any change to the array. Which clients receive a base is decided by the Iris spatial filter set up in the [server guide](<Server-architecture (Technical).md#5-replication-visibility-driven-sync>), and bases use the stationary radius described in [Dynamic Culling and Render Distance](Dynamic-culling-and-render-distance.md), except that a creature-borne base takes the relevancy radius of its carrier creature, so a deck is relevant to exactly the clients that can see the leviathan beneath it. Iris supports existing `FFastArraySerializer` definitions as well as its native `FIrisFastArraySerializer`, so the piece array needs no change to run under it; replicating a base near the piece ceiling is one of the checks in the server guide's Iris prototype gate, and the [Replication Graph](https://dev.epicgames.com/documentation/unreal-engine/replication-graph-in-unreal-engine) fallback there replicates the same array unchanged. The size and time of a client's first replication of a base near the piece ceiling must be measured early, because that is the moment a large base costs the most.
 
 ### 10.3 Persistence and Streaming
 
 The records are the truth. [World Partition](https://dev.epicgames.com/documentation/unreal-engine/world-partition-in-unreal-engine) documents the streaming of editor-placed actors and says nothing about persisting runtime-spawned ones, so a base actor is never trusted to survive a cell unloading. When a cell loads, the server reads the base rows inside it and spawns each base actor from its records, as [Settlement Generation (Technical)](<Settlement-generation (Technical).md#75-cell-streaming-and-persistence>) does for lots. Piece changes go to the delta stream as row upserts and deletes, a collapse cascade is written as one batch, and region transfers and crash recovery use the full snapshots of the [server guide](<Server-architecture (Technical).md#8-persistence-delta-backups--crash-recovery>). Retired piece definitions follow the same redirect rule as retired building assets in the settlement guide.
 
-Runtime-spawned bases are not part of the baked World Partition HLODs, so they have no prebuilt distant view. Nanite's own level of detail keeps distant pieces cheap to draw; whether a very large base also needs a generated far proxy is a measurement item for the [hotspot workloads](Design-backlog.md) the backlog already lists.
+Runtime-spawned bases are not part of the baked World Partition HLODs, so they have no prebuilt distant view. Nanite's own level of detail keeps distant pieces cheap to draw; whether a very large base also needs a generated far proxy is a measurement item for the siege workload in [Server Settings](Server-settings.md#hotspot-workloads-and-degradation).
 
 ### 10.4 Navigation
 
@@ -513,18 +554,16 @@ Only the server needs navigation around bases, for creatures, NPC raiders, and t
 
 Destruction is cosmetic on the client and authoritative only as record removal. When a client sees a piece removed with its collapse flag, it hides the instance and plays a pre-fractured debris effect for that piece family locally. Debris is never replicated and never decides anything: rubble damage was already computed by the server from the collapsed piece's footprint (section 5.3), so two clients may see different fragments fall while the same pieces break beneath them.
 
-## 11. Open Implementation Questions
+## 11. Outskirts Plots
 
-Each of these needs a design decision before the code in this guide can be finished:
+An outskirts plot is a claim of `EKind::Outskirts` inside the guarded ring of a great city. Plot volumes are authored in the level beside the city's protected ground, each with a piece ceiling, a tax rate, and a footprint, and a character leases one from the city's steward. A plot differs from a standard claim in four ways, all keyed on the kind:
 
-- **Mixed upkeep stores.** The marker holds several materials. Does a shortage of one material starve the whole claim, or only the pieces made of it? The sketch in 7.2 starves the whole claim on the first material to run out.
-- **Upkeep and combat damage.** This guide reads "keep every connected piece in repair" as offsetting weathering only, leaving raid damage to the hammer. Should upkeep also mend combat damage slowly once the repair lockout has passed?
-- **Placeables when their host falls.** When the wall or floor under a chest, bed, or trough is destroyed, is the placeable destroyed, dropped as an item, or does it spill its contents?
-- **Reclaiming an unprotected base.** After its marker is destroyed, can the owner restore the claim by placing a new marker, and can anyone else claim the base first?
-- **Bases across region boundaries.** A base can span two regions' servers. Either the region holding the claim marker owns the whole base, with edits from the other side forwarded to it, or each region owns its own pieces and joints across the line are reconciled. This is part of the connected-structures item in the [Design Backlog](Design-backlog.md).
-- **Placeable upkeep.** Placeables count toward the piece ceiling. Do they also pay upkeep, or is it charged on structural pieces alone, as the sketch in 7.2 assumes?
-- **Frames and beams.** They sit outside the stability graph for now. If the backlog decides that braces and crossbeams extend stability, they join the graph as ordinary pieces with their own losses.
-- **Turtle-borne bases without a keeper.** The rights and fate of a base on a wild or abandoned turtle wait on the turtle item in the [Design Backlog](Design-backlog.md). The data model above already allows either answer, since rights are read from the carrier's bond rather than stored on the base.
+- **Area.** Rights come from the authored plot volume, not from discs around foundations, and the volume is exempt from the protected-ground exclusion of section 3.4 for the plot's holder only. A plot never extends and never needs the claim gap.
+- **Upkeep.** The plot has a deed instead of a marker and a store, and it pays a regular coin tax to the city from the holder's account. Unpaid, it enters `Starving` and decays and lapses as in section 7.3, with no marker to destroy.
+- **Immunity.** The damage entry point of section 6.1 refuses every kind of damage to a piece of an `Outskirts` base from anyone but its holder, and the plot's pieces never take part in raid, fire, or siege queries. Siege pieces cannot be placed in the plot's volume.
+- **Sleeping.** A character that logs out inside a plot volume leaves the world exactly as in a city's safe area, which the death and logout rules read from the claim kind.
+
+Plots hold no resource nodes, as the ring excludes them, so the plot's pieces and stocks come from outside; the ceiling is low enough that a plot holds a household and a workshop and no more.
 
 ## 12. Design Validation Cases
 
@@ -532,7 +571,11 @@ Prototyping should demonstrate each of the following before the system is consid
 
 | Scenario | Expected outcome |
 |---|---|
-| The specification's worked example: a stone foundation on a slope, a second foundation over falling ground, a pillar beneath it, a wall, then two timber ceiling spans and a pillar at the far edge | Blue foundation; the second foundation turns blue when the pillar lands; the wall stays blue; the ceilings read green then yellow; the far pillar returns the outer span to green |
+| The specification's worked example, with dressed stone at 20 vertical and 350 lateral loss, rough timber at 60 and 250, and bands at blue from 900, green from 600, yellow from 350: a stone foundation on a slope, a second foundation stepping down on its own skirt, a wall on the shared edge, two timber ceiling spans, and a pillar set into the ground at the far edge | Both foundations at 1000 and blue; the wall at 980, blue; the first span at 730, green; the second at 480, yellow; the outer span at 750, green once the far pillar lands (a pillar under a ceiling is a lateral joint) |
+| A foundation placed with its far corner over falling ground beyond its skirt, or a pillar placed on a foundation and another on that pillar's ceiling | The foundation is refused with a reason code. The pillar on the foundation is an ordinary vertical joint and loses stability at every storey; only a pillar on terrain is a source |
+| A free-standing foundation raised in ten steps, then a second foundation snapped to it | The raise stops at 100 centimetres; the foundation stays a source; the snapped foundation inherits the offset |
+| A second ceiling slid into an occupied span from another edge, and three walls meeting at one pillar point | The ceiling is refused by the overlap test; the walls all place, since snap points are not occupied |
+| A brace laid across a long timber run, before and after a pillar beneath its centre is removed | The brace hands support on at its small loss and the run stays standing; the brace's removal is an ordinary removal pass |
 | A placement request carrying a forged transform, a stolen target snap, or a piece the builder does not hold | Rejected with a reason code; nothing changes and no item is consumed |
 | Removing one pillar under a three-span timber balcony | The balcony and only the balcony is visited and collapses; rubble damages the pieces below it; the rest of the base is untouched |
 | Removing one of two pillars under the same floor | The floor stays standing at the stability of its surviving path |
@@ -541,7 +584,13 @@ Prototyping should demonstrate each of the following before the system is consid
 | A burning timber wall in a stone base during rain | Fire spreads to linked timber, never crosses stone, and goes out on uncovered pieces when rain arrives while covered timber keeps burning |
 | Repairing a wall during an assault, then after the attackers stop | Refused while hits keep landing; accepted once the lockout passes without a hit |
 | A claim stocked for seven days, left alone for eight | No piece loses health for seven days; on day eight only the outermost pieces decay, the weakest material first |
-| Destroying a claim marker | An outsider can place a full wall inside the walls on the next request |
+| Destroying a claim marker | An outsider can place a full wall inside the walls on the next request; the first new marker placed on the foundations, the former owner's or anyone's, takes the claim, and a second is refused |
+| A claim stocked with timber and iron bands, the iron left to run out | Only the iron-banded pieces decay, from the outside in; timber pieces keep full upkeep; the claim lapses only once every material has been missing for the fixed period |
+| One guild holding a first, a second, and a third claim of identical size | Each claim's daily need is higher than the last by the holding factor, and a claim dropped lowers the rest on the next settle |
+| A chest on a floor whose supporting pillar is destroyed | The floor collapses; the chest drops as a damaged item and its contents spill into a lootable pile |
+| A tamed turtle with a shell base: its keeper places a piece, a stranger destroys the marker, the turtle walks across a ground claim | The keeper has no rights without the marker; the first new marker takes the claim; the shell claim never blocks or overlaps the ground claim |
+| A raider attacking a plot in a city's outskirts, and a character logging out inside it | Every damage kind is refused and no siege piece can be placed; the character leaves the world as in the city |
+| A heat-sensitive creature beside a cooling source and behind a wall from it | Cool in reach with an unbroken line; not cool behind the wall |
 | Removing the only foundation joining a base's annex to the marker | The annex becomes an unclaimed base and its foundations expire within days unless relinked |
 | A wolf in a lean-to, a buffalo under walls with no roof, a dragon in a stone hall with a hearth | Roofed and clear for the wolf; not roofed for the buffalo; roofed, warm, and clear for the dragon |
 | Adding a wall to a leviathan's deck, then one piece past its budget | Carried weight rises and the flight guide's mana draw follows; the extra piece is rejected |

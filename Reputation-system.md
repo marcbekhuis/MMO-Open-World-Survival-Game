@@ -38,6 +38,10 @@ These changes should not all be equal. A small theft should not carry the same c
 | Active bounties | Rewards offered for capture or death |
 | Faction raids | NPC attacks triggered on your base |
 
+## Enslaving NPCs
+
+Players may enslave NPCs as labour and guards, as [NPCs](NPCs.md#enslaved-labour-and-guards) sets out, and the world remembers it harder than almost anything else a player can do. The loss is global rather than local: settlements that never met the character hear of it through rumour, faction reports, and the captives who escape, and the mark shows in the titles and bounties others can read. It is also a standing cost rather than a single blow. Taking a captive is the heaviest part, and every captive still held keeps weighing on the holder's name, so a group that runs a gang of slaves pays for each of them in the services and welcome it loses. Releasing captives lifts that weight, and doing so after the fact is the kind of visible restitution that [Strategic Depth](#strategic-depth) asks for, though it never wipes the record clean. Buying slaves from a slaver caravan is cheaper in standing than taking them by force, because the sin is shared with the seller, but only cheaper. The same logic marks the hired guards of [NPCs](NPCs.md#hired-guards): their loyalty follows the employer's name, so an employer with a slaver's reputation finds their guards deserting.
+
 ## Mixed Reputation
 
 Players can be heroes in one region and villains in another. This allows faction tension, political intrigue, smuggling, mercenary work, and roleplay without flattening every action into a single morality score. Maintaining some relationships while burning others should be viable, but costly.

@@ -22,9 +22,8 @@ This guide owns the bond, creature needs, shelter evaluation, and the behaviour 
 6. [Raids, Loose Mounts, and Changes of Hands](#6-raids-loose-mounts-and-changes-of-hands)
 7. [Creature AI Architecture](#7-creature-ai-architecture)
 8. [Wild Herds, Scale, and Unobserved Creatures](#8-wild-herds-scale-and-unobserved-creatures)
-9. [Open Implementation Questions](#9-open-implementation-questions)
-10. [Design Validation Cases](#10-design-validation-cases)
-11. [Further Reading](#11-further-reading)
+9. [Design Validation Cases](#9-design-validation-cases)
+10. [Further Reading](#10-further-reading)
 
 ---
 
@@ -90,6 +89,21 @@ struct FBondMethodTuning
     UPROPERTY(EditAnywhere) float GainPerCareDayCap = 0.f;    // trust: most one real day of care can add
     UPROPERTY(EditAnywhere) float NeglectPerDay = 0.02f;
     UPROPERTY(EditAnywhere) float PressureDecayPerHour = 0.f; // slave: how fast coercion wears off
+    UPROPERTY(EditAnywhere) float ConversionPerCareDay = 0.f; // slave: most one real day of care can add toward becoming a trust bond (3.2); 0 = never converts
+    UPROPERTY(EditAnywhere) float AttemptDecayPerDay = 0.f;   // trust: progress an abandoned attempt loses per real day (3.1)
+    UPROPERTY(EditAnywhere) float AttemptIdleDays = 0.f;      // trust: days without a care act before an attempt counts as abandoned
+};
+
+USTRUCT()
+struct FBreedingTuning   // read by the breeding and hatching rules (3.3); the durations are server-setting defaults per species
+{
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere) bool bLaysEggs = false;
+    UPROPERTY(EditAnywhere) float GestationDays = 0.f;        // live-bearers: real days from conception to birth
+    UPROPERTY(EditAnywhere) float IncubationDays = 0.f;       // egg-layers: real days of warmth an egg needs
+    UPROPERTY(EditAnywhere) float EggWarmthCelsius = 20.f;    // the effective temperature (5.4) at or above which an egg incubates
+    UPROPERTY(EditAnywhere) float ParentalWindowDays = 0.f;   // age at which the young are weaned or fledged; younger than this is "near birth"
 };
 
 USTRUCT()
@@ -114,6 +128,7 @@ public:
     UPROPERTY(EditAnywhere) float StableBondStrength = 0.6f;   // 0..1: the fixed strength of a Stable bond; only species that can be hired set it
     UPROPERTY(EditAnywhere) FGameplayTag Nature;   // Nature.Skittish flees, .Defiant turns, .Predatory attacks to kill
     UPROPERTY(EditAnywhere) bool bHasSexes = true;
+    UPROPERTY(EditAnywhere) FBreedingTuning Breeding;
     UPROPERTY(EditAnywhere) TSoftObjectPtr<UStateTree> Brain;
 };
 ```
@@ -139,6 +154,7 @@ struct FBondRecord
     bool bOwnerOnline = false;
     double CareDayStart = 0.0;     // start of the current care day, for the trust gain cap
     float CareGainToday = 0.f;
+    float ConversionProgress = 0.f;   // slave bonds only: 0..1 toward becoming a trust bond (3.2)
 };
 
 struct FTamingAttempt              // a would-be handler working on a creature that is wild or owned by someone else
@@ -147,6 +163,7 @@ struct FTamingAttempt              // a would-be handler working on a creature t
     EBondMethod Method = EBondMethod::None;
     float Progress = 0.f;          // 0..1; completing it forms a new FBondRecord at the method's StartStrength
     double SettledAt = 0.0;
+    double LastActAt = 0.0;        // the last care or coercive act, which starts the idle clock of 3.1
 };
 
 struct FTamedCreatureRecord
@@ -154,9 +171,9 @@ struct FTamedCreatureRecord
     FGuid CreatureId;              // stable across regions, restarts, and handoffs
     FPrimaryAssetId Species;
     uint8 Sex = 0;
-    double BornAt = 0.0;           // raised and bred creatures; found adults store their estimated age
+    double BornAt = 0.0;           // raised and bred creatures; found adults and found young store their estimated birth time
     FBondRecord Bond;
-    TArray<FTamingAttempt> Attempts;
+    TOptional<FTamingAttempt> Attempt;   // at most one: an active attempt locks every other handler out (3.1)
     ECreatureActivity Activity = ECreatureActivity::Following;
     FVector RestPoint;             // where it was told to stay, and where its shelter is evaluated
     FPlacedObjectRef HomeShelterAnchor;   // the piece its last good shelter was evaluated against, for TravellingHome
@@ -165,7 +182,7 @@ struct FTamedCreatureRecord
 };
 ```
 
-Clocks are server UTC seconds rather than in-game time, because the specification measures absence in real days. Reconciling this with the in-game clock other systems use is part of the shared-clocks item in the [Design Backlog](Design-backlog.md); this guide applies its catch-up principle to bonds.
+Clocks are server UTC seconds rather than in-game time, because the specification measures absence in real days. Those seconds are the cluster clock of the [server guide](<Server-architecture (Technical).md#101-cluster-clock-and-weather>), from which in-game time is derived, and this guide applies the guide's elapsed-time [catch-up](<Server-architecture (Technical).md#104-unobserved-activity>) to bonds.
 
 In the [world state database](<Server-architecture (Technical).md#3-master-server-implementation>) each tamed creature is one row keyed by world and creature id, and each settle writes one small update into the [delta stream](<Server-architecture (Technical).md#81-delta-state-updates>). A ridden species also has the riding guide's mount record under the same id, holding tack, packs, and standing commands; ownership is always the bond's. A hired horse carries a `Stable` bond, owned by the stabling settlement's `FGuid`, whose strength is the species' `StableBondStrength` and which never decays. `Stable` is therefore a data case for the hired horses of [Hired Horses](Creature-riding.md#hired-horses), not a fourth taming method: no attempt forms it, the [riding guide's](<Creature-riding (Technical).md>) hire record creates it, and the timid stable horse needs no second bond model.
 
@@ -181,13 +198,21 @@ The [Gameplay Ability System](https://dev.epicgames.com/documentation/unreal-eng
 
 Trust bonding begins with a wild creature and a `FTamingAttempt`. Each care act — feeding it from its diet, treating a wound, keeping it company while it eats — adds progress, and `GainPerCareDayCap` limits each day's total, so trust cannot be won in one long sitting however much food a player brings. Danger subtracts: damage taken and fear spikes suffered in the handler's company (7.3) cost progress, which is how keeping it out of needless danger becomes a rule. The taming and handling skills of [Skills](Skills.md) strengthen the bond through one hook: a skill multiplier on the progress and strength a care act adds, and on the pressure a coercive act adds (3.2), read from the handler's skill when the act is recorded and never stored on the bond. At full progress the attempt becomes a `FBondRecord` with method `Trust`, and the same care events go on raising strength toward the ceiling under the same cap while neglect lowers it.
 
+A creature carries at most one `FTamingAttempt`, and starting an attempt on a creature that already holds an active one is refused whoever asks, which is how one handler's weeks of care cannot be raced. An attempt is abandoned once `AttemptIdleDays` pass without a care or coercive act, and from then its progress falls by `AttemptDecayPerDay`; the decay is a closed-form step applied at the next settle, like the bond's. When progress reaches zero the attempt is dropped. If the creature had no bond, its record is deleted and it rejoins its herd as a Mass entity (8.1), free to be tamed by anyone; if it was owned, only the attempt is dropped and the old bond stays in force (6.4). Slave attempts complete or lapse within their short window and are dropped the same way. Reference values: two idle days, a decay of 0,1 a day.
+
 ### 3.2 Slave Bonding
 
 Slave bonding replaces care with pressure. A coercive act raises `Pressure`, which wears off at `PressureDecayPerHour` unless refreshed, and for a slave bond the strength everything else reads is the pressure itself, capped by the ceiling. The attempt completes in a short window rather than over days, which makes the method the easiest. When pressure falls below the break threshold while the owner is online, control slips, the record is cleared, and the creature's nature decides what follows: a skittish creature flees, a defiant one turns on its handler, a predatory one attacks to kill. Shelter and the offline floor apply to pressure as to any bond.
 
+A slave bond can become a trust bond. While the bond is Tended and the owner applies no coercion, each care act adds to `ConversionProgress`, scaled by the same skill multiplier as other care and limited to `ConversionPerCareDay` a day; any coercive act resets it to zero. At full progress the record's method becomes `Trust`: `Pressure` is cleared, strength becomes the greater of its current value and the trust method's `StartStrength`, and from then on the bond follows the trust rules, including neglect decay and the daily care cap. The reference value of 0,05 a day makes the change take twenty days of care. A species whose slave tuning leaves `ConversionPerCareDay` at zero cannot be converted.
+
 ### 3.3 Parental Bonding and Breeding
 
-A parental bond forms at birth or hatching and starts near the method's ceiling, the strongest any bond can be. A handler who owns a male and a female of a species with `bHasSexes` set can breed them, and the offspring's record is created with a parental bond to that handler. A handler can also find a wild egg or, for mammals, a young animal. The egg is an item that becomes a creature bonded to whoever hatches it, and the young animal taken in gets a parental bond if it is young enough to count as near birth; the conditions for breeding and hatching, and where "near birth" ends, are listed in [section 9](#9-open-implementation-questions).
+A parental bond forms at birth or hatching and starts near the method's ceiling, the strongest any bond can be. A handler who owns a male and a female of a species with `bHasSexes` set can breed them, and the offspring's record is created with a parental bond to that handler. A handler can also find a wild egg or, for mammals, a young animal. The egg is an item that becomes a creature bonded to whoever hatches it, and the young animal taken in gets a parental bond if it is young enough to count as near birth.
+
+Breeding starts only when both parents are sheltered (`IsSheltered()`, 5.1) and their rest points share one enclosed space, the grouping `SampleShelter` already reports for heat sources. It records a pregnancy on the mother, `{ SireId, DueAt }` with `DueAt` set to the start plus the species' `GestationDays`, and that moment is a settle event: the offspring record is created at the mother's rest point, at login or cell load if the interval passed unobserved, with `BornAt` set to `DueAt`. An egg-layer's pregnancy produces an egg item instead, carrying `IncubationDays`. A pregnancy needs no further shelter, and the duration defaults per species are server settings ([Server Settings](Server-settings.md#official-and-community-servers)), so a server can shorten them.
+
+An egg incubates only while its effective temperature (5.4) at the place it lies is at or above the species' `EggWarmthCelsius`, so a wild egg needs a hearth or brazier in its space just as a creature does. It carries `{ IncubationDone, KeeperId, SettledAt }`; incubation progress advances in closed form over the intervals the egg was warm and holds still over the cold ones, so a chilled egg is never lost, only delayed. `KeeperId` is the character who last placed or tended it, and it receives the parental bond when the egg completes. A found young animal gets a parental bond when its age, `Now - BornAt`, is under the species' `ParentalWindowDays`, and otherwise can be bonded only by the trust and slave methods. A wild young animal's age is stored on its herd entity, so the window is the same for every finder.
 
 Once formed, a parental bond follows the same care rules as the others. A raised creature neglected while its owner is online can fall below the break threshold, and then it reverts to its wild instincts and breaks free: its record is cleared and its brain returns to wild behaviour.
 
@@ -281,7 +306,7 @@ double FBondRules::TimeToReachBand(const FTamedCreatureRecord& Creature, const U
                                    float Threshold, const FTroughLedger* Trough);
 ```
 
-The settle is deterministic, so a creature unloaded for a week and one simulated continuously end with the same strength, which [section 10](#10-design-validation-cases) requires.
+The settle is deterministic, so a creature unloaded for a week and one simulated continuously end with the same strength, which [section 9](#9-design-validation-cases) requires.
 
 ### 4.4 Owners Offline
 
@@ -297,7 +322,7 @@ A creature is sheltered when its rest point meets the four conditions of [Shelte
 |---|---|---|
 | Food in reach | troughs whose reach covers the rest point | at least one returned trough holds food matching the creature's diet |
 | A roof overhead | whether the rest point is roofed | the point is covered from above; walls are not required |
-| The right climate | `SampleShelter` at the rest point: heat sources sharing its enclosed space and the enclosure's insulation | the effective temperature (5.4) lies inside the creature's comfort band |
+| The right climate | `SampleShelter` at the rest point: heat and cooling sources sharing its enclosed space and the enclosure's insulation | the effective temperature (5.4) lies inside the creature's comfort band |
 | Room for its body | `HasClearance` at the rest point | `RestClearance` fits, rotated through a full turn, without overlapping a piece |
 
 ```cpp
@@ -338,7 +363,7 @@ Refilling a trough, a creature joining or leaving it, and a run-dry moment each 
 
 ### 5.4 Climate without Simulating Weather
 
-An unobserved shelter may stay unloaded for a week of days and nights, so the climate test does not simulate hourly weather. It uses the daily extremes that the weather system gives for the place and the current season. A cold-sensitive creature passes when the season's coldest value plus the `Warmth` of the hearths and braziers that `SampleShelter` reports for its space reaches its comfort minimum; a heat-sensitive one passes when it is roofed, giving shade, and the season's hottest value less a fixed shade allowance, reduced further in proportion to the enclosure's `SampleShelter().Insulation`, stays under its maximum. A desert shelter therefore needs a hearth for a creature that suffers in the cold, and the result changes only with the season, which keeps the catch-up deterministic. If the building guide gives heat sources fuel that runs out, the burn-out time is one more catch-up event.
+An unobserved shelter may stay unloaded for a week of days and nights, so the climate test does not simulate hourly weather. It uses the daily extremes that the weather system gives for the place and the current season. A cold-sensitive creature passes when the season's coldest value plus the `Warmth` of the hearths and braziers that `SampleShelter` reports for its space reaches its comfort minimum; a heat-sensitive one passes when it is roofed, giving shade, and the season's hottest value less a fixed shade allowance, reduced further in proportion to the enclosure's `SampleShelter().Insulation` and by the `Cooling` of the cooling sources it reports for the space, stays under its maximum. Shade and insulation alone are not guaranteed to bring the hottest biomes' summer peaks under a heat-sensitive creature's maximum; the cooling term is what lets a shelter there pass, mirroring the hearth's `Warmth` on the cold side, and the building guide owns the cooling source that supplies it. A desert shelter therefore needs a hearth for a creature that suffers in the cold and a cooling source for one that suffers in the heat, and the result changes only with the season, which keeps the catch-up deterministic. If the building guide gives heat or cooling sources fuel that runs out, the burn-out time is one more catch-up event.
 
 ### 5.5 The Anchored Leviathan
 
@@ -364,15 +389,32 @@ When a rider dies, the [riding guide](<Creature-riding (Technical).md>) decides 
 
 ### 6.4 Reclaiming versus Taming Anew
 
-Its owner reclaims a loose creature by tending it: care raises the existing record's strength from wherever neglect left it, and the creature follows again as soon as its band allows. Anyone else starts a new `FTamingAttempt` from zero by any method the species allows. The old bond stays in force while the stranger works, and only a completed attempt replaces it, so trust is a slow way to steal a mount and coercion the quick but unreliable one. A mount left unsheltered when its owner logs out falls under the same rules: it can be killed, or tamed by a stranger while its bond sits at the offline floor.
+Its owner reclaims a loose creature by tending it: care raises the existing record's strength from wherever neglect left it, and the creature follows again as soon as its band allows. Anyone else starts a new `FTamingAttempt` from zero by any method the species allows, provided no attempt on the creature is active (3.1). The old bond stays in force while the stranger works, and only a completed attempt replaces it, so trust is a slow way to steal a mount and coercion the quick but unreliable one. A mount left unsheltered when its owner logs out falls under the same rules: it can be killed, or tamed by a stranger while its bond sits at the offline floor.
 
 ## 7. Creature AI Architecture
 
 ### 7.1 Server-Only Brains
 
-Every creature that exists as an actor is driven by a [StateTree](https://dev.epicgames.com/documentation/unreal-engine/state-tree-in-unreal-engine), which Epic describes as a hierarchical state machine combining behaviour-tree selectors with states and transitions. The obvious host, [`UStateTreeAIComponent`](https://dev.epicgames.com/documentation/unreal-engine/API/Plugins/GameplayStateTreeModule/UStateTreeAIComponent), runs on an AI controller and its [schema](https://dev.epicgames.com/documentation/unreal-engine/API/Plugins/GameplayStateTreeModule/UStateTreeAIComponentSchema) reaches the creature through the controlled pawn. That does not survive riding, because the player's controller possesses the mount for the length of a ride, as [Creature Riding (Technical)](<Creature-riding (Technical).md#3-mount-and-rider-architecture>) section 3 explains. The brain is therefore hosted on the creature pawn itself with the general [`UStateTreeComponent`](https://dev.epicgames.com/documentation/unreal-engine/API/Plugins/GameplayStateTreeModule/UStateTreeComponent), so it keeps running whoever possesses the body. The AI controller supplies path following while it possesses the pawn; for a ride the brain switches to its Ridden state and takes its orders from the mount component, and on dismount the server re-possesses the pawn with the AI controller. Perception and the awareness component (7.3) live on the pawn for the same reason; that the AI Perception component behaves identically on a pawn as on a controller is a prototyping item.
+Every creature that exists as an actor is driven by a [StateTree](https://dev.epicgames.com/documentation/unreal-engine/state-tree-in-unreal-engine), which Epic describes as a hierarchical state machine combining behaviour-tree selectors with states and transitions. The obvious host, [`UStateTreeAIComponent`](https://dev.epicgames.com/documentation/unreal-engine/API/Plugins/GameplayStateTreeModule/UStateTreeAIComponent), runs on an AI controller and its [schema](https://dev.epicgames.com/documentation/unreal-engine/API/Plugins/GameplayStateTreeModule/UStateTreeAIComponentSchema) reaches the creature through the controlled pawn. That does not survive riding, because the player's controller possesses the mount for the length of a ride, as [Creature Riding (Technical)](<Creature-riding (Technical).md#3-mount-and-rider-architecture>) section 3 explains. The brain is therefore hosted on the creature pawn itself with the general [`UStateTreeComponent`](https://dev.epicgames.com/documentation/unreal-engine/API/Plugins/GameplayStateTreeModule/UStateTreeComponent), so it keeps running whoever possesses the body. The AI controller supplies path following while it possesses the pawn; for a ride the brain switches to its Ridden state and takes its orders from the mount component, and on dismount the server re-possesses the pawn with the AI controller. Perception and the awareness component (7.3) live on the pawn for the same reason. The AI Perception component works on a pawn as on a controller: it casts sight from the owning pawn's eyes and registers its senses whatever the owner is, leaving only the binding of its update to the owner, which the pawn's own code makes.
 
-The brain runs only on the server; clients receive the creature's movement and a small replicated behaviour state — calm, alert, afraid, angry, exhausted — that drives the riding guide's animation tells. Behaviours every creature shares are authored once as linked StateTree assets, supported since 5.4, and linked into each species' tree. Behaviour Trees are not deprecated; StateTree is chosen because a creature's top level genuinely is a set of states with bond-driven transitions.
+The brain runs only on the server; clients receive the creature's movement and a small replicated behaviour state — calm, alert, afraid, angry, exhausted — that drives the riding guide's animation tells. A tell is the one animation a player must never miss, so it travels as replicated state and never as an event. A creature replicates its current action together with a sequence counter, and a client starts the animation when the value arrives:
+
+```cpp
+USTRUCT()
+struct FCreatureActionState
+{
+    GENERATED_BODY()
+
+    UPROPERTY() uint8 Action = 0;     // ECreatureAction: None, Tell, Lunge, Feint, Howl ...
+    UPROPERTY() uint8 Sequence = 0;   // incremented on every new action, so a repeated action still reads as a change
+};
+
+UPROPERTY(ReplicatedUsing = OnRep_CurrentAction) FCreatureActionState CurrentAction;
+```
+
+The counter matters because a wolf that gives the same tell twice running would otherwise replicate an unchanged value. An unreliable multicast would lose the tell with every dropped packet, whereas replicated state converges on its latest value after a drop; at a tenth of packets dropped and 150 milliseconds of latency, clients still saw the tell before every lunge.
+
+Behaviours every creature shares are authored once as linked StateTree assets, supported since 5.4, and linked into each species' tree. Behaviour Trees are not deprecated; StateTree is chosen because a creature's top level genuinely is a set of states with bond-driven transitions. The tree stays a thin layer over plain functions. Every decision a species makes, which state wins, which pack slot a wolf takes, which attacker a pack sends, is a pure function of its inputs that the tree's conditions and tasks call, so that unit tests drive it without a running world; the wolf's stress rule (7.7) is the model. Where a StateTree asset cannot yet be authored with the available tooling, a plain C++ state machine whose states map one to one onto the tree's can stand in, because the decisions beneath it are the same functions.
 
 ### 7.2 State Layout
 
@@ -396,7 +438,18 @@ The hesitant and disobedient bands bias transitions rather than adding states: a
 
 Each creature carries an [AI Perception](https://dev.epicgames.com/documentation/unreal-engine/ai-perception-in-unreal-engine) component configured from species data with sight, hearing, and damage senses. Characters, creatures, fires, and spell effects register as stimuli sources, and loud events — a gallop, a thunderclap, a crack of spellcraft — report noise events. What the riding specification lists as frightening that no built-in sense covers, above all the scent of a large predator or of blood, becomes a custom sense, which Epic supports by subclassing the engine's sense class.
 
-Perception feeds a fear value and a threat list on the creature's awareness component, which owns fear for the whole game: the brain reads it for its transitions, and the riding and flight guides read it from the same component, the riding guide's refusal check alongside the bond, and own only what fear does to steering, tells, and bolting. The stimuli, custom senses, and the fear value itself are defined here and nowhere else. Other systems read it through `GetFear()`, normalised from calm to panic. Fear rises with each frightening stimulus, scaled by its intensity and the species' sensitivity, and falls once the stimulus ages out. The riding guide supplies two modifiers to that fall and rise, and the component applies them without knowing their source: a settle-rate boost while a rider calms the mount, scaled by horsemanship, and a per-creature familiarity that dulls the fright of spells the mount has often heard from its own rider; fear spikes in the handler's company are the danger events that cost trust (3.1). Each sense's maximum age keeps a creature's memory of threats bounded. Epic publishes no cost guidance for sight across many creatures, so that cost is a prototyping item for the budget in section 8.2.
+Perception feeds a fear value and a threat list on the creature's awareness component, which owns fear for the whole game: the brain reads it for its transitions, and the riding and flight guides read it from the same component, the riding guide's refusal check alongside the bond, and own only what fear does to steering, tells, and bolting. The stimuli, custom senses, and the fear value itself are defined here and nowhere else. Other systems read it through `GetFear()`, normalised from calm to panic. Fear rises with each frightening stimulus, scaled by its intensity and the species' sensitivity, and falls once the stimulus ages out. The riding guide supplies two modifiers to that fall and rise, and the component applies them without knowing their source: a settle-rate boost while a rider calms the mount, scaled by horsemanship, and a per-creature familiarity that dulls the fright of spells the mount has often heard from its own rider; fear spikes in the handler's company are the danger events that cost trust (3.1). Each sense's maximum age keeps a creature's memory of threats bounded. Epic publishes no cost guidance for sight across many creatures, so that cost is a profiling item for the budget in section 8.2, where team affiliation keeps it down.
+
+Sight and hearing are tuned per species in its perception configuration. The sight sense casts from the pawn's eye viewpoint, which a creature pawn overrides to return its head's direction rather than its body's, so the sight cone follows where the head points. A wolf is configured with a sight radius of 30 metres (`3000`) and a peripheral half-angle of 110 degrees, a hearing range of 50 metres (`5000`), and a head that turns toward the thing it watches by at most 80 degrees and only while it has something to watch; at rest the head lies along the body, which leaves the 140-degree blind arc behind it that [Wolf](Creatures/Wolf.md) describes. The post-leap blind spot of that page needs no rule of its own: the landing wolf's head still points along its leap, so a target under a metre beside or behind it lies outside the sight cone until the head turns, and the threat list's memory, eight seconds for a wolf, carries the pack through the gap.
+
+Fire is a stimulus source with two radii, the light it throws and a felt margin beyond it. A torch lights 6 metres (`LightRadiusCm = 600`) and a campfire 8 metres (`800`), each with a felt margin of 2 metres (`200`). A creature that stands inside either radius takes the fire's stimulus on each perception update, so fear grows for as long as it stays and settles by the usual fall once it leaves. Two thresholds on the fear value, set per species, give a frightened creature hysteresis instead of flicker:
+
+```cpp
+UPROPERTY(EditAnywhere) float HesitateFearAt = 0.35f;     // at or above this fear a hunting creature backs out of the light and will not attack
+UPROPERTY(EditAnywhere) float RecoverFearBelow = 0.25f;   // it attacks again only once fear has fallen below this
+```
+
+A creature above `HesitateFearAt` leaves the fire's zone and holds its attack orders until its fear is under `RecoverFearBelow`; a species also carries a flee threshold above both, past which it runs rather than backs away. The circle that results paces at the edge of the light and attacks far less often, without the fire making the player immune.
 
 ### 7.4 Troughs and Rest Spots as Smart Objects
 
@@ -412,17 +465,46 @@ While a rider is seated, the riding guide's `UMountComponent` turns each `FRider
 
 The brain's interface is small: its behaviour state, fear and threats, an order from the mount component, and a request to enter Following, Resting, Guarding, or Travelling home with a target. The riding guide's stand, wait, and follow commands map onto Resting and Following, and how a mount decides to refuse lives entirely in the riding guide.
 
+A creature's attack is a hit test the server runs, and it is never placed on an animated bone. A dedicated server does not refresh the bone transforms of a mesh nobody renders, so a test at the head bone hits wherever the reference pose left the head. Server-side hit tests for creature attacks use the actor's own transform: a sphere or box in front of the creature's body, sized and offset by the attack's data, in actor space. Animation may still show the bite at the jaw, as the client sees it, but the server decides it from the body.
+
+### 7.7 Species Decisions as Plain Functions
+
+A species' decisions live in functions with no world access, called by its StateTree's conditions and tasks and driven directly by unit tests. The wolf pack is the model, and its decisions are these.
+
+```cpp
+// Pure: inputs in, decision out. The distances are in centimetres.
+struct FWolfStressInput
+{
+    bool bHoldsAttackOrder = false;                    // this wolf holds a lunge or feint order
+    int32 PackSizeFighting = 0;                        // wolves fighting beside it
+    float NearestAttackerDistanceCm = TNumericLimits<float>::Max();  // nearest other wolf holding such an order or mauling the target
+};
+
+constexpr float WolfStressRadiusCm = 400.f;            // "a few metres": the fight, not the player, sets stress
+
+bool WolfPackTactics::IsUnderStress(const FWolfStressInput& In)
+{
+    return In.bHoldsAttackOrder
+        || In.PackSizeFighting <= 3
+        || In.NearestAttackerDistanceCm <= WolfStressRadiusCm;
+}
+```
+
+Stress is measured from the fight and not from the player, because every wolf in a closing circle has the player inside 15 metres; a rule keyed to the player marks the whole pack stressed for the whole hunt. A winded wolf then moves at the recovering gait its stress selects, a walk when calm and a trot when stressed, and the wolves at the back of a large pack, far from the lunging and mauling, are the ones that walk to recover. The same module holds the other pure functions: `ChooseLunger`, which picks the wolf in the 50 to 110 degree band off the player's view direction and falls back outside it only when the band is empty; `ClassifyBrace`, which reports a brace when the lunge direction is within 45 degrees of the view; `PlanWave`, which gives the feinters, the side lunger, the second lunger at six wolves or more, and the wolf that holds back, on the wave interval of the wolf entry; and `LeaderStandoff`, which places the leader at 1,3 times the circle radius. Each takes plain structs of positions and counts, which is what makes them testable without a running world.
+
 ## 8. Wild Herds, Scale, and Unobserved Creatures
 
 ### 8.1 Mass for Wild Herds
 
-Wild herds and ambient wildlife are many and mostly unobserved, which is what [Mass](https://dev.epicgames.com/documentation/unreal-engine/overview-of-mass-gameplay-in-unreal-engine) is for: entities with LOD levels from High to Off, a per-entity StateTree woken by Mass signals, and representation that steps from a full actor near a viewer down to instanced meshes and nothing. A herd of plains horses lives as Mass entities on the server, and a member is promoted to a full actor when a player comes near enough to interact with it. Epic labels Mass replication and Mass instanced-mesh animation Experimental, so Mass stays server-side: clients see only promoted actors, through ordinary replication under the [Replication Graph](<Server-architecture (Technical).md#5-replication-graph-visibility-driven-sync>). If Mass proves unready, actor-based herds with a few simulated leaders and followers at reduced tick rates replace it without touching this guide's data.
+Wild herds and ambient wildlife are many and mostly unobserved, which is what [Mass](https://dev.epicgames.com/documentation/unreal-engine/overview-of-mass-gameplay-in-unreal-engine) is for: entities with LOD levels from High to Off, a per-entity StateTree woken by Mass signals, and representation that steps from a full actor near a viewer down to instanced meshes and nothing. A herd of plains horses lives as Mass entities on the server, and a member is promoted to a full actor when a player comes near enough to interact with it. Epic labels Mass replication and Mass instanced-mesh animation Experimental, so Mass stays server-side: clients see only promoted actors, through ordinary replication under the [server's spatial filtering](<Server-architecture (Technical).md#5-replication-visibility-driven-sync>). If Mass proves unready, actor-based herds with a few simulated leaders and followers at reduced tick rates replace it without touching this guide's data.
 
 Every tamed creature is an actor, never a Mass entity, because it carries a persistent record and behaves as an individual. The boundary is the first care or coercive act: a wild creature that receives one is promoted, gets a creature id and a record holding the `FTamingAttempt`, and is persisted from then on, so a trust taming spread over several days finds the same animal waiting.
 
 ### 8.2 Server Budgets
 
 The [Significance Manager](https://dev.epicgames.com/documentation/unreal-engine/significance-manager-in-unreal-engine) scores objects against viewpoints, and on a dedicated server it is fed every connected player's viewpoint. Creatures far from any player run their brains and perception at reduced rates, and those in cells without players are not ticked at all. Creatures resting in a stocked shelter are the cheapest case: nothing about them changes until an event arrives, so their brains idle in the Resting state with perception at its lowest rate until the building subsystem or an intruder wakes them.
+
+Perception has its own budget, and it grows with the square of the creatures in range unless it is filtered. Pawns register as sight targets by default and make footsteps and breath that hearing reports, so every wolf's senses track every other wolf nearby only to discard them: in a 70-second run, five wolves received 1182 footstep and 314 winded-breath stimuli, all from one another. Players and creatures therefore implement `IGenericTeamAgentInterface` with a team id, and each creature's perception configuration sets its sense's `DetectionByAffiliation` so that sight and hearing detect only what the creature treats as a threat, which for a wolf is characters and the species it hunts, never its own kind or neutral wildlife. The stimuli that remain are the ones the brain acts on. The saving itself has not been profiled, and measuring it on a dedicated server with a full region is part of the budget work.
 
 ### 8.3 Unobserved Travel Home
 
@@ -432,17 +514,7 @@ A mount heading home may have kilometres to cover with no player near. Once it l
 
 A creature's record travels with it whenever its actor changes region, as part of the AI handoff state the server guide defines. A ridden creature crosses with its rider as one [transfer group](<Server-architecture (Technical).md#72-preparation-cutover-and-group-state>), which the riding guide registers; this guide contributes only the bond, the activity, and the brain's current state to the payload, so a transfer never resets fear or grants a fresh decision. Brain state that matters across a handoff — the active state, its target, and timers such as a guard's remaining patience — is captured as plain data rather than as StateTree internals, so the destination restores behaviour rather than restarting it.
 
-## 9. Open Implementation Questions
-
-The specification leaves a few decisions that an implementation cannot avoid.
-
-- **Breeding and hatching conditions.** Whether breeding needs the pair to be sheltered or in a particular place, how long gestation or incubation takes, and what a found wild egg needs to hatch.
-- **Where "near birth" ends.** The age up to which a found young animal can still be raised into a parental bond, and whether that window differs by species.
-- **Competing and abandoned attempts.** Whether several strangers may work on the same creature at once, with the first to finish winning, or one active attempt locks others out; and whether an untouched trust attempt loses progress or is eventually dropped, returning the creature to its herd.
-- **From coercion to trust.** Whether sustained care can convert a slave bond into a trust bond, or whether a coerced creature stays coerced for life.
-- **Cooling in hot country.** Whether shade alone can ever meet a heat-sensitive creature's need in the hottest biomes, or whether the building system needs a cooling source to match the hearth.
-
-## 10. Design Validation Cases
+## 9. Design Validation Cases
 
 Prototyping should demonstrate each of the following before the system is considered sound:
 
@@ -452,12 +524,16 @@ Prototyping should demonstrate each of the following before the system is consid
 - A raider breaking a barn's roof starts the bonds of the creatures inside decaying from that moment, and a raider who coerces a sheltered creature leaves with a slave bond while the old owner's record is gone.
 - A loose mount whose rider died is reclaimed by its owner from its frayed strength, while a stranger starting a trust taming on the same animal begins from zero and is overtaken by the owner's care.
 - A trust taming cannot be completed in a single sitting with unlimited food, because the daily cap holds.
+- A second handler's attempt on a creature that already has an active one is refused, an attempt left idle past `AttemptIdleDays` decays to nothing, and the creature it leaves behind rejoins its herd.
+- A slave bond tended for the conversion period becomes a trust bond, and a single coercive act during that period sends the conversion back to zero.
+- A wild egg held below its species' warmth for a week hatches a week later than one kept warm throughout, and is never lost.
+- On a dedicated server, a wolf's bite lands where its body is and not where the reference pose left the head bone, and a pack's tell reaches a client with a tenth of its packets dropped.
 - Two creatures of different owners sharing one trough empty it at the summed rate, and both bonds begin to decay at the moment it runs dry.
 - A leviathan anchored with stocked deck troughs holds its bond; once they run dry it decays to the offline floor, slips its anchor through the flight guide, and is still its keeper's when found.
 - A mount heading home across two region boundaries with no player near arrives at its shelter at the expected time with its packs, and an observer meeting it on the way sees it where its route says it should be.
 - A server holding a few thousand sheltered creatures in unloaded cells spends nothing on them until an owner logs in or a cell loads.
 
-## 11. Further Reading
+## 10. Further Reading
 
 - [StateTree in Unreal Engine](https://dev.epicgames.com/documentation/unreal-engine/state-tree-in-unreal-engine)
 - [UStateTreeAIComponent API reference](https://dev.epicgames.com/documentation/unreal-engine/API/Plugins/GameplayStateTreeModule/UStateTreeAIComponent)

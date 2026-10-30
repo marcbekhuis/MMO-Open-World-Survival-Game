@@ -8,6 +8,10 @@ Great cities host race-specific starting areas, tutorials, trainers, and early [
 
 No great city stands alone. Each sits at the heart of its own farm belt and the ring of farming hamlets beyond it, the pattern described in [Structures](../Structures.md#how-settlements-spread), so the road out of a great city passes through working countryside long before it reaches the wild.
 
+## Outskirts Plots
+
+The patrolled ring around every great city holds a scattering of small plots that the city leases to players for a regular tax. They are the world's one answer to a builder who wants a home without a war: a plot takes a modest house and a workshop, sits inside the city's guard, and cannot be raided, and a character who logs out there sleeps as safely as one inside the walls. The price is what a plot cannot be, a frontier holding with its own resources and room to grow, so a builder who settles here lives off trade with those who work the wild. The full rules are in the [Building System](../Building-system.md#outskirts-plots).
+
 ## Architecture by People
 
 Each people builds its great cities in its own way, and a great city carries its people's identity whichever realm it belongs to. A human great city is a broad market-city built around roads, civic plazas, guild halls, and a central portal square: practical, crowded, and tied to trade. An elven great city is a vertical forest-city woven through enormous living trees, canopy bridges, archives, and nature-magic sanctuaries, rewarding vertical navigation and quiet discovery. A dwarven great city is a mountain or underground forge-city built around deep gates, grand halls, molten workshops, and mineral markets, made for permanence, craft, and defence.

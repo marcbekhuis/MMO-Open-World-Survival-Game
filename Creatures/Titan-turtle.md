@@ -26,7 +26,9 @@ A titan turtle can be made to serve, but only by force. It follows the coercive 
 
 ## Settlements on the Shell
 
-A turtle large enough to carry a wood on its back can carry a town, and both NPC and player settlements take root on the oldest specimens, trading the safety of solid ground for a home no raider expects and no map can pin down. The shell is mobile, defensible, and unique, but its owner answers to the creature's wandering and to the day, however far off, when it stops to rest or wades into deep water. A settlement on a turtle's back is one of the frontier's strangest footholds, and one of its best stories.
+A turtle large enough to carry a wood on its back can carry a town, and both NPC and player settlements take root on the oldest specimens, trading the safety of solid ground for a home no raider expects and no map can pin down. The shell is mobile, defensible, and unique, but its owner answers to the creature's wandering and to the day, however far off, when it stops to rest or wades into deep water.
+
+A base on a shell follows the same rules as any structure in the [Building System](../Building-system.md#bases-on-creatures), whether the turtle is wild or bonded. It needs a claim marker, pays upkeep, holds to a piece ceiling set by the turtle's size, and can be raided while its owners are away like a base on land, and the claim travels with the turtle. Taming the turtle grants no building rights on its back: a keeper who wants a home there claims it like anyone else, and a rival who breaks the marker can claim the shell in turn. The turtle itself needs no shelter, no trough, and no roof, which is part of what makes a shell such a low-cost home for its bearer. A settlement on a turtle's back is one of the frontier's strangest footholds, and one of its best stories.
 
 ## Story Hook
 

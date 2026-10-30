@@ -27,9 +27,8 @@ Four companion guides share this architecture. [Movement (Technical)](<Movement 
 11. [Calling and Leaving a Mount](#11-calling-and-leaving-a-mount)
 12. [Networking, Prediction, and Persistence](#12-networking-prediction-and-persistence)
 13. [Presentation in First Person](#13-presentation-in-first-person)
-14. [Open Implementation Questions](#14-open-implementation-questions)
-15. [Design Validation Cases](#15-design-validation-cases)
-16. [Further Reading](#16-further-reading)
+14. [Design Validation Cases](#14-design-validation-cases)
+15. [Further Reading](#15-further-reading)
 
 ---
 
@@ -241,7 +240,7 @@ Horsemanship has no term in this calculation, because the specification is expli
 
 ### 6.3 From Tell to Refusal
 
-A refusal is a small state machine whose first state is the tell. When the check returns `Uneasy` or `Refusing`, the server replicates a tell cue — ears back, head up, a sidestep, a self-imposed slowing — and opens a tell window. Within it the rider can ease off, which withdraws the dangerous intent; calm the mount, which lowers fear and may restore willingness; or press on. If the rider presses on and the check still says `Refusing` when the window closes, the server applies a refusal override chosen by species and situation: stop dead, rear, or wheel away. A rear tests the rider's seat.
+A refusal is a small state machine whose first state is the tell. When the check returns `Uneasy` or `Refusing`, the server replicates a tell cue — ears back, head up, a sidestep, a self-imposed slowing — and opens a tell window. Within it the rider can ease off, which withdraws the dangerous intent; calm the mount, which lowers fear and may restore willingness; or press on. If the rider presses on and the check still says `Refusing` when the window closes, the server applies a refusal override chosen by species and situation: stop dead, rear, or wheel away. The outcome is deterministic: the check carries no chance band, so the same press on the same animal always ends in the refusal, and the only variable is whether the rider reads the tell in time. A rear tests the rider's seat.
 
 ```
 Willing ──danger rises──► Tell (window open) ──eased off or calmed──► Willing
@@ -256,17 +255,72 @@ The tell window does double duty. It is the rider's moment to choose, and it is 
 
 ### 7.1 Tack
 
-A mount's equipment is a fixed set of tack slots: bridle, saddle, pack, and barding. Each tack item carries a fit tag that must match the mount's `TackFit`, so a horse's saddle does not go on a wolf. The bridle is required to ride at all. A riding saddle adds seat and comfort over a long day; a war saddle gives the deeper seat that charges and mounted fighting require; a flight saddle with harness takes the saddle slot on a flyer and keeps a conscious, braced rider aboard in the air, as the [flight guide](<Flight (Technical).md>) specifies; a pack saddle supplies the frames for bags, the mount's only carrying capacity; and barding adds protection with a speed and stamina penalty. Colossal mounts take a saddle structure instead, owned by the building guide. Tack, the flight saddle included, has durability and wears with use and weather like any gear from [Crafting](Crafting.md), and a broken bridle, harness, or pack frame takes away what it provided until it is mended.
+A mount's equipment is a fixed set of two tack slots, bridle and saddle. Each tack item carries a fit tag that must match the mount's `TackFit`, so a horse's saddle does not go on a wolf. The bridle is required to ride at all. The saddle slot holds one item of a family defined in [Saddles and Carriages](Saddles-and-carriages.md), so a mount wears one kind of saddle at a time:
+
+```cpp
+UENUM()
+enum class ESaddleKind : uint8 { Riding, Goods, Armour, Flight, DraughtHarness };
+
+UENUM()
+enum class EArmourTier : uint8 { None, HeavyLeather, SteelPlate };
+
+UCLASS()
+class USaddleDefinition : public UPrimaryDataAsset
+{
+    GENERATED_BODY()
+public:
+    UPROPERTY(EditAnywhere) ESaddleKind Kind = ESaddleKind::Riding;
+    UPROPERTY(EditAnywhere) FGameplayTag Fit;                       // must equal UMountDefinition::TackFit
+    UPROPERTY(EditAnywhere) float SeatValue = 0.f;                  // resists the throw force of section 8.3; 0 where no one sits
+    UPROPERTY(EditAnywhere) bool  bAllowsCharge = false;            // the deep seat a couched charge needs (section 8.2)
+    UPROPERTY(EditAnywhere) EArmourTier Tier = EArmourTier::None;   // Armour only
+    UPROPERTY(EditAnywhere) TObjectPtr<UProtectionProfile> Protection;  // coverage and per-damage-type values, as for worn armour
+    UPROPERTY(EditAnywhere) float WeightKg = 0.f;                   // counts as load (section 7.2)
+    UPROPERTY(EditAnywhere) float SpeedFactor = 1.f;                // multiplies the gait ceiling; below 1 for armour
+    UPROPERTY(EditAnywhere) float StaminaDrainFactor = 1.f;         // above 1 for armour
+    UPROPERTY(EditAnywhere) float NoiseFactor = 1.f;                // feeds the shared noise report of section 5.4
+    UPROPERTY(EditAnywhere) TArray<FContainerSpec> Containers;      // bags or boxes; slot counts are authored per fit tag
+    UPROPERTY(EditAnywhere) float MaxDurability = 100.f;
+};
+```
+
+A riding saddle gives seat and comfort over a long day and carries only light saddlebags. A goods saddle gives almost no seat and supplies the frames for the bags and boxes that are the mount's main carrying capacity. An armour saddle gives the deep seat that charges and mounted fighting require, and its barding covers the mount in the protection of its tier, at a speed, stamina, and noise penalty set on the item. A flight saddle with harness takes the saddle slot on a flyer and keeps a conscious, braced rider aboard in the air, as the [flight guide](<Flight (Technical).md>) specifies. A draught harness replaces the saddle on a mount that draws a carriage; it seats no rider and has no containers of its own, and section 7.4 covers what it pulls. Colossal mounts take a saddle structure instead, owned by the building guide. Tack, the flight saddle included, has durability and wears with use and weather like any gear from [Crafting](Crafting.md), and a broken bridle, harness, or container frame takes away what it provided until it is mended.
 
 ### 7.2 Load
 
-Carried mass is the sum of the tack, the contents of the pack containers, and the rider with everything the rider carries; for a colossal mount it includes the carried weight of its structure, read with `GetCarriedWeightKg` and kept current by `OnCarriedWeightChanged` (section 3.3). The load ratio against `StrengthKg` is the `LoadFraction` of the shared body model, which turns it into a slower pace, a heavier stamina drain, and, once overloaded, a gait cap that forbids running, as [section 9.2 of the movement guide](<Movement (Technical).md#92-load>) sets out. This is the gear-driven rule of [Inventory](Inventory.md) applied to animals. Pack containers are ordinary inventory containers attached to the mount rather than the rider, so the packs go wherever the mount goes, which section 9 depends on.
+Carried mass is the sum of the tack, the contents of the saddle's containers, and the rider with everything the rider carries; for a colossal mount it includes the carried weight of its structure, read with `GetCarriedWeightKg` and kept current by `OnCarriedWeightChanged` (section 3.3). The load ratio against `StrengthKg` is the `LoadFraction` of the shared body model, which turns it into a slower pace, a heavier stamina drain, and, once overloaded, a gait cap that forbids running, as [section 9.2 of the movement guide](<Movement (Technical).md#92-load>) sets out. This is the gear-driven rule of [Inventory](Inventory.md) applied to animals. Pack containers are ordinary inventory containers attached to the mount rather than the rider, so the packs go wherever the mount goes, which section 9 depends on.
 
 ### 7.3 Food, Injury, and Healing
 
 A mount's diet and its food meter, `Satiety` on the taming guide's `FTamedCreatureRecord`, are owned by the taming guide, which makes it the only food meter. Riding adds the two ways it eats on the move: at the walk over ground tagged as grazing it refills `Satiety`, and elsewhere the rider feeds it from their stores or its packs.
 
 Injuries are records on the mount — a wound with a severity, or a lame leg — that come from fights, falls, and stumbles. Lameness caps the gait below the gallop, an untreated wound worsens on a timer, crafted remedies treat it, and rest heals it, fastest while the creature is sheltered as the taming guide's shelter evaluation reports. A mount whose health reaches zero is dead for good.
+
+### 7.4 Carriages and Teams
+
+A carriage is a vehicle actor with its own hold container, defined by a `UCarriageDefinition` (kind: storage, passenger, or weaponised; body mass; hold slots; seat count; armour tier for a weaponised body; the team size it needs) and hitched to a team of mounts in draught harness. The driver's controller possesses the lead animal exactly as in section 3.1, and the other animals follow it through a shared steering result, so one predicted movement component still drives the rig. The carriage body is moved as a trailing actor behind the lead animal's pivot with its own turn-arc constraint, which is what makes the rig turn wide and stop late, and its occupants are based on it as characters on a moving base. The rig's mass is the body, the hold, the passengers, and the team's harness, and the load ratio is taken against the summed `StrengthKg` of the team, multiplied by a road factor read from the ground table of section 5.3: several times 1 on road and firm grass, where wheels carry the load, falling to 1 on soft ground, and movement is forbidden on bog, deep snow, scree, and slopes beyond the carriage's `MaxGradeDegrees`. Passenger seats recover stamina through the shared body model and, in an enclosed body, shelter their occupants from the weather input of the survival temperature calculation.
+
+```cpp
+UENUM()
+enum class ECarriageKind : uint8 { Storage, Passenger, Weaponised };
+
+UCLASS()
+class UCarriageDefinition : public UPrimaryDataAsset
+{
+    GENERATED_BODY()
+public:
+    UPROPERTY(EditAnywhere) ECarriageKind Kind = ECarriageKind::Storage;
+    UPROPERTY(EditAnywhere) float BodyMassKg = 600.f;
+    UPROPERTY(EditAnywhere) FContainerSpec Hold;                      // the lootable cargo container
+    UPROPERTY(EditAnywhere) uint8 PassengerSeats = 0;
+    UPROPERTY(EditAnywhere) EArmourTier BodyArmour = EArmourTier::None; // Weaponised only
+    UPROPERTY(EditAnywhere) uint8 TeamSize = 1;
+    UPROPERTY(EditAnywhere) float MaxGradeDegrees = 10.f;             // below a mount's own slope limit
+    UPROPERTY(EditAnywhere) float TurnArcLengthM = 8.f;               // the rig's minimum turn arc
+};
+```
+
+The refusal check of section 6 runs for every animal in the team, and the team takes the worst result, so one timid animal gives the tell for all of them and the override applies to the whole team; the press-on outcome is as deterministic here as for a single mount. A bolting team keeps the bolt override with the carriage behind it, and when the driver dies the strongest bond band in the team chooses between holding and homing as section 9.1 describes for a single mount. The hold is an ordinary inventory container on the carriage, so it is lootable by anyone who reaches it. A carriage whose team is gone persists as a plain actor; any character with a team and a harness that fits can hitch to it. Destroying a carriage spills its hold into a lootable pile, as the building guide does for a placeable whose host falls. Hired horses are never given a draught harness. The rig's laden mass, the sum above, is all riding supplies when a carriage crosses a player-built bridge; what a span tolerates is the building guide's to decide.
 
 ## 8. Mounted Combat Hooks
 
@@ -278,7 +332,7 @@ The attached rider attacks with their own weapon, and combat receives the seat's
 
 ### 8.2 The Charge and the Mount's Own Attack
 
-A charge is an explicit state. When the rider sets `Charge` with a couched weapon in a war saddle, the server runs the refusal check against the target, and a willing mount arms the charge. It resolves on the first contact at speed, giving combat an impact derived from the combined mass of mount and rider and their closing velocity, then disarms; it re-arms only after the mount has wheeled away and reached charging speed again. Horsemanship narrows the spread of that impact, which is what a cleaner charge means.
+A charge is an explicit state. When the rider sets `Charge` with a couched weapon in a saddle whose `bAllowsCharge` is set, which means an armour saddle, the server runs the refusal check against the target, and a willing mount arms the charge. It resolves on the first contact at speed, giving combat an impact derived from the combined mass of mount and rider and their closing velocity, then disarms; it re-arms only after the mount has wheeled away and reached charging speed again. Horsemanship narrows the spread of that impact, which is what a cleaner charge means.
 
 `Attack` asks the creature to fight with its own body. Riding passes the intent and the target under the rider's aim to the creature's AI, which chooses and performs the species' attack — a wolf's lunge, a buffalo's trample, a dragon fighting as itself — as the taming guide defines it, behind the same refusal check.
 
@@ -290,7 +344,7 @@ Every event that can throw a rider runs one seat test: a heavy blow to the rider
 
 ### 9.1 Rider Death
 
-When a mounted rider dies, the server detaches the corpse, which follows [Death and Loss](Death-and-loss.md), and resolves the mount's response from its bond band. A strong bond chooses, by the creature's nature as its AI defines it, between guarding the body, treating anyone who comes to loot it as a threat, and making its own way home to its shelter. A weak band panics: the mount takes the bolt override and is then released to wild behaviour. Because the packs are attached to the mount, a guarding mount keeps its cargo beside the body and a homing or bolting one carries it away. When a mount dies, the server spawns a carcass container holding its tack and packs under the same full-loot rule as a player corpse.
+When a mounted rider dies, the server detaches the corpse, which follows [Death and Loss](Death-and-loss.md), and resolves the mount's response from its bond band. A strong bond chooses, by the creature's nature as its AI defines it, between guarding the body, treating anyone who comes to loot it as a threat, and making its own way home to its shelter. Homing requires a destination: the AI asks the taming guide's shelter evaluation for a shelter of the owner's that meets the creature's needs, and when none qualifies the mount takes the guard behaviour for the whole recovery window of the corpse and, when the window closes, falls back to standing where it is as an unsheltered mount under its last command, subject to the decay of [section 9.3](#93-a-mount-left-in-the-world). A weak band panics: the mount takes the bolt override and is then released to wild behaviour. Because the packs are attached to the mount, a guarding mount keeps its cargo beside the body and a homing or bolting one carries it away. When a mount dies, the server spawns a carcass container holding its tack and packs under the same full-loot rule as a player corpse.
 
 ### 9.2 Ownership After Loss
 
@@ -298,7 +352,7 @@ A rider's death never transfers ownership. The mount's `FBondRecord` keeps its o
 
 ### 9.3 A Mount Left in the World
 
-A mount left unsheltered at logout stays in the world as a persistent entity that must survive restarts and region transfers while its owner is away, the same kind of entity as the sleeping character of [Death and Loss](Death-and-loss.md#logging-out). The ownership and recovery contract for such entities is tracked in the [Design Backlog](Design-backlog.md) under portals, respawn, login, and disconnects, and mounts follow whatever it settles. The elapsed-time bond decay of an unsheltered mount is applied by the taming guide; riding saves only the mount's position, and its last standing command persists as the taming guide's `ECreatureActivity`.
+A mount left unsheltered at logout stays in the world as a persistent entity that must survive restarts and region transfers while its owner is away, the same kind of entity as the sleeping character of [Death and Loss](Death-and-loss.md#logging-out). Such an entity is owned by the server of the region it stands in, saved with that region, and carried through transfers and crash recovery like a sleeping character, under the server guide's [contract for sleeping characters](<Server-architecture (Technical).md#76-long-distance-transfers-login-and-sleeping-characters>). The elapsed-time bond decay of an unsheltered mount is applied by the taming guide; riding saves only the mount's position, and its last standing command persists as the taming guide's `ECreatureActivity`.
 
 ## 10. Hired Horses
 
@@ -314,14 +368,17 @@ struct FMountHireRecord
     int64  Deposit = 0;            // in the economy's smallest currency unit
     int64  Fee = 0;
     double HiredAtWorldTime = 0.0;
-    float  ConditionAtHire = 1.f;  // wear is charged against this on return
+    double PaidUntilWorldTime = 0.0;   // end of the paid span; each extension adds to it
+    float  ConditionAtHire = 1.f;      // wear is charged against this on return
     bool   bReportedStolen = false;
 };
 ```
 
+The hire is a fixed span paid in advance, so `PaidUntilWorldTime` is the only clock the record needs. The span is the fee's: a stable's hand-in point also offers an extension, a server transaction that charges the fee for another span, adds it to `PaidUntilWorldTime`, and works at any stable of the horse's realm, so a long journey is renewed along the road. A reference grace period of 24 hours of world time follows the paid span, a server default like the other balancing values in [Server Settings](Server-settings.md#official-and-community-servers). The hire is sound until `PaidUntilWorldTime` plus the grace has passed.
+
 The mounting check accepts the current hirer against the stable's bond, and the willingness check reads the bond's strength through the bond interface as for any creature. The horse's timid temperament lowers its courage and its bolt threshold, which is all that "timid in a crisis" needs: no special rule, only data in the refusal check of section 6.
 
-A return is a server transaction at a stable's hand-in point. The server confirms that the stable belongs to the horse's realm — an independent frontier settlement, outlaw town, or bandit camp has no realm stable and turns the horse away — compares the horse's condition with `ConditionAtHire`, refunds the deposit less the wear charge, closes the record, and adds the horse to that stable's roster. A horse kept past its hire is flagged as stolen and a theft event against the hirer goes to the stable's settlement through the [Reputation System](Reputation-system.md). If the hirer dies, the horse takes the homing outcome whatever its bond, walks to its home stable, and the stable closes the record keeping its share of the deposit.
+A return is a server transaction at a stable's hand-in point. The server confirms that the stable belongs to the horse's realm — an independent frontier settlement, outlaw town, or bandit camp has no realm stable and turns the horse away — compares the horse's condition with `ConditionAtHire`, refunds the deposit less the wear charge, closes the record, and adds the horse to that stable's roster. A horse still out when the paid span and the grace period have both passed is flagged as stolen and a theft event against the hirer goes to the stable's settlement through the [Reputation System](Reputation-system.md). If the hirer dies, the horse takes the homing outcome whatever its bond, walks to its home stable, and the stable closes the record keeping its share of the deposit.
 
 ## 11. Calling and Leaving a Mount
 
@@ -381,13 +438,7 @@ The rider uses Unreal's [first-person rendering](https://dev.epicgames.com/docum
 
 Quadruped locomotion has no Epic reference. [Motion Matching](https://dev.epicgames.com/documentation/unreal-engine/motion-matching-in-unreal-engine) supports trajectory prediction, which suits gait changes driven by the steering solve, but parts of it remain Experimental and it says nothing about quadrupeds, so gait animation and quadruped foot placement are prototyping items.
 
-## 14. Open Implementation Questions
-
-- **The risk in pressing on.** The specification says a rider who presses past the tell risks the refusal. The sketch in 6.2 makes the outcome certain once the window closes; the alternative is a chance band near the threshold, so the same press sometimes succeeds.
-- **The length of a hire.** A horse "kept past its hire" is stolen, but the specification does not say what ends a hire: a fixed duration, a destination named at the stable, or a fee that runs out. The record's start time supports any of them.
-- **Home without a shelter.** A strongly bonded mount whose rider dies may head home to its shelter. If its owner has no shelter that meets its needs, it has nowhere to go; the options are to guard instead, or to stand where it is.
-
-## 15. Design Validation Cases
+## 14. Design Validation Cases
 
 | Scenario | Expected outcome |
 |---|---|
@@ -400,8 +451,12 @@ Quadruped locomotion has no Epic reference. [Motion Matching](https://dev.epicga
 | A player whistles for a mount penned in a walled stable 200 metres away. | No path is found and the mount stays; with the gate open, it comes. |
 | A hired horse is handed in at another stable of its realm, then one is offered at an outlaw town. | The first refunds the deposit less wear; the second is refused. |
 | A crew walks the deck of a turning Titan Turtle while one player holds the chains. | Crew movement stays smooth relative to the deck; only the steering player possesses the turtle. |
+| A rider presses past the tell at a cliff edge on the same horse several times over. | The refusal follows every time the window closes; no press succeeds by chance. |
+| A hire expires while the horse is a day from any stable, is extended at the next, then is kept past the paid span and grace. | The extension adds to the paid span without a return; only the final case flags theft. |
+| A strongly bonded mount's rider dies while the owner has no qualifying shelter. | The mount guards the body until the recovery window closes, then stands as an unsheltered mount. |
+| A four-horse storage carriage is driven onto a road, then bog, with one timid horse in the team. | The load is drawn at a road factor on the road and at 1 on bog, where it stops; the timid horse's tell is the whole team's, and the press-on refusal stops all four. |
 
-## 16. Further Reading
+## 15. Further Reading
 
 - [Understanding Networked Movement in the Character Movement Component](https://dev.epicgames.com/documentation/unreal-engine/understanding-networked-movement-in-the-character-movement-component-for-unreal-engine)
 - [Comparing Mover and the Character Movement Component](https://dev.epicgames.com/documentation/unreal-engine/comparing-mover-and-character-movement-component-in-unreal-engine)
@@ -420,7 +475,7 @@ Quadruped locomotion has no Epic reference. [Motion Matching](https://dev.epicga
 
 ## Continue Reading
 
-Continue with the [Creature Riding specification](Creature-riding.md) this guide implements, [Movement (Technical)](<Movement (Technical).md>) for the shared walking body a mount is built on, [Flight (Technical)](<Flight (Technical).md>) for the flight modes built on this movement baseline, [Taming and Control (Technical)](<Taming-and-control (Technical).md>) for the bond, needs, and AI that riding calls into, [Building System (Technical)](<Building-system (Technical).md>) for saddle structures, decks, and shelters, and [Server Architecture (Technical)](<Server-architecture (Technical).md>) for the replication, ghosts, and transfer groups it relies on.
+Continue with the [Creature Riding specification](Creature-riding.md) this guide implements, [Saddles and Carriages](Saddles-and-carriages.md) for the tack and vehicles of section 7, [Movement (Technical)](<Movement (Technical).md>) for the shared walking body a mount is built on, [Flight (Technical)](<Flight (Technical).md>) for the flight modes built on this movement baseline, [Taming and Control (Technical)](<Taming-and-control (Technical).md>) for the bond, needs, and AI that riding calls into, [Building System (Technical)](<Building-system (Technical).md>) for saddle structures, decks, and shelters, and [Server Architecture (Technical)](<Server-architecture (Technical).md>) for the replication, ghosts, and transfer groups it relies on.
 
 ## Draft
 

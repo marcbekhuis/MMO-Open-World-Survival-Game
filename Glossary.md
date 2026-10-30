@@ -8,7 +8,7 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Biome** — a visually and mechanically distinct stretch of the world with its own resources, creatures, hazards, settlement patterns, and travel problems. Biomes live under `Biomes/`, beginning at [Ancient forest](Biomes/Ancient-forest.md).
 
-**Region** — a one-square-kilometre geographic unit assigned to a single server in the cluster model. Inside a boundary overlap, an entity's simulation owner can differ from the server assigned to its geographic region. In gameplay prose, "region" also means a broad stretch of one biome, as in "one Kraken per region"; that sense is unrelated to server boundaries, and the server sense applies in the server documents. See [Server architecture](Server-architecture.md).
+**Region** — a one-square-kilometre geographic unit, a full vertical column from cavern to sky, assigned to a single server in the cluster model. A busy region can be split into quarters or height bands on separate servers, and one server can own many regions. Inside a boundary overlap, an entity's simulation owner can differ from the server assigned to its geographic region. In gameplay prose, "region" also means a broad stretch of one biome, as in "one Kraken per region"; that sense is unrelated to server boundaries, and the server sense applies in the server documents. See [Server architecture](Server-architecture.md).
 
 **Landmark** — a dominant, recognizable feature that anchors navigation and memory within a place, letting players orient themselves and describe routes.
 
@@ -55,6 +55,8 @@ This glossary defines the recurring archetype terms the design relies on, so the
 **Stability** — the share of support a building piece receives, full on a foundation or pillar resting on the ground and lessening with each connection away from it. Builders see it as a colour from blue to red, and a piece that loses all of it collapses. See [Building system](Building-system.md#stability-and-support).
 
 **Claim marker** — the crafted piece that claims land for a base, projecting building rights outward from every foundation connected to it and holding the materials the base draws on each day as upkeep. When the store runs dry the base decays, and in time the claim lapses and the land returns to the world. See [Building system](Building-system.md#claims-upkeep-and-decay).
+
+**Outskirts plot** — a small, taxed building plot leased inside a great city's guarded ring. It cannot be raided and a character sleeping there is safe, which makes it the home of players who want a base without the frontier's offline risk, at the cost of space and of the frontier's resources. See [Building system](Building-system.md#outskirts-plots).
 
 **Portal** — a costly fast-travel link between great cities, priced so that ordinary travel and trade remain the normal way to move goods and project power. Its toll and limits are set out in [Travel and mounts](Travel-and-mounts.md#portals-and-express-routes); see also [Great cities](Structures/Great-cities.md).
 
@@ -138,13 +140,15 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Bond strength** — how firmly a creature is under its handler's control. The stronger the bond, the better the creature answers commands and the more readily it follows guidance into danger it would otherwise refuse, while a fraying bond leaves its own instincts in charge. A bond holds steady only while the creature is sheltered with a stocked trough; elsewhere, time away weakens it slowly but never breaks it while the owner is offline. See [Taming and control](Taming-and-control.md#bonds-while-away).
 
-**Shelter** — the condition that keeps a tamed creature's bond steady, met wherever the pieces around it provide a stocked feeding trough within reach, a roof overhead, the warmth or shade its kind needs, and room for its body. A stable is any place that meets those conditions rather than a single building. See [Building system](Building-system.md#shelter-for-creatures).
+**Shelter** — the condition that keeps a tamed creature's bond steady, met wherever the pieces around it provide a stocked feeding trough within reach, a roof overhead, the warmth or cooling its kind needs (a hearth for the cold-sensitive, a cooling source for the heat-sensitive), and room for its body. A stable is any place that meets those conditions rather than a single building. See [Building system](Building-system.md#shelter-for-creatures).
 
 **Refusal** — a mount's refusal of an order it judges deadly, such as a cliff edge, deep water, or a charge into something far stronger. It is always preceded by a readable tell (ears back, head up, a sidestep) and grows rarer as bond strength rises. See [Creature riding](Creature-riding.md#reading-the-animal-in-first-person).
 
 **Hired horse** — a trained horse lent by a realm's stable for a fee and a deposit and returned at any stable of the same realm. Its bond is to the stable, not the rider, so it is steady on roads but timid in danger. No settlement sells a mount outright. See [Creature riding](Creature-riding.md#hired-horses).
 
-**Tack** — the crafted gear that lets a mount do its work: bridle and reins, riding, pack, and war saddles, barding, and the saddle structures of colossal mounts. Tack is made to fit one kind of body, and a mount's carrying capacity comes only from the tack strapped to it. See [Creature riding](Creature-riding.md#care-and-tack).
+**Tack** — the crafted gear that lets a mount do its work: bridle and reins, riding, goods, and armour saddles, draught harness, and the saddle structures of colossal and flying mounts. Tack is made to fit one kind of body, and a mount's carrying capacity comes only from the tack strapped to it. See [Creature riding](Creature-riding.md#care-and-tack) and [Saddles and carriages](Saddles-and-carriages.md).
+
+**Carriage** — a wheeled vehicle drawn by a team of large creatures such as horses, built for storage, passengers, or war. Its cargo is lootable like a goods saddle's, and it trades the freedom of a saddle for capacity and dependence on roads and bridges. See [Saddles and carriages](Saddles-and-carriages.md#carriages).
 
 **Wing-rig** — a crafted folding glider that lets any character descend from a height in a long, controlled glide. It never climbs above its launch point, leaves no hand free, and fails under heavy loads. See [Flight](Flight.md#gliding).
 
@@ -188,9 +192,21 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Region handoff** — the coordinated transfer of simulation ownership to the server assigned to the destination region once the directional threshold is crossed and the destination is ready. Mounts and riders, and vehicles and their passengers, transfer together as coordinated groups. See [Server architecture](Server-architecture.md).
 
+**Domain** — a separate simulation space with its own coordinates. The overworld is one domain; each dungeon is another, with its own sky, clock, and gravity, joined to the overworld at its threshold. A domain is shared space, never a private instance. See [Server architecture](Server-architecture.md#32-domains-and-dungeons).
+
+**Presence ghost** — the low-rate, untargetable form of a ghost entity held beyond the 1,5 km interaction band, carrying only position, pose, and visible state, so a world boss reads as a distant silhouette without its full state crossing many servers. See [Server architecture](Server-architecture.md#43-long-range-presence).
+
+**Hit claim** — the message an attacker's server sends to a target's simulation owner when an attack lands on a ghost; the target's owner alone validates it and commits damage, death, and loot. See [Server architecture](Server-architecture.md#6-combat-across-servers).
+
+**Time dilation** — the slowing of one overloaded region's clock, timers included, as the last step before it stops admitting arrivals. See [Server architecture](Server-architecture.md#63-hotspots-and-graceful-degradation).
+
+**Gateway** — the proxy that holds each player's single connection for a whole session and switches which server speaks for the player at a handoff, so the client never reconnects. See [Server architecture (Technical)](<Server-architecture (Technical).md#73-client-connection-continuity>).
+
 **World Partition** — the Unreal Engine 5 system for streaming a large world in cells, applied in [Server architecture (Technical)](<Server-architecture (Technical).md>).
 
-**Replication Graph** — the Unreal Engine 5 system for scaling network replication by controlling which actors replicate to which connections.
+**Iris** — Epic's replication system, which scales network replication with spatial filters and prioritisers and is the replication layer of [Server architecture (Technical)](<Server-architecture (Technical).md#5-replication-visibility-driven-sync>).
+
+**Replication Graph** — the older Unreal Engine 5 system for scaling network replication by controlling which actors replicate to which connections; it cannot be combined with Iris and is kept as the fallback.
 
 ## Continue Reading
 

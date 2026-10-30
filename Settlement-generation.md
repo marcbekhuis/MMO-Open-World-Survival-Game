@@ -51,7 +51,7 @@ A settlement's target population is a goal, not a guarantee. Raids, sieges, mons
 
 A settlement below its target slowly fills back up, one newcomer at a time, each taking an empty house and, where one is waiting, an empty post. It fills its service posts first, as an apprentice steps up or a journeyman moves in, before ordinary residents return. How fast it recovers depends on what the settlement can offer. Food is the first condition, which ties a city's recovery to the farm belt and farming hamlets of [Structures](Structures.md#how-settlements-spread): a city whose hamlets have been burnt recovers slowly, because there is no bread for newcomers. Safety is the second, so a settlement that is still being raided stays half empty. Housing is the third, since a settlement cannot grow past the homes it has standing. Players can speed recovery as Raids and Conquest describes, by escorting settlers, clearing the threats on the roads, and bringing in supplies.
 
-Repopulation runs on the settlement's own clock whether or not a player is nearby, so a city left alone for a week has recovered by the time anyone returns. How that elapsed time is simulated and caught up belongs to the shared-clocks question already open in the [Design Backlog](Design-backlog.md).
+Repopulation runs on the settlement's own clock whether or not a player is nearby, so a city left alone for a week has recovered by the time anyone returns. Nothing is simulated while the city is unwatched: when its ground is next loaded, the time that has passed is applied at once, as [Server Architecture](Server-architecture.md#8-shared-world-state) does for everything the world does unobserved.
 
 ## Damage and Rebuilding
 

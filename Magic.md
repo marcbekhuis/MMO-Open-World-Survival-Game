@@ -6,7 +6,7 @@ Magic is divided into distinct elements such as water, fire, earth, wind, light,
 
 The foundation spells are the common language of practical magic. Trainers, field manuals, and early discoveries make them broadly accessible, but a new caster learns only a small selection rather than receiving the whole set at once. Each element covers two clear jobs and teaches its own rhythm: fire creates pressure, water controls space, earth holds ground, wind changes position, light preserves and reveals, and lightning exploits brief openings.
 
-Foundation spells remain useful after their introductory role. Their upgrades change delivery, area, reliability, or interaction with the world rather than merely inflating damage, allowing a familiar spell to become part of a specialised end-game build. Advanced spells such as [Thunder](Magic/Spells/Lightning/Thunder.md), [Nature Growth](Magic/Spells/Earth/Nature-growth.md), and [Fireball](Magic/Spells/Fire/Fireball.md) build on this vocabulary with greater power or narrower purposes.
+Foundation spells remain useful after their introductory role. Their upgrades change delivery, area, reliability, or interaction with the world rather than merely inflating damage, allowing a familiar spell to become part of a specialised end-game build. Advanced spells such as [Thunder](Magic/Spells/Lightning/Thunder.md), [Nature Growth](Magic/Spells/Earth/Nature-growth.md), [Fireball](Magic/Spells/Fire/Fireball.md), and [Fissure](Magic/Spells/Earth/Fissure.md) build on this vocabulary with greater power or narrower purposes.
 
 ## Spell Progression
 
@@ -16,8 +16,7 @@ This makes spellcraft a build choice rather than a simple linear climb. Two play
 
 ## Unlocks And Combination
 
-Advanced spells can unlock when a player reaches thresholds in one or more prerequisite spells. Some unlocks remain within a single element, while others combine schools: earth and water might support growth magic, lightning and wind might support storm spells, and light magic might interact with healing, wards, or visibility tools.
-<!-- REVIEW(producer): This describes a combinatorial spell tree with no stated ceiling while fifteen spells are authored — give a rough content-count target (spells, and by extension creatures/biomes/structures at launch) and mark which lists are closed vs open-ended so the pipeline has a bounded number to staff against. -->
+Advanced spells unlock when a player reaches thresholds in one or more prerequisite spells. Some unlocks remain within a single element, while others combine schools: earth and water support growth magic, lightning and wind support storm spells, and light magic reaches into healing, wards, and visibility tools. Combination here means prerequisites, not invention: every spell a player can learn is authored, written and balanced on its own with its counterplay and trade-off, and the spell list is closed. New spells join it as content, never as effects assembled by a combining system, as the [Launch Scope](Launch-scope.md) sets out.
 
 Advanced spells also ask for the mind to hold them. Every spell above the foundation set carries a minimum Spell Power that rises with how demanding it is, alongside the ranks it asks for in its prerequisite spells, so the great spells of each school belong to characters who have built toward magic. A heavy-weapon fighter who finds an end-game spell in a ruin can read it, sell it, or give it to a caster, but cannot cast it until they have put in the same years of study a mage has; the principle is the same one that keeps a mage from swinging a great war hammer, set out in [Player Progression](Player.md#requirements-and-commitment).
 
@@ -51,6 +50,7 @@ Mana comes from the world, as [Setting and Lore](Setting-and-lore.md) teaches, a
 - [Stoneguard](Magic/Spells/Earth/Stoneguard.md) — a short-lived layer of stone armour for holding a dangerous position.
 - [Seismic Pulse](Magic/Spells/Earth/Seismic-pulse.md) — a ground shock that interrupts nearby foes and exposes unstable terrain.
 - [Nature Growth](Magic/Spells/Earth/Nature-growth.md) — an advanced utility spell that restores natural resources.
+- [Fissure](Magic/Spells/Earth/Fissure.md) — an advanced siege spell, slow and loud to cast, that cracks stone and the foundations beneath it.
 
 ### Wind
 

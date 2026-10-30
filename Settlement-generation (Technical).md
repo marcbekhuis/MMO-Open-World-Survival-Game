@@ -393,7 +393,7 @@ The settlement's population recovers exponentially toward the target, so a settl
 - **Safety** rises from 0 back to 1 over the days since the settlement was last raided, so a settlement under repeated attack stays depleted.
 - **Housing** caps the target itself: the settlement recovers toward the smaller of its target and the housing standing at the time.
 
-Because the factors are held constant across a step, the step has a closed form. That lets a settlement that nobody has visited for a week catch up in a few cheap steps, which is the behaviour the open shared-clocks question in the [Design Backlog](Design-backlog.md) asks for. Steps longer than one in-game day are split so that the factors are re-evaluated daily.
+Because the factors are held constant across a step, the step has a closed form. That lets a settlement that nobody has visited for a week catch up in a few cheap steps, which is the elapsed-time catch-up the server guide applies to all [unobserved activity](<Server-architecture (Technical).md#104-unobserved-activity>). Steps longer than one in-game day are split so that the factors are re-evaluated daily.
 
 ```cpp
 void FSettlementSimulator::Advance(FSettlementState& State, const USettlementBlueprint& Blueprint, double NowDays)
@@ -444,7 +444,7 @@ Deaths go the other way: when a raid kills a resident, the server removes that r
 
 ### 5.3 Simulation Levels
 
-Residents exist at two levels of detail. Away from players, a resident is only their record: their position is derived on demand from their schedule and the settlement clock — at home, at work, or on the street between the two — and nothing runs per resident between updates. Near a player, the server spawns the resident as an actor at the place their schedule puts them, and from then on they walk, work, and react as a full NPC, including fleeing or fighting during a raid. When no player is near any more, the actor is removed and only the facts that matter are written back: whether the resident is still alive, and anything that changed their home, post, or role. Only the server spawns these actors, and only within the visibility rules of the [Replication Graph](<Server-architecture (Technical).md#5-replication-graph-visibility-driven-sync>), so a great city of several thousand residents costs the servers the few dozen people actually in view while every one of them remains a specific person.
+Residents exist at two levels of detail. Away from players, a resident is only their record: their position is derived on demand from their schedule and the settlement clock — at home, at work, or on the street between the two — and nothing runs per resident between updates. Near a player, the server spawns the resident as an actor at the place their schedule puts them, and from then on they walk, work, and react as a full NPC, including fleeing or fighting during a raid. When no player is near any more, the actor is removed and only the facts that matter are written back: whether the resident is still alive, and anything that changed their home, post, or role. Only the server spawns these actors, and only within the visibility rules of the [server's spatial filtering](<Server-architecture (Technical).md#5-replication-visibility-driven-sync>), so a great city of several thousand residents costs the servers the few dozen people actually in view while every one of them remains a specific person.
 
 ## 6. Damage, Collapse, and Rebuilding
 

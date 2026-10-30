@@ -76,8 +76,8 @@ struct FGaitRow
     UPROPERTY(EditAnywhere) float BrakingCmS2 = 0.f;
     UPROPERTY(EditAnywhere) float StaminaPerSecond = 0.f;       // negative recovers
     UPROPERTY(EditAnywhere) float FatiguePerSecond = 0.f;       // long-day weariness, read by the riding layer (mounts only)
-    UPROPERTY(EditAnywhere) float NoiseLoudness = 0.f;          // AI hearing, section 9.3
-    UPROPERTY(EditAnywhere) float StumbleRiskScale = 0.f;       // multiplied by ground roughness
+    UPROPERTY(EditAnywhere) float NoiseRangeCm = 0.f;           // distance at which the gait is heard on neutral ground, section 9.3
+    UPROPERTY(EditAnywhere) float StumbleRiskScale = 0.f;       // chance a second on roughness 1 level ground; section 9.1 scales it
 };
 
 USTRUCT()
@@ -106,7 +106,8 @@ struct FLocomotionTurning
     UPROPERTY(EditAnywhere) float TurnBrakingFraction = 1.f;     // share of braking spent to tighten a turn; low for chargers
     UPROPERTY(EditAnywhere) float SideSpeedFraction = 0.66f;     // of the travel gait; 0 for bodies that cannot sidestep
     UPROPERTY(EditAnywhere) float BackSpeedFraction = 0.5f;      // of the travel gait; 0 for bodies that cannot back up
-    UPROPERTY(EditAnywhere) float BurstConeDeg = 45.f;           // burst gaits only within this angle of the facing
+    UPROPERTY(EditAnywhere) float BurstStartConeDeg = 45.f;      // a burst gait can be started only within this angle of the facing
+    UPROPERTY(EditAnywhere) float BurstHoldConeDeg = 110.f;      // a burst gait already running holds within this angle, so a right-angle cut keeps the sprint
     UPROPERTY(EditAnywhere) float HeadYawLimitDeg = 80.f;        // the head's reach either side of the facing; 0 = fixed head
     UPROPERTY(EditAnywhere) float HeadTurnRateDegS = 600.f;      // creatures and animation; a player's own view moves instantly
     UPROPERTY(EditAnywhere) float MaxViewLeadDeg = 180.f;        // how far a player's requested view may run ahead of the facing
@@ -134,12 +135,22 @@ public:
     UPROPERTY(EditAnywhere) FLocomotionMomentum Momentum;
     UPROPERTY(EditAnywhere) FLocomotionTurning Turning;
     UPROPERTY(EditAnywhere) FLocomotionStaminaRules Stamina;
+    UPROPERTY(EditAnywhere) FLocomotionTraversal Traversal;     // vault, mantle, and climb-over numbers, section 6.1
     UPROPERTY(EditAnywhere) float SafeFallCm = 400.f;           // falls below this only cost speed
     UPROPERTY(EditAnywhere) float LethalFallCm = 1200.f;
 };
 ```
 
-The player profile carries the target values from the specification's table: walk 150, jog 350, and sprint 650 centimetres a second, a pool that the sprint empties in fifteen seconds and the walk refills in twenty, and the turning defaults shown above, which give a person a half-second about-face, a radius of about three quarters of a metre at a walk, and about five metres at full sprint. A heavy charger sets a large `SpeedRadiusFactor` and a low `TurnBrakingFraction`; a long-bodied creature sets `TurnInPlaceRateDegS` to zero; every four-legged profile sets `SideSpeedFraction` to zero. A wolf profile is three rows, walk, trot, and sprint, with a faster sprint and a shallower pool; a horse profile is the riding guide's four, with the halt as a zero-speed recovering row at the front so the riding guide's `EGait` indexes the rows directly. Riding-only fields, such as which gait a mount grazes at, stay on the riding guide's `UMountDefinition`.
+The player profile carries the target values from the specification's table: walk 150, jog 350, and sprint 650 centimetres a second, a pool that the sprint empties in fifteen seconds and the walk refills in twenty, and the turning defaults shown above, which give a person a half-second about-face, a radius of about three quarters of a metre at a walk, and about five metres at full sprint. A heavy charger sets a large `SpeedRadiusFactor` and a low `TurnBrakingFraction`; a long-bodied creature sets `TurnInPlaceRateDegS` to zero; every four-legged profile sets `SideSpeedFraction` to zero. A wolf profile is four rows, walk, labouring trot, trot, and sprint, with a faster sprint and a shallower pool. The labouring trot is a `Recover` row at the trot's speed with a recovery rate well below the walk's; a winded wolf is capped to the recovering rows, and which of the two it uses is the brain's request, the walk when it is out of danger and the labouring trot while it is in danger, so the specification's rule that a winded body is held to its recovering gaits holds for the wolf without an exception (section 8). A horse profile is the riding guide's four, with the halt as a zero-speed recovering row at the front so the riding guide's `EGait` indexes the rows directly. Riding-only fields, such as which gait a mount grazes at, stay on the riding guide's `UMountDefinition`.
+
+The specification gives no acceleration or braking figures, only that a walk or a jog reaches its pace in half a second and stops within a stride and that a sprint stops in roughly two and a half metres, so the player profile derives its rows from those sentences. They are starting values, computed from the wording and not yet tuned in play; whether a jog that stops in under a metre feels precise or abrupt belongs with the sprinting radius and the about-face in the first hand-played session.
+
+| Gait | Speed (cm/s) | Acceleration (cm/s²) | Braking (cm/s²) | Noise range (cm) | Result |
+|---|---|---|---|---|---|
+| Crouch | 100 | 300 | 875 | 200 | Takes the walk's acceleration |
+| Walk | 150 | 300 | 875 | 500 | Full pace in 0,5 s |
+| Jog | 350 | 700 | 875 | 1500 | Full pace in 0,5 s, stops in 0,70 m |
+| Sprint | 650 | 1100 | 845 | 3500 | Full pace in 0,59 s, stops in 2,5 m |
 
 ## 3. Intent, State, and Conditions
 
@@ -202,21 +213,22 @@ The solve is a pure function of the intent, the state, the conditions, the groun
 ```cpp
 FLocomotionStep SolveLocomotion(const FLocomotionIntent& Intent, const FLocomotionState& State,
                                 const FLocomotionConditions& Cond, const FLocomotionGround& Ground,
-                                const ULocomotionProfile& Profile, const UGroundTable& GroundTable)
+                                const ULocomotionProfile& Profile, const ULocomotionRules& Rules)
 {
-    const FGroundRow& G = GroundTable.Row(Ground.Surface);
+    const FGroundRow& G    = Rules.Ground(Ground.Surface);          // section 9.1
+    const FLoadTier&  Load = Rules.LoadTier(Cond.LoadFraction);     // section 9.2
 
     // Every cap acts on roles: winded, load tier, ground, and external caps.
     EGaitRole Cap = Cond.RoleCap;
     Cap = FMath::Min(Cap, State.bWinded ? EGaitRole::Recover : EGaitRole::Burst);
-    Cap = FMath::Min(Cap, LoadRoleCap(Cond.LoadFraction));      // section 9.2
+    Cap = FMath::Min(Cap, Load.RoleCap);
     Cap = FMath::Min(Cap, G.RoleCap);                           // deep snow and bog: no burst
 
     const bool  bCrouched = Intent.bCrouch && Profile.Crouch.SpeedCmS > 0.f;
     const uint8 GaitIndex = bCrouched ? INDEX_CROUCH : HighestAllowedAtOrBelow(Profile, Intent.RequestedGait, Cap);
     const FGaitRow& Row   = bCrouched ? Profile.Crouch : Profile.Gaits[GaitIndex];
 
-    float Speed = Row.SpeedCmS * Cond.TopSpeedScale * G.SpeedFactor * LoadSpeedFactor(Cond.LoadFraction);
+    float Speed = Row.SpeedCmS * Cond.TopSpeedScale * G.SpeedFactor * Load.SpeedFactor;
     if (Row.Role == EGaitRole::Burst)                            // the sprint builds
     {
         const float Build = FMath::Clamp(State.BurstBuild / Profile.Momentum.BurstBuildSeconds, 0.f, 1.f);
@@ -227,11 +239,13 @@ FLocomotionStep SolveLocomotion(const FLocomotionIntent& Intent, const FLocomoti
     FLocomotionStep Step;
     Step.GaitIndex       = GaitIndex;
     Step.MaxSpeedCmS     = Speed;
-    Step.AccelerationCmS2 = Row.AccelerationCmS2 * Cond.AccelerationScale * LoadHandlingFactor(Cond.LoadFraction);
-    Step.BrakingCmS2     = Row.BrakingCmS2 * LoadHandlingFactor(Cond.LoadFraction);
-    Step.StaminaPerSecond = StaminaRate(Row, Cond, Ground, Profile);   // section 5
-    Step.Noise           = Row.NoiseLoudness * G.NoiseFactor;
-    Step.StumbleRisk     = Row.StumbleRiskScale * G.Roughness;
+    Step.AccelerationCmS2 = Row.AccelerationCmS2 * Cond.AccelerationScale * Load.HandlingFactor;
+    Step.BrakingCmS2     = Row.BrakingCmS2 * Load.HandlingFactor;
+    Step.TurnRateScale   = Load.HandlingFactor;                  // read by TurnRateNowDegS beside Cond.TurnRateScale
+    Step.StaminaPerSecond = ScaleDrain(StaminaRate(Row, Cond, Ground, Profile), Load.StaminaCostFactor);   // section 5; scales drains, never recovery
+    Step.bJumpAllowed    = Load.bJumpAllowed;
+    Step.NoiseRangeCm    = Row.NoiseRangeCm * G.NoiseFactor;      // section 9.3
+    Step.StumbleRisk     = StumbleRiskPerSecond(Row, G, Ground.SlopeAlongTravelDeg);   // section 9.1
     return Step;
 }
 ```
@@ -252,12 +266,12 @@ float TurnRadiusCm(const FLocomotionTurning& T, float SpeedCmS, float TopSpeedCm
     return T.BaseTurnRadiusCm * Widen;
 }
 
-float TurnRateNowDegS(const FLocomotionTurning& T, const FLocomotionConditions& Cond,
+float TurnRateNowDegS(const FLocomotionTurning& T, const FLocomotionConditions& Cond, const FLocomotionStep& Step,
                       float SpeedCmS, float TopSpeedCmS)
 {
     const float Moving = FMath::RadiansToDegrees(SpeedCmS / TurnRadiusCm(T, SpeedCmS, TopSpeedCmS));
     const float Pivot  = T.TurnInPlaceRateDegS * FMath::Max(0.f, 1.f - SpeedCmS / T.PivotBlendSpeedCmS);
-    return FMath::Min(FMath::Max(Moving, Pivot), T.MaxTurnRateDegS) * Cond.TurnRateScale;
+    return FMath::Min(FMath::Max(Moving, Pivot), T.MaxTurnRateDegS) * Cond.TurnRateScale * Step.TurnRateScale;
 }
 ```
 
@@ -265,13 +279,13 @@ float TurnRateNowDegS(const FLocomotionTurning& T, const FLocomotionConditions& 
 
 The `PhysicsRotation` override turns the facing toward its target by at most that rate times the move's delta time. The `CalcVelocity` override applies the same bound to the horizontal velocity's heading, so the line of travel and the facing turn on the same circle. When the input asks for a sharper turn than the bound allows, the body brakes at `TurnBrakingFraction` of its braking deceleration for as long as the shortfall lasts; slowing shrinks the radius, which raises the rate, and the turn tightens. A person brakes fully and cuts the corner at a third less speed; a charger with a fraction near zero keeps its speed, overshoots, and comes round wide.
 
-Speed also depends on direction relative to the facing. The step's top speed is multiplied by a direction factor: one inside `BurstConeDeg` of the facing, falling to `SideSpeedFraction` of the travel gait at ninety degrees and `BackSpeedFraction` behind, and a burst gait is granted only inside the cone. With both fractions at zero, the acceleration is projected onto the facing, and a body that is asked to go sideways first turns and then goes.
+Speed also depends on direction relative to the facing. The step's top speed is multiplied by a direction factor: one inside the burst cone of the facing, falling to `SideSpeedFraction` of the travel gait at ninety degrees and `BackSpeedFraction` behind, and a burst gait is granted only inside the cone. The cone has two widths. Starting a burst gait uses the narrow `BurstStartConeDeg`; a burst gait counts as running when the previous move's granted gait, `State.ActiveGait`, was the burst row, and then the wide `BurstHoldConeDeg` applies. The running state is read from the granted gait and not from `BurstBuild`, because a cut sheds the build and must not also shed the sprint. With the narrow cone alone, a right-angle cut left the sprint at once and the body dropped to the jog before the turn braking began; with the wide one the sprint survives the whole cut, and the loss is the turn braking, the third the specification promises (section 12). With both side fractions at zero, the acceleration is projected onto the facing, and a body that is asked to go sideways first turns and then goes.
 
 ### 4.2 Head, Body, and View
 
 Every body has a facing, the actor's yaw, and a head offset from it, limited to `HeadYawLimitDeg` either side. What sets the facing's target differs by who drives the body.
 
-For a player, the control rotation is the requested view. While the body stands still, the facing's target is the nearest yaw that keeps the requested view within the head's reach, so the body turns only when the view is pushed past the limit and stops as soon as it is back inside. While the body moves, the target is the requested view's yaw, so the body turns toward where the player looks at the rate of section 4.1, and the movement input, read in the view's frame, is weighed against the facing by the direction factor; a player who looks sixty degrees to the side and presses forward therefore starts at the reduced off-facing speed and gains pace as the body comes round. The control rotation is already sent with every saved move, so the server computes the same facing from the same inputs and the turn is predicted like the rest of the move.
+For a player, the control rotation is the requested view. Standing or moving, the facing's target is the nearest yaw that keeps the requested view within the head's reach, so the body turns only for the part of the view beyond the limit and stops as soon as the view is back inside. A moving body therefore keeps its facing through a glance: a 70-degree look to the side leaves the facing where it is, the line of travel stays inside the burst cone, and the sprint holds at 6,5 metres a second. The movement input, read in the view's frame, is weighed against the facing by the direction factor; a player who looks sixty degrees to the side and presses forward starts at the reduced off-facing speed and keeps it until the view moves past the head's reach, and the body comes round only by the excess. A flick to look directly behind from standing settles the facing at 100 degrees, the view less the head's 80, and not at 180; what arrives about a quarter of a second later is the camera, after a reference 0,28 seconds, as it follows the body's pivot. The control rotation is already sent with every saved move, so the server computes the same facing from the same inputs and the turn is predicted like the rest of the move. The saved move keeps its own copy of the view, as section 7 describes.
 
 The camera shows the view the body can actually give: the facing plus the head offset, clamped to the head's reach, with the control pitch. The player's camera manager applies the clamp in `UpdateViewTarget`, so mouse movement within the head's reach is instant and movement past it arrives as fast as the body turns. Its `ProcessViewRotation` override keeps the requested view no more than `MaxViewLeadDeg` ahead of the facing, so excess input queues one turn and never winds the body round twice.
 
@@ -296,6 +310,10 @@ void AdvanceLocomotionState(FLocomotionState& State, const FLocomotionStep& Step
     if (SpentThisMove > 0.f || Rate > 0.f)
     {
         State.RecoveryDelay = Profile.Stamina.RecoveryDelaySeconds;
+        if (Rate < 0.f)
+        {
+            Rate = 0.f;                                     // a move that spends does not also recover
+        }
     }
     else if (State.RecoveryDelay > 0.f)
     {
@@ -318,6 +336,8 @@ void AdvanceLocomotionState(FLocomotionState& State, const FLocomotionStep& Step
     }
 }
 ```
+
+The clamp is explicit: in any move that spends or drains, the recovery rate is zero, so a walking body that swings a sword pays the swing's full cost and refills nothing in the same move. The unit tests pin it down.
 
 ### 5.2 Spending From Outside the Move
 
@@ -353,13 +373,58 @@ Swimming uses the CMC's own swimming mode inside water volumes, with the compone
 
 Climbing is a custom mode in `PhysCustom`. A short forward trace each move finds the surface in reach, and the surface's physical material names a row in the ground table of section 9.1 that now also carries a climb rating: none for smooth stone, ice, and every building piece, and a difficulty for rock, crags, and trees. Climbing gear changes what a surface accepts: a fixed rope, a ladder, or a grapnel line is an actor with its own climbable surface, and ice picks in the hands let ice count as hard rock. The climb mode moves the capsule across the surface plane at a speed and stamina cost from the profile, scaled by the rating and the load, and ends on a ledge, at the top, or in a fall when stamina runs out.
 
-Vaults and mantles are short, fixed traversals. When a jump begins, capsule sweeps ahead of the body measure the obstacle's height and the space on top of it; a vault or a mantle is chosen from the height, refused when the hands are full or the load is over the limit, and then played as a custom sub-mode that moves the capsule along a path fitted to the obstacle over a duration from the height. The jump input, the measured obstacle, and the progress through the traversal all live in the saved move, so a mantle is predicted and replayed like any other movement.
+Vaults, hop-ups, mantles, and climb-overs are short, fixed traversals. When a jump begins, capsule sweeps ahead of the body measure the obstacle's height, the depth of its top, and the ground beyond it; the traversal is chosen from those, refused when the hands are full or the load is over the limit, and then played as a custom sub-mode that moves the capsule along a path fitted to the obstacle over a duration from the height. The numbers belong to the body's profile, so a creature with its own traversals brings its own.
+
+```cpp
+USTRUCT()
+struct FLocomotionTraversal
+{
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere) float StepMaxCm = 50.f;               // below this the obstacle is an ordinary jump
+    UPROPERTY(EditAnywhere) float VaultMaxCm = 110.f;             // tops up to here can be vaulted
+    UPROPERTY(EditAnywhere) float VaultMaxDepthCm = 120.f;        // a deeper top is hopped onto, not vaulted
+    UPROPERTY(EditAnywhere) float MantleMinDepthCm = 50.f;        // a thinner top above the vault band is climbed over
+    UPROPERTY(EditAnywhere) float OverheadReachCm = 218.f;        // measured from the body: shoulder joint plus arm to the middle fingertip, from the feet
+    UPROPERTY(EditAnywhere) float JumpReachBonusCm = 0.f;         // tuning allowance for the jump on top of the reach; the rising shoulder
+    UPROPERTY(EditAnywhere) float JumpWindowCm = 100.f;           // the jump must come within this distance of the face
+    UPROPERTY(EditAnywhere) float VaultSecondsPerMeter = 0.5f;
+    UPROPERTY(EditAnywhere) float VaultKeptSpeed = 0.8f;          // share of arrival speed kept on leaving the wall
+    UPROPERTY(EditAnywhere) float BurdenedVaultKeptSpeed = 0.3f;  // over the carrying limit
+    UPROPERTY(EditAnywhere) float MantleBaseSeconds = 0.6f;
+    UPROPERTY(EditAnywhere) float MantleSecondsPerMeter = 0.5f;   // hop-up and climb-over use the mantle's time and cost
+    UPROPERTY(EditAnywhere) float CostChestHeightCm = 120.f;      // cost line: a twentieth of the pool here...
+    UPROPERTY(EditAnywhere) float CostChestFraction = 0.05f;
+    UPROPERTY(EditAnywhere) float CostFullReachHeightCm = 200.f;  // ...rising straight to a seventh here, and on beyond it
+    UPROPERTY(EditAnywhere) float CostFullReachFraction = 1.f / 7.f;
+    UPROPERTY(EditAnywhere) float LandingRoomCm = 70.f;           // ground the whole footprint needs beyond the obstacle
+    UPROPERTY(EditAnywhere) float ClimbOverMaxDropCm = 200.f;     // a climb-over refuses a landing lower than this; a vault does not
+    UPROPERTY(EditAnywhere) float MaxApproachAngleDeg = 60.f;     // off square to the face; the path crosses the face, not the line of the run
+};
+```
+
+The measured obstacle picks the traversal from the top's height, its depth, and the overhead reach, plus the jump allowance:
+
+| Obstacle top | Traversal |
+|---|---|
+| Below `StepMaxCm` | Ordinary jump |
+| Up to `VaultMaxCm`, no deeper than `VaultMaxDepthCm` | Vault; the landing room is checked |
+| Up to `VaultMaxCm`, deeper than that | Hop-up onto the top, at the mantle's cost for chest height, `CostChestFraction` of the pool |
+| Above `VaultMaxCm` up to `OverheadReachCm + JumpReachBonusCm`, at least `MantleMinDepthCm` deep | Mantle |
+| The same heights, thinner than that | Climb-over; the landing room and the drop limit are checked |
+| Above the reach | Not a traversal; the surface is a climb (above) or nothing |
+
+The vault takes `VaultSecondsPerMeter` times the height and leaves the body at `VaultKeptSpeed` of its arrival speed, or `BurdenedVaultKeptSpeed` when the load is over the limit; the mantle and its two siblings take `MantleBaseSeconds` plus `MantleSecondsPerMeter` times the height, and cost the pool fraction on the straight line through the two cost points, 7,3 points at 1,40 metres and 12,0 at 1,80 for a pool of 100. A mantle, hop-up, or climb-over is refused outright when the hands are full or the load is over the limit. The reach is measured from the character model at the feet, never from the ground at the face, and for the 1,80-metre template body it comes to 2,18 metres, a little under what a standing person reaches, because the shoulder rises with the arm and the model's rest pose does not show it; `JumpReachBonusCm` is the tuning value for when play says the reach is short. The landing check demands the body's whole footprint on ground, `LandingRoomCm` beyond the top for the template body, so a second fence or an overhang closer than that refuses the move. The approach angle is measured between the facing and the obstacle's face normal, and inside `MaxApproachAngleDeg` the fitted path crosses the face by the short way.
+
+A traversal that the body cannot pay for in stamina is refused before anything is spent. The check runs ahead of `CanAttemptJump`: when the sweep classifies the obstacle as a hop-up, mantle, or climb-over and the pool is short, the press is consumed as a failed grab, a short animation that shows why, and no jump cost is charged, so the body stays on its feet and the pool does not drain. Only a press with no climbable obstacle ahead falls through to the ordinary jump and its cost.
+
+What the saved move carries for a traversal is the measured obstacle in whole centimetres (height and depth) and the traversal's clock in milliseconds, never the start transform. The server anchors the path at its own position for that move, measures the obstacle again, and accepts the client's figures only within four centimetres plus one rounding step, using its own measurement otherwise, so a client cannot place the start of a fixed path wherever it likes. Two machines measuring the same wall from positions a prediction error apart disagree by a few millimetres, well inside the tolerance. The jump input and the progress through the traversal also live in the saved move, so a mantle is predicted and replayed like any other movement.
 
 ## 7. Players: Prediction and Correction
 
 The owning client predicts its own body through the CMC's saved moves, following Epic's [networked movement guide](https://dev.epicgames.com/documentation/unreal-engine/understanding-networked-movement-in-the-character-movement-component-for-unreal-engine). Three pieces carry the shared model through it.
 
-The saved move, a subclass of `FSavedMove_Character`, records the intent and the pending stamina spend in `SetMoveFor` and restores them in `PrepMoveFor`, so a replayed move asks for the same gait and spends the same stamina it did the first time. `CanCombineWith` refuses to merge two moves with different gaits or with a spend in either, so neither a gait change nor a spend is lost in a combined move.
+The saved move, a subclass of `FSavedMove_Character`, records the intent, the pending stamina spend, and the player's view in `SetMoveFor` and restores them in `PrepMoveFor`, so a replayed move asks for the same gait, spends the same stamina, and turns toward the same view it did the first time. The view needs a copy of its own: in Unreal Engine 5.8 the control rotation stored in a saved move is overwritten with the live view after every replay, so from the second correction on, replayed moves would turn the body toward where the player is looking now, and a player sweeping the view while sprinting would draw a stream of small corrections. The saved move records the view once, when the move is made, and restores that copy. `CanCombineWith` refuses to merge two moves with different gaits or with a spend in either, so neither a gait change nor a spend is lost in a combined move.
 
 The move data, a subclass of `FCharacterNetworkMoveData` registered with `SetNetworkMoveDataContainer`, sends the requested gait and the quantised pending spend to the server with each move through its `ClientFillNetworkMoveData` and `Serialize` overrides. The crouch flag already travels in the CMC's own compressed flags.
 
@@ -369,9 +434,9 @@ The conditions are the only input not carried in the move. They change on invent
 
 ## 8. Creatures: Server-Driven Bodies
 
-An AI-controlled creature has no owning client, so its movement runs only on the server and nothing about it is predicted. Its brain writes the intent, choosing a gait from its own judgement, and reads the state back, so a wolf can see that it is winded and drop to a trot without a separate stamina model of its own. Path following reaches the body through the CMC's `RequestPathMove` and `RequestDirectMove`. With `NavMovementProperties.bUseAccelerationForPaths` set, the path request becomes acceleration rather than a direct velocity, so the creature passes through the same acceleration, braking, and turn model as a player and a charging creature genuinely cannot turn on a coin. A creature that needs a sharp turn its momentum will not give, such as a Minotaur that has overshot its target, has to slow and come round, which is the counter window [Movement](Movement.md#creatures-and-mounts) promises.
+An AI-controlled creature has no owning client, so its movement runs only on the server and nothing about it is predicted. Its brain writes the intent, choosing a gait from its own judgement, and reads the state back, so a wolf can see that it is winded and drop to a recovering gait without a separate stamina model of its own. Which recovering gait a winded wolf asks for is the brain's decision: the walk when it is out of danger, the labouring trot when it is in danger, with danger measured from the fight (a wolf holding a lunge or feint order, or mauling the target, within a few metres; its own order; or a pack of three or fewer) and not from the distance to the player. The decision lives in a plain function in the creature's code, as section 7 of [Taming and Control (Technical)](<Taming-and-control (Technical).md>) arranges for every species, and this guide supplies only the rows it chooses between. Path following reaches the body through the CMC's `RequestPathMove` and `RequestDirectMove`. With `NavMovementProperties.bUseAccelerationForPaths` set, the path request becomes acceleration rather than a direct velocity, so the creature passes through the same acceleration, braking, and turn model as a player and a charging creature genuinely cannot turn on a coin. A creature that needs a sharp turn its momentum will not give, such as a Minotaur that has overshot its target, has to slow and come round, which is the counter window [Movement](Movement.md#creatures-and-mounts) promises.
 
-Other clients see creatures and other players as simulated proxies with the CMC's smoothing, which already carries the facing as the actor's rotation. A small view struct replicates with the actor, skipping the owner: the granted gait, a stamina band of four steps, the winded flag, and the head's yaw offset from the facing. The head's pitch needs nothing new, because the engine already replicates `APawn::RemoteViewPitch` to simulated proxies. Onlookers therefore see the body's facing, its turn, and where its head is looking exactly as its own player does, which is what makes a glance over the shoulder readable.
+Other clients see creatures and other players as simulated proxies with the CMC's smoothing, which already carries the facing as the actor's rotation. A small view struct replicates with the actor, skipping the owner: the granted gait, a stamina band of four steps, the winded flag, and the head's yaw offset from the facing. The head's pitch needs nothing new, because the engine already replicates it to simulated proxies: since Unreal Engine 5.6 `APawn::RemoteViewPitch` is deprecated in favour of a 16-bit value read through `GetRemoteViewPitch()`, and the component reads the pitch through that accessor. Onlookers therefore see the body's facing, its turn, and where its head is looking exactly as its own player does, which is what makes a glance over the shoulder readable.
 
 ```cpp
 USTRUCT()
@@ -394,17 +459,58 @@ Near a region edge the same struct rides in the ghost state flags of the [ghost 
 
 ### 9.1 Ground
 
-The CMC's floor result says what the body stands on. Each surface carries a physical material whose [surface type](https://dev.epicgames.com/documentation/unreal-engine/physical-materials-user-guide-for-unreal-engine) maps, through one project-wide ground table, to a speed factor, a roughness for stumble risk, a noise factor, and a role cap. The table is the one section 5.3 of the riding guide reads; its rows follow the specification, with roads and firm grass at full speed, forest floor and scrub slightly slower, sand, mud, and shallow snow about a fifth slower, and deep snow and bog nearly half as fast with no burst gait. `FLocomotionGround` also carries the slope along the line of travel, measured from the floor normal and the horizontal velocity, signed so that the solve can tell a climb from a descent.
+What every body shares lives in one rules asset, `ULocomotionRules`, and not in functions inside the solve: the ground table of this section and the load tiers of section 9.2. Every balancing number in it is data that a server can override by name, in line with the rule that every balancing value is a server default. The solve receives the asset and reads its rows.
 
-Stumbles are server-decided. While a body runs above its comfortable pace on rough ground, the server rolls each second from the step's stumble risk and, on a hit, sends a stagger that costs momentum; for a mount the riding guide turns the same roll into a thrown rider or an injured leg. A stumble is never predicted, so a player never sees a fall that did not happen.
+The CMC's floor result says what the body stands on. Each surface carries a physical material whose [surface type](https://dev.epicgames.com/documentation/unreal-engine/physical-materials-user-guide-for-unreal-engine) maps, through the asset's ground table with one row per surface type, to a speed factor, a roughness for stumble risk, a noise factor, and a role cap. The table is the one section 5.3 of the riding guide reads; its rows follow the specification, with roads and firm grass at full speed, forest floor and scrub slightly slower, sand, mud, and shallow snow about a fifth slower, and deep snow and bog nearly half as fast with no burst gait. `FLocomotionGround` also carries the slope along the line of travel, measured from the floor normal and the horizontal velocity, signed so that the solve can tell a climb from a descent.
+
+Stumbles are server-decided. While a body runs above its comfortable pace on rough ground, the server rolls each second from the step's stumble risk and, on a hit, sends a stagger that costs momentum; for a mount the riding guide turns the same roll into a thrown rider or an injured leg. A stumble is never predicted, so a player never sees a fall that did not happen, and every correction that follows one arrives within half a second of it, at 150 milliseconds of latency as well.
+
+The risk is the gait's base risk, multiplied by the ground's roughness and by the steepness of the descent, and held at one:
+
+```cpp
+float StumbleRiskPerSecond(const FGaitRow& Row, const FGroundRow& G, float SlopeAlongTravelDeg)
+{
+    const float Downhill = FMath::Max(0.f, -SlopeAlongTravelDeg);            // positive slope is uphill
+    return FMath::Min(1.f, Row.StumbleRiskScale * G.Roughness * (1.f + Downhill / 10.f));
+}
+```
+
+The profile's `StumbleRiskScale` is 0,2 a second for the sprint, 0,02 for the jog, and zero for the walk and crouch; roughness is 1 on scree and ice. A hit takes 40 per cent off the body's speed and holds it to a walk for 0,6 seconds. The downhill term is deliberately harsh. On a 25-degree scree slope the sprint's risk is 0,2 × 1 × 3,5 = 0,7 a roll, and a slope near 40 degrees saturates it, so a sprint there stumbles at every roll. On the 25-degree slope a sprint averages about 4,0 metres a second over the last 5,5 seconds of a descent, against 6,4 for a clean sprint and 3,5 for a jog on the same ground, at a cost of 6,67 stamina a second: it still wins by roughly 15 per cent, which is all it buys. Steep loose ground is for careful jogs, which fits how [Creature Riding](Creature-riding.md) describes scree.
 
 ### 9.2 Load
 
-The inventory reports the carried mass as `LoadFraction` in the conditions. The solve maps it through the [Inventory](Inventory.md#weight-and-strength-mechanics) tiers as the specification sets them: below three quarters of capacity nothing changes; up to full capacity speed falls by a few per cent and `LoadHandlingFactor` lengthens starts, stops, and turns; up to a quarter over capacity the role cap drops to travel and gait costs rise by half; beyond that the cap drops to recovery and jumping is refused; at half again the capacity the speed is zero. For a mount the load is the riding guide's carried mass against the mount's strength, read through the same field.
+The inventory reports the carried mass as `LoadFraction` in the conditions. The solve maps it through the [Inventory](Inventory.md#weight-and-strength-mechanics) tiers, which the rules asset of section 9.1 holds as an ordered list and not as functions in the solve:
+
+```cpp
+USTRUCT()
+struct FLoadTier
+{
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere) float     UpperLimit = 0.75f;          // share of capacity; the last tier covers everything above the others
+    UPROPERTY(EditAnywhere) float     SpeedFactor = 1.f;           // 0 stands the body still
+    UPROPERTY(EditAnywhere) float     HandlingFactor = 1.f;        // acceleration, braking, and turn rate
+    UPROPERTY(EditAnywhere) float     StaminaCostFactor = 1.f;     // drains only
+    UPROPERTY(EditAnywhere) EGaitRole RoleCap = EGaitRole::Burst;
+    UPROPERTY(EditAnywhere) bool      bJumpAllowed = true;
+};
+```
+
+`ULocomotionRules::LoadTier` returns the first tier whose limit is not below the load. The tiers follow the specification's bands and these starting values, where a tier the design gives no figure for keeps the one before it:
+
+| Tier | Upper limit | Speed | Handling | Stamina cost | Role cap | Jump |
+|---|---|---|---|---|---|---|
+| Free | 0,75 | 1,0 | 1,0 | 1,0 | Burst | Yes |
+| Approaching the limit | 1,0 | 0,95 | 0,85 | 1,1 | Burst | Yes |
+| Over the limit | 1,25 | 0,9 | 0,85 | 1,5 | Travel | Yes |
+| Severely overweight | 1,5 | 0,9 | 0,85 | 1,5 | Recover | No |
+| Immovable | very large | 0 | 0,85 | 1,5 | Recover | No |
+
+The last row stands an overloaded body still without a special case. For a mount the load is the riding guide's carried mass against the mount's strength, read through the same field.
 
 ### 9.3 Noise
 
-The server reports each body's gait through the AI Hearing sense with [`UAISense_Hearing::ReportNoiseEvent`](https://dev.epicgames.com/documentation/unreal-engine/ai-perception-in-unreal-engine), at the body's stride rate, with the step's noise multiplied by the ground's noise factor and by an equipment noise value the inventory supplies. Heavy gaits also post to the server-side tremor register the riding guide defines for burrowing listeners. A winded body reports its breathing as a noise of its own, quiet and tagged `Winded` through the event's tag parameter, at a fixed interval until it recovers, so a predator that hears it without seeing it still learns that the body is spent. Footstep and breathing sounds on clients are driven by animation, not by these events, so what a player hears and what a creature hears come from the same gait without one waiting on the other.
+A gait's noise is a distance, not a loudness: the specification states it in metres, so each gait row stores `NoiseRangeCm`, the distance at which that gait is heard on neutral ground, and no conversion stands between the design's figure and the sense. The player's gaits are heard at 2, 5, 15, and 35 metres for the crouch, walk, jog, and sprint. The server reports each body's gait through the AI Hearing sense with [`UAISense_Hearing::ReportNoiseEvent`](https://dev.epicgames.com/documentation/unreal-engine/ai-perception-in-unreal-engine), at the body's stride rate, with the footstep's range set to the step's `NoiseRangeCm` (the gait's range already multiplied by the ground's noise factor), times an equipment noise value the inventory supplies. The ground factors are 1,2 on forest floor, 1,5 on scree, and 0,5 on moss, so a sprint on scree carries 52,5 metres. Heavy gaits also post to the server-side tremor register the riding guide defines for burrowing listeners. A winded body reports its breathing as a noise of its own, quiet and tagged `Winded` through the event's tag parameter, with a range of 8 metres once a second until it recovers, so a predator that hears it without seeing it still learns that the body is spent; 8 metres is further than the 5 of the walk the body is held to, which keeps the specification's promise that a winded player carries further than their footsteps. Footstep and breathing sounds on clients are driven by animation, not by these events, so what a player hears and what a creature hears come from the same gait without one waiting on the other.
 
 ## 10. Animation and First-Person Presentation
 
@@ -414,7 +520,7 @@ The local player sees their own full body from the camera at its head, the same 
 
 ## 11. Open Implementation Questions
 
-How wide the sprinting radius and how slow the in-place pivot can be before first-person movement feels slippery or sluggish is the first thing the prototype must answer, since the head moves instantly within its reach and the body does not; the specification's figures of a half-second about-face and a five-metre sprinting circle are the starting point, not settled values. Whether the requested view should run ahead of the facing by a full half-turn, or by less, is the second. Path following assumes a body can take the corners of its navigation path, so a creature with a wide radius or no turn in place may need its path smoothed to its radius, or a navigation agent sized for it, before it stops scraping round corners. Acceleration-driven path following can overshoot tight navigation corridors at a burst gait, and creature brains may need to request a slower gait before sharp corners rather than rely on the turn model alone. The stamina value in a move response is a full float in this sketch and can probably be quantised to a byte without visible error. The solve and the state advance are pure functions and are tested directly with Unreal's automation framework, and the networked behaviour is tested with the editor's network emulation at the 150 millisecond latency the riding guide's validation cases use.
+How wide the sprinting radius and how slow the in-place pivot can be before first-person movement feels slippery or sluggish is the first thing the prototype must answer, since the head moves instantly within its reach and the body does not; the specification's figures of a half-second about-face and a five-metre sprinting circle are the starting point, not settled values, and so are the acceleration and braking rows of section 2, which are computed from the specification's wording and untried by hand. Whether the requested view should run ahead of the facing by a full half-turn, or by less, is the second. Path following assumes a body can take the corners of its navigation path, so a creature with a wide radius or no turn in place may need its path smoothed to its radius, or a navigation agent sized for it, before it stops scraping round corners. Acceleration-driven path following can overshoot tight navigation corridors at a burst gait, and creature brains may need to request a slower gait before sharp corners rather than rely on the turn model alone. The stamina value in a move response is a full float in this sketch and can probably be quantised to a byte without visible error. The solve and the state advance are pure functions and are tested directly with Unreal's automation framework, and the networked behaviour is tested with the editor's network emulation at the 150 millisecond latency the riding guide's validation cases use.
 
 ## 12. Design Validation Cases
 
@@ -422,19 +528,27 @@ How wide the sprinting radius and how slow the in-place pivot can be before firs
 |---|---|
 | A player sprints from full stamina on level road with no load. | Most of the sprint speed at once, full speed after about three seconds, empty after about fifteen, then held to a walk until a quarter of the pool returns. |
 | A player on 150 ms latency sprints, swings a weapon, and jumps in quick succession. | No visible corrections; client and server agree on stamina after every move. |
-| A player sprinting at full speed cuts a right angle. | The line of travel bends over a short arc, about a third of the speed is lost, and the burst build-up starts again. |
-| A standing player flicks the mouse to look directly behind. | The view turns instantly to the head's limit, then follows the body's pivot and arrives about a quarter of a second later; another client sees the head turn first and the body step round. |
-| A player looks sixty degrees to the side and presses forward. | They step off at the reduced off-facing speed while the body turns, and reach full pace once it faces the view. |
-| A sprinting player glances back at a pursuer. | The view turns within the head's reach without changing the line of travel; other clients see the head turn. |
+| A player sprinting at full speed cuts a right angle. | The sprint stays granted through the cut, since the running cone is wide; the line of travel bends over a short arc, about a third of the speed is lost to the turn braking, and the burst build-up starts again. |
+| A standing player flicks the mouse to look directly behind. | The view turns instantly to the head's limit and the body pivots until the facing is 100 degrees round, the view less the head's reach; the camera arrives about a quarter of a second later, and another client sees the head turn first and the body step round. |
+| A player looks sixty degrees to the side and presses forward. | They step off at the reduced off-facing speed with the head still turned; the body does not turn for a view inside the head's reach, and comes round only by the excess beyond it. |
+| A sprinting player glances 70 degrees to one side and back. | The view turns within the head's reach, the facing does not change, the sprint holds at full speed, and other clients see the head turn. |
+| A player sprinting at 6,5 metres a second vaults a 60-centimetre wall, then a 1,10-metre one. | The vaults take 0,30 and 0,55 seconds and the body leaves each at 5,2 metres a second; over the network at 150 ms, no correction. |
+| A player jumps at a 1,80-metre wall with a little over five points of stamina, four times in a row. | Each press is refused as a failed grab with no jump spent and no stamina lost; the pool recovers normally, and the player can stand back, wait, and then climb it for 12 points. |
+| A player jumps at a 2,00-metre ledge, then a 2,20-metre one, with the template body. | The first is caught and mantled; the second is out of reach and the surface is a climb or nothing. |
+| A player runs at a fence diagonally at 50 degrees off square, then at a fence with a second fence 0,50 metres behind it. | The first is crossed by the short way over its face; the second crossing is refused for lack of landing room. |
+| A player climbs over a thin wall above a drop of 2,50 metres, then vaults a waist-high railing at the same drop. | The climb-over is refused; the vault goes on over the railing and the fall is judged by the ordinary landing rules. |
 | A creature with no turn in place is asked to face a target behind it. | It walks a forward arc of its base radius rather than pivoting. |
 | A player stands behind a grazing animal, beyond the reach of its head. | The animal does not see them until it turns its head or body toward them. |
 | A player over their carrying limit holds sprint. | They jog at a reduced pace and cannot sprint; dropping below the limit restores the sprint on the next move. |
 | A wolf chases a jogging player who never sprints. | The wolf closes at a trot, sprints when it commits, tires, and drops back to a trot to recover. |
+| A winded wolf at the back of a hunting circle, and one at its front. | The back wolf is out of danger and walks to recover; the front wolf, with a lunge-holding wolf within a few metres, labours on at the trot. When the pack loses its prey both walk. |
 | A wolf pack circles a player who then sprints until winded; a second player recovers out of sight behind a rock. | The pack closes on the winded player in the open; the hidden player is not marked until the pack perceives them. |
 | A wolf pack chases a herd of deer. | The first deer to run itself winded becomes the pack's target, by the same query a winded player triggers. |
 | A Minotaur charges a player who sidesteps late. | The charge passes the player; the Minotaur slows and comes round rather than turning on the spot. |
 | A horse is galloped to exhaustion, then a correction is forced. | It drops to a walk and cannot be pushed faster until stamina recovers, identically on client and server. |
-| A player sprints down a scree slope. | The server rolls stumbles; a stumble costs momentum and reaches the client as an event, never as a predicted fall. |
+| A player sprints down a 25-degree scree slope. | The server rolls stumbles at a risk of 0,7 a roll; a stumble costs momentum and reaches the client as an event, never as a predicted fall, and every correction follows a stumble within half a second. The sprint averages about 4,0 metres a second against 3,5 for a jog. |
+| A player swings a weapon while walking. | The swing's cost is paid and the walk's recovery is zero in that move. |
+| A player carries 1,10 times capacity, then 1,40 times, then 1,60 times. | The first jogs at 0,9 of normal speed, cannot sprint, and pays 1,5 times for every gait; the second can only walk and cannot jump; the third cannot move. |
 
 ## 13. Further Reading
 

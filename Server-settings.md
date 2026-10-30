@@ -1,30 +1,39 @@
 # Server Settings
 
-This file captures operational design targets for the persistent server cluster. It should stay aligned with the conceptual model in [Server Architecture](Server-architecture.md) and the Unreal implementation notes in [Server Architecture (Technical)](<Server-architecture (Technical).md>).
+This file sets the operational design targets for the persistent server cluster, in step with the conceptual model in [Server Architecture](Server-architecture.md) and the Unreal implementation notes in [Server Architecture (Technical)](<Server-architecture (Technical).md>).
 
 ## Operating Goals
 
-The server configuration should prioritize world continuity, predictable simulation, and recoverability. Players should be able to cross region boundaries without noticing backend handoff, and the world should preserve important state changes even when individual simulation nodes fail.
+The server configuration puts world continuity, predictable simulation, and recoverability first. Players cross region boundaries without noticing the handoff behind them, and the world keeps every important change even when a simulation node fails.
 
 ## Settings To Track
 
-The operations model should track expected concurrency per world, per hotspot, and per 1 km x 1 km simulation region. It should also define the desired simulation cadence for gameplay ticks, AI updates, physics budgets, and throttling rules for low-priority entities.
+The operations model tracks concurrency per world, per hotspot, and per 1 km × 1 km simulation region and each of its split pieces, together with the simulation cadence for gameplay ticks, AI updates, physics budgets, and the throttling of low-priority entities. Every Cluster Unit Server has explicit CPU, memory, bandwidth, entity-count, and replication budgets.
 
-Persistence settings need to state how often player state, placed structures, AI state, and regional deltas are written to durable storage. Recovery settings should cover backup retention, failure detection thresholds, standby capacity, and acceptable rollback windows. Each Cluster Unit Server also needs clear CPU, memory, bandwidth, entity count, and replication budgets.
+Persistence settings state how often positions and other replayable state are written to durable storage; everything that moves value is written at once, as [Server Architecture](Server-architecture.md#72-value-never-splits) requires, so it has no interval to set. Recovery settings cover backup retention, failure-detection thresholds, standby capacity, and recovery qualification. Each world has a population cap, and a full world is answered by opening another, as [Server Architecture](Server-architecture.md#9-scale-and-running-cost) describes.
 
-Large events need their own scaling expectations. Raids, world bosses, great-city gatherings, and other predictable spikes should have temporary capacity rules so the cluster can protect core simulation and persistence under pressure.
+## Hotspot Workloads and Degradation
 
-## Initial Baseline
+Player counts alone do not describe a hotspot. Capacity is measured against representative workloads, each with its building pieces, affected targets, effect fan-out, AI, physics relationships, persistence throughput, and stacked vertical spaces alongside its players:
 
-Until production load testing produces real numbers, this document should use ranges and design intent rather than hard guarantees. A reasonable early baseline is to define normal, stressed, and emergency profiles for each region. Normal regions run full simulation. Stressed regions reduce low-priority AI and cosmetic replication. Emergency profiles protect player movement, combat authority, and persistence first, then degrade ambience and distant non-critical actors.
+- a great-city market at its busiest hour, with traders, guards, residents, and auctions;
+- a siege under [Raids and Conquest](Raids.md) against a base near its piece ceiling, with siege engines, fire, and a collapse cascade;
+- a naval boss fight, with ships, a [Kraken](Creatures/Kraken.md) gripping one of them, and riders overhead;
+- a mobile settlement on a [Flying Leviathan](Creatures/Flying-leviathan.md) crossing a busy border with its occupants and cargo;
+- a battle fought at once on the ground and in the air above a cavern system with its own ecosystem;
+- a world-boss fight with the boss's long-range presence across about a hundred regions.
+
+Until load tests produce real numbers, these workloads are budgeted in ranges and design intent rather than guarantees. They set the thresholds of the cluster's response to a crowd, which runs in a fixed order. A seam fight that fits on one server is brought onto one server. A region one server cannot hold is split into quarters or height bands while servers are free and the split pays for its seams. Only then does the region degrade through three profiles. A normal region runs full simulation. A stressed region sheds cosmetic effects and ambient life, then the update rate of low-priority AI, then the replication rate of distant entities. An emergency region slows its clock by time dilation, to a floor of a quarter of normal speed by default, and at that floor holds new arrivals at its edge. City-guard protection, attack warnings, hostiles within weapon range, and persistence are never shed in any profile. The mechanism is set out in [Server Architecture](Server-architecture.md#63-hotspots-and-graceful-degradation).
 
 ## Official and Community Servers
 
-The game runs on official servers and on community servers hosted by others, and a community server can tune the game to how its players want to play. That makes one rule binding on the whole design: every number that balances the game is a default, not a constant. Rates, curves, multipliers, durations, and costs live in data that the game ships with, and a server's settings can override any of them by name when it starts, without changing the game itself. Official servers run the defaults; a community server might double experience, halve hunger, lengthen the night, or make heavy weapons easier to wield, and every system reads the overridden value in the same way.
+The game runs on official servers and on community servers hosted by others, and a community server can tune the game to how its players want to play. That makes one rule binding on the whole design: every number that balances the game is a default, not a constant. Rates, curves, multipliers, durations, and costs live in data that the game ships with, and a server's settings can override any of them by name when it starts, without changing the game itself. Official servers lock their settings to the defaults and cannot be changed by anyone but the studio; a community server might double experience, halve hunger, lengthen the night, or make heavy weapons easier to wield, and every system reads the overridden value in the same way.
 
 Two practices keep that safe. First, nothing a character or a world saves stores a derived number. A character's record holds what was earned and chosen, such as experience, stat points spent per stat, and skill practice, as [Player Progression](Player.md#how-growth-is-recorded) sets out, and items, creatures, and structures are recorded the same way, so a change of settings applies to everything already in the world the next time it loads. Second, the settings are grouped and named the way a host thinks about them rather than the way the code is organised, with the most commonly changed values, such as the rates of experience, gathering, taming, hunger, thirst, and day and night, gathered together and documented for hosts, and everything finer still reachable by name for hosts who want it.
 
 The design documents follow the same rule. Wherever they give a number, a speed in metres a second, a step cost, a duration, a rate, it is the official default and the starting point for tuning, not a fixed law of the game.
+
+A community host runs the same cluster software as the official servers, not a cut-down version of it. The [Master Server and Cluster Unit Servers](Server-architecture.md#3-cluster-unit-servers--region-simulation) are the same pieces, and a [Cluster Unit Server](Glossary.md) may own one region or many, so a single one can own every region and simulate the whole seamless world on its own, which is all a small private community needs. Adding more Cluster Unit Servers never changes what the world is; it only raises how many players the world can hold at once. Players need the same single subscription to join a community server as an official one, as [Monetization and Platforms](Monetization.md#a-single-subscription) sets out. A character belongs to the world it was made in: characters never move between official and community worlds, so a tuned server's rates cannot leak into the official economy.
 
 ## World Rhythm
 
