@@ -4,7 +4,7 @@ A technical design and implementation research guide based on the [Server Archit
 
 ## Research Baseline and Engine Evolution
 
-Unreal Engine **5.8.2** is the current research baseline for this architecture, confirmed by [Epic's hotfix announcement](https://forums.unrealengine.com/t/5-8-2-hotfix-released/2746335). The work remains at the design stage. Existing code and configuration examples serve as implementation sketches; each requires validation against this baseline before development, and their presence does not establish build compatibility or measured performance. The replication, multi-server, and time-dilation facts in sections 5, 7.3, and 11 were checked on 30 October 2026 against Epic's 5.8 documentation and against the engine source and plugin descriptors of the installed [5.8.3 hotfix](https://forums.unrealengine.com/t/5-8-3-hotfix-released/2833315); where the two disagree, the installed engine's behaviour is what this guide follows, and the disagreement is stated where it matters.
+Unreal Engine **5.8.4** is the current research baseline for this architecture, confirmed by [Epic's hotfix announcement](https://forums.unrealengine.com/t/5-8-4-hotfix-released/2842775) of 20 October 2026. The work remains at the design stage. Existing code and configuration examples serve as implementation sketches; each requires validation against this baseline before development, and their presence does not establish build compatibility or measured performance. The replication, multi-server, and time-dilation facts in sections 5, 7.3, and 11 were checked on 30 October 2026 against Epic's 5.8 documentation and against the engine source and plugin descriptors of the installed [5.8.3 hotfix](https://forums.unrealengine.com/t/5-8-3-hotfix-released/2833315); where the two disagree, the installed engine's behaviour is what this guide follows, and the disagreement is stated where it matters. The 5.8.4 hotfix lists no networking, replication, or dedicated-server changes, so those checks carry over to the baseline.
 
 The design also prepares for migration to Unreal Engine 6. [Epic's published roadmap](https://www.unrealengine.com/news/the-road-to-ue-6), checked on 5 September 2026, targets Early Access at the end of 2027 and a full release 12–18 months later. It describes a Verse-based Scene Graph framework and research into automatically distributing gameplay and persistent state across servers. These are evolving capabilities whose suitability for this game's standalone server architecture must be evaluated when available.
 
@@ -574,7 +574,7 @@ Inventory contents, bank and Item Box contents, skills and progression, quest st
 
 ## 7. Seamless Player & AI Handoff
 
-The [conceptual handoff rules](Server-architecture.md#5-seamless-player--ai-handoff) apply to every movable entity. The following describes the custom protocol requirements for the UE 5.8.2 research baseline; it is a design contract for implementation and validation.
+The [conceptual handoff rules](Server-architecture.md#5-seamless-player--ai-handoff) apply to every movable entity. The following describes the custom protocol requirements for the UE 5.8.4 research baseline; it is a design contract for implementation and validation.
 
 ### 7.1 Overlap Geometry and Hysteresis
 

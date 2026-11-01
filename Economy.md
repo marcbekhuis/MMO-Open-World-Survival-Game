@@ -16,7 +16,7 @@ Prices also read the whole of what a market is trading, not each good on its own
 
 ### Where the Market Lives
 
-Each settlement's market is a ledger of its stock, its prices, and its recent trade, owned by the server that owns the settlement's region under [Server Architecture](Server-architecture.md) and persisted with the rest of that region's state. Nothing about a market needs a global simulator. Regions exchange only slow aggregate signals, a region's demand for a good summarised over hours rather than every sale, so neighbouring markets feel one another's gluts and shortages without ever waiting on each other. A server crash costs a market at most the trades since its last snapshot, and a region that migrates to another server takes its ledgers with it.
+Each settlement's market is a ledger of its stock, its prices, and its recent trade, owned by the server that owns the settlement's region under [Server Architecture](Server-architecture.md) and persisted with the rest of that region's state. Nothing about a market needs a global simulator. Regions exchange only slow aggregate signals, a region's demand for a good summarised over hours rather than every sale, so neighbouring markets feel one another's gluts and shortages without ever waiting on each other. A server crash costs a market at most its record of the trades since its last snapshot, so its stock and prices can step back a little, but the coin and goods that changed hands in those trades are committed the moment each trade completes and never return, as [Server Architecture](Server-architecture.md#72-value-never-splits) requires. A region that migrates to another server takes its ledgers with it.
 
 ## The Player Layer
 
