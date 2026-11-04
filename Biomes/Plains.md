@@ -16,7 +16,7 @@ The plains are home to the harmless and the familiar: rabbits, wild horses, hard
 
 ## Hazards and Travel
 
-The plains are safe by the standards of this world, not by the standards of a tutorial. Travel is easy and visibility is good, but the same openness that reveals danger also leaves a traveller exposed, with little cover when a predator or a rival player does appear. Where the grassland meets the foothills and the mesa, the drums of a [Red Goblin](../Creatures/Red-goblin.md) war-host are the sound every frontier farmer dreads, because the open country that makes the plains easy to cross also makes their outlying hamlets easy to reach. The greatest hazard is still the largest: a titan turtle on the move flattens whatever lies in its path, so the smart traveller treats the giants as terrain to be routed around rather than obstacles to be challenged.
+The plains are safe by the standards of this world, not by the standards of a tutorial. Travel is easy and visibility is good, but the same openness that reveals danger also leaves a traveller exposed, with little cover when a predator or a rival player does appear. Where the grassland meets the foothills and the mesa, the drums of a [Red Goblin](../Creatures/Red-goblin.md) war-host are the sound every frontier farmer dreads, because the open country that makes the plains easy to cross also makes their outlying hamlets easy to reach. The greatest hazard is still the largest: a titan turtle on the move flattens whatever lies in its path, so the smart traveller treats the giants as terrain to be routed around rather than obstacles to be challenged. The danger that comes from above is the [Highland Dragon](../Creatures/Highland-dragon.md), which drops out of the mountains every few weeks to burn a buffalo herd into a stampede and take whatever falls behind, a horse or a lone rider included. Plains folk watch the peaks for the day of circling that comes before a hunt and keep their animals off the open grass until it has fed, and a long scorched scar across the grassland is the sign it has already been.
 
 ## Settlement Patterns
 
@@ -24,7 +24,7 @@ The plains suit settlement well, and human towns in particular take root here, a
 
 ## Continue Reading
 
-Continue with the [Large Buffalo](../Creatures/Large-buffalo.md) that grazes the riverbanks, the [Titan Turtle](../Creatures/Titan-turtle.md) that crosses the grasslands, the [Red Goblin](../Creatures/Red-goblin.md) war-hosts that raid its edges, and [Human Settlements](../Structures/Human-settlements.md) that take root along the rivers.
+Continue with the [Large Buffalo](../Creatures/Large-buffalo.md) that grazes the riverbanks, the [Titan Turtle](../Creatures/Titan-turtle.md) that crosses the grasslands, the [Highland Dragon](../Creatures/Highland-dragon.md) that comes down from the mountains to hunt them, the [Red Goblin](../Creatures/Red-goblin.md) war-hosts that raid its edges, and [Human Settlements](../Structures/Human-settlements.md) that take root along the rivers.
 
 ## Draft
 

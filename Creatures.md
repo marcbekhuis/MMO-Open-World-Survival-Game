@@ -11,11 +11,13 @@ Creatures define the living pressure of the world. They are enemies, resources, 
 - [Four-armed monkey](Creatures/Four-armed-monkey.md)
 - [Golden goblin](Creatures/Golden-goblin.md)
 - [Green goblin](Creatures/Green-goblin.md)
+- [Highland dragon](Creatures/Highland-dragon.md)
 - [Kraken](Creatures/Kraken.md)
 - [Large buffalo](Creatures/Large-buffalo.md)
 - [Mermaid](Creatures/Mermaid.md)
 - [Minotaur](Creatures/Minotaur.md)
 - [Paralyzing dragon](Creatures/paralyzing-dragon.md)
+- [Pixie](Creatures/Pixie.md)
 - [Red goblin](Creatures/Red-goblin.md)
 - [Royal dragon](Creatures/Royal-dragon.md)
 - [Sandworm](Creatures/Sandworm.md)
@@ -34,7 +36,7 @@ Creature design should connect behaviour, biome, and reward. A forest predator s
 
 ## Continue Reading
 
-Continue with [World Design](World.md), [Biomes](Biomes/Ancient-forest.md), and [Reputation System](Reputation-system.md).
+Continue with [World Design](World.md), [Biomes](Biomes/Ancient-forest.md), [Populations and Spawning](Populations-and-spawning.md) for how creatures come into the world, persist, breed, and age, and [Reputation System](Reputation-system.md).
 
 ## Draft
 

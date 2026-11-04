@@ -61,11 +61,13 @@ Only the adventurer hand, the mood, and the palette accents are fixed here, so t
 | Four-Armed Monkey (`Four-armed-monkey.md`) | `four-armed-monkey-bestiary.png` | Cheerful jungle guide | Bright canopy life; jungle greens, the file's display colours, dappled light |
 | Golden Goblin (`Golden-goblin.md`) | `golden-goblin-bestiary.png` | Nervous mine foreman | Furtive greed and crawling cave dread; sickly pale white, dull flaking pyrite gold, cave black, blue-green fungus glow; Gleaner, Hoard-warden and Gilded King to scale on the right page |
 | Green Goblin (`Green-goblin.md`) | `green-goblin-bestiary.png` | Practical frontier scout | Scrappy, cunning, unpleasant up close; rust metal, stolen cloth, forest-edge greens; all three variants on the right page |
+| Highland Dragon (`Highland-dragon.md`) | `highland-dragon-bestiary.png` | Weather-beaten mountain watchkeeper | Quiet dread above the snow line; muted grey-green to forest-green dragon crusted grey-white, with hanging skin tatters, a whale-pleated pale belly and a high-arched neck with the head hanging; slate blue, cold granite and a restrained grassfire orange; bronze only as an undertone, no tall crest or grand horns |
 | Kraken (`Kraken.md`) | `kraken-bestiary.png` | Sailor | World-event ocean terror; blue-black, storm grey, sea green, foam white; a ship for scale |
 | Large Buffalo (`Large-buffalo.md`) | `large-buffalo-bestiary.png` | Plains drover | Gentle giant at a river ford; mud browns, reed greens, cream and ochre fur; the elder bull beside an adult |
 | Mermaid (`Mermaid.md`) | `mermaid-bestiary.png` | Wary coastal salvager | Moonlit wreck-field danger; both forms side by side, iridescent charmed tail against the dull true form |
 | Minotaur (`Minotaur.md`) | `minotaur-bestiary.png` | Veteran ravine delver | Torchlit menace in ruins and mazes; dark hide, ivory horn, stone and root |
 | Paralyzing Dragon (`paralyzing-dragon.md`) | `paralyzing-dragon-bestiary.png` | Jungle hunter who survived one | Close, humid dread; leaf-mottled greens, damp blacks, a faint green gas haze |
+| Pixie (`Pixie.md`) | `pixie-bestiary.png` | Wary village herbalist | Idyllic sunlit glade that turns uneasy up close; meadow greens, wildflower yellows and violets, green-gold glow, iridescent wing sheen, one note of dried blood red on the face study |
 | Red Goblin (`Red-goblin.md`) | `red-goblin-bestiary.png` | Battle-worn palisade sergeant | Iron, drums and smoke on the march; brick and rust red, forge-blackened iron, palisade timber, smoke grey; Grunt, Ironback and Warboss to scale on the right page |
 | Royal Dragon (`Royal-dragon.md`) | `royal-dragon-bestiary.png` | Noble illuminator | Ceremonial mesa power; crimson, ochre-gold scale colour, warm amber, mesa stone; never coins, treasure, or hoards |
 | Sandworm (`Sandworm.md`) | `sandworm-bestiary.png` | Desert guide | Harsh survival hazard; ochre sand, burnt sienna, pale raw flesh; a caravan for scale |
@@ -92,6 +94,17 @@ When a new creature file is added, add a row here with an adventurer hand not ye
 ## Pending Corrections
 
 Plates that were reviewed against their creature file and need regenerating or editing. Rebuild the subject from the current Markdown as usual and fold in the correction; the notes only say what went wrong last time. Remove an entry once its corrected plate is saved.
+
+### Highland Dragon — build and colour (reviewed 3 November 2026, second round)
+
+`highland-dragon-bestiary-v3.png` fixed the lichen and the fire study; keep them, along with the layout, arched neck and head study. The build overshot: v2 read as fat, and v3, edited from the earlier "almost gaunt, hip bones showing" wording, reads as starving, with ribs, spine and hips standing out. The file now makes it lean but well fed, with thick thighs and no bones showing. The edit also drained the hide from v2's grey-green to brown-tan. Attach the v3 plate and send:
+
+```text
+Edit this bestiary spread. Keep the book, the page layout, the title, the art style, the mountain scene, the lichen and the fire study. Change only the dragon, in every drawing of it on the spread:
+1. Build: it now looks starving. Make it a powerful, well-fed old predator: lean but solid, neither fat nor starved. Fill out the body with hard muscle so no ribs, spine bumps or hip bones show. Keep the deep chest and hunched shoulders; the body tapers behind the chest to firm flanks like an old bull's, and the thighs are thick and powerful. Keep the loose, folded skin under the jaw, throat and belly.
+2. Colour: the hide has turned brown-tan. Make it a muted dull grey-green again, deeper green in shadow and faded olive in light, with a pale grey-tan belly.
+Keep everything else identical.
+```
 
 ### Red Goblin — footwear and details (reviewed 10 October 2026, second round)
 

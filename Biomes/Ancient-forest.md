@@ -12,11 +12,11 @@ The forest is defended by its inhabitants, who hold it sacred and will go to gre
 
 ## Resources and Exploration
 
-For those who tread carefully, the forest is rich with opportunity. Its sprawling terrain hides ancient ruins, secret caves, and treetop pathways that reward exploration, and rare magical resources tied to the traditions of [Magic](../Magic.md) lie scattered throughout. The catch is that harvesting recklessly provokes the wrath of the forest's protectors, so gathering here is bound up with restraint: a player has to learn to read the dense and shifting landscape and the treants' warning signs well enough to avoid rousing them, before the forest gives up what it holds. The [Treant](../Creatures/Treant.md) hub sets out what counts as harm and how the warnings escalate. The watchful [Birds](../Creatures/Birds.md) of the canopy add their own layer of warning to anyone who has learned to read them.
+For those who tread carefully, the forest is rich with opportunity. Its sprawling terrain hides ancient ruins, secret caves, and treetop pathways that reward exploration, and rare magical resources tied to the traditions of [Magic](../Magic.md) lie scattered throughout. The catch is that harvesting recklessly provokes the wrath of the forest's protectors, so gathering here is bound up with restraint: a player has to learn to read the dense and shifting landscape and the treants' warning signs well enough to avoid rousing them, before the forest gives up what it holds. The [Treant](../Creatures/Treant.md) hub sets out what counts as harm and how the warnings escalate. The watchful [Birds](../Creatures/Birds.md) of the canopy add their own layer of warning to anyone who has learned to read them. The [Pixies](../Creatures/Pixie.md) that drift through the old wood's glades guard nothing but each other, yet a gatherer who catches one for its light learns how quickly a quiet glade can fill with them.
 
 ## Continue Reading
 
-Continue with the [Treant](../Creatures/Treant.md) that guards the wood and its three tiers, the [Sapling](../Creatures/Treant-sapling.md), [Guardian](../Creatures/Treant-guardian.md) and [Elder](../Creatures/Treant-elder.md), the [Elves](../Races/Elf.md) who build in its canopy, and [Magic](../Magic.md) for the forces that run close to the surface here.
+Continue with the [Treant](../Creatures/Treant.md) that guards the wood and its three tiers, the [Sapling](../Creatures/Treant-sapling.md), [Guardian](../Creatures/Treant-guardian.md) and [Elder](../Creatures/Treant-elder.md), the [Elves](../Races/Elf.md) who build in its canopy, the [Pixies](../Creatures/Pixie.md) of its glades, and [Magic](../Magic.md) for the forces that run close to the surface here.
 
 ## Draft
 

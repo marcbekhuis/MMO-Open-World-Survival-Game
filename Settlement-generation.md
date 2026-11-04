@@ -65,7 +65,7 @@ Rediscovery is the point. A player who knows a city learns its streets, gates, a
 
 ## Continue Reading
 
-Continue with [Settlement Generation (Technical)](<Settlement-generation (Technical).md>) for the implementation, [Structures](Structures.md) for how settlements spread across the land, [Great Cities](Structures/Great-cities.md) for the hubs players start in, [Raids and Conquest](Raids.md) for what destroys buildings, and [Non-Player Characters](NPCs.md) for the people who live in them.
+Continue with [Settlement Generation (Technical)](<Settlement-generation (Technical).md>) for the implementation, [Structures](Structures.md) for how settlements spread across the land, [Great Cities](Structures/Great-cities.md) for the hubs players start in, [Raids and Conquest](Raids.md) for what destroys buildings, [Non-Player Characters](NPCs.md) for the people who live in them, and [Populations and Spawning](Populations-and-spawning.md) for how residents persist and enter the world out of sight.
 
 ## Draft
 

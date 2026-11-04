@@ -132,6 +132,10 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **World boss** — a very large, singular creature whose encounter is of world-event scale rather than a routine fight. The server documents give it a long visibility radius, around 5 km against roughly 1,5 km for a player, so that it can be seen from afar. See [Server architecture](Server-architecture.md) and [Dynamic culling and render distance](Dynamic-culling-and-render-distance.md).
 
+**Spawn zone** — a stretch of ground that brings new creatures, or the people of camps and ruins, into the world: a weighted list of what lives there, each entry with the surface it may appear on, a carrying capacity, and a minimum below which it calls in new arrivals, always out of every player's sight and away from recent deaths. Creatures it places roam freely afterwards. See [Populations and spawning](Populations-and-spawning.md).
+
+**Dormant creature** — a creature on loaded ground with no player near it, which keeps its place in the world but does not think, move, or send anything to players until something wakes it. See [Populations and spawning](Populations-and-spawning.md#every-creature-is-someone).
+
 **Tell** — the readable cue a creature gives just before an attack, which a watchful player can answer. A wolf drops its tail and rolls its shoulders low before a lunge, and the Kraken slaps a wet arm across the deck before it closes. See [Wolf](Creatures/Wolf.md) and [Kraken](Creatures/Kraken.md).
 
 **Strike window** — the opening in a fight when a dangerous creature exposes a vulnerable point and attacks against it count for the most. The Kraken's window comes when it raises an eye to watch its prey, and fire into the eye stuns and wounds it in ways no blade on the arms can. See [Kraken](Creatures/Kraken.md).

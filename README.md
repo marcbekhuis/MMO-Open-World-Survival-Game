@@ -69,6 +69,7 @@ The game is funded by a single subscription, with no box price and nothing that 
 - [Biomes](World.md#biome-variety)
 - [Weather, Time, and Seasons](Weather-time-and-seasons.md)
 - [Creatures](Creatures.md)
+- [Populations and Spawning](Populations-and-spawning.md)
 - [Races](Races.md)
 - [Player Progression](Player.md)
 - [New Player Experience](New-player-experience.md)

@@ -18,6 +18,8 @@ Their temperament is calm, but not passive. A herd gives warnings before it beco
 
 Each herd follows a single elder bull, an animal that has outgrown the rest and stands up to 7 metres at the shoulder, with horns to match and a coat gone grey and matted with river mud. It leads the herd as its alpha, choosing the fords and the grazing, and it is the first to lower its horns at a threat and the first to charge. A herd can be passed quietly when the elder bull is relaxed, and the elder bull's stance is the clearest reading a player gets of whether trouble is coming. A stampede that begins with the elder bull's charge does not stop until the threat is gone or the herd has left the water behind.
 
+The one threat the elder bull cannot face down is the [Highland Dragon](Highland-dragon.md), which comes down from the mountains every few weeks to hunt the herds. It burns a line across the grass ahead of them, and the herd breaks and runs from the fire, leaving behind the calf or the lame animal the dragon is waiting for. A herd that has lost an animal this way stays skittish for days, and a stampede breaks far more easily on that stretch of river.
+
 ## Gameplay Role
 
 The Large Buffalo gives the plains a peaceful spectacle and a practical teaching creature. It shows new players that size does not always mean aggression, while still making the consequences of reckless behaviour clear. Its herd is a landmark, a sign of nearby water, and temporary cover from line of sight, but the same herd becomes a hazard if startled by combat, fire, predators, or careless riding.
@@ -30,7 +32,7 @@ The buffalo also has a place in [Taming and Control](../Taming-and-control.md), 
 
 A riverside settlement has always lived beside the same buffalo herd, using its trails, drinking from the fords it keeps open, and treating its elder bull as a sign that the season will be gentle. When poachers wound him for the horn trade, the herd refuses to leave the settlement's waterline and grows more agitated by the day. The players can hunt the poachers, calm and treat the wounded animal, drive the herd away by force, or exploit the chaos before the first real stampede tears through the river farms.
 
-See also: [Creatures index](../Creatures.md), the [Plains](../Biomes/Plains.md) it roams, [Crafting](../Crafting.md) for the materials its body can provide, and [Taming and Control](../Taming-and-control.md) for bonding with powerful beasts.
+See also: [Creatures index](../Creatures.md), the [Plains](../Biomes/Plains.md) it roams, the [Highland Dragon](Highland-dragon.md) that hunts it, [Crafting](../Crafting.md) for the materials its body can provide, and [Taming and Control](../Taming-and-control.md) for bonding with powerful beasts.
 
 ## Concept Drawing
 

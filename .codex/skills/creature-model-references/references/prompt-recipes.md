@@ -115,6 +115,54 @@ Check the 3D service's licence terms before a generated model goes into the ship
 
 ## Worked examples
 
+### Highland Dragon
+
+The first reference (bronze, spiky, club tail) predates the Vhagar-based revision of the creature file and is superseded. The second, `highland-dragon-model-reference-v2.png`, has the right head, colour and hide but failed the checklist: both hind legs hang from the near side of the body, the wingspan is only about the body length, the hanging skin forms an even comb of icicle-like spikes along the whole neck, the lichen reads as pasted-on leaf shapes and covers too much, and the tail ends in a sharp point. Regenerate it in a new conversation with the prompt below, then run the quality checklist, counting one hind leg per hip.
+
+`highland-dragon-model-reference-v3.png`, made from the prompt below, passes on wingspan, limb count, colour, lichen and the blunt tail. Two faults remain for reconstruction: the far hind leg stands well forward under the belly, so its thigh does not clearly join the far hip, and both legs are slender for a 70-tonne animal. The jaw flaps also still read as stiff spikes. Fix them in the same conversation, one message each:
+
+```text
+Legs: The far hind leg stands too far forward, under the belly, and its thigh does not clearly join the hip. Move it back so both thighs attach side by side at the rear hips where the tail begins, the far foot only slightly forward of the near one. Make both thighs and shins much thicker and more muscular, built to carry a 70-tonne animal like the legs of a Tyrannosaurus. Keep everything else identical.
+```
+
+```text
+Jaw flaps: The skin under the jaw hangs as stiff, pointed spikes. Make them soft, ragged, leathery flaps of loose skin of uneven length that droop with gravity, like torn folds of an old tortoise's neck. Keep everything else identical.
+```
+
+```text
+Create one photorealistic full-body creature model reference of a Highland Dragon for single-image 3D reconstruction. Plain neutral light-grey seamless studio background, soft even lighting, realistic organic surface finish. Depict one adult, very old 40-metre wyvern with an open wingspan of 90 metres.
+
+Anatomy is paramount: exactly four limbs total, two hind legs and two wings. The two hind legs are a LEFT-RIGHT PAIR on one pelvis at the rear hips, exactly where the tail begins, like a Tyrannosaurus: the near leg hangs from the near side of the pelvis and the far leg from the far side, with the belly between them. From this camera angle the far leg shows below the body on the far side, its thigh clearly attached to the far hip and its foot planted further from the camera than the near foot, with grey space between the two feet. Never two legs on the same side of the body. Two enormous pterosaur-like bat wings emerge from the shoulders; they are the only front limbs. Trace each wing's bones from the shoulder through the elbow to the hooked wrist claw and the long finger spars that hold the membrane. Leave clear empty grey space under the chest, with nothing hanging from the shoulders.
+
+Wingspan: both wings spread fully to the sides. Each wing on its own is as long as the whole dragon from nose to tail tip, so the span from wingtip to wingtip is about 2.25 times the body length and clearly much wider than the body is long.
+
+Build: long and heavy, lean but well fed, neither fat nor starved. Deep keeled chest and hunched, heavy shoulders, then the body tapers to firm, muscular flanks like an old bull's; no ribs or hip bones show. Thick, powerful thighs. Long thick neck in a gentle arch, head held low and forward and clear of the ground. Tail nearly half the total length, held straight back in a shallow curve, tapering to a heavy BLUNT rounded tip, not a sharp point.
+
+Head: very old, wagon-long skull, blunt and broad with a heavy rounded snout, small deep-set pale green eyes, closed mouth crowded with yellowed uneven forearm-long teeth showing past the lips. No single large pair of horns: a ragged ring of short, thick, backward-curving horns and spines frames the skull and the backs of the cheeks, chipped, broken and asymmetrical. Low worn blunt ridges along the spine, no tall spikes, no crest.
+
+Skin: jowly neck; heavy pendulous folds of loose skin under the jaw, down the throat and along the belly, deep creases at every joint like an ancient tortoise. Only a FEW ragged flaps of torn skin hang from the jaw and throat: irregular in length and spacing, soft and leathery, with bare gaps between them. Not a continuous or evenly spaced fringe, not icicles, not spikes.
+
+Colour: muted dull grey-green hide over the back, neck and tail, deep forest green in shadow and sea green to faded olive in light, with darker mossy patches on the neck and shoulders. Pale grey-tan throat, chest and belly ridged with deep transverse folds like a whale's throat. Bronze only as a faint warm undertone on plate edges. Matte, not shiny.
+
+Crust: a few small clusters of hard grey-white barnacle-like growths on the spine, shoulders and jaw folds. Only three or four small, flat, irregular patches of crusty grey-green lichen on the flanks, shaped like flat crust, not leaves. Most of the hide is bare, creased green skin. Pale healed seam scars, healed punctures and a few missing plates.
+
+Membranes: thick dark grey-green-brown leather, pleated, with raised dark veins, glowing dull red only where thin, a few ragged tears at the trailing edges and one small, paler, thinner regrown patch in one wing.
+
+Pose and camera: neutral reference pose standing level on both hind feet like a theropod, wings extended laterally to both sides at a shallow raised angle, mouth closed. Long-lens, slightly elevated front three-quarter camera, turned just enough toward profile to read the head, body length and complete tail. Keep both wing roots and both complete hind legs visible, one on each side of the body. Wide landscape framing with at least 5 percent clear grey margin beyond both wingtips, the horns, the tail tip and the feet. One creature, subtle contact shading only. No props, text, rider, saddle, landscape, effects or watermark.
+```
+
+### Pixie
+
+Saved as `Assets/Creatures/Model-references/pixie-model-reference.png`. The initial render passed the anatomy and framing checks. Fine scalp filaments and transparent wing membranes may need cleanup after reconstruction.
+
+```text
+Create one photorealistic full-body 3D game creature model reference for single-image image-to-3D reconstruction. Use the attached Wolf reference only for the plain neutral light-grey seamless studio background, soft even lighting and realistic organic materials. Depict one adult Pixie, a fictional 25 cm woodland creature with a slender long-limbed miniature humanoid silhouette, narrow torso and slightly oversized head. It has two arms at the shoulders and two legs at the hips, plus EXACTLY four distinct dragonfly wings. Two narrow blade-shaped wings extend left and two extend right. The upper and lower wing roots are stacked at the shoulder blades. Show four distinct tips with clear negative space between upper and lower wings on both sides. Wings are long, stiff, glass-clear with sharp fine dark reticulated veins, subtle rainbow edge sheen, and a total span about 1.5 times its standing height. Wings are transparent, but their outlines and veins remain readable.
+
+Its skin is pale bark-grey with a hint of forest green, faintly translucent with fine veins at the wrists and temples. The torso and pelvis are smooth and featureless like a naturally formed miniature carved figure. A diffuse muted green-gold light glows just beneath the breastbone and throat with restrained bloom. Fine pale scalp filaments hang like hair. Eyes are glossy solid black from lid to lid, without whites or irises. Closed, long fine mouth seam. Each open hand has exactly four long separated digits with small hooked nails. Long prehensile feet are visible and set apart.
+
+Neutral standing A-pose, arms angled down about 45 degrees from the torso, elbows relaxed, empty open hands with every digit distinct, legs separated and both feet planted. Use a nearly frontal view slightly above eye level, just enough of a turn to show depth while keeping both wing pairs, hands, feet and their outlines clear. Fan the two wing levels slightly apart so they form a readable cross silhouette, with four tips and no crossing over the arms. Entire creature centred with generous clear margin around every tip. Neutral light-grey seamless backdrop, soft even lighting, subtle contact shading only. Photoreal macro material detail, no props, scenery, text, scale figure, effects or watermark.
+```
+
 ### Royal Dragon
 
 Saved as `Assets/Creatures/Model-references/royal-dragon-model-reference.webp`. Fix rounds needed: wings enlarged, pose changed from wing-knuckle walking (which hid the hind legs behind the folded wings) to spread wings, legs moved from under the chest to the hips, and a leftover shoulder limb removed. Known weak spot: the far wing root overlaps the neck and horns.

@@ -12,7 +12,7 @@ The forest is rich and accessible to a gatherer, with harvestable timber, plenti
 
 ## Creatures
 
-The forest's signature threat is the [Wolf](../Creatures/Wolf.md), whose packs teach a player that the wilderness fights as a group rather than as a single foe. Bands of [Green Goblins](../Creatures/Green-goblin.md) raid its edges, carrion-fed [Slimes](../Creatures/Slime.md) settle in its hollows as [Neutral Slimes](../Creatures/Neutral-slime.md) (and, rarely, [Aggressive Slimes](../Creatures/Aggressive-slime.md) that have gorged on large kills), and the [Birds](../Creatures/Birds.md) overhead give constant, readable warning of what moves beneath the trees. In the deepest ravines and overgrown ruins, a [Minotaur](../Creatures/Minotaur.md) can turn familiar woodland into a place of broken trunks, crushed snares, and sudden charges. Rarely, a [Titan Turtle](../Creatures/Titan-turtle.md) on its seasonal migration turns a stretch of woodland into a path of splintered trunks and deep footprints, each heavy step covering more ground than a running player can, while rabbits and deer make up the ordinary game a hunter relies on.
+The forest's signature threat is the [Wolf](../Creatures/Wolf.md), whose packs teach a player that the wilderness fights as a group rather than as a single foe. Bands of [Green Goblins](../Creatures/Green-goblin.md) raid its edges, carrion-fed [Slimes](../Creatures/Slime.md) settle in its hollows as [Neutral Slimes](../Creatures/Neutral-slime.md) (and, rarely, [Aggressive Slimes](../Creatures/Aggressive-slime.md) that have gorged on large kills), and the [Birds](../Creatures/Birds.md) overhead give constant, readable warning of what moves beneath the trees. Its sunlit meadows and glades hold a few sparse colonies of [Pixies](../Creatures/Pixie.md), small glowing blood-drinkers that are harmless until one is harmed and then arrive in a swarm, so the prettiest clearing in the woods is often the first place a new player learns to leave something alone. In the deepest ravines and overgrown ruins, a [Minotaur](../Creatures/Minotaur.md) can turn familiar woodland into a place of broken trunks, crushed snares, and sudden charges. Rarely, a [Titan Turtle](../Creatures/Titan-turtle.md) on its seasonal migration turns a stretch of woodland into a path of splintered trunks and deep footprints, each heavy step covering more ground than a running player can, while rabbits and deer make up the ordinary game a hunter relies on.
 
 ## Hazards and Travel
 
@@ -24,7 +24,7 @@ The forest supports a scattering of modest habitation: travelling merchant route
 
 ## Continue Reading
 
-Continue with the [Wolf](../Creatures/Wolf.md) that hunts it, the [Minotaur](../Creatures/Minotaur.md) that haunts its deepest ruins, [World Design](../World.md) for the wider world it opens onto, the [Ancient Forest](Ancient-forest.md) and [Tundra](Tundra.md) that lie beyond it, and the [Quest System](../Quests.md) for the work its settlements offer.
+Continue with the [Wolf](../Creatures/Wolf.md) that hunts it, the [Minotaur](../Creatures/Minotaur.md) that haunts its deepest ruins, the [Pixie](../Creatures/Pixie.md) colonies of its glades, [World Design](../World.md) for the wider world it opens onto, the [Ancient Forest](Ancient-forest.md) and [Tundra](Tundra.md) that lie beyond it, and the [Quest System](../Quests.md) for the work its settlements offer.
 
 ## Draft
 

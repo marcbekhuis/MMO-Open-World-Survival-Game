@@ -12,7 +12,7 @@ The biome's biodiversity is its bounty. Rich resource nodes yield medicinal plan
 
 ## Creatures
 
-The jungle teems with life, and much of it warns before it strikes: many animals use sound, colour, or camouflage as signals a careful player can learn to read. The [Birds](../Creatures/Birds.md) of the canopy carry the long-range signal: a flock lifting over the trees shows roughly where a predator or a disturbance lies, long before it comes into view. Troops of [Four-Armed Monkeys](../Creatures/Four-armed-monkey.md) carry the close-range one, chattering above fruiting trees when the area is safe and falling abruptly silent when an ambush predator is already near. At the more lethal end of that same lesson, the [Paralyzing Dragon](../Creatures/paralyzing-dragon.md) turns camouflage, speed, and toxic breath into a close-range ambush that makes silence under the canopy feel dangerous. Reading the jungle's chorus is as much a survival skill here as any weapon.
+The jungle teems with life, and much of it warns before it strikes: many animals use sound, colour, or camouflage as signals a careful player can learn to read. The [Birds](../Creatures/Birds.md) of the canopy carry the long-range signal: a flock lifting over the trees shows roughly where a predator or a disturbance lies, long before it comes into view. Troops of [Four-Armed Monkeys](../Creatures/Four-armed-monkey.md) carry the close-range one, chattering above fruiting trees when the area is safe and falling abruptly silent when an ambush predator is already near. At the more lethal end of that same lesson, the [Paralyzing Dragon](../Creatures/paralyzing-dragon.md) turns camouflage, speed, and toxic breath into a close-range ambush that makes silence under the canopy feel dangerous. [Pixie](../Creatures/Pixie.md) colonies range the canopy and its clearings in greater numbers than anywhere else, and their soft chiming is part of the chorus too: it turns shrill when one of them is harmed, and up to thirty come out of the green from every side. Reading the jungle's chorus is as much a survival skill here as any weapon.
 
 ## Hazards and Travel
 
@@ -24,7 +24,7 @@ At the jungle's heart stands a major overgrown temple or stepped ruin, a structu
 
 ## Continue Reading
 
-Continue with the [Birds](../Creatures/Birds.md) that show danger from afar, the [Four-Armed Monkey](../Creatures/Four-armed-monkey.md) that warns when it is close, the [Paralyzing Dragon](../Creatures/paralyzing-dragon.md) that stalks its undergrowth, the neighbouring [Bamboo Jungle](Bamboo-jungle.md), and the [Dungeons](../Structures/Dungeons.md) its great ruin conceals.
+Continue with the [Birds](../Creatures/Birds.md) that show danger from afar, the [Four-Armed Monkey](../Creatures/Four-armed-monkey.md) that warns when it is close, the [Paralyzing Dragon](../Creatures/paralyzing-dragon.md) that stalks its undergrowth, the [Pixie](../Creatures/Pixie.md) swarms of its canopy, the neighbouring [Bamboo Jungle](Bamboo-jungle.md), and the [Dungeons](../Structures/Dungeons.md) its great ruin conceals.
 
 ## Draft
 
