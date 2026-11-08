@@ -200,6 +200,8 @@ The strike's drive and braking work become the move's stamina spend, so a swing 
 
 AI-controlled creatures run the same sub-step on the server only, as their movement does.
 
+A stamina cost decided by the server, such as the energy a block absorbs, is the exception that costs something. The owning client cannot know the energy of a blow it has not yet seen resolved, so each caught blow reaches it as a correction, and in networked tests at 150 milliseconds a caught blow cost the owner 2,4 corrections on average, the burst any server-decided stamina change produces, while unguarded hits cost none. Such a cost stays acceptable only while it is predictable, so the guard of section 8 is a held action in the slot with a defined stamina rule rather than a facing test.
+
 ### 4.1 The Action Slot
 
 [Actions](Actions.md) allows a body one action at a time, and a strike is only one kind. Every body therefore has a single action slot, `UActionSlotComponent`, and every action, a strike, a guard, a spell, eating or drinking, drawing or swapping an item, a tool's swing, a creature's roar, runs through it. The slot is predicted in the move for the same reason the strike is: actions limit movement and spend stamina, and an action refused on the server but begun on the client would correct the body. The strike sub-step above is the strike action's tick inside the slot.
@@ -230,7 +232,19 @@ struct FActionInput
 
     bool   bPrimaryHeld = false;     // left mouse button: use what is in the hands
     bool   bSecondaryHeld = false;   // right mouse button: guard
-    uint16 ReadyRequest = 0;         // non-zero on the move the hotbar asks to ready an item
+    uint8  HotbarSeq = 0;            // changes once per hotbar press, so a lost or merged move cannot repeat or drop it
+    uint8  HotbarSlot = 0;           // slot index of the press that last changed HotbarSeq
+};
+
+USTRUCT()
+struct FActionSummary                // sent with every move: the slot as the client holds it after the move
+{
+    GENERATED_BODY()
+
+    EActionKind Kind = EActionKind::None;
+    uint8  Phase = 0;                // the running action's phase
+    uint16 HeldItemId = 0;           // the item in hand
+    uint8  HeldCharges = 0;          // its charges, such as rations left or bandage uses
 };
 
 UENUM()
@@ -256,7 +270,11 @@ Letting go of the button that began the action ends it through the action's rele
 
 When an action completes with its button still held and it repeats while held, the slot begins the next one in the same move if the conditions are still met. A repeated strike takes its arc from the mouse gesture at that moment, or, with no gesture, from the arc that flows out of where the last one ended, which the strike definition names for each arc. An action held at the end of its progress without completing, a bow at full draw, charges `HoldCostPerSecond` to stamina each move and, for the bow, feeds a sway into the aim that grows as stamina falls. AI-controlled creatures write the same input from their brains, holding the primary for as long as they mean to press an attack. A stagger, a fall, or a knockdown decided by the server ends the action as broken, with the same cost as a cancel; it reaches the owning client in a correction, and the client replays from there. Every cancelled or broken action sets `ReturnToGuard` for a short time that grows with what was held, so no cancellation chains straight into a new action.
 
-Each action kind also supplies the body effect of the move, extending `FStrikeBodyEffect` to every action: a consume caps the gait at the travelling role, a ready of a heavy item slows the turn while it comes round, and a cast reads its limits from the spell. Readying an item takes a time computed from its mass and the container it comes from, a hand slot, a belt pouch, a back sling, or the inside of a pack, so the inventory's layout is what makes an item quick or slow to reach.
+A hotbar press travels as a sequence number and a slot index, and the sequence changes once per press. The server acts on a press only when it sees a sequence it has not yet handled, so a lost or merged move can neither repeat a ready nor drop it. A press made while the slot is busy is dropped rather than queued, in line with the rule above, and the slot index is read only on the move where the sequence changed.
+
+Many actions neither move the body nor spend stamina: eating, binding a wound, readying an item, holding a guard. A wrong slot would then show as no position or stamina error at all, and a client whose ration the server refused would eat on its screen without a correction. Every move therefore carries, besides the held buttons and the hotbar request, an `FActionSummary` of the slot after the move: the running action, its phase, the item in hand and its charges. The server compares it with its own slot and, on any mismatch, corrects the owning client with the whole slot state, which the client replays from. In networked tests at 150 milliseconds, readying a bandage from the belt pouch took 0,39 seconds against a planned 0,42 and binding the wound took 3,98 seconds against 4, with client and server logging both at the same move times and no correction beyond the seven the run cost before the bandage became an action.
+
+Each action kind also supplies the body effect of the move, extending `FStrikeBodyEffect` to every action: a consume caps the gait at the travelling role, a ready of a heavy item slows the turn while it comes round, and a cast reads its limits from the spell. The effect applies to the move that carries the action and to no other: the highest gait, the turn rate and the stamina an action spends come from its own `FActionState` inside that move, never through the replicated movement conditions, which the server decides and which reach the client late. Readying an item takes a time computed from its mass and the container it comes from, a hand slot, a belt pouch, a back sling, or the inside of a pack, so the inventory's layout is what makes an item quick or slow to reach.
 
 The slot replicates its kind, definition, and progress band to other clients alongside the strike view, so an onlooker sees a fighter lower their guard to drink, and a creature's own actions run through the same slot on the server.
 
@@ -271,6 +289,8 @@ Other clients receive a compact view of the strike, the arc, a quantised angle, 
 Hits are detected on the server. Each strike region is a chain of spheres along the weapon or limb, and every server move sweeps each sphere from its position at the previous move's angle to its position at this move's angle with `UWorld::SweepMultiByChannel`, sub-stepping fast arcs so that no sweep covers more than a few degrees and a dagger flick never passes through a target between samples. The first blocking hit along a region is resolved (section 7), and resolution decides whether the strike continues and the sweep goes on to find further targets.
 
 Targets are rewound. The attacker swung at what their client showed them, which on a 150 millisecond connection is where other bodies were a moment ago, so the server keeps a short history of every character's hit volumes and, for a player's strike, tests against the volumes as they stood at the attacker's view time, bounded to 250 milliseconds so a poor connection cannot reach far into the past. Static geometry needs no rewind and agrees on both machines, so the attacker's client predicts world contacts itself, the glance off a stone wall or the bite into a door, and plays them at once; hits on characters and creatures appear when the server confirms them.
+
+Armour pieces carry hit volumes of their own, and once swept hit volumes exist they are finer than a body region. The body regions are the boxes defined in [Health and Wounds (Technical)](<Health-and-wounds (Technical).md>), and a region on its own is either covered or not, which cannot express the gaps that [Armour](Armour.md#coverage-and-gaps) describes. Each piece therefore adds gap volumes where its cover stops, the armpit and the back of the knee among them, and a sweep that meets a gap volume resolves against the layers beneath the piece instead of against the piece. Flanking attackers show why this matters: a wolf pack's lunges meet a standing body on its side, so they land on the arms and the armpit gap far more often than on the torso.
 
 ### 6.1 Projectiles
 
@@ -319,11 +339,58 @@ FImpactResult ResolveImpact(const FStrikeState& S, const UStrikeDefinition& Def,
 
 The impact table is project data, one row per strike region kind and target material: flesh, hide, mail, plate, wooden shield, metal shield, wood, earth, and stone. Each row holds the alignment below which a blow glances, the energy that breaks through a glance anyway, the energy the material stops, how much of a stopped blow it absorbs, how rigid it is, and whether an edge can bite and stick. Physical materials on character hit volumes, armour pieces, shields, building pieces, and world geometry name the row. An item's condition, as [Inventory](Inventory.md#wear-and-repair) defines it, scales the lookup: a dull edge lowers the glance threshold it beats and the energy it delivers, and a worn armour piece lowers the energy it stops.
 
+Armour is the first column of this table, and its outcome must be continuous in the blow's energy. A layer is not a threshold that either stops a blow or lets it through. Per material it keeps three things: the energy of each damage kind it stops, the blunt share of a stopped blow that it passes on as crush, and the wear it takes per joule absorbed. The rows are padded cloth, leather, mail, plate, and the hides of creatures.
+
+```cpp
+struct FDeliveredEnergy
+{
+    float ByKind[3] = {};      // cut, pierce, crush still travelling inward, in joules
+    float Crush = 0.f;         // bruising passed on by the layers above, in joules; reaches the body as crush
+};
+
+struct FArmourLayerRow
+{
+    float StopJoules[3];       // cut, pierce, crush: the energy of each kind this layer stops
+    float BluntShare = 0.f;    // the share of what it stopped that still arrives as crush (mail: 0.4)
+    float WearPerJoule = 0.f;  // condition lost per joule absorbed
+};
+
+// Each layer takes up to its stop energy of each kind, passes its blunt share of what it took as crush,
+// and lets the rest through to the next layer.
+void ApplyLayer(const FArmourLayerRow& L, FDeliveredEnergy& InOut, float& WearOut)
+{
+    float Crush = InOut.Crush;
+    for (int32 Kind = 0; Kind < 3; ++Kind)
+    {
+        const float Taken = FMath::Min(InOut.ByKind[Kind], L.StopJoules[Kind]);
+        InOut.ByKind[Kind] -= Taken;                 // the rest goes on through
+        Crush += Taken * L.BluntShare;               // what was stopped still bruises
+        WearOut += Taken * L.WearPerJoule;
+    }
+    InOut.Crush = Crush;
+}
+```
+
+The reason is a bug class, not a style choice. A first draft that followed the table's shape, with a blow either stopped or carried through, made it hurt less to be hit harder: on mail a cut of 120 joules passed 72 joules of crush, while one of 121 joules passed 1, because the larger blow crossed the stop threshold and was handled by the carry-through branch. Taking up to the stop energy and letting the remainder through removes the cliff. Every material therefore needs a test that sweeps blow energy upward in small steps for each damage kind and fails if the total delivered energy ever falls as the blow grows. In networked tests a wolf's lunge of 40 joules cost a person 14 health on a bare arm and 6,7 in a mail hauberk, and the mail took a little less each lunge as it wore.
+
 The result goes three ways. The delivered energy and damage kind go to the target's vitals, where [Armour](Armour.md) and [Health and Wounds](Health-and-wounds.md) turn them into injury, or to the [Building System (Technical)](<Building-system (Technical).md>) damage path for a building piece, where crushing is what stone fears. The recoil momentum goes back to the attacker's strike and body: a stop sets the strike into its recoil phase, and a large recoil staggers the attacker through the movement component. The target push goes to the target's body against its mass and its brace, as a stagger or a knockback. A bite holds the strike in place until the wielder's next input works it free, at a stamina cost, and a carry-through continues the sweep with the strike's speed reduced.
 
 ## 8. Blocking and Parrying
 
 A guard is a pose with its own volume: a shield, or a weapon held across the body, swept like any other region as it moves into place, at a speed limited by its own weight. A strike that meets a guard is resolved against the guard's material like any other contact. When it is stopped, the energy the guard absorbs is charged to the defender's stamina through the movement guide's `RequestStaminaSpend`, scaled by the shield's efficiency, and the push goes to the defender's body as a stagger whose size grows with the blow's momentum against the defender's brace. A defender whose stamina cannot pay the whole cost has their guard broken, and the rest of the energy passes through.
+
+Until blocking is simulated, a brace is decided by the guard's state and not by facing alone. The values below are interim and are replaced by the blocking simulation, once it exists, for the creature attacks that [Actions](Actions.md#creatures) describes.
+
+| Rule | Interim value | Status |
+|---|---|---|
+| Guard raised | the guard action is in its held phase | Provisional |
+| Attacker within | 60 degrees of the defender's view | Provisional |
+| Energy delivered by a braced blow | a quarter of the blow's energy | Provisional |
+| Knockdown | none while braced | Provisional |
+| Stamina cost | 0,2 stamina per joule caught | Provisional |
+| Exhausted guard | the blow that empties stamina is still braced; with none left the guard breaks at once and cannot be raised until stamina returns | Provisional |
+
+The same guard applies to bites and to a deer's antler strike. Facing the attacker without a raised guard braces nothing: in networked tests at 150 milliseconds every lunge that landed on an unguarded player knocked it down (five of five). With the guard held towards the front of a wolf pack and the player never turning, four of seven landed lunges came from within the 60 degrees and were braced, and three came from outside it and knocked the player down and broke the guard, because the pack lunges from 50 to 110 degrees off the view by design. Turning the guard to the tell stays the player's part.
 
 A parry is a guard met within a short window of its own motion, angled across the incoming blow. It does not absorb the blow; it changes its direction, at a cost proportional to the momentum component it turns aside, and hands the attacker's strike a plane deflection through the same drag channel the mouse uses. A parried heavy strike therefore keeps most of its speed and carries on past the defender, and a light sword can turn a hammer, but a parry made too early or too late is simply a guard in the hammer's path.
 

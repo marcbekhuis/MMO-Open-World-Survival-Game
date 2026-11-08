@@ -18,6 +18,7 @@ Creatures define the living pressure of the world. They are enemies, resources, 
 - [Minotaur](Creatures/Minotaur.md)
 - [Paralyzing dragon](Creatures/paralyzing-dragon.md)
 - [Pixie](Creatures/Pixie.md)
+- [Red deer](Creatures/Red-deer.md)
 - [Red goblin](Creatures/Red-goblin.md)
 - [Royal dragon](Creatures/Royal-dragon.md)
 - [Sandworm](Creatures/Sandworm.md)

@@ -515,7 +515,9 @@ void URegionManagerComponent::TickVisibilityBroadcast(float DeltaTime)
 }
 ```
 
-`RegionHasPerceivers` is answered from a perceiver index the owning servers publish once a second: per region, whether it holds players and which AI senses are active there, so an AI-only region still receives the ghost of a wolf pack it could smell.
+`RegionHasPerceivers` is answered from a perceiver index the owning servers publish once a second: per region, whether it holds players and which AI senses are active there, so an AI-only region still receives the ghost of a wolf pack it could smell. Only awake creatures count as perceivers: a dormant group publishes no senses, so a sleeping herd or pack never keeps another group awake or draws a ghost snapshot toward itself.
+
+Waking is resolved in two passes on the same once-a-second cadence. The first wakes every group within its wake distance of a player (its senses plus a margin, 30 metres by default). The second wakes every group within its wake distance of a hostile group the first pass woke, and stops there, so waking is one step deep and cannot spread from group to group across a dense region. In networked tests at 150 milliseconds of latency, a player jogging at 3,5 metres a second woke two herds at about 88 and 90 metres and their pack one step later, and the region slept again once the player was 300 metres away.
 
 ### 6.3 Receiving Ghost Entities
 

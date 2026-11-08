@@ -1,6 +1,6 @@
 # Health and Wounds
 
-A body in this world is hurt where it is hit. Every character and every creature carries one measure of how close it is to death, its health, and a record of what has been done to it, its wounds. Health decides whether a body lives; wounds decide how well it can move, fight, and recover while it does. A cut across the thigh does not simply take a slice off a bar: it slows the leg it opened, it bleeds until someone binds it, and it is still there tomorrow if nobody treats it. The same rules hold for a player, a wolf, and a horse, so a hunter who wounds a deer's leg can run it down, and a wolf pack that has opened a traveller's arm knows the fight has turned. This document sets out how damage becomes injury, how injury heals, and what ends a life. What a blow delivers in the first place is set out in [Melee Combat](Melee-combat.md#when-a-strike-lands), and what stands between the blow and the body in [Armour](Armour.md).
+A body in this world is hurt where it is hit. Every character and every creature carries one measure of how close it is to death, its health, and a record of what has been done to it, its wounds. Health decides whether a body lives; wounds decide how well it can move, fight, and recover while it does. A cut across the thigh does not simply take a slice off a bar: it slows the leg it opened, it bleeds until someone binds it, and it is still there tomorrow if nobody treats it. The same rules hold for a player, a wolf, and a horse, so a hunter who wounds a deer's leg can run it down, and a wolf pack that has opened a traveller's arm knows the fight has turned. This document sets out how damage becomes injury, how injury heals, and what ends a life. What a blow delivers in the first place is set out in [Melee Combat](Melee-combat.md#when-a-strike-lands), and what stands between the blow and the body in [Armour](Armour.md). The implementation of the model is in [Health and Wounds (Technical)](<Health-and-wounds (Technical).md>).
 
 ## Health
 
@@ -16,7 +16,7 @@ A blow arrives as energy of a kind, cut from an edge, pierce from a point or a f
 
 ## Wounds
 
-A wound is an injury to one region, and its kind follows from what caused it. Cuts open the flesh and bleed. Deep pierces bleed and can strike deeper than they look. Crushing blows bruise, and heavy ones fracture bone. Fire and the burning spells of [Magic](Magic.md) leave burns that weaken the region and sting every time it is used. Each wound has a severity, from a scratch that does nothing but mark the body to a wound that takes the region out of use.
+A wound is an injury to one region, and its kind follows from what caused it. Cuts open the flesh and bleed. Deep pierces bleed and can strike deeper than they look. Crushing blows bruise, and heavy ones fracture bone. Fire and the burning spells of [Magic](Magic.md) leave burns that weaken the region and sting every time it is used. Each wound has a severity, from a scratch that does nothing but mark the body, through light and serious wounds, to a grave one that takes the region out of use. A body keeps at most one wound of each kind in each region, and a further blow of that kind does not add a second wound but raises the first: a second light cut on the same arm makes it a serious cut. Falls wound the same way, as crushing force delivered to the legs, at the heights [Movement](Movement.md#jumping-crouching-and-falling) sets out: a fracture of both legs at around seven metres, death at around thirteen.
 
 What a wound does depends on where it is, and every effect is felt through the systems the body already runs on.
 
@@ -29,13 +29,13 @@ Wounds are visible. A limping stride, an arm held close, a hand pressed to the r
 
 ## The Head
 
-The head is the most dangerous place to be hit. A blow to the head costs several times the health the same blow would cost the torso, and it dazes: the view blurs and darkens at the edges, the ears ring and the world's sounds dull, and the body staggers, for longer the harder the blow. A dazed fighter cannot begin an action until their head clears. A heavy weapon brought down on an unprotected head can kill outright, whatever health the body had left.
+The head is the most dangerous place to be hit. As server defaults, a joule of energy that reaches the head costs 1,5 health against 0,5 on the torso, so a blow to the head costs three times as much as the same blow to the chest. It also dazes: the view blurs and darkens at the edges, the ears ring and the world's sounds dull, and the body staggers, for 0,05 seconds per joule that reaches the head, up to a longest daze of 6 seconds. A dazed fighter cannot begin an action until their head clears. A blow that delivers 150 joules to the head kills outright, whatever health the body had left, which a heavy weapon brought down on an unprotected head can do and the same weapon on a helmet cannot.
 
 This is why a helmet is the single most valuable piece of armour a fighter owns, and why the choice of helmet in [Armour](Armour.md#helmets-sight-and-hearing) weighs protection against how much of the world the wearer can still see and hear. The presentation of a daze can be softened through the comfort options of [Accessibility](Accessibility.md); its length and its effect on what the dazed character can do cannot.
 
 ## Bleeding
 
-Deep cuts and pierces bleed. A bleeding body loses health steadily, faster the more severe the wound, until the bleeding is stopped by a bandage, by cauterising the wound with fire, or by healing magic such as [Mending Light](Magic/Spells/Light/Mending-light.md). A serious bleed left alone kills within a minute or two; a light one, in a few minutes; a scratch stops on its own.
+Deep cuts and pierces bleed. A bleeding body loses health steadily, faster the more severe the wound, until the bleeding is stopped by a bandage, by cauterising the wound with fire, or by healing magic such as [Mending Light](Magic/Spells/Light/Mending-light.md). As server defaults, a serious bleed costs 1,2 health a second, which empties a person's 100 health in about 80 seconds, and a light bleed costs 0,4 a second, which does the same in about four minutes. A scratch, and in a creature a light bleed, clots after about 20 seconds and stops on its own; a light bleed in a person, a serious bleed, and a grave one run until they are treated.
 
 Bleeding leaves a trail. Drops of blood mark the ground behind a wounded body and stay there for a while, and creatures with a nose for it can follow it, so a wounded traveller who flees through the forest is followed, not lost. Predators treat a bleeding body as they treat a winded one, as the weakest prey in reach, in the same way set out in [Movement](Movement.md#creatures-and-mounts). The rule works for players as well: a hunter who opens a deer and loses sight of it can follow the blood.
 
@@ -53,11 +53,11 @@ A living body never loses a limb. Severed limbs and taken heads, the brutality s
 
 ## Creatures
 
-Creatures are hurt and heal by the same rules. A wolf with a cut foreleg limps and cannot keep up with its pack; a buffalo with a fractured leg cannot run with the herd and becomes the herd's weakest animal; a creature bleeding from a deep wound leaves a trail and weakens until it dies or the bleeding stops. Wild creatures recover by resting in their dens and lairs, so a creature driven off wounded returns later, slower to heal than a player under a healer's care but healing nonetheless. The injuries of a tamed mount, its wounds and its lame legs, are this same model, as [Creature Riding](Creature-riding.md#care-and-tack) treats them.
+Creatures are hurt and heal by the same rules. A wolf with a cut foreleg limps and cannot keep up with its pack; a buffalo with a fractured leg cannot run with the herd and becomes the herd's weakest animal; a creature bleeding from a deep wound leaves a trail and weakens until it dies or the bleeding stops. A creature's light bleed clots on its own after about 20 seconds, as a scratch does in a person, but a serious or grave bleed runs until the creature is treated or dies. This is what lets a pack bleed prey down: one bite leaves a bleed that closes by itself, repeated bites on the same place raise the wound to serious, and the deer that outran the first rush is dying by the time it stops. Wild creatures recover by resting in their dens and lairs, so a creature driven off wounded returns later, slower to heal than a player under a healer's care but healing nonetheless. The injuries of a tamed mount, its wounds and its lame legs, are this same model, as [Creature Riding](Creature-riding.md#care-and-tack) treats them.
 
 ## Continue Reading
 
-Continue with [Armour](Armour.md) for what stands between a blow and the body, [Melee Combat](Melee-combat.md) for the blows themselves, [Death and Loss](Death-and-loss.md) for what follows when health runs out, and [Survival](Survival.md) for the care that lets a body recover.
+Continue with [Health and Wounds (Technical)](<Health-and-wounds (Technical).md>) for the implementation of this model, [Armour](Armour.md) for what stands between a blow and the body, [Melee Combat](Melee-combat.md) for the blows themselves, [Death and Loss](Death-and-loss.md) for what follows when health runs out, and [Survival](Survival.md) for the care that lets a body recover.
 
 ## Draft
 

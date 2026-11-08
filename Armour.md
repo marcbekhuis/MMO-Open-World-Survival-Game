@@ -8,6 +8,8 @@ Every piece of armour covers part of the body, and nothing covers all of it. A b
 
 Armour is worn in layers, and the layers add up. A padded gambeson softens blows on its own and sits under everything else; mail goes over it; plate goes over the mail where the wearer can afford it. A blow meets each layer in turn from the outside, and each takes what it can stop.
 
+Which piece matters most depends on who is attacking. Attackers that come in from the flanks, such as a [wolf](Creatures/Wolf.md) pack, meet a standing body on its side, so their lunges land on the arms far more often than on the torso, and sleeves of mail or leather are worth as much against them as a breastplate. A traveller who armed the chest and left the arms bare has armoured against the duellist and not against the pack.
+
 The gaps are why technique matters against armour. A thrust with its narrow point is the weapon that finds a gap, and a light blade aimed at the joints of a plated opponent does far more than one beaten against the plate. The [Combat Skills](Skills/Combat.md) that refine aim and edge alignment are worth most against the best-armoured enemies.
 
 ## Materials Against Blows
@@ -16,7 +18,7 @@ Each material meets cut, pierce, and crush in its own way, and each has a limit 
 
 - **Padded cloth** takes the sting out of a crushing blow and stops a weak cut, but a determined edge or point goes through it.
 - **Leather** turns glancing cuts and slows a point, and is light and quiet.
-- **Mail** stops cuts almost entirely, and is the reason a sword is not enough against a well-armed soldier. A hard thrust or a heavy arrow can split its rings, and a crushing blow passes through it into the body as bruising and broken bone.
+- **Mail** stops cuts almost entirely, and is the reason a sword is not enough against a well-armed soldier. A hard thrust or a heavy arrow can split its rings, and a crushing blow passes through it into the body as bruising and broken bone. Of every blow that mail stops, four tenths still arrive as bruising, so a hauberk blunts a wolf's lunge without sparing the arm beneath it the ache.
 - **Plate** stops cuts, turns most thrusts and arrows, and spreads a crushing blow over a wide area. It does not make its wearer immune to a war hammer: the hammer dents the plate, and the force that passes through is still enough to bruise, break, and, on a helmet, concuss.
 
 A blow weaker than what a layer can stop glances or is stopped there, and only its blunt force reaches the body. A blow stronger than that drives through with whatever energy it has left. Better materials raise the limit, from boiled leather and iron mail to steel plate and the rare metals of the deep places, and the best armour of the late game stops blows that would go through anything a new character can make. Armour carries no stat or skill requirements. Its weight is its limit: a character who wants to wear plate needs the Carry Weight and Stamina to bear it, and a character who cannot bear it simply cannot move well in it.

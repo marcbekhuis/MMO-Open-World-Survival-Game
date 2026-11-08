@@ -137,7 +137,8 @@ public:
     UPROPERTY(EditAnywhere) FLocomotionStaminaRules Stamina;
     UPROPERTY(EditAnywhere) FLocomotionTraversal Traversal;     // vault, mantle, and climb-over numbers, section 6.1
     UPROPERTY(EditAnywhere) float SafeFallCm = 400.f;           // falls below this only cost speed
-    UPROPERTY(EditAnywhere) float LethalFallCm = 1200.f;
+    UPROPERTY(EditAnywhere) float LethalFallCm = 1300.f;
+    UPROPERTY(EditAnywhere) float FallCrushJoulesPerMeter = 25.f; // crush to each leg per metre beyond SafeFallCm
 };
 ```
 
@@ -185,7 +186,7 @@ struct FLocomotionState
 };
 ```
 
-The conditions are what the server decides about the body from outside the move: the load fraction from the inventory, the stat modifiers from Speed, Handling, and Stamina, the recovery and ceiling dials that hunger and fatigue turn, and any extra role cap another system imposes, such as a mount's injury. They change rarely and are never predicted. They replicate to the owning client as one struct stamped with the server move time at which they took effect, the same pattern section 12.1 of the riding guide uses for mount rule state, so a replayed move reads the conditions that were in force when it was first made.
+The conditions are what the server decides about the body from outside the move: the load fraction from the inventory, the stat modifiers from Speed, Handling, and Stamina, the recovery and ceiling dials that hunger and fatigue turn, and any extra role cap another system imposes, such as a mount's injury or the injury caps of a person's [wounds](Health-and-wounds.md#wounds). They change rarely and are never predicted. They replicate to the owning client as one struct stamped with the server move time at which they took effect, the same pattern section 12.1 of the riding guide uses for mount rule state, so a replayed move reads the conditions that were in force when it was first made.
 
 ```cpp
 USTRUCT()
@@ -205,6 +206,8 @@ struct FLocomotionConditions
     float     EffectiveFromServerTime = 0.f;
 };
 ```
+
+Conditions that change in combat cost the owning client a burst of corrections. An injury cap, a serious leg cut that takes the sprint or a fracture that leaves only the walk, is written by the server while the body moves, and in networked tests at 150 milliseconds each such change cost two or three corrections and none while the body stood still. A fight that wounds a running player therefore snaps them back a little at each wound. Any condition that changes in combat, injury caps among them, is carried in the move instead of waiting on the replicated struct, as the knockdown is, so the client applies it at the same move as the server and the burst does not occur.
 
 ## 4. The Locomotion Solve
 
@@ -359,7 +362,7 @@ Survival never owns a second pool. It charges food and water for the work each m
 | `PhysWalking` | Reads the floor result into `FLocomotionGround`, solves the step, then runs the base walking physics. |
 | `OnMovementUpdated` | Advances the state with the move's spends and decides whether the body was moving at pace. |
 | `CanAttemptJump` | Refuses while winded, without the jump cost, or when the load tier forbids jumping. |
-| `ProcessLanded` | Converts the fall height into landing recovery on every machine and a fall-damage request on the server. |
+| `ProcessLanded` | Converts the fall height into landing recovery on every machine and a fall-damage request on the server: 25 joules of crush to each leg per metre beyond `SafeFallCm`, so about 7 metres fractures both legs and leaves a limp and about 13 kills. |
 | Move start | Runs the body's action slot sub-step of [Melee Combat (Technical)](<Melee-combat (Technical).md#4-running-inside-the-move>) before the locomotion solve, so an action's limits on turning and gait apply in the same move. |
 | `GetPredictionData_Client` | Supplies the client prediction data that allocates the custom saved move of section 7. |
 
@@ -388,6 +391,7 @@ struct FLocomotionTraversal
     UPROPERTY(EditAnywhere) float OverheadReachCm = 218.f;        // measured from the body: shoulder joint plus arm to the middle fingertip, from the feet
     UPROPERTY(EditAnywhere) float JumpReachBonusCm = 0.f;         // tuning allowance for the jump on top of the reach; the rising shoulder
     UPROPERTY(EditAnywhere) float JumpWindowCm = 100.f;           // the jump must come within this distance of the face
+    UPROPERTY(EditAnywhere) float VaultBaseSeconds = 0.35f;
     UPROPERTY(EditAnywhere) float VaultSecondsPerMeter = 0.5f;
     UPROPERTY(EditAnywhere) float VaultKeptSpeed = 0.8f;          // share of arrival speed kept on leaving the wall
     UPROPERTY(EditAnywhere) float BurdenedVaultKeptSpeed = 0.3f;  // over the carrying limit
@@ -414,7 +418,7 @@ The measured obstacle picks the traversal from the top's height, its depth, and 
 | The same heights, thinner than that | Climb-over; the landing room and the drop limit are checked |
 | Above the reach | Not a traversal; the surface is a climb (above) or nothing |
 
-The vault takes `VaultSecondsPerMeter` times the height and leaves the body at `VaultKeptSpeed` of its arrival speed, or `BurdenedVaultKeptSpeed` when the load is over the limit; the mantle and its two siblings take `MantleBaseSeconds` plus `MantleSecondsPerMeter` times the height, and cost the pool fraction on the straight line through the two cost points, 7,3 points at 1,40 metres and 12,0 at 1,80 for a pool of 100. A mantle, hop-up, or climb-over is refused outright when the hands are full or the load is over the limit. The reach is measured from the character model at the feet, never from the ground at the face, and for the 1,80-metre template body it comes to 2,18 metres, a little under what a standing person reaches, because the shoulder rises with the arm and the model's rest pose does not show it; `JumpReachBonusCm` is the tuning value for when play says the reach is short. The landing check demands the body's whole footprint on ground, `LandingRoomCm` beyond the top for the template body, so a second fence or an overhang closer than that refuses the move. The approach angle is measured between the facing and the obstacle's face normal, and inside `MaxApproachAngleDeg` the fitted path crosses the face by the short way.
+The vault takes `VaultBaseSeconds` plus `VaultSecondsPerMeter` times the height, 0,65 seconds at 60 centimetres and 0,9 at 1,10 metres, and leaves the body at `VaultKeptSpeed` of its arrival speed, or `BurdenedVaultKeptSpeed` when the load is over the limit; the mantle and its two siblings take `MantleBaseSeconds` plus `MantleSecondsPerMeter` times the height, and cost the pool fraction on the straight line through the two cost points, 7,3 points at 1,40 metres and 12,0 at 1,80 for a pool of 100. A mantle, hop-up, or climb-over is refused outright when the hands are full or the load is over the limit. The reach is measured from the character model at the feet, never from the ground at the face, and for the 1,80-metre template body it comes to 2,18 metres, a little under what a standing person reaches, because the shoulder rises with the arm and the model's rest pose does not show it; `JumpReachBonusCm` is the tuning value for when play says the reach is short. The landing check demands the body's whole footprint on ground, `LandingRoomCm` beyond the top for the template body, so a second fence or an overhang closer than that refuses the move. The approach angle is measured between the facing and the obstacle's face normal, and inside `MaxApproachAngleDeg` the fitted path crosses the face by the short way.
 
 A traversal that the body cannot pay for in stamina is refused before anything is spent. The check runs ahead of `CanAttemptJump`: when the sweep classifies the obstacle as a hop-up, mantle, or climb-over and the pool is short, the press is consumed as a failed grab, a short animation that shows why, and no jump cost is charged, so the body stays on its feet and the pool does not drain. Only a press with no climbable obstacle ahead falls through to the ordinary jump and its cost.
 
@@ -436,7 +440,7 @@ The conditions are the only input not carried in the move. They change on invent
 
 An AI-controlled creature has no owning client, so its movement runs only on the server and nothing about it is predicted. Its brain writes the intent, choosing a gait from its own judgement, and reads the state back, so a wolf can see that it is winded and drop to a recovering gait without a separate stamina model of its own. Which recovering gait a winded wolf asks for is the brain's decision: the walk when it is out of danger, the labouring trot when it is in danger, with danger measured from the fight (a wolf holding a lunge or feint order, or mauling the target, within a few metres; its own order; or a pack of three or fewer) and not from the distance to the player. The decision lives in a plain function in the creature's code, as section 7 of [Taming and Control (Technical)](<Taming-and-control (Technical).md>) arranges for every species, and this guide supplies only the rows it chooses between. Path following reaches the body through the CMC's `RequestPathMove` and `RequestDirectMove`. With `NavMovementProperties.bUseAccelerationForPaths` set, the path request becomes acceleration rather than a direct velocity, so the creature passes through the same acceleration, braking, and turn model as a player and a charging creature genuinely cannot turn on a coin. A creature that needs a sharp turn its momentum will not give, such as a Minotaur that has overshot its target, has to slow and come round, which is the counter window [Movement](Movement.md#creatures-and-mounts) promises.
 
-Other clients see creatures and other players as simulated proxies with the CMC's smoothing, which already carries the facing as the actor's rotation. A small view struct replicates with the actor, skipping the owner: the granted gait, a stamina band of four steps, the winded flag, and the head's yaw offset from the facing. The head's pitch needs nothing new, because the engine already replicates it to simulated proxies: since Unreal Engine 5.6 `APawn::RemoteViewPitch` is deprecated in favour of a 16-bit value read through `GetRemoteViewPitch()`, and the component reads the pitch through that accessor. Onlookers therefore see the body's facing, its turn, and where its head is looking exactly as its own player does, which is what makes a glance over the shoulder readable.
+Other clients see creatures and other players as simulated proxies with the CMC's smoothing, which already carries the facing as the actor's rotation. A small view struct replicates with the actor, skipping the owner: the granted gait, a stamina band of four steps, the winded flag, the head's yaw offset from the facing, and, while a traversal plays, its clip and duration. The head's pitch needs nothing new, because the engine already replicates it to simulated proxies: since Unreal Engine 5.6 `APawn::RemoteViewPitch` is deprecated in favour of a 16-bit value read through `GetRemoteViewPitch()`, and the component reads the pitch through that accessor. Onlookers therefore see the body's facing, its turn, and where its head is looking exactly as its own player does, which is what makes a glance over the shoulder readable.
 
 ```cpp
 USTRUCT()
@@ -448,8 +452,12 @@ struct FLocomotionView
     uint8 StaminaBand = 3;    // 0 empty .. 3 full
     int8  HeadYaw = 0;        // quantised offset from the facing, within the head's reach
     bool  bWinded = false;
+    uint8 TraversalClip = 0;  // entry in the body's traversal clip list, 0 for none
+    uint16 TraversalMs = 0;   // the traversal's duration in milliseconds
 };
 ```
+
+The two traversal fields exist because a traversal reaches onlookers otherwise only as a movement mode, and the clip is chosen by kind and height and timed to a duration that an onlooker cannot work out without the measured obstacle. The clip index costs one byte and the duration two. In networked tests at 150 milliseconds an onlooking client played the same clip, duration and rates as the owner and the server.
 
 A hunting creature's brain reads that view on other bodies, which is how predators press winded prey. Exhaustion is not hidden state: the server holds every body's `FLocomotionState`, and the brain reads the winded flag and the stamina band of any body its [AI Perception](https://dev.epicgames.com/documentation/unreal-engine/ai-perception-in-unreal-engine) currently senses, through a read-only query on that body's movement component. The query makes no distinction between players, wild prey, mounts, and other creatures, so the same rule that sends a pack at a player who has sprinted empty sends it at the deer that falls behind its herd. Perception is the gate: a body the creature neither sees nor hears returns nothing, so a player who recovers out of sight behind cover is not marked. How the brain weighs a winded target against everything else it wants is owned by the creature AI in [Taming and Control (Technical)](<Taming-and-control (Technical).md>); this guide supplies only the signal.
 
@@ -516,6 +524,8 @@ A gait's noise is a distance, not a loudness: the specification states it in met
 
 Every body's animation reads the same values from its movement component: ground speed, the granted gait and its role, the movement direction relative to the facing for sidesteps and backpedalling, the facing's yaw rate for turn-in-place steps and for leaning into turns, the head's yaw and pitch for the head and spine, the slope, the stamina band, and landing. A two-legged and a four-legged body need different animation blueprints, but the inputs are identical, which is what lets the riding guide's quadruped locomotion and a creature's own locomotion share code. Gait changes driven by the turn model and the burst build-up are predictable from the trajectory, which suits [Motion Matching](https://dev.epicgames.com/documentation/unreal-engine/motion-matching-in-unreal-engine) as the riding guide also notes.
 
+Traversal animation is authored or cut to the traversal times of section 6.1, never stretched to fit them. A vault clip runs from the hand plant on the obstacle to the landing, without the run-in before the hand reaches the top, since a clip that includes the run-in plays at several times its authored speed to fit a 0,65-second vault. Mantle clips are authored in height steps of about half a metre, and the clip is chosen by kind and height from the body's list of traversal clips, the entry replicated as the clip index of section 8. The mantle plays at two rates, a climb phase timed so that it ends when the capsule reaches the top of its rise, then the push over the edge. The hands land on the edge by IK or by [Motion Warping](https://dev.epicgames.com/documentation/unreal-engine/motion-warping-in-unreal-engine) toward the measured edge, never by the clip's own placement, so an edge half a metre higher than the clip's climb is still gripped. The duration comes from section 6.1 and is the second replicated field, so an onlooker plays the same clip over the same time.
+
 The local player sees their own full body from the camera at its head, the same skeleton and animation other players see rather than a separate pair of camera-only arms, with Epic's [First Person Rendering](https://dev.epicgames.com/documentation/unreal-engine/first-person-rendering) keeping held items and the near arms from clipping into the world. The first-person presentation reads the same values for the local player: a head bob scaled by gait, a small field-of-view widening that follows the burst build-up, a sway and rising breath as the pool empties, and a landing dip that grows with fall height. All of it lives in the camera and audio layers, never in the movement, so the comfort options of [Accessibility](Accessibility.md) can soften or remove it without changing how the body moves.
 
 ## 11. Open Implementation Questions
@@ -532,7 +542,7 @@ How wide the sprinting radius and how slow the in-place pivot can be before firs
 | A standing player flicks the mouse to look directly behind. | The view turns instantly to the head's limit and the body pivots until the facing is 100 degrees round, the view less the head's reach; the camera arrives about a quarter of a second later, and another client sees the head turn first and the body step round. |
 | A player looks sixty degrees to the side and presses forward. | They step off at the reduced off-facing speed with the head still turned; the body does not turn for a view inside the head's reach, and comes round only by the excess beyond it. |
 | A sprinting player glances 70 degrees to one side and back. | The view turns within the head's reach, the facing does not change, the sprint holds at full speed, and other clients see the head turn. |
-| A player sprinting at 6,5 metres a second vaults a 60-centimetre wall, then a 1,10-metre one. | The vaults take 0,30 and 0,55 seconds and the body leaves each at 5,2 metres a second; over the network at 150 ms, no correction. |
+| A player sprinting at 6,5 metres a second vaults a 60-centimetre wall, then a 1,10-metre one. | The vaults take 0,65 and 0,90 seconds and the body leaves each at 5,2 metres a second; over the network at 150 ms, no correction. |
 | A player jumps at a 1,80-metre wall with a little over five points of stamina, four times in a row. | Each press is refused as a failed grab with no jump spent and no stamina lost; the pool recovers normally, and the player can stand back, wait, and then climb it for 12 points. |
 | A player jumps at a 2,00-metre ledge, then a 2,20-metre one, with the template body. | The first is caught and mantled; the second is out of reach and the surface is a climb or nothing. |
 | A player runs at a fence diagonally at 50 degrees off square, then at a fence with a second fence 0,50 metres behind it. | The first is crossed by the short way over its face; the second crossing is refused for lack of landing room. |

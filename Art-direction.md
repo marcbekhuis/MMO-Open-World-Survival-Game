@@ -20,6 +20,8 @@ Two grammars share every frame and are kept visibly apart. The wild is built of 
 
 Each people carries a material palette of its own, and it is kept narrow so that a rooftop or a doorway names the builder at a glance. Human work is timber, wattle and daub, fired clay, iron, and wool, crowded and repaired. Elven work is living and shaped wood, bark, woven fibre, and bone-pale stone, grown into the tree it hangs from rather than set on it. Dwarven work is dressed stone, bronze, steel, and soot, massive and square, cut to last. These palettes are drawn from the architecture in [Races](Races.md) and the settlement files it links, and they are worn, weathered, and dirty to the same degree everywhere: nothing in the world is new, clean, and untouched except what a character has just made, and even that is marked by the hands that made it.
 
+This discipline is applied material by material in the [Building Materials](Art-direction/Building-materials.md) briefs, which say what thatch, planked timber, cobblestone, or warded stone looks like at eye level and what each is never to look like. Placement behaviour that the building system shares with other survival builders implies none of their look: a snapping grid and a tiered ladder of pieces are mechanics, and the surfaces on them are drawn from these briefs, not from any other game's kit.
+
 Colour is spent with discipline. The base of any scene is earth, stone, bark, cloth, and leaf in muted, physically plausible values, and saturated colour is reserved for what carries meaning: living flowers, the plumage of birds, a banner that names an allegiance, the warm lamp in a window, blood, and mana. A player's eye should land on something because it matters, and the rest of the frame should be rich in detail and quiet in colour.
 
 ## Mana in the Frame
@@ -64,7 +66,11 @@ The three playable races described in [Player Progression](Player.md) are render
 
 ## Coherence at Scale
 
-A shared style guide keeps photorealism and extreme regional contrast from pulling the world apart. The thesis, shape language, material palettes, and rules for mana above are its fixed core; common physically based rendering standards, consistent lighting rules, controlled per-biome palettes, and shared conventions for scale and asset construction sit on top of them, so that however far apart two regions sit in mood, they still feel built by the same hand. Transitions between neighbouring biomes are blended with care so the contrast stays dramatic without jarring pop as a player crosses the seam between one register and the next.
+A shared style guide keeps photorealism and extreme regional contrast from pulling the world apart. The thesis, shape language, material palettes, and rules for mana above are its fixed core; common physically based rendering standards, consistent lighting rules, controlled per-biome palettes, and shared conventions for scale and asset construction sit on top of them, so that however far apart two regions sit in mood, they still feel built by the same hand. The texture maps, texel density, repetition limits, and arm's-length acceptance check for every surface are fixed in [Surface Authoring](Art-direction/Surface-authoring.md). Transitions between neighbouring biomes are blended with care so the contrast stays dramatic without jarring pop as a player crosses the seam between one register and the next.
+
+## Authoring an Asset
+
+An artist or generator starting an asset reads, in order, these art rules, the design document for the system the asset belongs to together with its technical guide, the material brief in [Building Materials](Art-direction/Building-materials.md) or the cultural brief for the people who made it, and the source-art contract that the asset generators work to. The brief for a piece of work declares its piece list, the visual variants each piece needs, the review references it will be judged against, and its delivery level, which is one of three: source models, textured engine assets, or playable registered pieces with snapping, collision, and interaction in place. Nothing is assumed to be delivered beyond the stated level. Each hand-off records the assumptions it could not resolve, links the review images, and links the validation results, so the next reader sees what was checked and what was taken on trust.
 
 ## Continue Reading
 

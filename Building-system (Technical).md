@@ -146,7 +146,7 @@ public:
 };
 ```
 
-Square and triangular shapes are separate definitions with their own snap points. Frames and beams carry snap points and joint slots like any structural piece and are ordinary members of the stability graph, with a `LossScale` that gives them small losses of their own, so a brace or crossbeam laid along a long run hands support on at little cost. The piece registry holds one `TArray<FSnapPairRule>` for the whole kit.
+Square and triangular shapes are separate definitions with their own snap points. Frames and beams carry snap points and joint slots like any structural piece and are ordinary members of the stability graph, with a `LossScale` that gives them small losses of their own, so a brace or crossbeam laid along a long run hands support on at little cost. The piece registry holds one `TArray<FSnapPairRule>` for the whole kit. The physical dimensions and interfaces that these definitions and their snap points must agree with, and which of them are settled, are set out in the [kit specification](#24-kit-specification).
 
 ### 2.3 Runtime Records
 
@@ -218,11 +218,32 @@ struct FBaseRecord
 
 A base is any connected set of pieces. Pieces placed with no connection to an existing base start a new one, and a removal that splits a base's piece graph in two splits the record (section 7.1). In the [world state database](<Server-architecture (Technical).md#3-master-server-implementation>) each piece is one row keyed by world, base, and piece id, so a raid that breaks a dozen walls is a dozen small updates in the [delta stream](<Server-architecture (Technical).md#81-delta-state-updates>).
 
+### 2.4 Kit Specification
+
+A snap rule says which points may meet; it cannot say whether two meshes fit when they do. Every piece family therefore ships with a dimensional and interface brief before it is modelled, and the brief is the contract between the definition, its sockets, its collision, and its art. It fixes the nominal box of the piece on the 3-metre building module and its pivot; the local axes, with the direction a wall's thickness and length run; the mating planes, the faces that carry snap points and must be flat and lie exactly on the box, while relief, chipped edges, and gaps between planks are cut into the box and never added outside it; and the overlaps expected where pieces meet. For openings it fixes the clear size and the height of the sill, with no threshold across a doorway. For a door it fixes the hinge edge, the pivot relative to the frame, the clearance on each edge, and the arc the leaf sweeps, which must stay clear of the frame's snap volumes. For stairs it fixes the rise and run, the landing, and the headroom over every tread; for roofs the pitch, the structural depth, the cut of the ends, and how two panels meet at a ridge. For every family it fixes the collision openings, which must agree with the visible ones so that a character walks through exactly what it sees to be open.
+
+The brief also records the status of each value. Values already settled by the system are approved. Values chosen so that a new family could be modelled at all are provisional until play has tested them, and a provisional value is never read as design canon merely because a mesh was built to it.
+
+| Dimension | Value | Status |
+|---|---|---|
+| Building module | 3,00 m | Approved |
+| Foundation | 3,00 x 3,00 x 1,00 m, pivot at the centre of the top face, the lower metre a skirt reaching into the ground | Approved |
+| Wall | 0,30 x 3,00 x 3,00 m, pivot at the bottom centre, thickness along X and length along Y; stands centred on a foundation edge and overhangs it by 0,15 m | Approved |
+| Ceiling and floor | 3,00 x 3,00 x 0,20 m, pivot at the centre of the top face, which is the walking surface; one piece seen from either side | Approved |
+| Pillar | 0,50 x 0,50 x 3,00 m, pivot at the bottom centre; walls meet each face at its centre or flush with either corner | Approved |
+| Doorway | 1,20 m wide, 2,28 m high, no threshold | Provisional |
+| Door leaf | Pivot on the hinge edge of the frame, 0,01 m of clearance on each edge | Provisional |
+| Window opening | 1,20 m square, sill at 1,02 m | Provisional |
+| Stair | Fifteen rises and fifteen runs of 0,20 m, a rise of 3,00 m over a run of 3,00 m; headroom not yet tested | Provisional |
+| Roof | Rising 1,50 m over a 3,00 m run, 0,20 m of structural depth; two panels turned 180 degrees make a ridge | Provisional |
+
+The stair is the value most likely to change. A rise of 0,20 m per step over a run of the same length is steep and compact, and it has not been tested for movement feel, for the clearance a sprinting body needs, or for headroom under the next floor; [Movement](Movement.md) owns how a body takes steps and slopes, and the stair is revised to whatever that testing settles. The executable form of these dimensions, the constants a model generator checks every finished piece against, lives with the asset generators and is kept in step with this table rather than duplicated in the guide.
+
 ## 3. Snap Points and Placement
 
 ### 3.1 Snap Compatibility
 
-Two snap points can meet when the registry's pair table holds a rule for their two types, and that rule also names the joint they form. A rule matches in either order, and each of its two tags matches a point's type hierarchically through the gameplay-tag tree, the most specific matching rule winning, so a handful of broad rules covers the kit: a wall bottom meets `Snap.Foundation.Edge` and `Snap.WallFoundation.Top` as a vertical joint, a ceiling edge meets `Snap.Wall.Top` and `Snap.Pillar.Top` as a lateral one, and a stair foot meets `Snap.Floor.Edge`. The joint is a fact about the pair: the top of a wall is a vertical joint for a wall stacked on it and a lateral one for a ceiling laid across it, and a pillar under a ceiling forms a lateral joint, which is what lets a pillar carry a span back to green. Pillars carry three points on every face at every height step — centred, flush left, and flush right — which gives the specification's choice of a wall meeting a post in its middle or at either outer corner, from any of four sides. Walls carry frame points along their edges, middle, and quarter lines on both faces for frames, crossbeams, braces, and trims.
+Two snap points can meet when the registry's pair table holds a rule for their two types, and that rule also names the joint they form. A rule matches in either order, and each of its two tags matches a point's type hierarchically through the gameplay-tag tree, the most specific matching rule winning, so a handful of broad rules covers the kit: a wall bottom meets `Snap.Foundation.Edge` and `Snap.WallFoundation.Top` as a vertical joint, a ceiling edge meets `Snap.Wall.Top` and `Snap.Pillar.Top` as a lateral one, and a stair foot meets `Snap.Floor.Edge`. The joint is a fact about the pair: the top of a wall is a vertical joint for a wall stacked on it and a lateral one for a ceiling laid across it, and a pillar under a ceiling forms a lateral joint, which is what lets a pillar carry a span back to green. Pillars carry three points on every face at every height step — centred, flush left, and flush right — which gives the specification's choice of a wall meeting a post in its middle or at either outer corner, from any of four sides. Walls carry frame points along their edges, middle, and quarter lines on both faces for frames, crossbeams, braces, and trims. Where on a piece's box each point sits is fixed by the [kit specification](#24-kit-specification), and a rule in the pair table is only as good as the mating planes it joins.
 
 ### 3.2 Candidate Selection on the Client
 
@@ -554,6 +575,25 @@ Only the server needs navigation around bases, for creatures, NPC raiders, and t
 
 Destruction is cosmetic on the client and authoritative only as record removal. When a client sees a piece removed with its collapse flag, it hides the instance and plays a pre-fractured debris effect for that piece family locally. Debris is never replicated and never decides anything: rubble damage was already computed by the server from the collapsed piece's footprint (section 5.3), so two clients may see different fragments fall while the same pieces break beneath them.
 
+### 10.6 Asset Budgets and Surface Standard
+
+A piece is judged first by how it looks where it is met, and only then by what it costs. The review distance for a building piece is arm's length at first-person eye height, because that is where a player stands to build, repair, and fight, and the silhouette and surface of every piece must hold up there: bevelled and chipped edges, visible fastenings, joints that show how the piece is made, and relief that catches light. A low triangle count never justifies visibly simple construction, and a piece that imports cleanly or draws cheaply but looks plain at that distance fails review. The kit is built for [Nanite](https://dev.epicgames.com/documentation/unreal-engine/nanite-virtualized-geometry-in-unreal-engine), so detail is modelled rather than faked, and the budget is read as a scene allowance rather than a per-piece ceiling. No single triangle count is a universal target.
+
+Each asset class carries an allowance, and every figure below is provisional until it has been validated against a stated scene: two thousand visible building pieces in one view, drawn from the dense-settlement and siege scenarios of [Hotspot Workloads and Degradation](Server-settings.md#hotspot-workloads-and-degradation), on the minimum target hardware, with building pieces holding no more than a fixed share of the frame, provisionally two milliseconds of the sixteen and a half of a 60-frames-per-second frame.
+
+| Asset class | Review distance | Required silhouette and surface detail | Source geometry (provisional) | Material slots | Collision |
+|---|---|---|---|---|---|
+| Foundation, wall, floor, ceiling, roof panel | Arm's length, eye height | Edge profile, joints, and fastenings modelled; relief kept inside the box | 15 000 to 60 000 triangles | 1 to 2 | Box or a few convex hulls matching the box |
+| Pillar, beam | Arm's length | Notches, pegs, end treatment | 5 000 to 20 000 | 1 | Single box |
+| Door frame, window frame | Arm's length | Opening edges, reveals, sill, and lintel | 15 000 to 60 000 | 1 to 2 | Boxes that leave the opening clear |
+| Door leaf | Arm's length | Plank or panel construction, hinges, latch | 8 000 to 30 000 | 1 to 2 | Single box, driven by the door state |
+| Stairs | Arm's length, from above | Treads and stringers, nosing wear | 20 000 to 80 000 | 1 to 2 | Stepped boxes or a ramp that agrees with the treads |
+| Furniture and placeables | Arm's length | Construction visible from the use position | 5 000 to 40 000 | 1 to 3 | A few convex hulls |
+
+Texture memory is budgeted per material family rather than per piece, because every piece of a family shares one material set; a family's allowance is what its set costs resident in the two-thousand-piece scene, read from the same test. Collision is always simple: it never follows surface relief, and a piece has the same collision shape whichever joint variant is shown (section 4.1).
+
+The surface standard every material is delivered to, with its required maps, texel density, tiling policy, and the wear that belongs to the base material, is [Surface Authoring](Art-direction/Surface-authoring.md). What each structure material looks like, and the reference set it is reviewed against, is gathered in [Building Materials](Art-direction/Building-materials.md). Importer settings and engine troubleshooting are not part of the design and stay with the tools that run the import.
+
 ## 11. Outskirts Plots
 
 An outskirts plot is a claim of `EKind::Outskirts` inside the guarded ring of a great city. Plot volumes are authored in the level beside the city's protected ground, each with a piece ceiling, a tax rate, and a footprint, and a character leases one from the city's steward. A plot differs from a standard claim in four ways, all keyed on the kind:
@@ -567,7 +607,7 @@ Plots hold no resource nodes, as the ring excludes them, so the plot's pieces an
 
 ## 12. Design Validation Cases
 
-Prototyping should demonstrate each of the following before the system is considered sound:
+Prototyping should demonstrate each of the following before the system is considered sound. The last five cases are asset review cases: they judge the models rather than the rules, and each is reviewed on an assembled example at first-person eye height as well as in isolated catalogue renders, checking for gaps, intersecting faces, texture repetition, and agreement between the collision and the visible shape. Whole-piece bounds and closed-mesh checks are not enough on their own; a door frame whose infill stopped 0,24 m above the ground passed both.
 
 | Scenario | Expected outcome |
 |---|---|
@@ -596,6 +636,11 @@ Prototyping should demonstrate each of the following before the system is consid
 | Adding a wall to a leviathan's deck, then one piece past its budget | Carried weight rises and the flight guide's mana draw follows; the extra piece is rejected |
 | Restarting the server, or unloading and reloading the cell | Every base reassembles exactly, with no stability pass unless the piece library changed |
 | A client arriving beside a base at the piece ceiling | First replication size and time are measured and within the budget set in [Server Settings](Server-settings.md) |
+| A foundation, wall, floor, ceiling, and pillar assembled into a corner and a floor edge, seen from outside, inside, and above | Every piece meets the ground or its support along its whole front and rear face; no gap shows at a junction and no faces intersect except where the overlap is hidden by design |
+| A door frame with its door fitted, and a window frame, each beside a solid wall | The infill on both sides of an opening reaches the ground or the sill line; the opening is unobstructed to its full clear size; the door fits its frame with the specified clearance; the collision opening equals the visible one |
+| A stair rising to the next floor, with a character walking up it | The top tread meets the walking surface above, headroom is clear over every tread, and collision follows the treads |
+| Two roof panels meeting at a ridge, and a roof meeting a wall top | Edges and ridge close without a gap or visible seam, and the cut ends stay inside the box |
+| A run of boards or blocks along one wall, viewed at arm's length | No repetition reads as a pattern, variation from board to board shows, and the surface agrees with the piece's collision |
 
 ## 13. Further Reading
 
@@ -622,7 +667,7 @@ Prototyping should demonstrate each of the following before the system is consid
 
 ## Continue Reading
 
-Continue with the [Building System specification](Building-system.md) this guide implements, [Server Architecture (Technical)](<Server-architecture (Technical).md>) for the replication and persistence it builds on, and [Settlement Generation (Technical)](<Settlement-generation (Technical).md>) for the NPC buildings made from the same materials. The creature-facing hand-offs continue in [Taming and Control (Technical)](<Taming-and-control (Technical).md>) for shelter evaluation, [Creature Riding (Technical)](<Creature-riding (Technical).md>) for a turtle's burden, and [Flight (Technical)](<Flight (Technical).md>) for the leviathan's mana and the deck it carries.
+Continue with the [Building System specification](Building-system.md) this guide implements, [Server Architecture (Technical)](<Server-architecture (Technical).md>) for the replication and persistence it builds on, and [Settlement Generation (Technical)](<Settlement-generation (Technical).md>) for the NPC buildings made from the same materials. The creature-facing hand-offs continue in [Taming and Control (Technical)](<Taming-and-control (Technical).md>) for shelter evaluation, [Creature Riding (Technical)](<Creature-riding (Technical).md>) for a turtle's burden, and [Flight (Technical)](<Flight (Technical).md>) for the leviathan's mana and the deck it carries. The look of the pieces this guide budgets is set in [Surface Authoring](Art-direction/Surface-authoring.md) and [Building Materials](Art-direction/Building-materials.md).
 
 ## Draft
 

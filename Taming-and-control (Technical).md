@@ -117,6 +117,16 @@ struct FBondBands   // thresholds on strength; the bands the riding guide's refu
     UPROPERTY(EditAnywhere) float OfflineFloor = 0.15f;   // always above Break
 };
 
+USTRUCT()
+struct FCreatureAttackShape   // a row names its action; see the note on rows below
+{
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere) FGameplayTag Action;          // Creature.Action.Bite, .Lunge ...
+    UPROPERTY(EditAnywhere) float RadiusCm = 60.f;        // sphere radius, in actor space
+    UPROPERTY(EditAnywhere) float ReachCm = 90.f;         // how far in front of the body the sphere sits
+};
+
 UCLASS()
 class UCreatureSpeciesData : public UPrimaryDataAsset
 {
@@ -130,10 +140,27 @@ public:
     UPROPERTY(EditAnywhere) bool bHasSexes = true;
     UPROPERTY(EditAnywhere) FBreedingTuning Breeding;
     UPROPERTY(EditAnywhere) TSoftObjectPtr<UStateTree> Brain;
+
+    // The body, senses and attacks (7.3, 7.6) live in the same asset, so a new species is data and not code.
+    UPROPERTY(EditAnywhere) TMap<FGameplayTag, TObjectPtr<UAnimMontage>> ActionMontages;   // Creature.Action.* -> the montage that plays it (7.1)
+    UPROPERTY(EditAnywhere) TArray<FCreatureAttackShape> AttackShapes;                    // one row per striking action (7.6)
 };
 ```
 
 The values are illustrative; the specification fixes only their order. Parental bonding has the highest ceiling, trust is slow because its daily gain is capped, slave bonding starts strong and wears off fast, and the offline floor sits above the break threshold.
+
+Taming data is only one group of the asset. The species asset also holds the groups that sections 7.3 and 7.6 call species data, each a struct beside `Needs` and `Bands`:
+
+| Group | Holds |
+|---|---|
+| Body | the size class (7.5), the attack shapes, and the montage map |
+| Leader | follower and leader health and the leader's size, for species that run in packs |
+| Perception | sight radius and peripheral half-angle, hearing range, and each sense's memory (7.3) |
+| Awareness | threat memory, in seconds |
+| Fear | settle rate, sensitivity, and the hesitate, recover and flee thresholds (7.3), with how far a hesitating creature backs out past a fire's edge |
+| Brain movement | how the brain asks for paths, including the back-off of section 7.5 |
+
+The attack shapes are a list of rows that each name their action, not a map keyed by the action. The server's by-name tuning overrides, which let an operator change one number without a rebuild, cannot address the entries of a map in Unreal Engine 5.8, but they address an array row by index and name its action beside it.
 
 ### 2.2 Runtime Records
 
@@ -405,14 +432,16 @@ struct FCreatureActionState
 {
     GENERATED_BODY()
 
-    UPROPERTY() uint8 Action = 0;     // ECreatureAction: None, Tell, Lunge, Feint, Howl ...
+    UPROPERTY() FGameplayTag Action;  // under Creature.Action: .Tell, .Lunge, .Bite, .Howl, .Hit.Front ...
     UPROPERTY() uint8 Sequence = 0;   // incremented on every new action, so a repeated action still reads as a change
 };
 
 UPROPERTY(ReplicatedUsing = OnRep_CurrentAction) FCreatureActionState CurrentAction;
 ```
 
-The counter matters because a wolf that gives the same tell twice running would otherwise replicate an unchanged value. An unreliable multicast would lose the tell with every dropped packet, whereas replicated state converges on its latest value after a drop; at a tenth of packets dropped and 150 milliseconds of latency, clients still saw the tell before every lunge.
+The action is a gameplay tag and not an enum value, and each species maps the tags it uses to montages in its data (2.1). A new species then adds actions in data instead of growing one enum shared by every creature. The counter matters because a wolf that gives the same tell twice running would otherwise replicate an unchanged value. An unreliable multicast would lose the tell with every dropped packet, whereas replicated state converges on its latest value after a drop; at a tenth of packets dropped and 150 milliseconds of latency, clients still saw the tell before every lunge, and on a dedicated server every tell, lunge, bite and howl of the wolf encounter arrived by tag.
+
+A creature's attack is an action of the body's shared [action slot](<Melee-combat (Technical).md#41-the-action-slot>), the same slot that holds a player's swings, and its phases carry what the encounter needs to read. The wolf's lunge has four: a tell of 0,7 seconds, an open run-up at the sprint that ends when the wolf reaches leap distance (3,5 metres) or gives up after 2,5 seconds, a leap of 0,35 seconds that ends in the hit, and 0,5 seconds of recovery. The brain commits the run-up phase when it starts the action, so a wolf in its run-up cannot also bite, and a bite, which repeats every 1,2 seconds, is pressed again only while the brain keeps asking for it. The brain keeps the tactics only: which wolf attacks, when, and the pack's turn-taking (7.7). In networked tests every lunge leapt 1,1 to 1,3 seconds after its tell began and hit 0,31 seconds after the leap.
 
 Behaviours every creature shares are authored once as linked StateTree assets, supported since 5.4, and linked into each species' tree. Behaviour Trees are not deprecated; StateTree is chosen because a creature's top level genuinely is a set of states with bond-driven transitions. The tree stays a thin layer over plain functions. Every decision a species makes, which state wins, which pack slot a wolf takes, which attacker a pack sends, is a pure function of its inputs that the tree's conditions and tasks call, so that unit tests drive it without a running world; the wolf's stress rule (7.7) is the model. Where a StateTree asset cannot yet be authored with the available tooling, a plain C++ state machine whose states map one to one onto the tree's can stand in, because the decisions beneath it are the same functions.
 
@@ -457,7 +486,9 @@ A creature above `HesitateFearAt` leaves the fire's zone and holds its attack or
 
 ### 7.5 Navigation by Body Size
 
-Ground creatures use the [navigation system](https://dev.epicgames.com/documentation/unreal-engine/navigation-system-in-unreal-engine). This section owns the navmesh decision for every ground creature, and the riding guide's whistle query reuses it. Each navmesh is built for one agent size, so each `EBodySizeClass` from Small to Huge maps to one agent entry and no more, since every agent is another navmesh in server memory. A colossal creature such as the [Titan Turtle](Creatures/Titan-turtle.md) is too large for a sensible agent and follows coarse routes with local avoidance. In 5.8, pawns without preferred navigation data use only data whose fly setting matches their own. Unreal has no built-in flying navigation, so an unridden flyer's route is planned by the [flight guide's](<Flight (Technical).md>) routing, which the brain calls like a ground path query. [Environment queries](https://dev.epicgames.com/documentation/unreal-engine/environment-query-system-in-unreal-engine) pick flee destinations, guard positions, and grazing spots on the server.
+Ground creatures use the [navigation system](https://dev.epicgames.com/documentation/unreal-engine/navigation-system-in-unreal-engine). This section owns the navmesh decision for every ground creature, and the riding guide's whistle query reuses it. Each navmesh is built for one agent size, so each `EBodySizeClass` from Small to Huge maps to one agent entry and no more, since every agent is another navmesh in server memory. A colossal creature such as the [Titan Turtle](Creatures/Titan-turtle.md) is too large for a sensible agent and follows coarse routes with local avoidance.
+
+A brain backs off its path requests after a failure. A dedicated server builds or loads its navigation data after it starts, which took between 20 and 112 seconds in a sandbox test, and every request made before the data is ready fails at once. A brain that asks again on its next tick turns that wait into a flood: nine resting wolves made 1500 to 1850 failed requests in two minutes. The rule is a wait of 0,25 seconds after a failure, doubling with each failure in a row up to 2 seconds and cleared by the first success, which cut the failures to 50 to 90 and roughly halved all requests without changing how the pack hunted. A distance-scaled re-goal with a cooldown between requests saved nothing on top, even against a jogging target, so the back-off is the whole rule. A region server's creatures therefore expect failed requests until its navigation data is built or loaded, and treat them as waiting, not as an unreachable target. In 5.8, pawns without preferred navigation data use only data whose fly setting matches their own. Unreal has no built-in flying navigation, so an unridden flyer's route is planned by the [flight guide's](<Flight (Technical).md>) routing, which the brain calls like a ground path query. [Environment queries](https://dev.epicgames.com/documentation/unreal-engine/environment-query-system-in-unreal-engine) pick flee destinations, guard positions, and grazing spots on the server.
 
 ### 7.6 What Riding and Flight Call
 
@@ -504,7 +535,9 @@ Every tamed creature is an actor, never a Mass entity, because it carries a pers
 
 The [Significance Manager](https://dev.epicgames.com/documentation/unreal-engine/significance-manager-in-unreal-engine) scores objects against viewpoints, and on a dedicated server it is fed every connected player's viewpoint. Creatures far from any player run their brains and perception at reduced rates, and those in cells without players are not ticked at all. Creatures resting in a stocked shelter are the cheapest case: nothing about them changes until an event arrives, so their brains idle in the Resting state with perception at its lowest rate until the building subsystem or an intruder wakes them.
 
-Perception has its own budget, and it grows with the square of the creatures in range unless it is filtered. Pawns register as sight targets by default and make footsteps and breath that hearing reports, so every wolf's senses track every other wolf nearby only to discard them: in a 70-second run, five wolves received 1182 footstep and 314 winded-breath stimuli, all from one another. Players and creatures therefore implement `IGenericTeamAgentInterface` with a team id, and each creature's perception configuration sets its sense's `DetectionByAffiliation` so that sight and hearing detect only what the creature treats as a threat, which for a wolf is characters and the species it hunts, never its own kind or neutral wildlife. The stimuli that remain are the ones the brain acts on. The saving itself has not been profiled, and measuring it on a dedicated server with a full region is part of the budget work.
+Perception has its own budget, and it grows with the square of the creatures in range unless it is filtered. Pawns register as sight targets by default and make footsteps and breath that hearing reports, so every wolf's senses track every other wolf nearby only to discard them: in a 70-second run, five wolves received 1182 footstep and 314 winded-breath stimuli, all from one another. Players and creatures therefore implement `IGenericTeamAgentInterface` with a team id, and each creature's perception configuration sets its sense's `DetectionByAffiliation` so that sight and hearing detect only what the creature treats as a threat, which for a wolf is characters and the species it hunts, never its own kind or neutral wildlife. The stimuli that remain are the ones the brain acts on.
+
+Teams are gameplay tags, and a one-way table of hostile pairs in configuration says who detects whom: the wolf is hostile to players without players needing an attitude towards wolves, and a body with no team is neutral to everyone. On a dedicated server with fourteen wolves, a pack spawned 20 metres from a standing player noticed it 0,2 to 0,3 seconds after spawning in seven runs, against 1,3 to 3,0 seconds when every wolf's sight also tracked every other wolf. That is a first, indirect measure of the saving, since the time-sliced sight checks reach the prey sooner once they stop spending themselves on packmates; profiling it directly on a full region remains part of the budget work. The engine caches a creature's team when its senses register, so a taming bond that changes a creature's side at runtime must refresh both its perception configuration and its registration as a seen stimulus source. Path requests are budgeted too: the back-off of section 7.5 keeps a region server's creatures from flooding the navigation system while its data loads.
 
 ### 8.3 Unobserved Travel Home
 
