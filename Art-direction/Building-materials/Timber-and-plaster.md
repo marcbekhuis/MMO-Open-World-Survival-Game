@@ -34,6 +34,8 @@ Trims from [Decoration and Detail](../../Building-system.md#decoration-and-detai
 
 ## Reference Set
 
+![Jettied timber-and-plaster town house with pegged oak and exposed wattle](../../Assets/Building-materials/Model-references/timber-and-plaster-model-reference.png)
+
 The reference set comprises an assembled example at first-person eye height: a two-storey street front with a jetty, a door, a window, and a tiled roof, in view with its neighbours; front and rear views of a wall panel, a corner post with jetty bracket, a door, and a roof section; and close views of the wattle lattice behind a broken panel, the surface of a limewashed panel with its brush marks and cracks, the join between plaster and timber, a pegged joint, a bracket end, and a roof tile course, in fresh, aged, and repaired states. Each is shown under neutral and in-game light, with overcast and low sun.
 
 The reference avoids clean, flat white panels with razor-straight black timbers, as in a theme-park street, a repeating tile of the same timber pattern, and a uniform plaster with no cracks or hand marks. It avoids the picture-postcard Tudor colours of a fairy-tale village, and the chunky stylised beams of cartoon builders.

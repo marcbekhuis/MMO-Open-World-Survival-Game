@@ -36,6 +36,8 @@ Trims from [Decoration and Detail](../../Building-system.md#decoration-and-detai
 
 ## Reference Set
 
+![Living-wood canopy platform with woven branches, continuous bark and bast lashing](../../Assets/Building-materials/Model-references/living-wood-model-reference.png)
+
 The reference set comprises an assembled example at first-person eye height: a woven wall and floor platform on a living bough, with a door arch, a stair, and part of a roof, in a host tree, seen from the walkway; front and rear views of a woven wall panel, a floor section, a door arch, and a roof section, from the outside and from within; and close views of a woven weave, a graft collar, a pruning scar, a bast lashing, a peg and wedge joint, the cut end of a bough, and a roof's shingle with moss, in fresh, seasoned, and overgrown states. Each is shown under neutral and in-game light, including the cool, shaft-lit ambient of the ancient forest.
 
 The reference avoids glowing blue tree-houses with luminous runes, white marble and gold filigree, uniformly smooth and polished wood with decorative curves of perfect symmetry, and a pristine, evergreen structure in which no leaf has died. It avoids the borrowed look of fantasy elven art with its swirling art-nouveau forms and light shows, and a green so saturated it reads as cartoon foliage. It avoids a structure that looks bolted onto a tree: the wood and the tree must share a bark.

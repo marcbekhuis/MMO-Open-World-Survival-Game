@@ -26,6 +26,8 @@ Red-brick town work is the commonest, with darker header bricks forming diaper p
 
 ## Reference Set
 
+![Fired-brick gable with a shallow arch and alternating header and stretcher courses](../../Assets/Building-materials/Model-references/fired-brick-model-reference.png)
+
 A reference set for this material comprises an assembled wall with an arched doorway and a gable at first-person eye height, front and rear of a representative wall panel and a pier piece, a close view of the brick faces with colour spread, a close view of a mortar joint, a close view of the arch and its bonding, and a worn example with spalled faces and eroded mortar. Each is shown under neutral and in-game light. The set avoids the single-colour, perfectly rectangular brick texture tiled across a wall, the clean modern machine-pressed look, and the borrowed appearance of other survival games' brick kits.
 
 ## Continue Reading

@@ -26,6 +26,8 @@ Plains work is rendered in warm ochre and left unpainted, with thatch eaves in p
 
 ## Reference Set
 
+![Adobe doorway with a timber lintel, flaking clay render and exposed straw-flecked bricks](../../Assets/Building-materials/Model-references/clay-and-adobe-model-reference.png)
+
 A reference set for this material comprises an assembled wall with a doorway and a flat roof edge seen at first-person eye height, front and rear of a representative wall piece and a corner piece, a close view of the render surface, a close view of an exposed brick end and the plinth course, a close view of a lintel bearing, and a worn example with flaked render and slumping at the foot. Each is shown under neutral light and under in-game light, midday desert glare and a low overcast. The set avoids clean game-ready uniformity: no ruler-straight edges, no identical bricks, no pristine white. It also avoids the borrowed look of a modular survival-game adobe kit with a repeated tile texture and uniform arches.
 
 ## Continue Reading

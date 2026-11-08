@@ -26,6 +26,8 @@ The squared style belongs to forge halls and gatehouses, the polygonal to retain
 
 ## Reference Set
 
+![Battered fitted masonry entrance with polygonal blocks and hairline dry joints](../../Assets/Building-materials/Model-references/fitted-masonry-model-reference.png)
+
 A reference set for this material comprises an assembled wall section with a trapezoidal doorway at first-person eye height, front and rear of a representative wall piece and a corner piece, a close view of the hairline joint, a close view of a pillowed face and tool grain, a close view of a polygonal junction where several blocks meet, and a worn example with a fractured block. Each is shown under neutral and in-game light. The set avoids brick-pattern tiling, visible mortar, regular rectangles in the polygonal style, and the borrowed look of fantasy-game dwarven halls with cartoon runes and glowing seams.
 
 ## Continue Reading

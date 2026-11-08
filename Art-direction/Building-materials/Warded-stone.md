@@ -26,6 +26,8 @@ Dwarven warded stone is dark with straight, geometric veins set in bronze collar
 
 ## Reference Set
 
+![Warded stone gateway with flush mineral inlays and bronze-collared crystal studs](../../Assets/Building-materials/Model-references/warded-stone-model-reference.png)
+
 A reference set for this material comprises an assembled warded wall with a gate at first-person eye height by day and by night, front and rear of a representative wall piece, a corner piece, and a gate piece, a close view of a vein inlay, a close view of a crystal stud in its collar, a close view of the join between warded and plain masonry, and a worn example with a broken vein and shattered crystal. Each is shown under neutral and in-game light. The set avoids glowing runes, neon seams, floating particles, uniform bright crystals, and the borrowed look of fantasy-game magic walls.
 
 ## Continue Reading

@@ -26,6 +26,8 @@ Mountain fieldstone is grey and angular and built tall. Upland pasture work is d
 
 ## Reference Set
 
+![Dry-laid fieldstone wall with a slab lintel, lichen and wedged chinking stones](../../Assets/Building-materials/Model-references/fieldstone-model-reference.png)
+
 A reference set for this material comprises an assembled wall with a doorway and lintel at first-person eye height, front and rear of a representative wall piece and a corner piece, a close view of the stone faces and lichen, a close view of a dry joint with wedging stones, a close view of a through-stone and a jamb, and a worn example with a bulging face and fallen stones. Each is shown under neutral and in-game light. The set avoids uniform rock tiles, clean, evenly sized stones that look like a pavement pattern, and the borrowed look of stacked stone walls in other survival games.
 
 ## Continue Reading

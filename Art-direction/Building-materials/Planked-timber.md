@@ -32,6 +32,8 @@ Trims from [Decoration and Detail](../../Building-system.md#decoration-and-detai
 
 ## Reference Set
 
+![Planked timber wall with shutters, an exposed oak frame, board seams and pegged joinery](../../Assets/Building-materials/Model-references/planked-timber-model-reference.png)
+
 The reference set comprises an assembled example at first-person eye height: a plank-walled house or a hall with its door, a corner, and a window in view, and a roofline with shingles; front and rear views of a wall panel, a corner post, a door and frame, a floor section, and a roof panel; and close views of the board surface showing grain and saw or riving marks, the cut end grain, a pegged mortise-and-tenon joint, a forged nail and strap, a repaired board beside an original one, and a seam between boards, all in fresh, treated, and weathered states. Each is shown under neutral and in-game light, with raking sun, so that the board ripples and the slight offsets at the seams read.
 
 The reference avoids the uniform board of the game-ready kit: identical widths, a single flat colour, razor-sharp edges, perfectly butted seams with no gap, no end grain, no visible fastening, a tiled grain, and no repair. It avoids the cartoon timber of stylised builders with their chunky bevelled edges and hand-painted wood grain, and it avoids a finish so even that it looks plastic or varnished. The single word photorealistic does not describe the kit; the colour range, the board widths, the exposed frame, the pegs, and the gaps above do.

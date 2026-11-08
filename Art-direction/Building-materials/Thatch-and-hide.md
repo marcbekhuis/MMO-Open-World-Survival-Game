@@ -34,6 +34,8 @@ Trims from [Decoration and Detail](../../Building-system.md#decoration-and-detai
 
 ## Reference Set
 
+![Thatch and hide shelter with ragged reed courses, lashed saplings and stitched hide](../../Assets/Building-materials/Model-references/thatch-and-hide-model-reference.png)
+
 A reference set for this material comprises an assembled example at first-person eye height, a hide-and-thatch lean-to or a small round hut with its door and eaves in view, standing on bare ground; front and rear views of a representative wall panel, a roof panel, and a corner post, showing the frame from the inside; and close views of a thatch course with its pins and a ragged eave, a hide panel with its stitching and lacing, a lashing at a pole joint, and the weathered state of each in the same frame. Every view is made under neutral light and under in-game light, with low sun and with overcast, because translucent hide and the shadow lines of thatch change character completely between the two.
 
 The reference avoids the clean, uniform, trimmed look of a hobby thatch or a heritage cottage, evenly cut straw with a ruler-straight edge, perfectly straight poles, and matching hide panels. It avoids the stylised teepee or the tribal hut of other survival games, with their repeating tiled straw textures and decorative bone and feather trim, and it avoids a bright saturated yellow thatch that no weathered roof would show.
