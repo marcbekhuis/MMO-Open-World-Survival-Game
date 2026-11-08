@@ -48,7 +48,13 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Station / workshop** — a station is a piece of crafting infrastructure, such as a forge, tannery, alchemy bench, or cooking fire, that enables its own kind of work, and the better the station the better the goods it supports. A workshop is a structure built around one or more stations, and settlements provide stations of their own for players who have none. See [Crafting](Crafting.md) and [Building system](Building-system.md).
 
-**Building piece** — a crafted structural item, such as a foundation, pillar, wall, ceiling, or roof, that is made at a station, carried with its full weight, and snapped into place. Upgrading a piece means replacing it with one of a stronger material. See [Building system](Building-system.md).
+**Building piece** — a crafted item that is one simple part of a structure, such as a foundation, pillar, wall, ceiling, roof, post, or brace, made at a station, carried with its full weight, and snapped into place. Upgrading a piece means replacing it with one of a stronger material. See [Building system](Building-system.md).
+
+**Fitting** — a building piece that fills an opening or dresses a face without holding anything up, such as a window frame, glass, shutters, a sill, bars, a door leaf, or a trim. A fitting needs a host piece, takes no part in stability, and falls when its host falls. See [Building system](Building-system.md#fittings).
+
+**Finish** — the surface of a placed piece, such as rough, smoothed, carved, tooled, or limewashed, changed in place without touching its strength. A finish never adds a part. See [Building system](Building-system.md#decoration-and-detail).
+
+**Pattern** — a saved group of placed pieces, such as a shuttered window or a half-timbered bay, placed again as one preview from crafted pieces and shared as a written plan. NPC building styles are libraries of patterns. See [Building system](Building-system.md#patterns).
 
 **Wall foundation** — a ground-supported foundation only as thick as a wall, placed along the edge of an ordinary foundation so the wall stands beside the floor rather than on it and the room keeps its full floor space. On open ground it carries fences and palisades. See [Building system](Building-system.md#placing-pieces).
 

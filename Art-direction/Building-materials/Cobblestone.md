@@ -10,9 +10,11 @@ The courses run level for a metre or so and then step slightly where the stone s
 
 ## Construction and Joints
 
-Walls are laid on a foundation trench of larger cobbles set dry, then built up in the coursed rows, each course levelled with a line. On the 3-metre module the wall is bonded through its thickness with long cobbles laid across, and a timber or flat stone bed is set every metre or so to level the work. Openings use flat stone or timber lintels, and a rough arch of wedged cobbles may carry a heavier opening. Sills are slabs of flat stone with a slight outward slope.
+The kit is separate pieces. The wall piece is only the cobble wall: laid on a foundation trench of larger cobbles set dry, then built up in coursed rows, each course levelled with a line. On the 3-metre module the wall is bonded through its thickness with long cobbles laid across, and a flat stone bed is set every metre or so to level the work. Where it has an opening, the opening is a bare reveal that reads complete with nothing fitted, and a rough arch of wedged cobbles may be coursed into the wall piece to carry a heavier opening. The foundation variant is the same wall piece as a footing.
 
-As a foundation, cobble work carries a timber or brick upper wall on its top course, the join marked by a timber sill plate and a slight set-back. Paving is laid as a bed of sand with cobbles set on edge in tight rows, their rounded tops forming a bumpy surface, with lime or sand filling the gaps; roads in settlements follow the same pattern, with a central gutter where the stones are laid lower. Floors inside are flagged over a cobble bed.
+The frame members are the flat stone or timber lintels laid across an opening, snapped onto the wall face, and the timber sill plate that tops a foundation. The fittings are the slabs of flat stone that serve as sills, with a slight outward slope, and the doors and shutters placed in the openings; see [Fittings](../../Building-system.md#fittings). Together they make a mortared lower storey, a cobble wall with a slab-lintelled door, a combination a builder assembles as a [pattern](../../Building-system.md#patterns).
+
+As a foundation, cobble work carries a timber or brick upper wall on its top course, the join marked by a slight set-back. Paving is laid as a bed of sand with cobbles set on edge in tight rows, their rounded tops forming a bumpy surface, with lime or sand filling the gaps; roads in settlements follow the same pattern, with a central gutter where the stones are laid lower. Floors inside are flagged over a cobble bed.
 
 ## Wear, Weathering, and Damage
 
@@ -22,15 +24,15 @@ Damage reads as the mortar failing. Joints crack and crumble, single cobbles dro
 
 ## Variants
 
-River-country cobble is rounded and multicoloured, with a smoother finish. Upland and field cobble is more angular and one colour, from granite or limestone. Coastal beach cobble is flat, oval, and grey, often laid in herringbone courses. A prosperous town may point the joints with a darker, struck-and-raised bead, and a well-kept road may carry a border of larger dressed kerbstones. Trims are described under [Decoration and Detail](../../Building-system.md#decoration-and-detail).
+River-country cobble is rounded and multicoloured, with a smoother finish. Upland and field cobble is more angular and one colour, from granite or limestone. Coastal beach cobble is flat, oval, and grey, often laid in herringbone courses. A prosperous town may point the joints with a darker, struck-and-raised bead, and a well-kept road may carry a border of larger dressed kerbstones. Finishes change only the surface of a piece and never add a part: for this material they are the mortar finish, whether struck flush, recessed or raised in a bead, the stone mix and the bed pattern. Carved or painted dressings are trim fittings, placed as pieces of their own. The rules are described under [Decoration and Detail](../../Building-system.md#decoration-and-detail).
 
 ## Reference Set
 
 ![Mortared river cobble foundation, rounded corner and cobbled paving details](../../Assets/Building-materials/Model-references/cobblestone-model-reference.png)
 
-<!-- REVIEW(art-reference): Minor fix. Corner stones run to about half a metre; keep every cobble within 0,10 to 0,25 metres, the largest at the base and corners. Everything else matches the brief. -->
+<!-- REVIEW(art-reference): Regenerate in the six-panel layout of the building-material-references recipes: a bare cobble wall piece with nothing fitted, and the lintel, timber sill plate, slab sill, door, and shutter as separate parts. Also: Corner stones run to about half a metre; keep every cobble within 0,10 to 0,25 metres, the largest at the base and corners. Everything else matches the brief. -->
 
-A reference set for this material comprises an assembled foundation and lower wall carrying a timber upper storey at first-person eye height, front and rear of a representative wall piece and a corner piece, a close view of the cobbles and mortar, a close view of a paved area, a close view of a joint where the mortar has failed, and a worn example with fallen cobbles. Each is shown under neutral and in-game light, dry and rain-wet. The set avoids uniform pebble-dash textures, perfectly circular stones, a repeated tile of the same twelve cobbles, and the borrowed look of generic cobblestone blocks from other games.
+A reference set for this material comprises an assembled foundation and lower wall carrying a timber upper storey at first-person eye height, the bare wall piece and a corner piece, front and rear, with nothing fitted and the opening left as a clean reveal, the lintel frame member and the sill and door fittings each on their own, a close view of the cobbles and mortar, a close view of a paved area, a close view of a joint where the mortar has failed, and a worn example with fallen cobbles. Each is shown under neutral and in-game light, dry and rain-wet. The set avoids uniform pebble-dash textures, perfectly circular stones, a repeated tile of the same twelve cobbles, and the borrowed look of generic cobblestone blocks from other games. No fitting or frame member is merged into the wall piece.
 
 ## Continue Reading
 

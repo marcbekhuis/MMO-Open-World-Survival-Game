@@ -10,9 +10,11 @@ The bricks are laid in English bond, alternating courses of long faces (stretche
 
 ## Construction and Joints
 
-Walls stand on a low stone plinth and rise with the English bond carried round every corner, the header courses locking the corner into a staggered toothing. The 3-metre module has brick piers at its edges and the wall panel between them, so the bond reads as continuous. Openings are spanned by a shallow brick arch, a segmental curve of wedge-laid bricks, or by a squared timber or stone lintel; reveals are set back one half-brick. Windows have stone or brick sills projecting a little, with a drip at the edge.
+The kit is separate pieces. The wall piece is only the brick wall: a 3-metre module with the English bond carried round every corner, the header courses locking the corner into a staggered toothing, with brick piers at its edges so the bond reads as continuous. A plinth variant of the wall piece is the low stone course the walls stand on. Where the wall has an opening, the opening is a clean reveal set back one half-brick, and a shallow brick arch, a segmental curve of wedge-laid bricks, is coursed into the wall piece as part of how the opening is built, so the opening reads complete with nothing fitted.
 
-Floors are brick-on-edge paving or timber on joists carried in pockets in the wall. Roofs are timber trusses covered with clay pantiles or slate, with the brick gable stepped or finished in a stone coping. Chimneys are built as stacks of the same brick, with a corbelled top. Where a wall is meant to be defended, the top is finished with a brick parapet and stone caps.
+The frame members are the squared timber or stone lintel laid across an opening where no arch is built, and the joists and floor beams carried in pockets in the wall. The fittings are the windows' stone or brick sills, projecting a little with a drip at the edge, the window frames, glass and shutters, the doors, and the stone coping or projecting string course that finishes a gable or parapet; see [Fittings](../../Building-system.md#fittings). Together they make the town house: a bonded wall with an arched doorway and a sashed, shuttered window, a combination a builder assembles as a [pattern](../../Building-system.md#patterns).
+
+Floors are brick-on-edge paving or timber on joists. Roofs are timber trusses covered with clay pantiles or slate, with the brick gable stepped. Chimneys are built as stacks of the same brick, with a corbelled top. Where a wall is meant to be defended, the top is finished with a brick parapet and stone caps.
 
 ## Wear, Weathering, and Damage
 
@@ -22,15 +24,15 @@ Damage reads in the bond. First the mortar cracks along the joints, then single 
 
 ## Variants
 
-Red-brick town work is the commonest, with darker header bricks forming diaper patterns of diamonds in the walls of a wealthy house. Pale yellow brick comes from chalky clay and appears in lowland districts. A guildhall may add bands of stone between brick courses, and a gatehouse may have an overglaze of dark vitrified bricks in a zigzag. Trims and styles available to a builder are listed under [Decoration and Detail](../../Building-system.md#decoration-and-detail).
+Red-brick town work is the commonest, with darker header bricks forming diaper patterns of diamonds in the walls of a wealthy house. Pale yellow brick comes from chalky clay and appears in lowland districts. A guildhall may add bands of stone between brick courses, and a gatehouse may have an overglaze of dark vitrified bricks in a zigzag. Finishes change only the surface of a piece and never add a part: for this material they are the red, yellow and dark-glazed brick, the bond and diaper pattern, a struck or recessed lime joint, and a limewash or sooted face. Stone bands, carved mouldings and painted panels are trim fittings, placed as pieces of their own. The rules are listed under [Decoration and Detail](../../Building-system.md#decoration-and-detail).
 
 ## Reference Set
 
 ![Fired-brick gable with a shallow arch and alternating header and stretcher courses](../../Assets/Building-materials/Model-references/fired-brick-model-reference.png)
 
-<!-- REVIEW(art-reference): Minor fix. The kit piece has a full semicircular arch; the brief wants a shallow segmental arch. Bricks are too heavily pitted and the mortar is wider than the fine 0,01 metre pale joint. Bond, colour range, stepped gable and plinth are right. -->
+<!-- REVIEW(art-reference): Regenerate in the six-panel layout of the building-material-references recipes: a bare brick wall piece with its coursed arch, and the lintel, sill, window frame, shutters, door, and coping as separate parts. Also: The kit piece has a full semicircular arch; the brief wants a shallow segmental arch. Bricks are too heavily pitted and the mortar is wider than the fine 0,01 metre pale joint. Bond, colour range, stepped gable and plinth are right. -->
 
-A reference set for this material comprises an assembled wall with an arched doorway and a gable at first-person eye height, front and rear of a representative wall panel and a pier piece, a close view of the brick faces with colour spread, a close view of a mortar joint, a close view of the arch and its bonding, and a worn example with spalled faces and eroded mortar. Each is shown under neutral and in-game light. The set avoids the single-colour, perfectly rectangular brick texture tiled across a wall, the clean modern machine-pressed look, and the borrowed appearance of other survival games' brick kits.
+A reference set for this material comprises an assembled wall with an arched doorway, a fitted window and a gable at first-person eye height; the bare wall piece and a pier piece, front and rear, with nothing fitted and the openings left as clean reveals; the lintel frame member and the fittings each on their own, namely the sill, the window frame and shutter, the door and the coping; a close view of the brick faces with colour spread, a close view of a mortar joint, a close view of the arch and its bonding, and a worn example with spalled faces and eroded mortar. Each is shown under neutral and in-game light. The set avoids the single-colour, perfectly rectangular brick texture tiled across a wall, the clean modern machine-pressed look, and the borrowed appearance of other survival games' brick kits. No fitting or frame member is merged into the wall piece.
 
 ## Continue Reading
 

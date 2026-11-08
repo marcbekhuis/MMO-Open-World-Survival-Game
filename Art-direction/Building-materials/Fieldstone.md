@@ -10,9 +10,11 @@ Dry-laid work has no mortar at all, only tight placement and small wedging stone
 
 ## Construction and Joints
 
-On the 3-metre module the wall is built to a plumb line that is never quite plumb, with corners finished in the biggest stones, laid long-and-short alternately to lock the two faces. There is no clean quoin: corners are rounded or slightly bulbous. Openings are narrow and square, spanned by a single flat slab as lintel, with a jamb of upright stones and a rough sill; there are no arches. Doors are timber, set deep in the thickness and hung on a stone-pegged frame.
+The kit is separate pieces. The wall piece is only the stone wall: on the 3-metre module it is built to a plumb line that is never quite plumb, with corners finished in the biggest stones, laid long-and-short alternately to lock the two faces. There is no clean quoin: corners are rounded or slightly bulbous. Where it has an opening, the opening is narrow and square, a bare reveal with a jamb of upright stones, and it reads complete with nothing fitted; there are no arches. A plinth variant is the footing course of the largest stones.
 
-Floors are packed earth or flagged with flat stones, roofs are timber-framed and thatched, turfed, or covered in stone slate, and the roof sits on a timber wall plate bedded in the top course. Gables are built up in stepped stones. Chimneys are rough-built, often leaning slightly. Where a fieldstone wall meets a timber structure, the timber ends are set into sockets with small stones wedged around them.
+The frame members are separate. The single flat slab laid across an opening is a lintel, snapped onto the wall face and bearing on the jambs, and the timber wall plate bedded in the top course is a frame member as well. The fittings are the rough sill slab, the timber door set deep in the thickness and hung on a stone-pegged frame, and any shutter; see [Fittings](../../Building-system.md#fittings). Together they make the frontier cabin: a rough wall, a slab lintel and a plank door, a combination a builder assembles as a [pattern](../../Building-system.md#patterns).
+
+Floors are packed earth or flagged with flat stones, and roofs are timber-framed and thatched, turfed, or covered in stone slate. Gables are built up in stepped stones. Chimneys are rough-built, often leaning slightly. Where a fieldstone wall meets a timber structure, the timber ends are set into sockets with small stones wedged around them.
 
 ## Wear, Weathering, and Damage
 
@@ -22,13 +24,15 @@ Damage shows as displacement. Stones slip out of the face and leave dark holes, 
 
 ## Variants
 
-Mountain fieldstone is grey and angular and built tall. Upland pasture work is dry-laid and low, in long field walls with a flat cap. Coastal work uses rounded beach boulders and is bound with tarred rope against the wind. Frontier builders chink the wide joints with clay and rub it in by hand, and a prosperous farm may add lime wash around doors and windows. Styles and trims are described under [Decoration and Detail](../../Building-system.md#decoration-and-detail).
+Mountain fieldstone is grey and angular and built tall. Upland pasture work is dry-laid and low, in long field walls with a flat cap. Coastal work uses rounded beach boulders and is bound with tarred rope against the wind. Frontier builders chink the wide joints with clay and rub it in by hand, and a prosperous farm may add lime wash around doors and windows. Finishes change only the surface of a piece and never add a part: for this material they are the bare dry-laid face, mud mortar, clay chinking and limewash. Carved or painted surrounds are trim fittings, placed as pieces of their own. The rules are described under [Decoration and Detail](../../Building-system.md#decoration-and-detail).
 
 ## Reference Set
 
 ![Dry-laid fieldstone wall with a slab lintel, lichen and wedged chinking stones](../../Assets/Building-materials/Model-references/fieldstone-model-reference.png)
 
-A reference set for this material comprises an assembled wall with a doorway and lintel at first-person eye height, front and rear of a representative wall piece and a corner piece, a close view of the stone faces and lichen, a close view of a dry joint with wedging stones, a close view of a through-stone and a jamb, and a worn example with a bulging face and fallen stones. Each is shown under neutral and in-game light. The set avoids uniform rock tiles, clean, evenly sized stones that look like a pavement pattern, and the borrowed look of stacked stone walls in other survival games.
+<!-- REVIEW(art-reference): Regenerate in the six-panel layout of the building-material-references recipes: the kit piece currently carries its slab lintel and jambs; show a bare fieldstone wall piece with a square reveal, and the slab lintel, sill slab, door, and shutter as separate parts. The material itself matches the brief; keep its look. -->
+
+A reference set for this material comprises an assembled wall with a doorway, lintel and door at first-person eye height; the bare wall piece and a corner piece, front and rear, with nothing fitted and the opening left as a clean reveal; the slab lintel frame member and the fittings each on their own, namely the sill, the door and the shutter; a close view of the stone faces and lichen, a close view of a dry joint with wedging stones, a close view of a through-stone and a jamb, and a worn example with a bulging face and fallen stones. Each is shown under neutral and in-game light. The set avoids uniform rock tiles, clean, evenly sized stones that look like a pavement pattern, and the borrowed look of stacked stone walls in other survival games. No fitting or frame member is merged into the wall piece.
 
 ## Continue Reading
 

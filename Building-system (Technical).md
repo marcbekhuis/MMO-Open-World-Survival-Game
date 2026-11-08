@@ -49,7 +49,7 @@ Preview stability       request      overlap, stability > 0, ceiling,     (persi
                                            └─► OnCarriedWeightChanged(base, kg) ─► riding gait and flight mana draw (section 9)
 ```
 
-Damage, repair, removal, style changes, upkeep decay, and collapse enter the same pipeline at the server column. Nothing about a piece's identity or condition lives only in an actor: if every building actor in a region were destroyed, the base would be assembled again from its records exactly as it stood.
+Damage, repair, removal, finish changes, upkeep decay, and collapse enter the same pipeline at the server column. Nothing about a piece's identity or condition lives only in an actor: if every building actor in a region were destroyed, the base would be assembled again from its records exactly as it stood.
 
 ## 2. Data Model
 
@@ -89,7 +89,8 @@ A piece definition describes one placeable thing, structural or not. Its snap po
 UENUM()
 enum class EPieceFamily : uint8
 {
-    Foundation, WallFoundation, Pillar, Wall, Door, FloorCeiling, Roof, Stairs, FrameBeam,
+    Foundation, WallFoundation, Pillar, Wall, FloorCeiling, Roof, Stairs, FrameBeam,
+    Fitting,        // window frames, glass, shutters, sills, bars, door and gate leaves, hatches, trims: hosted, no stability
     Placeable,      // stations, chests, beds, hearths, troughs, furniture, decoration: free placement
     ClaimMarker,
     Siege,          // ladders, grappling lines, rams, siege engines placed by outsiders
@@ -139,14 +140,19 @@ public:
     UPROPERTY(EditAnywhere) float LossScale = 1.f;             // multiplies the material's joint losses; frames and beams start at 0.2
     UPROPERTY(EditAnywhere) bool bProvidesCover = false;       // roofs: the space below counts as covered
     UPROPERTY(EditAnywhere) uint8 OverlapPriority = 0;         // section 4.2
-    UPROPERTY(EditAnywhere) TArray<FPieceStyle> Styles;        // rough, planked, carved: each with its joint variants
+    UPROPERTY(EditAnywhere) TArray<FPieceFinish> Finishes;     // surface finishes of the same part (rough, smoothed, carved, limewashed), each with its joint variants
+    UPROPERTY(EditAnywhere) TArray<FGameplayTag> HostSockets;  // fittings: the snap types they seat in, e.g. Snap.Opening.Window, Snap.Frame.Hinge
+    UPROPERTY(EditAnywhere) bool bBlocksPassage = true;        // fittings: whether a body can pass the opening this fills (glass and bars block, an open shutter does not)
+    UPROPERTY(EditAnywhere) bool bInteractive = false;         // fittings that open, close, and bar: shutters, doors, gates, hatches
     UPROPERTY(EditAnywhere) float ReachRadiusCm = 0.f;         // troughs, hearths, braziers: effect radius
     UPROPERTY(EditAnywhere) float HeatOutput = 0.f;            // hearths and braziers
     UPROPERTY(EditAnywhere) float CoolOutput = 0.f;            // cooling sources: the mirror of HeatOutput, for heat-sensitive creatures
 };
 ```
 
-Square and triangular shapes are separate definitions with their own snap points. Frames and beams carry snap points and joint slots like any structural piece and are ordinary members of the stability graph, with a `LossScale` that gives them small losses of their own, so a brace or crossbeam laid along a long run hands support on at little cost. The piece registry holds one `TArray<FSnapPairRule>` for the whole kit. The physical dimensions and interfaces that these definitions and their snap points must agree with, and which of them are settled, are set out in the [kit specification](#24-kit-specification).
+Square and triangular shapes are separate definitions with their own snap points. Frames and beams carry snap points and joint slots like any structural piece and are ordinary members of the stability graph, with a `LossScale` that gives them small losses of their own, so a brace or crossbeam laid along a long run hands support on at little cost. The piece registry holds one `TArray<FSnapPairRule>` for the whole kit.
+
+Every definition is one part. A wall definition is the wall alone, with its opening if it has one, and never carries a frame, a sill, glass, a shutter, a door leaf, or a trim in its mesh; those are `Fitting` definitions of their own, so any combination a builder or a settlement style wants is a set of records rather than a new mesh. The one exception is what defines a material: the iron bands, straps, and jambs of reinforced stone and the inlaid veins of warded stone are modelled into every piece of that material, since a piece without them is the lower material. A fitting is hosted: it seats in a snap point whose type is in its `HostSockets`, on an opening, on another fitting (glass in a frame, a shutter on a frame's hinge edge), or on a wall face's snap lines for a trim. Fittings carry no stability, form no links that pass support, and are not counted by the stability passes of section 5. Posts, crossbeams, braces, and lintels are `FrameBeam` pieces and remain structural. The physical dimensions and interfaces that these definitions and their snap points must agree with, and which of them are settled, are set out in the [kit specification](#24-kit-specification).
 
 ### 2.3 Runtime Records
 
@@ -155,7 +161,8 @@ Runtime state is engine-independent and is what the world persists. Like the set
 ```cpp
 enum class EPieceFlags : uint8
 {
-    None = 0, Burning = 1 << 0, Siege = 1 << 1, GroundSupported = 1 << 2, Decaying = 1 << 3
+    None = 0, Burning = 1 << 0, Siege = 1 << 1, GroundSupported = 1 << 2, Decaying = 1 << 3,
+    Open = 1 << 4, Barred = 1 << 5      // interactive fittings: shutters, doors, gates, hatches
 };
 
 struct FPieceLink
@@ -170,14 +177,14 @@ struct FPieceRecord
 {
     uint32 PieceId = 0;                  // unique within the base, never reused
     FPrimaryAssetId Definition;          // e.g. BuildingPiece:Wall_Stone_Dressed_Square
-    FName Style;
+    FName Finish;                        // surface finish of the part (section 3.6)
     FTransform Local;                    // relative to the base origin
     float Health = 0.f;
     uint16 Stability = 0;                // 0..1000, persisted so a load needs no full pass
     uint8 Flags = 0;                     // EPieceFlags
     double LastDamageTime = -1.0e9;      // repair lockout, section 6.3
     double ExpiresAt = 0.0;              // siege pieces and unclaimed foundations, section 7.5
-    uint32 HostPiece = 0;                // placeables: the piece they stand on or hang from
+    uint32 HostPiece = 0;                // placeables and fittings: the piece they stand on, hang from, or fill
     FGuid ContainerId;                   // chests and troughs: inventory lives in the inventory system
     TArray<FPieceLink> Links;            // the snap joints this piece shares, both directions stored
 };
@@ -220,7 +227,7 @@ A base is any connected set of pieces. Pieces placed with no connection to an ex
 
 ### 2.4 Kit Specification
 
-A snap rule says which points may meet; it cannot say whether two meshes fit when they do. Every piece family therefore ships with a dimensional and interface brief before it is modelled, and the brief is the contract between the definition, its sockets, its collision, and its art. It fixes the nominal box of the piece on the 3-metre building module and its pivot; the local axes, with the direction a wall's thickness and length run; the mating planes, the faces that carry snap points and must be flat and lie exactly on the box, while relief, chipped edges, and gaps between planks are cut into the box and never added outside it; and the overlaps expected where pieces meet. For openings it fixes the clear size and the height of the sill, with no threshold across a doorway. For a door it fixes the hinge edge, the pivot relative to the frame, the clearance on each edge, and the arc the leaf sweeps, which must stay clear of the frame's snap volumes. For stairs it fixes the rise and run, the landing, and the headroom over every tread; for roofs the pitch, the structural depth, the cut of the ends, and how two panels meet at a ridge. For every family it fixes the collision openings, which must agree with the visible ones so that a character walks through exactly what it sees to be open.
+A snap rule says which points may meet; it cannot say whether two meshes fit when they do. Every piece family therefore ships with a dimensional and interface brief before it is modelled, and the brief is the contract between the definition, its sockets, its collision, and its art. It fixes the nominal box of the piece on the 3-metre building module and its pivot; the local axes, with the direction a wall's thickness and length run; the mating planes, the faces that carry snap points and must be flat and lie exactly on the box, while relief, chipped edges, and gaps between planks are cut into the box and never added outside it; and the overlaps expected where pieces meet. For openings it fixes the clear size and the height of the sill, with no threshold across a doorway. For a door it fixes the hinge edge, the pivot relative to the frame, the clearance on each edge, and the arc the leaf sweeps, which must stay clear of the frame's snap volumes. For every fitting it fixes the socket it seats in and the envelope it must stay inside: a window frame fills the reveal of its opening, glass sits in the frame's rebate, shutters hang from the frame's hinge edges and fold flat against the wall face, and a trim lies within a few centimetres of the face it dresses. Because the wall carries none of these, its opening is finished as a clean reveal that reads as complete with nothing fitted. For stairs it fixes the rise and run, the landing, and the headroom over every tread; for roofs the pitch, the structural depth, the cut of the ends, and how two panels meet at a ridge. For every family it fixes the collision openings, which must agree with the visible ones so that a character walks through exactly what it sees to be open.
 
 The brief also records the status of each value. Values already settled by the system are approved. Values chosen so that a new family could be modelled at all are provisional until play has tested them, and a provisional value is never read as design canon merely because a mesh was built to it.
 
@@ -232,8 +239,10 @@ The brief also records the status of each value. Values already settled by the s
 | Ceiling and floor | 3,00 x 3,00 x 0,20 m, pivot at the centre of the top face, which is the walking surface; one piece seen from either side | Approved |
 | Pillar | 0,50 x 0,50 x 3,00 m, pivot at the bottom centre; walls meet each face at its centre or flush with either corner | Approved |
 | Doorway | 1,20 m wide, 2,28 m high, no threshold | Provisional |
-| Door leaf | Pivot on the hinge edge of the frame, 0,01 m of clearance on each edge | Provisional |
-| Window opening | 1,20 m square, sill at 1,02 m | Provisional |
+| Door leaf (fitting) | Pivot on the hinge edge of the door frame, 0,01 m of clearance on each edge | Provisional |
+| Window opening | 1,20 m square, sill at 1,02 m; a bare reveal through the full wall thickness | Provisional |
+| Window frame (fitting) | Fills the opening's clear size, seated in the reveal with its outer face 0,05 m behind the wall face; sockets for glass in its rebate and for shutters on both outer hinge edges | Provisional |
+| Shutters (fitting) | Two leaves, each half the opening's width, hung on the frame's outer hinge edges and opening flat against the wall face | Provisional |
 | Stair | Fifteen rises and fifteen runs of 0,20 m, a rise of 3,00 m over a run of 3,00 m; headroom not yet tested | Provisional |
 | Roof | Rising 1,50 m over a 3,00 m run, 0,20 m of structural depth; two panels turned 180 degrees make a ridge | Provisional |
 
@@ -243,13 +252,13 @@ The stair is the value most likely to change. A rise of 0,20 m per step over a r
 
 ### 3.1 Snap Compatibility
 
-Two snap points can meet when the registry's pair table holds a rule for their two types, and that rule also names the joint they form. A rule matches in either order, and each of its two tags matches a point's type hierarchically through the gameplay-tag tree, the most specific matching rule winning, so a handful of broad rules covers the kit: a wall bottom meets `Snap.Foundation.Edge` and `Snap.WallFoundation.Top` as a vertical joint, a ceiling edge meets `Snap.Wall.Top` and `Snap.Pillar.Top` as a lateral one, and a stair foot meets `Snap.Floor.Edge`. The joint is a fact about the pair: the top of a wall is a vertical joint for a wall stacked on it and a lateral one for a ceiling laid across it, and a pillar under a ceiling forms a lateral joint, which is what lets a pillar carry a span back to green. Pillars carry three points on every face at every height step — centred, flush left, and flush right — which gives the specification's choice of a wall meeting a post in its middle or at either outer corner, from any of four sides. Walls carry frame points along their edges, middle, and quarter lines on both faces for frames, crossbeams, braces, and trims. Where on a piece's box each point sits is fixed by the [kit specification](#24-kit-specification), and a rule in the pair table is only as good as the mating planes it joins.
+Two snap points can meet when the registry's pair table holds a rule for their two types, and that rule also names the joint they form. A rule matches in either order, and each of its two tags matches a point's type hierarchically through the gameplay-tag tree, the most specific matching rule winning, so a handful of broad rules covers the kit: a wall bottom meets `Snap.Foundation.Edge` and `Snap.WallFoundation.Top` as a vertical joint, a ceiling edge meets `Snap.Wall.Top` and `Snap.Pillar.Top` as a lateral one, and a stair foot meets `Snap.Floor.Edge`. The joint is a fact about the pair: the top of a wall is a vertical joint for a wall stacked on it and a lateral one for a ceiling laid across it, and a pillar under a ceiling forms a lateral joint, which is what lets a pillar carry a span back to green. Pillars carry three points on every face at every height step — centred, flush left, and flush right — which gives the specification's choice of a wall meeting a post in its middle or at either outer corner, from any of four sides. Walls carry frame points along their edges, middle, and quarter lines on both faces for posts, crossbeams, braces, lintels, and face fittings such as trims. Openings carry fitting sockets in their reveal for a frame, a door or gate leaf, a hatch, or bars, and fittings carry sockets of their own for the fittings that seat in them, so a window builds outward from the hole: frame, then glass, then shutters. Where on a piece's box each point sits is fixed by the [kit specification](#24-kit-specification), and a rule in the pair table is only as good as the mating planes it joins.
 
 ### 3.2 Candidate Selection on the Client
 
 While a piece is in hand, the client gathers every snap point on pieces within reach whose type the held piece can meet, transforms each into world space, and lights them all as markers. Each marker is drawn offset just outside the owning piece's surface, along the joint's axis, as a small arrow, and a pillar face's centred, flush-left, and flush-right points carry three distinct colours; neither depends on the snap point's own transform, which can lie inside the piece. The candidate nearest the builder's aim ray becomes the highlighted one, its snap type is passed to the HUD to be named on screen, and a cycle input steps through the others at the same spot in order of distance, breaking ties by piece id and snap index so the order never flickers. The preview is placed by aligning one of the held piece's snap points to the chosen candidate, then rotated by the piece's allowed rotation steps.
 
-The client never sends that transform. A placement request names the target base, target piece, target snap index, the held definition, its own snap index, the rotation step, and the style, and the server recomputes the transform from the same baked data. A forged position cannot be placed, and the server's transform is the one recorded and replicated, so a client's preview never drifts from what stands.
+The client never sends that transform. A placement request names the target base, target piece, target snap index, the held definition, its own snap index, the rotation step, and the finish, and the server recomputes the transform from the same baked data. A forged position cannot be placed, and the server's transform is the one recorded and replicated, so a client's preview never drifts from what stands.
 
 Free-standing pieces — the first foundation of a base, wall foundations on open ground, pillars, and placeables — have no target snap, so their requests carry a transform, which the server clamps to reach and validates on its own terms.
 
@@ -272,24 +281,56 @@ The server accepts a placement only when every check passes, in an order that pu
 5. **Snap.** The two snap points are covered by a rule in the pair table. Snap points are not occupied: any number of links may meet at one point, and double placement is stopped by the overlap test that follows.
 6. **Overlap.** The piece's `CoreBounds` does not intersect another piece's core, a character, or a creature, tested with `OverlapBlockingTestByChannel`. Core bounds are shrunk so that pieces meeting at a joint, which are expected to overlap at their edges, never fail this test, and the same test refuses a second ceiling slid into a span from another edge.
 7. **Ground.** A foundation passes the ground test of section 3.3 and a raise within range.
-8. **Stability.** The stability the piece would receive (section 5.1) is above zero.
+8. **Stability.** The stability the piece would receive (section 5.1) is above zero. A fitting skips this check and passes instead when its host snap point exists and is not already filled by a fitting of the same socket type.
 9. **Ceiling.** The base has room under its claim's piece ceiling or its creature's piece budget.
 
 A rejected request returns a reason code so the preview can show why, such as an exclusion zone, a rival claim, or a piece that would not stand.
 
-### 3.5 Placeables
+### 3.5 Placeables and Fittings
+
+A fitting is placed like a structural piece, by aligning one of its snap points to a candidate socket, so its request carries no transform; the only candidates offered are sockets whose type is in the fitting's `HostSockets`. The record stores the host's piece id. Interactive fittings keep their state in the `Open` and `Barred` flags, changed by a use request that the server checks for reach and, for barring, for the user standing on the inner side of the host. Bars and glass set `bBlocksPassage`, so the host opening's navigation and collision follow the fittings in it: a window with nothing fitted, or with its shutters open and no glass or bars, is a gap a body can climb through.
 
 Stations, chests, beds, hearths, troughs, furniture, and decoration are placed freely. The client offers fine rotation steps, small nudges, alignment to the surface normal under the aim point, and an optional light grid in the host piece's local frame; the request carries the final transform and the id of the host piece it rests on or hangs from. The server checks reach, rights, and overlap, and that the placeable's footprint actually touches its host. Placeables take no part in the stability graph.
 
-### 3.6 Replacing, Restyling, and Removing
+### 3.6 Replacing, Refinishing, and Removing
 
-Upgrading is removal followed by placement, exactly as the specification describes, so there is no upgrade code path. Removal by a rights holder deletes the record, returns a fraction of the piece's materials to the remover's inventory, and runs the stability removal pass, which is what opens the moment of weakness the specification describes. A style change is available to anyone with rights, in place, on any piece. It rewrites the record's `Style` and nothing else: health, stability, links, and piece id are untouched, and clients swap the instance into the component for the new style's mesh.
+Upgrading is removal followed by placement, exactly as the specification describes, so there is no upgrade code path. Removal by a rights holder deletes the record, returns a fraction of the piece's materials to the remover's inventory, and runs the stability removal pass, which is what opens the moment of weakness the specification describes. The fittings hosted on a removed piece return whole to the remover's inventory as items at their stored condition, and their records go in the same commit. A finish change is available to anyone with rights, in place, on any piece. It rewrites the record's `Finish` and nothing else: health, stability, links, hosted fittings, and piece id are untouched, and clients swap the instance into the component for the new finish's mesh. A finish only ever changes the surface of the same part; anything that adds geometry beyond the piece's box is a separate definition.
+
+### 3.7 Patterns
+
+A pattern is a saved group of pieces, stored per character and copied into a plan item when it is written out for someone else. It holds no materials and no world state, only shape:
+
+```cpp
+USTRUCT()
+struct FPatternEntry
+{
+    GENERATED_BODY()
+
+    UPROPERTY() FPrimaryAssetId Definition;
+    UPROPERTY() FName Finish;
+    UPROPERTY() int16 ParentIndex = -1;      // the entry it snaps to; -1 for the pattern's anchor piece
+    UPROPERTY() uint8 ParentSnap = 0;        // snap index on the parent
+    UPROPERTY() uint8 OwnSnap = 0;           // snap index on this piece
+    UPROPERTY() uint8 RotationStep = 0;
+};
+
+USTRUCT()
+struct FBuildingPattern
+{
+    GENERATED_BODY()
+
+    UPROPERTY() FText Name;
+    UPROPERTY() TArray<FPatternEntry> Entries;   // ordered so every parent precedes its children: bottom up, structure before fittings
+};
+```
+
+Because every entry is recorded as a snap onto an earlier entry, a pattern carries no transforms and can be rebuilt anywhere its anchor can snap. The client previews the whole group from the anchor's candidate socket. Placing it sends one request naming the anchor's target and the pattern; the server walks the entries in order and runs each through the ordinary validation of section 3.4 with the entries before it already committed, consuming the builder's item for each. An entry whose item the builder does not hold, or which fails a check, is skipped together with every entry that depends on it, and the reply lists the skipped entries so the client can leave them as outlines to fill later. One pattern placement is one batch in the delta stream. The patterns behind an NPC style in [Settlement Generation (Technical)](<Settlement-generation (Technical).md>) use the same structure, resolved by the settlement builder instead of a character's inventory.
 
 ## 4. Clean Joints
 
 ### 4.1 Neighbour-Aware Variants
 
-Each style of a piece carries a table of mesh variants keyed by what occupies each of its joint slots. A wall has slots for its two ends, its top, and its bottom; each slot reads as empty or as the joint class of the piece snapped there, such as straight wall, corner wall, pillar centred, pillar flush, or beam. A wall whose right end meets another wall at ninety degrees resolves to its corner variant, a wall with a third wall arriving resolves to its T-junction, a run that stops resolves to its end cap, and a beam crossing a post resolves to its notched form.
+Each finish of a piece carries a table of mesh variants keyed by what occupies each of its joint slots. A wall has slots for its two ends, its top, and its bottom; each slot reads as empty or as the joint class of the piece snapped there, such as straight wall, corner wall, pillar centred, pillar flush, or beam. A wall whose right end meets another wall at ninety degrees resolves to its corner variant, a wall with a third wall arriving resolves to its T-junction, a run that stops resolves to its end cap, and a beam crossing a post resolves to its notched form.
 
 ```cpp
 USTRUCT()
@@ -302,11 +343,11 @@ struct FJointVariant
 };
 
 USTRUCT()
-struct FPieceStyle
+struct FPieceFinish
 {
     GENERATED_BODY()
 
-    UPROPERTY(EditAnywhere) FName Style;
+    UPROPERTY(EditAnywhere) FName Finish;
     UPROPERTY(EditAnywhere) TSoftObjectPtr<UStaticMesh> DefaultMesh;
     UPROPERTY(EditAnywhere) TArray<FJointVariant> Variants;     // first full match wins; authored most specific first
 };
@@ -316,7 +357,7 @@ Variant resolution is a pure function of a piece's record and its linked neighbo
 
 ### 4.2 Overlap Priority
 
-Where two surfaces still overlap after variants are resolved, the piece with the higher `OverlapPriority` keeps its surface and the other hides the overlapped part; equal priorities resolve to the lower piece id, so the outcome is deterministic. Pillars outrank walls, walls outrank frames and trims, and wall foundations outrank floors, which is what keeps a floor tucked under a wall foundation from showing through it.
+Where two surfaces still overlap after variants are resolved, the piece with the higher `OverlapPriority` keeps its surface and the other hides the overlapped part; equal priorities resolve to the lower piece id, so the outcome is deterministic. Pillars outrank walls, walls outrank frames, beams, and fittings, and wall foundations outrank floors, which is what keeps a floor tucked under a wall foundation from showing through it.
 
 The hiding is done in the material. Each instance carries [per-instance custom data](https://dev.epicgames.com/documentation/unreal-engine/instanced-static-mesh-component-in-unreal-engine) set through `SetCustomDataValue`, and the piece's masked material discards pixels inside the winning neighbour's core box, passed in the instance's local space. [Nanite](https://dev.epicgames.com/documentation/unreal-engine/nanite-virtualized-geometry-in-unreal-engine) supports masked materials on instanced meshes, but their cost on a large base has not been measured and needs prototyping. A [pixel depth offset](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/EPixelDepthOffsetMode) on the losing surface is the fallback to test; Epic gives no guidance on using it against overlapping geometry, and community reports of its limits, such as shadows ignoring it, are unverified.
 
@@ -413,7 +454,7 @@ Both passes touch only the pieces whose values actually change, which is the pro
 
 Collapsed pieces are removed in the same commit that destroyed their support. Removing a piece at zero changes nobody else's value, because a piece at zero offers nothing, so collapse needs no second stability pass. Each collapsed piece then drops rubble: the server finds the pieces beneath its footprint with an overlap test against the building channel and applies crushing damage scaled by the collapsed piece's weight. That damage can destroy further pieces, which run their own removal pass in turn. Cascades are processed in waves with a per-tick budget, continuing on the next tick when the budget is spent, so the collapse of a keep plays out over a few frames rather than stalling the region.
 
-A placeable whose host piece collapses is not destroyed with it: it drops as an item at its stored condition, damaged by the fall, and, if it is a container, its contents spill into a loot pile at the same spot, which the inventory system creates under the same rules as any other pile.
+Fittings are not visited by the cascade: a fitting whose host is removed goes with it and drops as a damaged item. A placeable whose host piece collapses is not destroyed with it: it drops as an item at its stored condition, damaged by the fall, and, if it is a container, its contents spill into a loot pile at the same spot, which the inventory system creates under the same rules as any other pile.
 
 ### 5.4 What the Builder Sees
 
@@ -459,7 +500,7 @@ DailyNeed(item)   = HoldingFactor(owner's claim count) × SizeFactor(structural 
 Line(item).PaidUntilDay = Now + Stock(item) / DailyNeed(item)
 ```
 
-`SizeFactor` is a curve that rises with the piece count and rises faster for very large bases. Only structural pieces are summed: placeables count toward the piece ceiling but pay nothing. `HoldingFactor` is a curve over the number of live claims the same owner holds, 1 for the first and rising with each further one, so the owner's second claim costs more than its first and its fifth more than its fourth. The count is kept in a per-owner index beside the claim grid. When it changes, each of the owner's claims settles its draw-down at the old rate and recomputes its lines at the new one, in the same lazy way as for any other change.
+`SizeFactor` is a curve that rises with the piece count and rises faster for very large bases. Only structural pieces are summed: fittings and placeables count toward the piece ceiling but pay nothing. `HoldingFactor` is a curve over the number of live claims the same owner holds, 1 for the first and rising with each further one, so the owner's second claim costs more than its first and its fifth more than its fourth. The count is kept in a per-owner index beside the claim grid. When it changes, each of the owner's claims settles its draw-down at the old rate and recomputes its lines at the new one, in the same lazy way as for any other change.
 
 The lines make a shortage local. A material whose line runs dry starves only the pieces whose definitions list that material in `UpkeepPerPiece`; pieces made of materials still in stock keep being maintained. Each line has its own `StarvingSinceDay`, and a piece is `Decaying` only while a line it depends on is starving.
 
@@ -551,13 +592,13 @@ The base record travels with its creature as part of the creature's transfer gro
 
 ### 10.1 One Actor per Base
 
-A piece is never an actor. Each base is one actor holding one [`UInstancedStaticMeshComponent`](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UInstancedStaticMeshComponent) per distinct mesh it uses, with pieces as instances added, moved, and removed through `AddInstance`, `UpdateInstanceTransform`, and `RemoveInstance`. Epic's guidance is that a Nanite-only project should always use instanced static meshes rather than the hierarchical variant, and the piece kit is built for [Nanite](https://dev.epicgames.com/documentation/unreal-engine/nanite-virtualized-geometry-in-unreal-engine), whose hard cap of 16 million streamed-in instances sits far above any region's piece count. A joint variant or style change moves an instance from one component to another; Epic documents no dedicated way to swap an instance's mesh, so this is the expected method rather than a confirmed one. Per-instance custom data carries the hammer-view stability colour, the burning state, the damage state that drives cracked materials, and the overlap clip box from section 4.2.
+A piece is never an actor. Each base is one actor holding one [`UInstancedStaticMeshComponent`](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UInstancedStaticMeshComponent) per distinct mesh it uses, with pieces as instances added, moved, and removed through `AddInstance`, `UpdateInstanceTransform`, and `RemoveInstance`. Epic's guidance is that a Nanite-only project should always use instanced static meshes rather than the hierarchical variant, and the piece kit is built for [Nanite](https://dev.epicgames.com/documentation/unreal-engine/nanite-virtualized-geometry-in-unreal-engine), whose hard cap of 16 million streamed-in instances sits far above any region's piece count. A joint variant or finish change moves an instance from one component to another; Epic documents no dedicated way to swap an instance's mesh, so this is the expected method rather than a confirmed one. Per-instance custom data carries the hammer-view stability colour, the burning state, the damage state that drives cracked materials, and the overlap clip box from section 4.2.
 
 The server spawns the same actor with the same components for collision, which characters, creatures, and placement tests all rely on, and never renders it. Instance collision is shared per component, which suits pieces of one mesh; the cost of collision on bases of several thousand instances on a dedicated server needs measuring. Epic's Instanced Actors plugin was considered and set aside: it is built for instances populated offline and spawned near players, not for pieces players place and break.
 
 ### 10.2 Replication
 
-The base actor replicates its pieces as a [`FFastArraySerializer`](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/NetCore/FFastArraySerializer) of `FBuildingPiece` entries, each a compact copy of a record: piece id, an index into a registry of piece definitions and styles built identically on server and client from cooked content, a quantised local transform, health and stability as single bytes, flags, and host piece. Links are not replicated; clients rebuild them from the snap data, which is all variant resolution needs. The server calls `MarkItemDirty` after adding or changing an entry and `MarkArrayDirty` after a removal, and clients react in `PostReplicatedAdd`, `PostReplicatedChange`, and `PreReplicatedRemove` by updating the affected instances and re-resolving joints around them.
+The base actor replicates its pieces as a [`FFastArraySerializer`](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/NetCore/FFastArraySerializer) of `FBuildingPiece` entries, each a compact copy of a record: piece id, an index into a registry of piece definitions and finishes built identically on server and client from cooked content, a quantised local transform, health and stability as single bytes, flags, and host piece. Links are not replicated; clients rebuild them from the snap data, which is all variant resolution needs. The server calls `MarkItemDirty` after adding or changing an entry and `MarkArrayDirty` after a removal, and clients react in `PostReplicatedAdd`, `PostReplicatedChange`, and `PreReplicatedRemove` by updating the affected instances and re-resolving joints around them.
 
 A base at rest changes rarely, so its actor uses [network dormancy](https://dev.epicgames.com/documentation/unreal-engine/actor-network-dormancy-in-unreal-engine), set to `DORM_DormantAll` in its constructor, since Epic reserves `DORM_Initial` for actors placed in the map, and returned to dormancy after a quiet period, with `FlushNetDormancy` called before any change to the array. Which clients receive a base is decided by the Iris spatial filter set up in the [server guide](<Server-architecture (Technical).md#5-replication-visibility-driven-sync>), and bases use the stationary radius described in [Dynamic Culling and Render Distance](Dynamic-culling-and-render-distance.md), except that a creature-borne base takes the relevancy radius of its carrier creature, so a deck is relevant to exactly the clients that can see the leviathan beneath it. Iris supports existing `FFastArraySerializer` definitions as well as its native `FIrisFastArraySerializer`, so the piece array needs no change to run under it; replicating a base near the piece ceiling is one of the checks in the server guide's Iris prototype gate, and the [Replication Graph](https://dev.epicgames.com/documentation/unreal-engine/replication-graph-in-unreal-engine) fallback there replicates the same array unchanged. The size and time of a client's first replication of a base near the piece ceiling must be measured early, because that is the moment a large base costs the most.
 
@@ -579,14 +620,15 @@ Destruction is cosmetic on the client and authoritative only as record removal. 
 
 A piece is judged first by how it looks where it is met, and only then by what it costs. The review distance for a building piece is arm's length at first-person eye height, because that is where a player stands to build, repair, and fight, and the silhouette and surface of every piece must hold up there: bevelled and chipped edges, visible fastenings, joints that show how the piece is made, and relief that catches light. A low triangle count never justifies visibly simple construction, and a piece that imports cleanly or draws cheaply but looks plain at that distance fails review. The kit is built for [Nanite](https://dev.epicgames.com/documentation/unreal-engine/nanite-virtualized-geometry-in-unreal-engine), so detail is modelled rather than faked, and the budget is read as a scene allowance rather than a per-piece ceiling. No single triangle count is a universal target.
 
-Each asset class carries an allowance, and every figure below is provisional until it has been validated against a stated scene: two thousand visible building pieces in one view, drawn from the dense-settlement and siege scenarios of [Hotspot Workloads and Degradation](Server-settings.md#hotspot-workloads-and-degradation), on the minimum target hardware, with building pieces holding no more than a fixed share of the frame, provisionally two milliseconds of the sixteen and a half of a 60-frames-per-second frame.
+Each asset class carries an allowance, and every figure below is provisional until it has been validated against a stated scene: two thousand visible structural pieces in one view, together with the fittings a dressed street carries, about three to every opening, drawn from the dense-settlement and siege scenarios of [Hotspot Workloads and Degradation](Server-settings.md#hotspot-workloads-and-degradation), on the minimum target hardware, with building pieces holding no more than a fixed share of the frame, provisionally two milliseconds of the sixteen and a half of a 60-frames-per-second frame.
 
 | Asset class | Review distance | Required silhouette and surface detail | Source geometry (provisional) | Material slots | Collision |
 |---|---|---|---|---|---|
 | Foundation, wall, floor, ceiling, roof panel | Arm's length, eye height | Edge profile, joints, and fastenings modelled; relief kept inside the box | 15 000 to 60 000 triangles | 1 to 2 | Box or a few convex hulls matching the box |
 | Pillar, beam | Arm's length | Notches, pegs, end treatment | 5 000 to 20 000 | 1 | Single box |
-| Door frame, window frame | Arm's length | Opening edges, reveals, sill, and lintel | 15 000 to 60 000 | 1 to 2 | Boxes that leave the opening clear |
-| Door leaf | Arm's length | Plank or panel construction, hinges, latch | 8 000 to 30 000 | 1 to 2 | Single box, driven by the door state |
+| Door frame, window frame (fittings) | Arm's length | Frame members, rebates, joints; the wall's reveal stays finished without them | 5 000 to 25 000 | 1 | Boxes that leave the opening clear |
+| Door leaf, gate leaf, shutter, hatch (fittings) | Arm's length | Plank or panel construction, hinges, latch | 8 000 to 30 000 | 1 to 2 | Single box, driven by the open state |
+| Glass, bars, sill, trim (fittings) | Arm's length | Leading and pane variation; forged bars; sill drip; carved or moulded relief | 1 000 to 15 000 | 1 | Single box, or none for a trim |
 | Stairs | Arm's length, from above | Treads and stringers, nosing wear | 20 000 to 80 000 | 1 to 2 | Stepped boxes or a ramp that agrees with the treads |
 | Furniture and placeables | Arm's length | Construction visible from the use position | 5 000 to 40 000 | 1 to 3 | A few convex hulls |
 
@@ -628,6 +670,9 @@ Prototyping should demonstrate each of the following before the system is consid
 | A claim stocked with timber and iron bands, the iron left to run out | Only the iron-banded pieces decay, from the outside in; timber pieces keep full upkeep; the claim lapses only once every material has been missing for the fixed period |
 | One guild holding a first, a second, and a third claim of identical size | Each claim's daily need is higher than the last by the holding factor, and a claim dropped lowers the rest on the next settle |
 | A chest on a floor whose supporting pillar is destroyed | The floor collapses; the chest drops as a damaged item and its contents spill into a lootable pile |
+| A wall with a window opening, fitted with frame, glass, shutters, and bars, then each fitting removed in turn, then the wall destroyed | The wall's stability never changes as fittings come and go; the opening is passable only once the bars and glass are out and the shutters open; when the wall falls, every remaining fitting drops as a damaged item |
+| A timber wall changed from rough to carved finish, then to a finish another definition owns | The first change rewrites only `Finish`; the second is refused, since a finish cannot add geometry |
+| A pattern of a framed, glazed, shuttered window placed by a builder carrying the frame and glass but no shutters | Frame and glass place in one batch; the shutters are skipped, listed in the reply, and shown as outlines |
 | A tamed turtle with a shell base: its keeper places a piece, a stranger destroys the marker, the turtle walks across a ground claim | The keeper has no rights without the marker; the first new marker takes the claim; the shell claim never blocks or overlaps the ground claim |
 | A raider attacking a plot in a city's outskirts, and a character logging out inside it | Every damage kind is refused and no siege piece can be placed; the character leaves the world as in the city |
 | A heat-sensitive creature beside a cooling source and behind a wall from it | Cool in reach with an unbroken line; not cool behind the wall |

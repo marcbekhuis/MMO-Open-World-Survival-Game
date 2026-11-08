@@ -10,9 +10,11 @@ The faces are the dwarves' finest work: pecked and then ground smooth, with a ve
 
 ## Construction and Joints
 
-Walls are battered, their faces leaning back a few degrees from base to top, which is the oldest dwarven answer to earthquake and siege. Corners are turned in the squared style by interlocking quoin blocks that overlap on both faces, and in the polygonal style by a bent block that wraps the corner. On the 3-metre module the wall is typically three courses of the squared style or about six to eight blocks of the polygonal style.
+The kit is separate pieces. The wall piece is only the fitted wall: battered, its face leaning back a few degrees from base to top, which is the oldest dwarven answer to earthquake and siege. Corners are turned in the squared style by interlocking quoin blocks that overlap on both faces, and in the polygonal style by a bent block that wraps the corner. On the 3-metre module the wall is typically three courses of the squared style or about six to eight blocks of the polygonal style. Where it has an opening, the opening is a trapezoidal reveal, wider at the sill than the head, with jambs that lean in, and it reads complete with nothing fitted. A corbelled or true arch of tightly fitted voussoirs with no keystone visible is coursed into the wall piece where a builder wants one.
 
-Openings are trapezoidal, wider at the sill than the lintel, with a single heavy lintel stone and jambs that lean in. Arches are corbelled or true, built from tightly fitted voussoirs with no keystone visible. Floors are slabs of the same stone, laid with the same hairline joints. Roofs, where a hold is built above ground, are low-pitched stone slabs on corbels or heavy slate. Timber is rare and appears only as metal-strapped door frames. Iron, bronze, and steel inserts are set into carved channels.
+The frame member is the single heavy lintel stone laid across an opening where no arch is built, snapped onto the wall face. The fittings are the doors and their timber frames, rare and metal-strapped, any iron, bronze or steel bars and grilles, and the plain stone sills; see [Fittings](../../Building-system.md#fittings). Together they make the hold gate: a battered wall with a trapezoidal opening, one lintel stone and a strapped door, a combination a builder assembles as a [pattern](../../Building-system.md#patterns).
+
+Floors are slabs of the same stone, laid with the same hairline joints. Roofs, where a hold is built above ground, are low-pitched stone slabs on corbels or heavy slate. Metal inserts are set into carved channels in the stone.
 
 ## Wear, Weathering, and Damage
 
@@ -22,15 +24,15 @@ Damage is dramatic because the wall is so clean. The first sign is a hairline cr
 
 ## Variants
 
-The squared style belongs to forge halls and gatehouses, the polygonal to retaining walls and cliff-faces where it fits the living rock. A hold's most honoured work carries inset runes or a single band of carved knotwork at head height. Human and elven builders who learn the craft copy the squared style in their own stone colours. Trims are described under [Decoration and Detail](../../Building-system.md#decoration-and-detail).
+The squared style belongs to forge halls and gatehouses, the polygonal to retaining walls and cliff-faces where it fits the living rock. A hold's most honoured work carries inset runes or a single band of carved knotwork at head height. Human and elven builders who learn the craft copy the squared style in their own stone colours. Finishes change only the surface of a piece and never add a part: for this material they are the pecked, ground and pillowed face, the squared or polygonal dressing, and inset rune or knotwork carved into the block faces. Applied mouldings and painted panels are trim fittings, placed as pieces of their own. The rules are described under [Decoration and Detail](../../Building-system.md#decoration-and-detail).
 
 ## Reference Set
 
 ![Battered fitted masonry entrance with polygonal blocks and hairline dry joints](../../Assets/Building-materials/Model-references/fitted-masonry-model-reference.png)
 
-<!-- REVIEW(art-reference): Minor fix. Block faces are rough-pecked; grind them smooth with a slight pillowed bulge. The kit piece carries loose cap blocks on top; make it a clean battered module piece. Hairline polygonal joints and the trapezoidal opening are right. -->
+<!-- REVIEW(art-reference): Regenerate in the six-panel layout of the building-material-references recipes: a bare battered wall piece with its trapezoidal opening, and the lintel stone, strapped door, bars, and sill as separate parts. Also: Block faces are rough-pecked; grind them smooth with a slight pillowed bulge. The kit piece carries loose cap blocks on top; make it a clean battered module piece. Hairline polygonal joints and the trapezoidal opening are right. -->
 
-A reference set for this material comprises an assembled wall section with a trapezoidal doorway at first-person eye height, front and rear of a representative wall piece and a corner piece, a close view of the hairline joint, a close view of a pillowed face and tool grain, a close view of a polygonal junction where several blocks meet, and a worn example with a fractured block. Each is shown under neutral and in-game light. The set avoids brick-pattern tiling, visible mortar, regular rectangles in the polygonal style, and the borrowed look of fantasy-game dwarven halls with cartoon runes and glowing seams.
+A reference set for this material comprises an assembled wall section with a trapezoidal doorway at first-person eye height, the bare wall piece and a corner piece, front and rear, with nothing fitted and the opening left as a clean reveal, the lintel frame member and the strapped door and bar fittings each on their own, a close view of the hairline joint, a close view of a pillowed face and tool grain, a close view of a polygonal junction where several blocks meet, and a worn example with a fractured block. Each is shown under neutral and in-game light. The set avoids brick-pattern tiling, visible mortar, regular rectangles in the polygonal style, and the borrowed look of fantasy-game dwarven halls with cartoon runes and glowing seams. No fitting or frame member is merged into the wall piece.
 
 ## Continue Reading
 

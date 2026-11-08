@@ -10,9 +10,11 @@ Colour is the quarry's: warm honey and cream limestone, pale grey granite, buff 
 
 ## Construction and Joints
 
-Walls stand on a projecting plinth course and are built with the corners carried up first as quoins, long and short blocks alternately. On the 3-metre module the wall is a panel of about five courses of 0,60 metres. Openings are spanned by a single lintel or a semicircular or pointed arch of wedge-shaped voussoirs, with a keystone and a chamfered or moulded reveal. Sills are single slabs with a drip groove, and corners of tower and keep show the full squared quoin pattern.
+The kit is separate pieces. The wall piece is only the ashlar wall: on the 3-metre module a panel of about five courses of 0,60 metres, built with the corners carried up first as quoins, long and short blocks alternately, so that corners of tower and keep show the full squared quoin pattern. A plinth variant of the wall piece is the projecting base course. Where the wall has an opening, a semicircular or pointed arch of wedge-shaped voussoirs with a keystone and a chamfered or moulded reveal is coursed into the wall piece as part of how the opening is built, and the opening reads complete with nothing fitted.
 
-Wall tops carry a projecting string course and a coped parapet, or a battlement with merlons cut in stone. Floors are flagged in square stone slabs or are timber on stone corbels set into the wall. Stairs are built in stone, each tread a single block turned into the wall. Where timber meets stone, as in a roof plate or a floor beam, the timber ends sit in squared sockets or on corbel stones, with a lead or lime bed beneath.
+The frame members are the single stone or timber lintel laid across an opening where no arch is built, snapped onto the wall face, and the corbel stones and floor beams that carry upper floors. The fittings are the sills, single slabs with a drip groove, the window frames, glass, shutters and iron bars, the doors and gates, and the projecting string course and coping that finish a wall top; see [Fittings](../../Building-system.md#fittings). Together they make the keep: coursed walls with an arched doorway, a barred slit window and a coped parapet, a combination a builder assembles as a [pattern](../../Building-system.md#patterns).
+
+Wall tops are finished with a coped parapet or a battlement with merlons cut in stone. Floors are flagged in square stone slabs or are timber on stone corbels set into the wall. Stairs are built in stone, each tread a single block turned into the wall. Where timber meets stone, as in a roof plate or a floor beam, the timber ends sit in squared sockets or on corbel stones, with a lead or lime bed beneath.
 
 ## Wear, Weathering, and Damage
 
@@ -22,15 +24,15 @@ Damage reads as cracks and chips. First arrises spall and corners lose their edg
 
 ## Variants
 
-Human work is tall, plain, and buttressed, in grey or honey stone. Elven stone is bone-pale limestone with fine joints, soft rounded edges, and carved leaf mouldings where it meets living wood. Dwarven outer works are massive and dark, with large blocks and a battered base. Trim choices include chamfered edges, string courses, and carved corbels, described under [Decoration and Detail](../../Building-system.md#decoration-and-detail).
+Human work is tall, plain, and buttressed, in grey or honey stone. Elven stone is bone-pale limestone with fine joints, soft rounded edges, and carved leaf mouldings where it meets living wood. Dwarven outer works are massive and dark, with large blocks and a battered base. Finishes change only the surface of a piece and never add a part: for this material they are the tooled face (pitched, boasted, punched or drafted), a chamfered or rounded arris, and the quarry's stone colour. String courses, carved corbels, leaf mouldings and painted panels are trim fittings, placed as pieces of their own. The rules are described under [Decoration and Detail](../../Building-system.md#decoration-and-detail).
 
 ## Reference Set
 
 ![Dressed limestone keep wall with an arched opening, chisel marks and fine lime joints](../../Assets/Building-materials/Model-references/dressed-stone-model-reference.png)
 
-<!-- REVIEW(art-reference): Minor fix. The plate is 1672 pixels wide against the set's 1536 by 1024, and a few block faces carry faint scribble marks that read as writing; keep only tool marks. Otherwise it matches the brief. -->
+<!-- REVIEW(art-reference): Regenerate in the six-panel layout of the building-material-references recipes: a bare ashlar wall piece with its coursed arch and no door, and the lintel, sill, window frame, shutters, bars, door, and coping as separate parts. Also: The plate is 1672 pixels wide against the set's 1536 by 1024, and a few block faces carry faint scribble marks that read as writing; keep only tool marks. Otherwise it matches the brief. -->
 
-A reference set for this material comprises an assembled keep wall with an arched doorway at first-person eye height, front and rear of a representative wall piece and a corner piece with quoins, a close view of the tooled face, a close view of a joint, a close view of an arch with voussoirs, and a worn example with spalled arrises and a lichen-streaked face. Each is shown under neutral and in-game light. The set avoids identical blocks tiled perfectly, hairline-fine uniform joints, glossy clean surfaces, and the borrowed look of stone-brick blocks from other survival games.
+A reference set for this material comprises an assembled keep wall with an arched doorway at first-person eye height, the bare wall piece and a corner piece with quoins, front and rear, with nothing fitted and the opening left as a clean reveal, the lintel frame member and the sill, window frame, shutter, door and string course fittings each on their own, a close view of the tooled face, a close view of a joint, a close view of an arch with voussoirs, and a worn example with spalled arrises and a lichen-streaked face. Each is shown under neutral and in-game light. The set avoids identical blocks tiled perfectly, hairline-fine uniform joints, glossy clean surfaces, and the borrowed look of stone-brick blocks from other survival games. No fitting or frame member is merged into the wall piece.
 
 ## Continue Reading
 

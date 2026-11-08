@@ -4,17 +4,18 @@ These recipes come from the first set of thirteen building-material plates. The 
 
 ## Standard plate layout
 
-Every plate is 1536 by 1024 pixels, landscape, divided by thin dark-grey gutters into five panels, so the set reads as one series.
+Every plate is 1536 by 1024 pixels, landscape, divided by thin dark-grey gutters into six panels, so the set reads as one series.
 
 | Panel | Position | Content |
 | --- | --- | --- |
-| Assembled | Left half, full height | The material built into a real structure in its home setting, seen from first-person eye height (about 1,7 metres) at a slight angle, with a doorway or window, a corner, and the roof or wall top in view. Natural daylight. |
-| Kit front | Top right, left of two | One isolated 3-metre wall piece of the material, three-quarter front view, on a plain mid-grey studio background with soft even light. |
-| Kit rear | Top right, right of two | The same piece from the rear three-quarter view, same background and light. |
-| Close-up 1 | Right, middle or lower left | The surface at arm's length: unit size, texture, colour variation. |
-| Close-up 2 | Right, lower or lower right | The defining joint or fixing: a pegged joint, a lashing, a mortar bed, an iron cramp, a crystal collar. |
+| Assembled | Left half, full height | The material built into a real structure in its home setting, seen from first-person eye height (about 1,7 metres) at a slight angle, with a doorway or window, a corner, and the roof or wall top in view, fully dressed with its frame members and fittings. Natural daylight. |
+| Bare wall front | Right half, top row, left | One isolated 3-metre wall piece with a window opening, three-quarter front view, on a plain mid-grey studio background with soft even light. Nothing fitted: no frame, glass, shutters, sill, door, posts, braces, or trims; the opening is a clean, finished reveal. What makes the material what it is stays on the piece (reinforced stone's built-in iron bands, straps, and jambs; warded stone's inlaid veins). |
+| Bare wall rear | Right half, top row, right | The same bare piece from the rear three-quarter view, same background and light. |
+| Parts | Right half, middle row, full width | The material's own frame members and fittings, each separate, laid out side by side on the same grey background: for example a post, a crossbeam, a brace, a window frame, a pair of shutters, a door leaf, as the brief's `Construction and Joints` lists them. |
+| Close-up 1 | Right half, bottom row, left | The surface at arm's length: unit size, texture, colour variation. |
+| Close-up 2 | Right half, bottom row, right | The defining joint or fixing: a pegged joint, a lashing, a mortar bed, an iron cramp, a crystal collar. |
 
-The isolated kit piece must be a plain module piece, not a ruin, unless the brief's default condition is damaged. Damage and failure states belong to a separate plate when one is asked for.
+Every piece is one simple part, as the building system requires, so the bare wall must never carry a frame member or fitting merged into it; those appear only in the assembled view and in the parts panel. The bare wall piece is a plain module piece, not a ruin, unless the brief's default condition is damaged. Damage and failure states belong to a separate plate when one is asked for.
 
 ## Must-show extraction
 
@@ -29,7 +30,7 @@ Pay particular attention to three things the first round missed:
 ## Prompt scaffold
 
 ```text
-Create an image: a photorealistic building-material reference plate for a first-person survival game set in a pre-gunpowder world. 1536 x 1024 pixels, landscape, five panels separated by thin dark-grey gutters: left half an assembled structure in its setting at first-person eye height; top right the isolated 3-metre wall piece front three-quarter view and rear three-quarter view on a plain mid-grey studio background; bottom right two close-ups.
+Create an image: a photorealistic building-material reference plate for a first-person survival game set in a pre-gunpowder world. 1536 x 1024 pixels, landscape, six panels separated by thin dark-grey gutters: left half an assembled, fully dressed structure in its setting at first-person eye height; right half top row the bare 3-metre wall piece with an empty window opening, front and rear three-quarter views, on a plain mid-grey studio background, with no frame, glass, shutters, sill, door, posts, braces, or trims attached, but with any part the brief says belongs to the material itself (such as reinforced stone's iron bands); right half middle row the material's separate frame members and fittings laid out side by side on the same background; right half bottom row two close-ups.
 
 Material: <Material title>, <one-line identity from the brief's opening paragraph>.
 
@@ -56,7 +57,9 @@ Photorealistic, natural materials, physically plausible construction, the same l
 - Joints and fixings are of the kind the brief names, in the places it names, and nowhere else (no iron marks scattered over block faces, no nails in nail-free work).
 - Openings use the arch or lintel form the brief names (segmental, semicircular, pointed, trapezoidal, slab).
 - Nothing magical glows unless the brief says it does, and then only as it describes.
-- The kit piece is intact and is a plausible module piece; the plate follows the standard layout and size.
+- The bare wall piece carries nothing fitted: no frame, glass, shutter, sill, door, post, brace, or trim is merged into it, and its opening reads as a finished reveal; parts the brief makes intrinsic to the material, such as reinforced stone's iron, are present.
+- The parts panel shows each frame member and fitting the brief lists, separately, in the same material and finish as the assembled view.
+- The bare wall is intact and is a plausible module piece; the plate follows the standard layout and size.
 
 ## Known misses
 
@@ -64,6 +67,7 @@ What generators have already got wrong, per material. Read the row for your mate
 
 | Material | Generator tendency observed | What the brief requires |
 | --- | --- | --- |
+| Every material | The isolated kit piece shown with frames, shutters, doors, posts, or braces built into it | A bare wall piece with a clean opening, and every frame member and fitting shown separately in the parts panel; intrinsic parts such as reinforced stone's iron stay on the wall |
 | Planked timber | Every board raw and weathered orange-brown, no finish | Tar-black lower boards and sills, oiled boards above with a faint sheen, three or four tones per wall |
 | Thatch and hide | Hides drawn as even cream canvas cut to rectangles; poles ruler-straight; thatch courses as tiered skirts | Hides with irregular animal outlines, darker back and paler belly, stitched seams between hides; bent poles leaning a few degrees; each course pinned by visible hazel sways |
 | Living wood | Walls of cut sticks in a grid with ivy over them; tight grey decking | Living stems still attached to the host, no cut ends, in their own leaf, grafted collars at joins; floor of pale ash or birch with a hand's width between boards |
