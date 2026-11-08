@@ -40,6 +40,12 @@ A hamlet on the forest edge has watched its hunters come back empty for a month,
 
 See also: [Creatures index](../Creatures.md), the [Wolf](Wolf.md) that hunts it, the [Ancient Deer](Ancient-deer.md) of the tundra, and the [Forest](../Biomes/Forest.md) and [Plains](../Biomes/Plains.md) it grazes in.
 
+## Concept Drawing
+
+![Red Deer bestiary entry](../Assets/Creatures/Bestiary/red-deer-bestiary.png)
+
+![Red Deer model reference](../Assets/Creatures/Model-references/red-deer-model-reference.png)
+
 ## Draft
 
 <!-- Raw notes land here. Add new content in any form; an AI assistant reworks it into the body above as finished prose, then clears what it has integrated. -->

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Building Material References"
+  short_description: "Generate reference plates for the building-material briefs"
+  default_prompt: "Use $building-material-references to create or regenerate the reference plate for a building material in this design document."

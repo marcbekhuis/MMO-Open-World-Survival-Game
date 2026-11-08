@@ -34,6 +34,8 @@ Trims from [Decoration and Detail](../../Building-system.md#decoration-and-detai
 
 ![Rough timber cabin with projecting saddle-notched log ends, axe marks and moss chinking](../../Assets/Building-materials/Model-references/rough-timber-model-reference.png)
 
+<!-- REVIEW(art-reference): Minor fix. Log ends are sawn flat with crisp rings; make them axe-cut with a slightly pointed or chiselled profile. Everything else matches the brief. -->
+
 A reference set comprises an assembled example at first-person eye height, a small cabin or a stretch of palisade with a door and a corner in view, its roof visible at the eave; front and rear views of a wall panel, a corner, and a doorway; and close views of a saddle notch with the projecting log ends, a stretch of chinking, the axe-marked face of a hewn log with its checks, the cut end of a log, a peg, and the same logs in fresh, silvered, and rotted states. Each is shot under neutral and in-game light, with low sun raking across the axe marks.
 
 The reference avoids machined cylinders of identical diameter, bark that is a repeating tile, perfectly clean cut ends, and a single flat brown. It avoids the stacked-log cabin of other survival builders with its uniformly tiled round-log texture and mass-produced, identical corner ends, and it avoids a pale fresh-cut finish on a wall that is meant to be a year old.

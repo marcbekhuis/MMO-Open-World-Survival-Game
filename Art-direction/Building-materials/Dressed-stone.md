@@ -28,6 +28,8 @@ Human work is tall, plain, and buttressed, in grey or honey stone. Elven stone i
 
 ![Dressed limestone keep wall with an arched opening, chisel marks and fine lime joints](../../Assets/Building-materials/Model-references/dressed-stone-model-reference.png)
 
+<!-- REVIEW(art-reference): Minor fix. The plate is 1672 pixels wide against the set's 1536 by 1024, and a few block faces carry faint scribble marks that read as writing; keep only tool marks. Otherwise it matches the brief. -->
+
 A reference set for this material comprises an assembled keep wall with an arched doorway at first-person eye height, front and rear of a representative wall piece and a corner piece with quoins, a close view of the tooled face, a close view of a joint, a close view of an arch with voussoirs, and a worn example with spalled arrises and a lichen-streaked face. Each is shown under neutral and in-game light. The set avoids identical blocks tiled perfectly, hairline-fine uniform joints, glossy clean surfaces, and the borrowed look of stone-brick blocks from other survival games.
 
 ## Continue Reading

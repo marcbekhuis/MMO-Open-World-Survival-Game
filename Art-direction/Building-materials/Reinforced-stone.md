@@ -28,6 +28,8 @@ Human keeps carry plain flat straps in black, with a single heraldic plate over 
 
 ![Reinforced stone gate with forged iron bands, rivets and rust staining](../../Assets/Building-materials/Model-references/reinforced-stone-model-reference.png)
 
+<!-- REVIEW(art-reference): Minor fix. Small iron crosses are scattered over the block faces; cramps belong only across joints at the top of a course. Strap hinges stop halfway; run them most of the way across the leaf. Bands, rivets, corner straps, studded gate and rust are right. -->
+
 A reference set for this material comprises an assembled keep wall with a banded gate at first-person eye height, front and rear of a representative wall piece, a corner piece with its angle strap, and a gate piece, a close view of a band and its rivets, a close view of a cramp across a joint, a close view of rust staining on stone, and a worn example with a torn strap and bulging blocks. Each is shown under neutral and in-game light, dry and rain-wet. The set avoids uniform clean metal trim, rust-free iron on old stone, decorative bolts without function, and the borrowed look of studded fantasy fortress kits.
 
 ## Continue Reading

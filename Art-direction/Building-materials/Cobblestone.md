@@ -28,6 +28,8 @@ River-country cobble is rounded and multicoloured, with a smoother finish. Uplan
 
 ![Mortared river cobble foundation, rounded corner and cobbled paving details](../../Assets/Building-materials/Model-references/cobblestone-model-reference.png)
 
+<!-- REVIEW(art-reference): Minor fix. Corner stones run to about half a metre; keep every cobble within 0,10 to 0,25 metres, the largest at the base and corners. Everything else matches the brief. -->
+
 A reference set for this material comprises an assembled foundation and lower wall carrying a timber upper storey at first-person eye height, front and rear of a representative wall piece and a corner piece, a close view of the cobbles and mortar, a close view of a paved area, a close view of a joint where the mortar has failed, and a worn example with fallen cobbles. Each is shown under neutral and in-game light, dry and rain-wet. The set avoids uniform pebble-dash textures, perfectly circular stones, a repeated tile of the same twelve cobbles, and the borrowed look of generic cobblestone blocks from other games.
 
 ## Continue Reading
