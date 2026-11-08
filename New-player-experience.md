@@ -20,7 +20,7 @@ The crate is carried across the district at a walk, and the walk back is where *
 
 **Wounds** are met in the training yard. A sparring bout against a drilled opponent ends in a clean cut that bleeds, the screen edges redden, and the arm hangs a little heavier, which is the whole of [Health and Wounds](Health-and-wounds.md) in miniature. The bandage from the bench stops the bleeding, and the player learns what a wound costs and what mends it while nothing is at stake.
 
-The **map** arrives with the errand that follows. Every character is handed the rudimentary chart that [Cartography](Skills/Artisan/Cartography.md#how-maps-grow) gives to everyone, showing the coast, the rivers, the roads, and the settlements of the city's ring, and the first quest sends the player to a hamlet on it by way of a gate, so that the first act of navigation is following a road on a map toward a place the map names. The compass strip at the top of the screen, described in [UI and HUD](UI-and-HUD.md#a-baseline-for-everyone), keeps the heading honest.
+The **map** arrives with the errand that follows. Every character is handed the rudimentary chart that [Cartography](Skills/Artisan/Cartography.md#how-maps-grow) gives to everyone, showing the coast, the rivers, the roads, and the settlements of the city's ring, and the first quest sends the player to a hamlet on it by way of a gate, so that the first act of navigation is following a road on a map toward a place the map names. The map also marks where the player stands and which way they face, as [UI and HUD](UI-and-HUD.md#a-baseline-for-everyone) describes, so a glance at it keeps the heading honest.
 
 ### The First Hour
 
@@ -34,7 +34,7 @@ The hamlet teaches **reputation**. The errand's recipient is an NPC who remember
 
 The stake of the whole game, **full loot**, is not left to be discovered the hard way. The road out of the farm belt ends at the last watchtower, and the guards who hold it speak plainly to anyone who stops there: past this point the patrols do not go, and what a player carries is what they can lose. The edge is made readable in the world, as [Conflict and PvP](Conflict-and-pvp.md#the-edge-of-safety) sets out, and the player's first trip beyond it is an errand set up to teach the rule while the cost is small. A small band of bandits ambushes them on the road, and the loss, whether the player yields, runs, or fights and falls, is a satchel of starter gear that can be recovered from the band's camp. The whole of that lesson is in [Conflict and PvP](Conflict-and-pvp.md#the-first-full-loot-encounter).
 
-That ambush also teaches the **corpse run**. A player who dies there sees the marker that [UI and HUD](UI-and-HUD.md#the-corpse-marker) draws on their compass, walks back to the body inside the recovery window of [Death and Loss](Death-and-loss.md#dying-to-the-world), and finds it stripped, with the quest log pointing at the camp. They have lost something real, they know exactly how, and they know the way back. Banking is taught beside it: the city's bank and the guard's advice point out that wealth in storage is safe and wealth on the body is not, and a player who ends the hour with something worth keeping learns to leave it behind.
+That ambush also teaches the **corpse run**. A player who dies there sees the marker that [UI and HUD](UI-and-HUD.md#the-corpse-marker) pins on their map, walks back to the body inside the recovery window of [Death and Loss](Death-and-loss.md#dying-to-the-world), and finds it stripped, with the quest log pointing at the camp. They have lost something real, they know exactly how, and they know the way back. Banking is taught beside it: the city's bank and the guard's advice point out that wealth in storage is safe and wealth on the body is not, and a player who ends the hour with something worth keeping learns to leave it behind.
 
 Nothing in this sequence is a lock. A player who ignores every errand can walk out to the last tower and across it, and the rules they meet there are the real ones; what the sequence guarantees is that anyone who follows it meets each rule in the order that lets them survive it.
 
@@ -58,7 +58,7 @@ The safety is real, but it has an edge, and crossing it is the player's own deci
 
 ## Continue Reading
 
-Continue with [Player Progression](Player.md) for the growth that follows creation, [Conflict and PvP](Conflict-and-pvp.md) for the safety the start depends on, [UI and HUD](UI-and-HUD.md) for the compass and the corpse marker, and [Death and Loss](Death-and-loss.md) for the stakes the frontier introduces.
+Continue with [Player Progression](Player.md) for the growth that follows creation, [Conflict and PvP](Conflict-and-pvp.md) for the safety the start depends on, [UI and HUD](UI-and-HUD.md) for the map and the corpse marker, and [Death and Loss](Death-and-loss.md) for the stakes the frontier introduces.
 
 ## Draft
 
