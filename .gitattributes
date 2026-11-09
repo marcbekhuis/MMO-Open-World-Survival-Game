@@ -1,0 +1,5 @@
+# Language bar on GitHub: this repository is a design document, so count Markdown
+# and leave the AI tooling scripts out of the statistics.
+*.md linguist-detectable
+.claude/** linguist-vendored
+.codex/** linguist-vendored
