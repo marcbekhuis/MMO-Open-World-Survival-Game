@@ -22,13 +22,13 @@ Royal Dragons are often found alone or with a lifelong partner. A bonded pair is
 
 ## Gameplay Role
 
-The Royal Dragon is a high-prestige encounter tied to reputation, territory, flight, and player restraint. Players are sent to observe it, steal from its lair, negotiate passage through its domain, or prove themselves before it accepts combat. Defeating one is rare and consequential, while earning its tolerance can become a story in itself. A Royal Dragon can become one of the rarest flying mounts in [Flight](../Flight.md), but that bond belongs at the far edge of [Taming and Control](../Taming-and-control.md): it is closer to an alliance with a dangerous intelligence than ownership of an animal.
+The Royal Dragon is a high-prestige encounter tied to territory, flight, and player restraint. Players are sent to observe it, steal from its lair, negotiate passage through its domain, or prove themselves before it accepts combat. Defeating one is rare and consequential, while earning its tolerance can become a story in itself. A Royal Dragon can become one of the rarest flying mounts in [Flight](../Flight.md), but that bond belongs at the far edge of [Taming and Control](../Taming-and-control.md): it is closer to an alliance with a dangerous intelligence than ownership of an animal.
 
 ## Story Hook
 
 A mesa settlement survives by leaving tribute at the edge of a dragon's hunting ground, not because the dragon demands worship, but because generations of restraint have taught both sides where the boundary lies. When a young raiding guild steals from the offering cairn and wounds the dragon's mate during its escape, the whole region waits to see whether the players can return what was taken, punish the insult, or face the judgement of a creature that remembers exactly who crossed into its domain.
 
-See also: [Creatures index](../Creatures.md), the [Mesa](../Biomes/Mesa.md) where it nests, [Reputation System](../Reputation-system.md), and [Flight](../Flight.md) for its place among flying mounts.
+See also: [Creatures index](../Creatures.md), the [Mesa](../Biomes/Mesa.md) where it nests, and [Flight](../Flight.md) for its place among flying mounts.
 
 ## Concept Drawing
 
