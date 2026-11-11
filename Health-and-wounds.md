@@ -6,7 +6,7 @@ A body in this world is hurt where it is hit. Every character and every creature
 
 Health is the body's reserve against death, and its size comes from the Health stat of [Player Progression](Player.md#stat-point-allocation), and for a creature from its species and its size. When health reaches zero the body dies at once. There is no collapsed state in between and no second chance from an ally standing over it; the blow, the fall, or the last of the blood that took the health away is the death, and what follows is the corpse and the recovery set out in [Death and Loss](Death-and-loss.md).
 
-Death keeps track of whose doing it was. A character who bleeds out from a wound another player gave them, or dies of a fall while staggering from a blow, has died to that player exactly as if the blow had killed them outright, with everything that means for loot and reputation under [Conflict and PvP](Conflict-and-pvp.md). A wound remembers who dealt it until it has been treated, so fleeing with a deep cut and dying a minute later is not an escape from the full-loot rules, and binding the wound is what ends the attacker's claim.
+Death keeps track of whose doing it was. A character who bleeds out from a wound another player gave them, or dies of a fall while staggering from a blow, has died to that player exactly as if the blow had killed them outright, with everything that means for loot and bounties under [Conflict and PvP](Conflict-and-pvp.md). A wound remembers who dealt it until it has been treated, so fleeing with a deep cut and dying a minute later is not an escape from the full-loot rules, and binding the wound is what ends the attacker's claim.
 
 ## Where a Blow Lands
 

@@ -18,7 +18,7 @@ The catch is that the world is not the only thing that may find the body. In con
 
 When the killer is another player, the gloves come off: the victor may strip the corpse completely. This is full loot, everything carried and everything worn, and it is the central stake of the open world. It is the reason the frontier's first rule is never to carry what you are not prepared to lose, the reason a laden merchant or a richly geared raider is a target worth hunting, and the engine that keeps gear genuinely valuable, since anything that can be won can also be lost. What changes hands this way does not vanish from the world but recirculates through it intact, feeding the markets of [Economy and Trade](Economy.md); only the wear of the death itself and whatever the victor leaves behind to the closing recovery window are lost.
 
-Full loot is deliberately harsh, and the design does not pretend otherwise. Its counterweights are the safe cities and [reputation consequences](Reputation-system.md) set out in [Conflict and PvP](Conflict-and-pvp.md), the player's own freedom to decide how much to risk on any given outing, and the storage systems that let wealth be banked rather than worn into a fight. A mount's packs follow the mount: what it carries escapes with it if it bolts and lies lootable on its carcass if it dies, as [Creature Riding](Creature-riding.md#when-the-rider-falls) sets out.
+Full loot is deliberately harsh, and the design does not pretend otherwise. Its counterweights are the safe cities and the bounties set out in [Conflict and PvP](Conflict-and-pvp.md#the-price-on-a-head), the player's own freedom to decide how much to risk on any given outing, and the storage systems that let wealth be banked rather than worn into a fight. A mount's packs follow the mount: what it carries escapes with it if it bolts and lies lootable on its carcass if it dies, as [Creature Riding](Creature-riding.md#when-the-rider-falls) sets out.
 
 ## Logging Out
 
@@ -28,7 +28,7 @@ That gives every player a clear choice at the end of a session. A player who wan
 
 ## Getting Back on Your Feet
 
-A fallen player respawns at a bound safe location, by default the [great city](Structures/Great-cities.md) they are tied to, or a bed or claimed point established through the [Building System](Building-system.md) so that groups working the frontier can return closer to the action. From there the choice is immediate and familiar to the genre: re-equip from storage and cut the losses, or gear up and race back to the corpse before the window closes or a stranger arrives. Either way the loop turns again, a little wiser about what to bring next time.
+A fallen player respawns at a bound safe location, by default the [great city](Structures/Great-cities.md) they are tied to, or a bed or claimed point established through the [Building System](Building-system.md) so that groups working the frontier can return closer to the action. A character whose bound city has closed its gates to them binds elsewhere, as the [Reputation System](Reputation-system.md#standing-and-its-effects) sets out. From there the choice is immediate and familiar to the genre: re-equip from storage and cut the losses, or gear up and race back to the corpse before the window closes or a stranger arrives. Either way the loop turns again, a little wiser about what to bring next time.
 
 ## Continue Reading
 

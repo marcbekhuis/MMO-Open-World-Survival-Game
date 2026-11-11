@@ -1,6 +1,6 @@
 # Conflict and PvP
 
-The open world is dangerous above all because of the people in it. Beyond the protection of a guarded city this is a full player-versus-player world: any player may raise a hand against any other, and the contest over the frontier described in [Setting and Lore](Setting-and-lore.md) is fought as much between players as against the wild. This document sets out where that conflict is allowed, what restrains it, and how it connects to the larger machinery of loss, reputation, and conquest.
+The open world is dangerous above all because of the people in it. Beyond the protection of a guarded city this is a full player-versus-player world: any player may raise a hand against any other, and the contest over the frontier described in [Setting and Lore](Setting-and-lore.md) is fought as much between players as against the wild. This document sets out where that conflict is allowed, what answers it, and how it connects to the larger machinery of loss, bounty, and conquest.
 
 ## A World of Open Conflict
 
@@ -9,6 +9,7 @@ By default the wilderness is lawless. There are no flags to raise and no consent
 ## Safe Cities and the Reach of the Guard
 
 Order exists where power enforces it. The [great cities](Structures/Great-cities.md) are held by NPC guards strong enough that no player or party can hope to fight them, and within a city's bounds aggression against another player is met with overwhelming, immediate force. These cities are true havens, the places to respawn, trade, craft, bank, train, and gather without fear, the fixed points a player can always fall back to. The guard's law covers the sky over a city as fully as its streets. Flyers may cross it, but an attack from the air is met exactly as one on the ground, and a flying mount comes down only at the city's [landing yards](Structures/Great-cities.md#key-characteristics). The protection does not end abruptly at the gate, either: the settled land immediately around a great city is patrolled and comparatively safe, giving new characters room to find their feet, and that safety thins with distance until, deep in the frontier, there is no guard at all and the only law is the one players bring with them.
+
 ## The Edge of Safety
 
 The gradient has a place where it runs out, and the world marks it so that a player can see where they stand before they decide to cross. Along every road leading out of a great city, the guard's patrols run as far as the last watchtower and turn back there. The tower is the edge in the way that matters: it is the last place a guard will be, the last lamp lit on the road at night, and the last place a player can count on help coming. Its guards speak plainly to anyone who stops, saying that nothing beyond answers to the city, and a traveller who asks gets the same answer each time.
@@ -25,17 +26,29 @@ The bandits give notice before they strike: a rope across the track, a carter's 
 
 The encounter teaches three things at once without a word of explanation. What a character carries is what they can lose, since they hand over a pack they filled themselves. A death is recoverable, since the marker described in [UI and HUD](UI-and-HUD.md#the-corpse-marker) leads them to the body and the quest log to the camp. And the cost of a lost fight in a lawless country is a real, bounded loss that they get to answer, not an end. A player who learned this once, for the price of a few starter items, carries less into the next crossing, and is a better risk for it.
 
-## The Weight of a Killing
+## What Answers a Killing
 
-Lawless does not mean consequence-free. Where the guard's reach ends, the social memory of the [Reputation System](Reputation-system.md) takes over, and a player who kills indiscriminately, preys on the weak, or spills blood at the edge of a settlement earns a notoriety that follows them: bounties posted for their death, guards and hunters turned hostile, services refused, and a name that arrives in a town before they do. This is the law of the frontier, enforced not by walls but by the reactions of a world that remembers, and it gives rise to bounty hunters, caravan escorts, and protection bargains as readily as it breeds bandits. A killing is always possible; it is rarely free.
+Past the last tower no law weighs a killing between players. The [Reputation System](Reputation-system.md) is the memory of the world's NPC factions and records only what is done to and for their own people, so a player who kills another in the wild is no less welcome at any gate for it, and no guard, vendor, or captain treats either of them differently. This is deliberate. The frontier is lawless in fact and not only in name, and a world that quietly punished its killers would be promising a safety it does not give.
+
+The line is drawn at a faction's own people. A caravan's NPC carters, a hamlet's farmers, and a realm's patrol belong to their factions, and harming them in the course of a fight between players is weighed like any other act against them. NPCs in a player's own service are part of that player's side: the hired guards on a base's wall and the labourers inside it fight and fall as their employer's, and killing them in a raid costs the raider nothing with anyone.
+
+What answers a killing is other players. The victim keeps everything they banked and everything they have become, as [Death and Loss](Death-and-loss.md) sets out, and comes back knowing whom to look for. Guilds avenge their members, merchants hire escorts and pay for protection, travellers cross bad country in company, and a killer who makes enough enemies finds every road watched for them. A killing is always possible; whether it is free depends on whom it angers.
+
+### The Price on a Head
+
+A player who has been wronged can put coin on the answer. At the bounty board of any settlement that still deals with them, a player may swear out a bounty against a player who has killed them, looted their corpse, or broken into their claim within the past seven days, and the world's own record of who did what decides whom they may name. They pay the purse and a posting fee of a tenth on top. The board holds the purse and keeps the fee, which is one of the coin sinks of [Economy and Trade](Economy.md#currency-and-the-fight-against-inflation). Others wronged by the same player can add to the purse, so a habitual killer's price grows with every victim who can afford to raise it.
+
+The board shows the name, the offence, and the purse to anyone who reads it, the wanted player included. The purse goes to whoever kills them next beyond guarded ground, on top of whatever the corpse holds, and that death clears the bounty. It is never paid to a member of the wanted player's own party, guild, or alliance, so a killer cannot have a friend collect it. A bounty nobody collects lapses after thirty days and returns its purse, though not the fee. A price on a head changes nothing else: no faction thinks worse of the wanted player, no guard moves against them, and inside a safe city they are as untouchable as anyone. The seven days, the tenth, and the thirty days are defaults, as [Server Settings](Server-settings.md#official-and-community-servers) requires of every balancing value.
+
+The bounties NPC factions post against those who wrong their people are a separate matter, set out in the [Reputation System](Reputation-system.md#bounties). Between the two, the frontier breeds bounty hunters, caravan escorts, and protection bargains as readily as it breeds bandits.
 
 ## From Ambush to Conquest
 
-Open-world PvP is the individual layer of a larger contest. What begins as a roadside ambush scales up through the organised warfare of [Raids and Conquest](Raids.md), where groups assault settlements and player bases to seize resources, break rivals, or take ground, and territory won or lost there feeds back into the standing, alliances, and enmities the reputation system tracks. A [guild](Guilds-and-factions.md) that holds a stretch of frontier holds its trade and its dangers alike. Whatever is taken across all of this, from a single corpse to a sacked storehouse, is governed by the rules in [Death and Loss](Death-and-loss.md) and flows onward into the [economy](Economy.md).
+Open-world PvP is the individual layer of a larger contest. What begins as a roadside ambush scales up through the organised warfare of [Raids and Conquest](Raids.md), where groups assault settlements and player bases to seize resources, break rivals, or take ground, and territory won or lost there feeds back into the alliances and enmities between guilds. A [guild](Guilds-and-factions.md) that holds a stretch of frontier holds its trade and its dangers alike. Whatever is taken across all of this, from a single corpse to a sacked storehouse, is governed by the rules in [Death and Loss](Death-and-loss.md) and flows onward into the [economy](Economy.md).
 
 ## Continue Reading
 
-Continue with [Death and Loss](Death-and-loss.md) for what is at stake in a fight, the [Reputation System](Reputation-system.md) for the consequences that restrain it, [NPCs](NPCs.md) for the guards who hold the safe cities, and [Raids and Conquest](Raids.md) for conflict at the scale of settlements.
+Continue with [Death and Loss](Death-and-loss.md) for what is at stake in a fight, the [Reputation System](Reputation-system.md) for how the NPC factions judge what is done to their own people, [NPCs](NPCs.md) for the guards who hold the safe cities, and [Raids and Conquest](Raids.md) for conflict at the scale of settlements.
 
 ## Draft
 

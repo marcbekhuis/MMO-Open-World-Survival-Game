@@ -82,11 +82,15 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 **Territory** — a stretch of frontier that a guild holds and defends, along with the resource nodes, trade routes, and defensible building sites on it. Territory is never wholly secure: it is kept only as long as the holder can answer a raid. See [Guilds and factions](Guilds-and-factions.md) and [Conflict and PvP](Conflict-and-pvp.md).
 
-**Standing** — how a single faction, settlement, or region regards a player, built up by helping, trading, and keeping agreements and worn down by theft, killing, raiding, and betrayal. Standing is tracked separately for each party, so a player can be a hero in one place and a villain in another. See [Reputation system](Reputation-system.md).
+**Standing** — how a single NPC faction, settlement, or region regards a player, built up by helping its people, trading with them, and keeping agreements, and worn down by stealing from them, killing them, raiding them, and betraying them. Standing is tracked separately for each party, so a player can be a hero in one place and a villain in another, and it runs through five bands from honoured to hunted. What players do to one another never moves it. See [Reputation system](Reputation-system.md).
 
-**Local reputation / global reputation** — local reputation is the standing a player holds with an individual faction, settlement, or region. Global reputation is the broader pattern of their behaviour, which reaches places that have never met them through rumour, faction reports, visible titles, bounties, and public achievements. See [Reputation system](Reputation-system.md).
+**Local reputation / global reputation** — local reputation is the standing a player holds with an individual faction, settlement, or region. Global reputation is the broader pattern of their dealings with the world's factions, which reaches places that have never met them through rumour, faction reports, visible titles, bounties, and public achievements. See [Reputation system](Reputation-system.md).
 
-**Bounty** — a reward posted for the death of a player whose notoriety has made them a wanted name. Bounties are one of the penalties of bad reputation and give rise to bounty hunters. See [Reputation system](Reputation-system.md) and [Conflict and PvP](Conflict-and-pvp.md).
+**Witness** — one of a faction's own people who sees or hears an act against it and is alive and free when the encounter ends. A faction holds against a player only what a witness can tell, so an act nobody survives to report moves no standing. See [Reputation system](Reputation-system.md#witnesses).
+
+**Rivals and allies** — the relations between factions that carry a deed beyond the faction it touched. Harm done to a faction pleases its rivals and troubles its allies, by a fraction that grows with the size of the deed. See [Reputation system](Reputation-system.md#rivals-and-allies).
+
+**Bounty** — a reward for a player's death, posted on a settlement's board. A faction bounty is posted by an NPC faction against a player it hunts for what they did to its people. A player bounty is sworn out by one player against another who killed them, looted their corpse, or broke into their claim, and is paid from the poster's own coin. Both give rise to bounty hunters. See [Reputation system](Reputation-system.md#bounties) and [Conflict and PvP](Conflict-and-pvp.md#the-price-on-a-head).
 
 ## Conflict, loss, and economy
 

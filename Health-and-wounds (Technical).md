@@ -116,7 +116,7 @@ void UVitalsComponent::ApplyDamage(const FDamageEvent& E)
 }
 ```
 
-Death is immediate at zero health. There is no downed state to model, and the killing blow is resolved by the finisher rules of [Combat Skills](Skills/Combat.md#brutality-and-finishers) from the same region and energy. The instigator is stored with the death so full-loot and reputation rules see who caused it.
+Death is immediate at zero health. There is no downed state to model, and the killing blow is resolved by the finisher rules of [Combat Skills](Skills/Combat.md#brutality-and-finishers) from the same region and energy. The instigator is stored with the death so the full-loot and bounty rules see who caused it.
 
 ## 4. Wound Records
 
