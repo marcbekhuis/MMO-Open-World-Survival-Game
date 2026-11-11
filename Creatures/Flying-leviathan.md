@@ -24,7 +24,7 @@ A leviathan cannot be led away young, so the path to owning one runs through [Pa
 
 ## Story Hook
 
-When one of the first expeditions to reach the floating islands tried to tether a young leviathan, the creature answered with a song of low, rumbling tones, and the expedition abandoned the attempt, learning instead to read the leviathans' migrations as heralds of shifting mana flows. A small shrine they raised on a remote island marks where they made their peace with the creature, and a player who finds it discovers that those pioneers left more than a monument behind: they left the beginnings of a method for working with the leviathans rather than against them.
+On a remote island a small band of keepers tends a shrine left by the first expedition to reach the floating islands, and they have learned to read the passing of the great leviathans as a warning of shifting mana. A rival crew has anchored a calf to the island's rock with tether lines, meaning to drag it away and tame it quickly, though a young leviathan that leaves the islands cannot hold itself aloft and dies. The calf answers the strain on the lines with a low, rumbling song that carries across the whole island, and the keepers cannot cut it loose without a fight they would lose. The players can cut the tethers and drive the crew off, offer the crew a share in raising the calf on the islands until it is grown, or leave the island to settle its own quarrel.
 
 See also: [Creatures index](../Creatures.md), the [Floating Islands](../Biomes/Floating-islands.md) that shelter its young, and [Flight](../Flight.md) for its place among flying mounts.
 

@@ -4,6 +4,8 @@ Stoneguard draws a fitted shell of earth and stone across the caster or a nearby
 
 ## Gameplay Role
 
+Stoneguard is a charged, one-handed spell under the [casting rules](../../../Magic.md#casting): the mana gathered sets how thick the shell forms when the caster lets go. The caster may walk while gathering, and plain damage does not break it.
+
 The shell absorbs part of incoming weapon and impact damage until it breaks or expires. It is especially useful while holding a doorway, reviving an ally, surviving a creature's charge, or buying time for a slower spell. Lightning and blunt force travel through the rigid guard more effectively than blades and arrows, while sustained attacks can strip it away piece by piece.
 
 Stoneguard needs mineral material to form efficiently. Bare rock and packed ground offer a strong, inexpensive shell; wooden floors, ships, deep snow, and open water force the caster to create more of the material through mana and reduce the spell's efficiency.

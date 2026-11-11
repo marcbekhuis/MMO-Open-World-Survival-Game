@@ -39,7 +39,7 @@ The burden falls into four tiers, and each one changes how the body moves, as [M
 | **Under three quarters of capacity** | No penalty | Full speed and handling, stamina costs as normal |
 | **Approaching the limit** | Slightly slower, slightly heavier to start, stop, and turn | Up to full capacity: 0,95 of normal speed, 0,85 of normal handling, stamina costs 1,1 times |
 | **Over the limit** | No sprint, a slower jog, and every gait costs more stamina | Up to a quarter over: 0,9 of normal speed, burst gone, stamina costs 1,5 times |
-| **Severely overweight** | Walking only, no jumping, and stumbles on slopes; unable to move at half again the capacity | Up to half over: recovering gaits only, no jumping, speed and handling of the tier before; beyond that, no movement |
+| **Severely overweight** | Walking only, no jumping, and stumbles on slopes; unable to move at half again the capacity or more | Up to but not including half again the capacity: recovering gaits only, no jumping, speed and handling of the tier before; at half again the capacity or more, no movement |
 
 The handling figure is the share of a body's usual acceleration, braking, and turning that it keeps, so a lower number means longer starts, stops, and turns. Each starting value holds from the tier's lower edge to its upper one, and a tier that gives no figure of its own keeps the one before it. Every one is a default that a server may override ([Movement (Technical)](<Movement (Technical).md#92-load>) holds them as data).
 

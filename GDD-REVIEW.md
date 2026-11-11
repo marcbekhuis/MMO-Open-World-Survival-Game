@@ -1,6 +1,6 @@
 # GDD Review — 2026-11-11
 
-This review replaces the stakeholder-panel report of 10 July 2026, which stays in the git history. It was made in two passes: one reader went through the core system documents as a whole, and seven area reviewers then each read one part of the repository in full. It holds 148 findings: 13 from the whole-document read and 135 from the area reviews (18 high, 76 medium, 41 low). No inline `REVIEW` comments were placed for this review.
+This review replaces the stakeholder-panel report of 10 July 2026, which stays in the git history. It was made in two passes: one reader went through the core system documents as a whole, and seven area reviewers then each read one part of the repository in full. It holds 108 open findings: 7 from the whole-document read and 101 from the area reviews (8 high, 59 medium, 34 low). Findings settled in the design session of 11 November 2026 have been removed and are listed at the end. No inline `REVIEW` comments were placed for this review.
 
 Each area finding carries a status. **Confirmed** means the quoted text was checked in the file after the reviewer reported it. **Reported** means the finding is a reviewer's claim that has not been re-checked, including any arithmetic it contains; treat it as a lead, not a fact.
 
@@ -10,15 +10,15 @@ The document is a coherent vision whose systems reinforce one another: full loot
 
 ## Cross-cutting findings
 
-These are the themes that more than one read arrived at independently. The codes point to the entries below.
+These are the themes that more than one read arrived at independently and that are still open. The codes point to the entries below.
 
-1. **The launch list does not match what launch content needs.** The elven start lies in a post-launch biome (BS1). The Red Deer, the Wolf's stated prey, and the horse, which has no creature file at all, are missing from the launch species (BS3, CR9, TF10). The Royal Dragon is the launch boss and the launch flying mount, yet has no acquisition route and unsettled behaviour (CR5, TF3). Launch biomes and launch creatures lack the measurable detail the Wolf file sets as the standard (BS11, CR8). The scope as a whole is large for the stated revenue (W1).
-2. **The single-server fallback is not designed.** Launch Scope names it as the safety net, but time dilation cannot work in it (SV2), the technical guide has no section for it (SV7), crash recovery for a whole world is unaddressed (SV8), and at the guide's own figure of 200 to 400 players per server process a fallback world is a few hundred players (W2).
-3. **Value leaks out of full loot.** A mount that bolts or homes carries its cargo out of a death (TF4), an outskirts plot is an unlimited raid-proof vault (BD9), the Item Box is death-proof storage for mages only (W5), and a Sandworm swallow puts a corpse beyond its recovery window (CR4).
-4. **An offline base has holes that walls do not close.** Doors have no access rule (BD2), creatures can be steered at a base with no building rule to answer them (CR6), siege spells breach for mana alone (BS6), a wing-rig has no launch-height or glide limit (TF16), and unclaimed pieces have no ceiling or claim gap (BD3). These compound the tension between offline raiding and the casual subscriber (W3).
-5. **The combat foundation disagrees with itself.** Blocking is specified three ways (MV1), knockdown is used but never defined (MV7), the melee and wounds guides assume one server (MV2), parry timing does not survive the stated latency (MV6), and the spell files do not follow the casting model in [Magic](Magic.md) (BS4, BS5, BS8). This is the same area as the latency risk of directional melee (W6).
-6. **Specifications and technical guides have drifted.** NPC buildings are one health value per lot although both building documents promise piece-level failure (BD1), settlement buildings are not shown to come from the player kit (BD10), stamina costs travel two incompatible ways (MV4), and a hired horse can never bolt under the guide's own constants (TF6).
-7. **Several files are still in the older tentative voice.** [Player Settings](Player-settings.md) (AR16), the three settlement files (BS12), the [Creatures](Creatures.md) hub (CR17), [Nature Growth](Magic/Spells/Earth/Nature-growth.md) (BS7), the [Royal Dragon](Creatures/Royal-dragon.md) (CR5), and the files listed under W12.
+1. **The first release still promises more than its lists support.** Launch biomes and launch creatures lack the measurable detail the Wolf file sets as the standard (BS11, CR8), the Royal Dragon has a route to a mount but no speeds, ranges or flee rule (CR5), launch biome files still feature the Highland Dragon, Titan Turtle and Pixie, which are not first-release species (BS3), and the scope as a whole is large for the stated revenue, with no team size or budget anywhere (W1).
+2. **The single-server map has no crash and capacity plan.** Its cap and its lack of time dilation are now stated, but crash recovery for a whole world is unaddressed (SV8) and the per-player bandwidth budget the cost model cites does not exist (SV1).
+3. **An offline base still has holes.** Unclaimed pieces have no ceiling or claim gap (BD3), fittings have no damage model of their own (BD7), and an outskirts plot's decay path does not exist in the technical guide (BD9).
+4. **The combat foundation is not yet connected across servers.** The melee and wounds guides assume one server (MV2), stamina costs travel two incompatible ways (MV4), and the latency risk of directional melee is unproven (W6).
+5. **Specifications and technical guides have drifted.** NPC buildings are one health value per lot although both building documents promise piece-level failure (BD1), settlement buildings are not shown to come from the player kit (BD10), and a hired horse's bolt rule is gated on a bond band it can never reach (TF6).
+6. **Several files are still in the older tentative voice.** [Player Settings](Player-settings.md) (AR16), the three settlement files (BS12), the [Creatures](Creatures.md) hub (CR17), and the pillars in the [README](README.md).
+7. **The art direction covers creatures and building materials only.** There is no brief for the first-person hands and held items, light and colour are given for four woodlands only, and settings that affect what a player can see have no fairness limits (AR5, AR12, AR13).
 
 ## Whole-document findings
 
@@ -29,26 +29,6 @@ These come from one reader going through the core system documents: scope, monet
 - Problem: Monetization plans for fifty thousand subscribers and close to eight million euros a year. The launch still holds seven biomes, three hand-built heartlands, about a dozen species with behaviour of their own, all three taming bonds, riding, carriages, dragon flight, the full building system with siege, and a custom server cluster. No team size, budget or timeline appears anywhere, and the cut removes breadth but no systems.
 - Suggest: add a second-tier cut list (what goes first if the schedule slips) and state the team and budget the launch assumes.
 
-**W2. The fallback launch is a few hundred players per world** (High)
-- Files: [Launch-scope.md](Launch-scope.md), [Server-architecture (Technical).md](<Server-architecture (Technical).md>), [Server-architecture.md](Server-architecture.md)
-- Problem: the technical guide expects 200 to 400 concurrent players per server process, and the fallback is one server per world. Three heartlands, per-settlement markets and a fiction of thousands of adventurers do not hold at that population. No file states the size of the world or the target population of one world.
-- Suggest: state world size in square kilometres and target concurrent players per world for both the cluster and the fallback, and say what the fallback world gives up.
-
-**W3. Offline raiding conflicts with the player who has a few evenings a week** (High)
-- Files: [Raids.md](Raids.md), [Building-system.md](Building-system.md), [Monetization.md](Monetization.md)
-- Problem: there are no raid windows, hired guards slow a raid without stopping it, and a lone raider gets through stone given uninterrupted hours. The likely result is that casual players retreat to outskirts plots and the footholds pillar becomes the large guilds' alone, in a game that charges monthly and never wipes.
-- Suggest: give a time-to-breach target per material against a stated raiding party, and say what a watch system does when every defender is offline.
-
-**W4. Uncapped vertical progression in open full-loot conflict** (Medium)
-- Files: [Player.md](Player.md), [Skills.md](Skills.md)
-- Problem: levels, stats and skills have no ceiling and are never lost, so a veteran risks gear but keeps a permanent edge. No file says what a stat step is worth or bounds the gap between a level 20 and a level 80 character.
-- Suggest: state a target ratio for health and strike force between a new and a veteran specialist.
-
-**W5. The Item Box is death-proof storage that only mages get** (Medium)
-- Files: [Magic/Spells/Misc/Item-box.md](Magic/Spells/Misc/Item-box.md), [Death-and-loss.md](Death-and-loss.md)
-- Problem: the carriage offered as the non-mage's answer solves bulk, not safety, so every serious build is pulled toward magic in a game with no classes.
-- Suggest: cap the value the box protects, or give non-casters a comparable small safeguard.
-
 **W6. Directional physics melee is the riskiest feel bet** (High)
 - Files: [Melee-combat.md](Melee-combat.md), [Server-architecture.md](Server-architecture.md)
 - Problem: strikes steered in mid-swing are among the most latency-sensitive combat designs, and here they run through cross-server hit claims and time dilation. The prototype has measured 150 milliseconds of lag for inventory only.
@@ -58,11 +38,6 @@ These come from one reader going through the core system documents: scope, monet
 - Files: [Economy.md](Economy.md), [Player.md](Player.md), [Quests.md](Quests.md)
 - Problem: a merchant who insures another trader's load can be defrauded by a staged robbery; experience paid on realised margin can be farmed by two accounts trading at inflated prices; and the coin paid by endlessly refreshing contracts is missing from the account of where coin enters the world.
 - Suggest: pay margin experience only against regional base prices, bound insurance payouts by recorded losses to third parties, and add quest coin to the faucet accounting.
-
-**W8. Shared dungeons invite exit camping** (Medium)
-- Files: [Structures/Dungeons.md](Structures/Dungeons.md), [Launch-scope.md](Launch-scope.md)
-- Problem: the launch has a few great dungeons, none instanced, in a full-loot world. A group that holds a threshold takes everything that comes out. No file addresses it.
-- Suggest: give great dungeons several thresholds, or state that holding one is intended play and what counters it.
 
 **W9. Hidden storage is promised but undefined** (Low)
 - Files: [Raids.md](Raids.md), [Inventory.md](Inventory.md)
@@ -79,11 +54,6 @@ These come from one reader going through the core system documents: scope, monet
 - Problem: together they are longer than the designs they implement and are pinned to one engine version, while the prototype has only begun to produce measured findings. Every specification change now costs a second edit.
 - Suggest: let prototype findings drive the technical guides, and mark unmeasured sketches as such.
 
-**W12. Older-voice files that contradict newer ones** (Medium)
-- Files: [Skills/Combat.md](Skills/Combat.md), [Magic.md](Magic.md), [Quests.md](Quests.md), [Magic/Spells/Lightning/Thunder.md](Magic/Spells/Lightning/Thunder.md), [Structures/Dungeons.md](Structures/Dungeons.md), [README.md](README.md)
-- Problem: Combat Skills speaks of cooldowns and taunts against the physics model of Melee Combat; Magic lists damage and cooldown among upgrade attributes although its own casting section has neither; the Quests reward table offers mounts although a mount is only ever tamed; Thunder, Dungeons and the README pillars are still written as proposals.
-- Suggest: rewrite each in the settled voice against the newer document it disagrees with.
-
 **W13. AGENTS.md is over its own size limit** (Low)
 - Files: [AGENTS.md](AGENTS.md)
 - Problem: the file asks to stay under 32 KiB and is about 33,7 KiB.
@@ -95,33 +65,12 @@ Codes: CR creatures, BS biomes, spells, races and settlements, AR art, audio, in
 
 ### Creatures
 
-**CR1. Mermaid resists its song through a "Wisdom" stat that does not exist** (High, confirmed)
-- File: [Creatures/Mermaid.md](Creatures/Mermaid.md), section "Appearance and Glamour"
-- Quote: "Players who resist the song through Wisdom, the status-effect resistance described in Player Progression, see this form from the start"
-- Problem: Player.md lists ten stats (Health, Stamina, Carry Weight, Melee Force, Speed, Handling, Mana, Spell Power, Fortitude, Perception). There is no Wisdom, and no charm or compulsion resistance anywhere. The launch Mermaid's whole counterplay (and who sees the true form) rests on an undefined stat.
-- Conflicts with: Player.md, "Stat Point Allocation" table (Fortitude: "Resistance to cold, heat, illness, poison, and the daze of a blow to the head").
-- Suggest: Decide whether charm resistance is Fortitude, Perception or a new stat. Rewrite the sentence and the resistance paragraph, and add the stat to Player.md if it is new.
-
-**CR4. Sandworm swallow leaves a corpse and gear locked inside a boss** (Medium, confirmed)
-- File: [Creatures/Sandworm.md](Creatures/Sandworm.md), section "Hunting by Vibration"
-- Quote: "A swallowed player, mount, or wagon does not survive, but its cargo stays inside the worm and can be recovered when the worm is killed."
-- Problem: Killing the worm is "the work of a prepared group", and a region has one. A swallowed player's full-loot corpse is therefore unreachable for days, far past the corpse's recovery window. Anyone can also bait the worm onto a rival to remove their gear from play. The tell exists, but the swallow itself is instant death with no rescue window, unlike the Mermaid and the Bamboo Spider.
-- Conflicts with: Death-and-loss.md, "The corpse persists for a recovery window, and a player can make the run back to reclaim what they left".
-- Suggest: State where a swallowed player's corpse appears (spat out on a timer, or dropped at the worm's burrow), and define the "thumper" bait item, which is not in any crafting file. The Kraken needs the same: say where a player killed in open water leaves a corpse.
-
 **CR5. Royal Dragon, the launch world boss, is thin and still hedged** (Medium, confirmed)
 - File: [Creatures/Royal-dragon.md](Creatures/Royal-dragon.md), sections "Behaviour" and "Gameplay Role"
 - Quote: "If harassed, a Royal Dragon might swat, tail-whip, or drive the offender away rather than commit to a full battle."
 - Problem: Launch-scope names it the boss written "to the standard the Wolf sets". It has no speeds, flame range, fire cooldown, flee rule or drops, and "worthy" foes, "tolerance", "negotiate passage" and "player restraint" have no mechanism. "May ignore", "might swat" and "can become one of the rarest flying mounts" are proposals, not settled design. How a player gets one as a mount is undefined: Taming-and-control never mentions it, while the Highland Dragon at least has an egg route. Highland-dragon.md says the Royal Dragon "judges and ceremonially spares", which this file never describes.
 - Conflicts with: Launch-scope.md, "Creatures at Launch" ("written to the standard the Wolf sets"); Flight.md (ships with the Royal Dragon as a mount).
 - Suggest: Rewrite Behaviour as rules: what counts as worthy (for example, a party that stands its ground within a set distance), what it does to the unworthy, fire numbers and tells, and the exact route to a bonded dragon.
-
-**CR6. Creature-steering as a weapon against bases has no rules** (Medium, reported)
-- File: [Creatures/Slime.md](Creatures/Slime.md) ("Taming and Steering"); [Creatures/Stone-giant.md](Creatures/Stone-giant.md) ("Feeding a Giant"); [Creatures/Titan-turtle.md](Creatures/Titan-turtle.md) ("Movement and Migration")
-- Quote: "the same tools that aim it at a rival's walls work just as well for a rival aiming it at yours."
-- Problem: A slime can be baited at a base, a giant follows a crystal trail, and a steered turtle tramples "forest or town". Building-system.md has no mention of slimes or stone giants, only dragon fire and creature-borne bases. An owner who is offline has no stated defence, damage rule or cap, and a guild gets a free siege engine.
-- Conflicts with: Building-system.md, "Damage and Siege" (silent on creature-caused damage).
-- Suggest: Add one rule in Building-system.md: how creature damage applies to pieces and claims, whether baited or lured creatures are blocked at claim boundaries, and how an offline owner is protected.
 
 **CR7. Pixie swarm cannot be outrun, yet it breaks off when you leave** (Medium, confirmed)
 - File: [Creatures/Pixie.md](Creatures/Pixie.md), sections "Provocation and the Swarm" and "Colony and Signalling"
@@ -136,20 +85,6 @@ Codes: CR creatures, BS biomes, spells, races and settlements, AR art, audio, in
 - Conflicts with: Launch-scope.md, "Creatures at Launch" ("written to the standard the Wolf sets")
 - Suggest: Give each launch creature walk and sprint speeds in metres per second, sight and hearing ranges, and one timed tell (Minotaur charge, Mermaid song range, goblin warning shout, spider pounce).
 
-**CR9. Launch list omits the Wolf's prey, and says Birds need no behaviour** (Medium, confirmed)
-- File: [Launch-scope.md](Launch-scope.md) ("Creatures at Launch") versus [Creatures/Wolf.md](Creatures/Wolf.md) and [Creatures/Birds.md](Creatures/Birds.md)
-- Quote: "Ambient life such as Birds fills the world without bespoke behaviour."
-- Problem: The first build is a forest frontier "where a Wolf pack hunts". Wolf.md names the Red Deer as its ordinary prey and a whole chase mechanic depends on it, but Red Deer is not on the launch list. Birds.md defines bespoke flock-warning rules (flush by predators and players, false alarms, scavenger gathering).
-- Conflicts with: Creatures/Wolf.md, "Pack Tactics" ("Their ordinary prey is the [Red Deer]")
-- Suggest: Add the Red Deer to the launch list, and reword the Birds line to "simple flock behaviour".
-
-**CR10. Story Hooks that break the required shape** (Medium, reported)
-- File: [Creatures/Birds.md](Creatures/Birds.md), Bamboo-spider.md, Flying-leviathan.md, Four-armed-monkey.md, Kraken.md, Mermaid.md, Paralyzing-dragon.md, Sandworm.md, Skeleton-Archer.md, Treant.md, Treant-elder.md
-- Quote: "A line of coastal beacons remains lit, yet ships keep vanishing within sight of shore." (Mermaid.md, "Story Hook")
-- Problem: AGENTS.md requires three to five sentences, an unnamed community or specialist, and an ending on a choice. These run two or three sentences and end on a discovery or a task, not a choice. Flying-leviathan.md and Treant.md tell legends or expedition history instead of a present situation.
-- Conflicts with: AGENTS.md, "Conventions & gotchas" (Story Hook rule)
-- Suggest: Rewrite each to end on a stated fork, as Red-goblin.md, Pixie.md and Golden-goblin.md already do.
-
 **CR11. Titan Turtle and dragon growth by years has no clock** (Low, reported)
 - File: [Creatures/Titan-turtle.md](Creatures/Titan-turtle.md), opening
 - Quote: "at fifty years it stands some 30 metres tall under a shell 55 metres long, at a century 50 metres tall"
@@ -163,20 +98,6 @@ Codes: CR creatures, BS biomes, spells, races and settlements, AR art, audio, in
 - Problem: There are no stages, sizes or feed amounts, yet it is a procedurally generated mesh that "can still overwhelm a dragon". Slime.md also promises a "siege-scale mass within days", while this file calls village-size "out of reach in practice".
 - Conflicts with: Creatures/Slime.md, opening ("siege-scale mass within days")
 - Suggest: Give three or four named growth stages with approximate diameters and the feed each takes, and soften or fix the "within days".
-
-**CR13. Treant legend grants passage in a way the hub denies** (Low, reported)
-- File: [Creatures/Treant.md](Creatures/Treant.md), section "Story Hook"
-- Quote: "a player who leaves the same token finds that the guardians of that grove let them pass where others are turned back."
-- Problem: The hub says treants do not hunt and react only to four acts of harm. "Turned back" is undefined, and a token offering looks like special favour, against the rule that treants "judge what is done to the forest, not who does it".
-- Conflicts with: Creatures/Treant.md, "The Warning Ladder"
-- Suggest: Rewrite the hook around a present dilemma and remove the token privilege, or define the token as a normal act toward the grove.
-
-**CR14. Red Deer "twice a wolf's weight" is off for stags** (Low, reported)
-- File: [Creatures/Red-deer.md](Creatures/Red-deer.md), section "Hunted and Hunting"
-- Quote: "A cornered deer fights with the strength of an animal twice a wolf's weight"
-- Problem: A stag is 160 to 200 kg and a wolf 45 to 60 kg, about three to four times; only a hind (110 to 130 kg) is about twice.
-- Conflicts with: Creatures/Wolf.md, "Appearance and Visual Design" (45 to 60 kg)
-- Suggest: "three to four times" for a stag, or "at least twice".
 
 **CR15. Green goblin band has no defined leader** (Low, reported)
 - File: [Creatures/Green-goblin.md](Creatures/Green-goblin.md), section "Behaviour and Encounter"
@@ -197,13 +118,6 @@ Codes: CR creatures, BS biomes, spells, races and settlements, AR art, audio, in
 - Conflicts with: AGENTS.md, "Write solid, finished text"
 - Suggest: Rewrite Design Role in the present tense, group the index by biome or family with a one-line size and role, and mark launch species.
 
-**CR18. Wyvern wording differs between Royal Dragon files** (Low, reported)
-- File: [Creatures/Royal-dragon.md](Creatures/Royal-dragon.md), opening
-- Quote: "walks on its hind feet and the knuckled wrists of its folded wings"
-- Problem: Later in the same file and in Highland-dragon.md and Paralyzing-dragon.md the contact point is "hooked claws at the wrists". "Knuckled" invites a hand-on-ground reading. All three dragons do keep four limbs.
-- Conflicts with: Creatures/Highland-dragon.md, "Appearance and Visual Design" ("hooked claws at the wrists of its folded wings")
-- Suggest: Use "hooked claws at the wrists" throughout.
-
 **CR19. Colony sizes may exceed what a region server holds** (Low, reported)
 - File: [Creatures/Golden-goblin.md](Creatures/Golden-goblin.md), opening and "Behaviour and Encounter"
 - Quote: "a colony can number a thousand" and "Hundreds pour out of side passages and down from the ceilings"
@@ -218,67 +132,12 @@ Strong work in this area:
 
 ### Biomes, spells, races and settlements
 
-**BS1. Elf starting city sits in a biome that ships after launch** (High, confirmed)
-- File: [Races/Elf.md](Races/Elf.md), section "Homeland and Start"
-- Quote: "Their homeland is the Ancient Forest"
-- Problem: Launch-scope.md says all three peoples are playable from day one, each with a heartland and starting city, but lists the Ancient Forest among the biomes that "open afterwards". Elven-settlements.md and Great-cities.md also put the elven start in the great trees. Launch has no biome for the elven heartland.
-- Conflicts with: Launch-scope.md, "The World at Launch": "The Ancient Forest, Jungle ... open afterwards as frontier expansions"
-- Suggest: Either add the Ancient Forest's edge to the launch, or name a launch biome (Forest) as the elven heartland and make the Ancient Forest the post-launch deep home.
-
-**BS2. Race text claims permanent advantages that Races.md denies** (High, confirmed)
-- File: [Races/Elf.md](Races/Elf.md) and [Races/Dwarf.md](Races/Dwarf.md), sections "Closeness to Magic" and "Masters of the Forge"
-- Quote: "An elf's path through Magic opens faster and reaches further than another race's"
-- Problem: "reaches further" is a ceiling, and Dwarf.md adds "what only dwarves make well" (race-gated crafting). Races.md says these are "starting tendencies, not ceilings" and that a dwarven mage or elven smith is viable. Elf.md also says an elf "will always have to work for the resilience a dwarf is simply born with" and that an elven mage can "scatter an army". Taken together, race decides outcomes at the top end.
-- Conflicts with: Races.md, "What a Race Decides": "These are starting tendencies, not ceilings."
-- Suggest: Rewrite as head-start language only (faster early ranks, cheaper first points). Drop "reaches further", "only dwarves make well" and "always", or state that the gap closes with investment. Say what a dwarven enchanter has that others can earn.
-
 **BS3. Launch creature list omits species the launch biomes depend on** (Medium, confirmed)
 - File: [Biomes/Plains.md](Biomes/Plains.md), "Creatures" and "Hazards and Travel" (also Forest, Mountain Range, Swamp, Coast)
 - Quote: "The danger that comes from above is the Highland Dragon, which drops out of the mountains every few weeks"
 - Problem: Launch-scope.md lists about a dozen species and does not name the Highland Dragon, Titan Turtle, Red Deer or Pixie. Plains, Forest, Mountain Range, Swamp and Coast feature them as central. Either the launch list is incomplete or the launch biomes cannot ship as written. Plains also loses its main hazard.
 - Conflicts with: Launch-scope.md, "Creatures at Launch": "About a dozen species ship ... The rest of the bestiary arrives with the biomes it belongs to."
 - Suggest: Add the four to the launch list, or mark them as ambient or post-launch in the biome text and cut them from launch biome prose.
-
-**BS4. Fireball is one-handed in its text and two-handed in Magic.md** (Medium, confirmed)
-- File: [Magic/Spells/Fire/Fireball.md](Magic/Spells/Fire/Fireball.md), "Gameplay Role"
-- Quote: "The caster holds out an open hand and the sphere grows from a spark"
-- Problem: Magic.md names Fireball as the example two-handed spell that takes both hands. Fissure says "both hands flat" but never states its hand rule. No other spell file states one-handed or two-handed.
-- Conflicts with: Magic.md, "Casting": "A two-handed spell, such as Fireball, takes both hands"
-- Suggest: Change the cast to both hands, and add a one line hand rule (one-handed, two-handed, off hand free) to every spell file.
-
-**BS5. Cooldowns appear in spells but the casting model has none** (Medium, confirmed)
-- File: [Magic/Spells/Light/Mending-light.md](Magic/Spells/Light/Mending-light.md), "Upgrade Directions"; Lightning/Arc-spark.md, "Trade-Offs"
-- Quote: "swift mend delivers a smaller amount immediately and places the spell on a longer cooldown"
-- Problem: Magic.md's Casting section works by gathering mana, with quick spells repeating while the button is held "the way a sword keeps striking". It describes no cooldown. Arc Spark ("increases cooldown"), Thunder ("cooldown") and Windstep ("chained without pause") also lean on recovery timers that Magic.md never defines. (Magic.md's own progression list mentions cooldown, which is already known.)
-- Conflicts with: Magic.md, "Casting"
-- Suggest: Replace cooldowns with gather cost, wind-up, recovery animation or a lockout defined in Casting, and define each such term once.
-
-**BS6. Mana-only siege spells give unlimited breaching ammunition** (Medium, confirmed)
-- File: [Magic/Spells/Fire/Fireball.md](Magic/Spells/Fire/Fireball.md) and [Magic/Spells/Earth/Fissure.md](Magic/Spells/Earth/Fissure.md), "Gameplay Role"
-- Quote: "a few well-placed blasts will open a gate, crack a parapet, or collapse a weakened wall"
-- Problem: Siege costs only mana, which refills in about five minutes (one on a leyline). One mage with no materials, no upkeep and no loss can breach a wall repeatedly, while the counterplay (rushing a rooted caster, scattering from a visible wind-up) needs defenders online. This is a different problem from the known offline-raiding issue: it is the missing cost on the attacker side.
-- Conflicts with: Magic.md, "Casting": "a full pool comes back in about five minutes"; Building-system.md line 108: Fireball "is the closest thing this world has to a breaching charge"
-- Suggest: State a per-cast material or reagent cost, or a cap on structure damage per mana pool, so siege mages spend resources like other raiders do.
-
-**BS7. Nature Growth lacks required sections, a trade-off and a farming limit** (Medium, reported)
-- File: [Magic/Spells/Earth/Nature-growth.md](Magic/Spells/Earth/Nature-growth.md), whole file
-- Quote: "it should not allow players to create infinite high-tier materials without effort"
-- Problem: Headings are Resource Resistance, Strength Distribution, World Use, Upgrade Directions. There is no Gameplay Role and no Trade-Offs, and no casting cost, noise, warning window or counterplay. It is written as "should / can". A mage inside a claim could regrow nodes on their own land with only mana, and nothing says whether claims, a node cap or a regrow cooldown limit this. "See also" lists no sibling spell.
-- Conflicts with: AGENTS.md, "Consistent file structure" (Gameplay Role, Upgrade Directions, Trade-Offs, `See also:` two sibling spells)
-- Suggest: Rewrite in settled voice with the standard sections, a mana and time cost, a per-node regrow limit, and a rule for player claims.
-
-**BS8. Most spell files never say which casting model they use** (Medium, reported)
-- File: [Magic/Spells/Water/Water-lance.md](Magic/Spells/Water/Water-lance.md) and others, "Gameplay Role"
-- Quote: "The lance deals moderate damage and pushes light targets on a clean hit."
-- Problem: Magic.md calls Water Lance a charged spell (hold, threshold, release, mana lost below it) and Ember Bolt and Arc Spark quick spells. Water Lance's file has no gather, threshold or release. Stoneguard, Seismic Pulse, Frostbind, Flame Wall, Gust, Windstep, Static Field, Revealing Light, Thunder and Nature Growth give neither the model nor whether the caster may walk while gathering ("some spells forbid moving at all"). Magic.md says the foundation upgrades change "reliability" and "stability" but the spells name neither.
-- Conflicts with: Magic.md, "Casting"
-- Suggest: Add one sentence per spell: quick or charged, threshold behaviour, hand count, movement allowed while gathering, whether plain damage breaks it.
-
-**BS9. Advanced spells omit their unlock prerequisites and Spell Power minimum** (Medium, reported)
-- File: [Magic/Spells/Fire/Fireball.md](Magic/Spells/Fire/Fireball.md), Earth/Fissure.md, Lightning/Thunder.md, Earth/Nature-growth.md, Misc/Item-box.md
-- Problem: Magic.md says every spell above the foundation set carries a minimum Spell Power and prerequisite ranks. None of the five advanced files states them, and Item Box's "late-game" has no gate. A builder cannot build the spell tree from the files.
-- Conflicts with: Magic.md, "Unlocks And Combination": "carries a minimum Spell Power ... alongside the ranks it asks for in its prerequisite spells"
-- Suggest: Add an Unlock paragraph to each (prerequisite spells and ranks, Spell Power as a default a server may override).
 
 **BS10. Ancient Forest breaks the biome section order and has no hazards or settlement** (Medium, reported)
 - File: [Biomes/Ancient-forest.md](Biomes/Ancient-forest.md), section headings
@@ -300,20 +159,6 @@ Strong work in this area:
 - Problem: Opening paragraphs and most sections are proposals ("should offer quests", "should also create strong reasons"). Human Settlements has no layout, service list per tier, or defence pattern; Elven Settlements has no raid or safe-zone rule; Dwarven Settlements has no entrance defence or guard behaviour beyond the goblin paragraph (which is good). They are the hand-built launch settlements, so builders need more. (Dungeons.md is already known.)
 - Conflicts with: AGENTS.md, "Write solid, finished text"
 - Suggest: Rewrite as settled prose, add service tiers, guard presence and what a player may build near each.
-
-**BS13. Races.md hints at race-based treatment by the world** (Low, reported)
-- File: [Races.md](Races.md), "What a Race Decides, and What It Does Not"
-- Quote: "the cultural frame the world reads them through"
-- Problem: It is unclear whether NPCs, creatures or prices read the player's race. AGENTS.md says creatures and systems react to action, never race. Elf.md and Ancient-forest.md ("wary of outsiders") are fine as NPC culture, but Races.md's wording invites the opposite reading.
-- Conflicts with: AGENTS.md, "Conventions & gotchas": "Creatures and world systems react to what a player does, never to which race the player is."
-- Suggest: Replace with "the starting city and look of the character", and add one line that no system treats a character differently by race.
-
-**BS14. Unfinished voice in Mesa and Nature Growth and Thunder-style "should"** (Low, confirmed)
-- File: [Biomes/Mesa.md](Biomes/Mesa.md), opening paragraph
-- Quote: "It should read as an opportunity-rich frontier"
-- Problem: A proposal sentence in finished text. Deep Caverns also cites leyline crystal "(see Magic)" but Magic.md says nothing about crystal.
-- Conflicts with: AGENTS.md, "Write solid, finished text"
-- Suggest: State the fact ("The Mesa is an opportunity-rich frontier") and link the crystal to Setting-and-lore.md instead of Magic.md.
 
 **BS15. Seasons are not reflected in biomes, and map rules leave gaps** (Low, reported)
 - File: [Weather-time-and-seasons.md](Weather-time-and-seasons.md) "Seasons"; [Skills/Artisan/Cartography.md](Skills/Artisan/Cartography.md) "Map Items and the Player Economy"
@@ -457,13 +302,6 @@ Strong work in this area:
 - Conflicts with: UI-and-HUD.md "The health and stamina bars carry no numbers"
 - Suggest: List the cues that survive HUD hiding (a screen-edge damage and bleed treatment) or state that cinematic mode ends on damage.
 
-**AR20. Accessibility cites a console note that is not in UI and HUD** (Low, reported)
-- File: [Accessibility.md](Accessibility.md), section "Operating the Game"
-- Quote: "the eventual move to console controls noted in UI and HUD"
-- Problem: UI-and-HUD.md says nothing about consoles or gamepads; the only mention is in README.md and Monetization.md.
-- Conflicts with: UI-and-HUD.md (no such note)
-- Suggest: Add one line on controller support to UI-and-HUD.md or link Monetization and Platforms.
-
 **AR21. Warded glow colour contradicts the current-colour rule** (Low, reported)
 - File: [Art-direction/Building-materials/Warded-stone.md](Art-direction/Building-materials/Warded-stone.md), section "Wear, Weathering, and Damage"
 - Quote: "a cold blue-white or violet no brighter than embers, the deep-current colour"
@@ -514,13 +352,6 @@ Strong work in this area:
 - Conflicts with: Server-settings.md "Every Cluster Unit Server has explicit CPU, memory, bandwidth, entity-count, and replication budgets" (no values anywhere)
 - Suggest: add a "Bandwidth per player" section to the culling doc or Server-settings.md: KB/s per player in open country, in a city and in a 200-player battle, including gateway fan-out and neighbour-route traffic. Reconcile it with the 1 to 3 dollar claim.
 
-**SV2. Time dilation needs a server of its own, but the spec degrades exactly when no server is free** (High, confirmed)
-- File: [Server-architecture.md](Server-architecture.md), section "6.3 Hotspots and graceful degradation"; [Server-architecture (Technical).md](<Server-architecture (Technical).md>), section "11.2 Time Dilation"
-- Quote: spec: "When a busy space can be split no further, or no server is free to take a piece... the region's clock slows." Tech: "before it dilates a region the Master migrates that region onto a server of its own"
-- Problem: with no free server (the stated trigger) the isolation step cannot happen. In the launch fallback (one server owns every region) dilation slows the whole world, not "the region" as the spec says. The promise that "a battle slows down rather than breaking apart" is false in exactly the fallback and capacity-exhausted cases.
-- Conflicts with: Server-architecture.md section 9, "that world runs on a single Cluster Unit Server under a lower cap"
-- Suggest: state in the spec that dilation applies to a whole server process, so it is available only once the region is alone on its server. For the single-server fallback say what replaces it (lower cap, shedding, refusing arrivals) and drop dilation from the fallback degradation list.
-
 **SV4. Two mechanisms show neighbour entities to a player, with no stated division** (Medium, reported)
 - File: [Server-architecture (Technical).md](<Server-architecture (Technical).md>), sections "6.3 Receiving Ghost Entities" and "7.3 Client Connection Continuity"
 - Quote: "Ghost actors still replicate to clients in the receiving region through the ordinary replication pipeline" versus "the fork connects each client only to its primary and to the neighbour servers whose ghosts that player can see"
@@ -540,12 +371,6 @@ Strong work in this area:
 - Quote: "by default 20 claims in 10 seconds" ... "60 seconds without cross-region claims"
 - Problem: two players trading hits across a seam (2 claims a second) force a whole-region migration with a full snapshot and gateway re-routing for everyone in both regions, which releases after 60 s and can repeat. Two accounts can force this on a city seam at will, a cheap load and griefing attack. There is no rate limit, minimum dwell or per-region migration budget, and the threshold ignores how many entities live in the regions. Spec 6.2 also says the Master "can always do" it, then "bounded by that server's capacity".
 - Suggest: weight the trigger by the cost of migrating the regions, add a minimum hold time and a migration budget per region per hour, and fix the "can always do" wording in the spec.
-
-**SV7. Fallback to one server is a launch dependency with no technical counterpart** (Medium, reported)
-- File: [Server-architecture (Technical).md](<Server-architecture (Technical).md>) (whole), compared with [Server-architecture.md](Server-architecture.md) section "9. Scale and running cost" and [Launch-scope.md](Launch-scope.md) "The Technology Everything Depends On"
-- Quote: spec: "that world runs on a single Cluster Unit Server under a lower cap, and handoff is switched on later without changing any content or rule"
-- Problem: the technical guide never describes single-server mode. Open: is the gateway in the path (it is the experimental, forked piece most likely to fail), or do clients connect directly and later have to reconnect through a gateway when handoff is enabled (a client-visible change)? Is the Iris gate's fallback (Replication Graph) compatible with the proxy driver? Are Master, NATS and the transfer tables needed on day one? What is the cap? The guide's only server figure is "200–400 concurrent players" per process (13.1), which is the real ceiling of the fallback world, while Monetization assumes one concurrent player per five to eight subscribers, so a launch world would hold roughly 1 000 to 3 000 subscribers.
-- Suggest: add a "Single-server mode" section: topology, whether the gateway runs, the numeric cap with its derivation from 13.1, and the steps to switch handoff on for a live world.
 
 **SV8. Crash-recovery number disagrees with itself, and whole-world crash is unaddressed** (Medium, confirmed)
 - File: [Server-architecture (Technical).md](<Server-architecture (Technical).md>), section "8.3 Crash Recovery Flow"
@@ -609,13 +434,6 @@ Strong work in this area:
 - Problem: Building tech defers NPC damage tracking to the settlement guide. The settlement guide holds one scalar Health per lot and replicates "about ten bytes per lot": no pieces, links, stability or per-piece health. Raiders cannot go for the pillars of an NPC house, a wall cannot be breached, and collapse is just Health reaching 0. The hand-off is circular and the promise below is unbuilt.
 - Conflicts with: Settlement-generation.md, "a raided town burns, breaks, and collapses the way a player's base does"; Building-system.md, "fail in the same ways"
 - Suggest: Decide whether a standing NPC building is an FBaseRecord (pieces, stability, per-piece damage, persisted) assembled from its variant's pattern, or an abstract lot with a scripted breach. Rewrite both hand-offs to match, and add the cost to the 2 000-visible-piece scene budget (a great city has thousands of lots).
-
-**BD2. No door or shutter access model; opening needs only reach** (High, confirmed)
-- File: [Building-system (Technical).md](<Building-system (Technical).md>), section "3.5 Placeables and Fittings"; [Building-system.md](Building-system.md), section "Fittings"
-- Quote: "changed by a use request that the server checks for reach and, for barring, for the user standing on the inner side of the host"
-- Problem: Anyone in reach can open an unbarred door, gate, hatch or shutter. Barring needs a person inside, so a base whose owners are logged out has open doors by default. No lock, key or guild door permission exists in the lane files, Raids.md or Conflict-and-pvp.md (grep for door/lock). The strength of walls is moot if the door is free.
-- Conflicts with: Building-system.md, "Shutters close an opening against weather and arrows, open from the inside, and can be barred" (the guide does not enforce "open from the inside")
-- Suggest: Add a door access rule (owner and guild grant, lock item, breakable lock) to the spec and an access check beside the reach check in 3.5. State how a base is left barred when its owner logs out, or why it need not be.
 
 **BD3. Unclaimed bases have no ceiling and no claim gap** (Medium, reported)
 - File: [Building-system (Technical).md](<Building-system (Technical).md>), sections "3.4 Server Validation", "7.5 Unclaimed Pieces and Ceilings"
@@ -747,13 +565,6 @@ Strong work in this area:
 
 ### Movement, melee and wounds
 
-**MV1. The guard rule is stated three incompatible ways** (High, confirmed)
-- File: [Actions.md](Actions.md), section "Creatures"; [Melee-combat.md](Melee-combat.md), section "When a Strike Lands"; [Melee-combat (Technical).md](<Melee-combat (Technical).md>), section 8
-- Quote: "A braced blow delivers a quarter of its energy and never knocks the player down, and it costs the guard 0,2 stamina for each joule it caught."
-- Problem: Actions.md fixes a flat quarter of energy through, a flat 0,2 stamina per joule and a 60 degree cone, whatever the shield or the blow. Melee-combat.md says a block "absorbs a blow", that "a shield's own weight and size decide how much it can absorb", and that a hammer on a shield staggers and drives back the bearer. Melee (Technical) section 8 prose says the guard absorbs and only a broken guard passes the rest through, then its own table labels the quarter-through rule, the 60 degrees and 0,2 per joule "Provisional" and "replaced by the blocking simulation", while Actions.md presents the same numbers as design. A builder cannot tell which is canon, and a bare blade across the body and a tower shield currently block identically.
-- Conflicts with: Melee-combat.md "The cost of a block is the energy of the blow it catches, so blocking a dagger is cheap and blocking a war hammer is expensive however good the shield."
-- Suggest: Decide one model. Either keep the flat rule and state it in Melee-combat.md with the shield reduced to a scale on cost and stagger, or write the blocking simulation and delete the interim table. Mark in Actions.md that the figures are defaults of an interim rule only if the tech guide keeps them provisional.
-
 **MV2. Cross-server hits cannot work as written** (High, confirmed)
 - File: [Melee-combat (Technical).md](<Melee-combat (Technical).md>), "Research Baseline" and sections 4, 6, 8; [Health-and-wounds (Technical).md](<Health-and-wounds (Technical).md>), section 1
 - Quote: "everything below assumes both bodies are simulated by one server."
@@ -781,20 +592,6 @@ Strong work in this area:
 - Problem: Moves flow client to server. A wound is decided by the server from a hit the client may not yet have seen, so the client cannot put the new cap in the move it makes at the same index. The only workable form is a server-stamped move index sent in a correction, which is what the replicated struct already does. The claim that this removes the correction burst is not supported by the mechanism described.
 - Conflicts with: Health-and-wounds (Technical).md section 6 ("how the change is carried in the move to avoid a correction burst")
 - Suggest: Say the server stamps the cap with the move index it applies from and sends it with the next response; accept one correction per wound, or let the client apply it predictively from a confirmed-hit event.
-
-**MV6. Rewound targets make guard and parry timing unfair at 150 ms** (Medium, reported)
-- File: [Melee-combat (Technical).md](<Melee-combat (Technical).md>), sections 6 and 8; [Actions.md](Actions.md) "Holding to Act"
-- Quote: "A guard that is still rising when a blow arrives turns it aside rather than catching it"
-- Problem: The server tests a strike against hit volumes "as they stood at the attacker's view time", up to 250 ms back. A defender who raised the guard in the last 150 ms on their own screen is still resolved as unguarded, and a parry needs the guard still rising, a window shorter than the rewind. The attacker is always favoured; the parry is effectively unplayable above about 100 ms. The same rewind shortens the "step out of its path" window Ranged-combat.md promises against shots.
-- Conflicts with: Ranged-combat.md "a target at long range who sees the shot leave can still step out of its path"
-- Suggest: State whose clock decides guard state (defender's server time, with a short grace) and give the parry window a number larger than twice the tolerated latency, or drop the rising-guard parry.
-
-**MV7. Knockdown is used everywhere and defined nowhere** (Medium, confirmed)
-- File: [Actions.md](Actions.md) "Ending an Action"; [Health-and-wounds.md](Health-and-wounds.md); [Melee-combat.md](Melee-combat.md)
-- Quote: "broken from outside, by a blow that staggers the character, a fall, or a knockdown"
-- Problem: Wolf.md says a lunge "knocks the victim down", Melee (Technical) section 8 counts knockdowns in tests, and Prototype-findings assumes a downed character cannot ready items. Neither Melee-combat.md nor Health-and-wounds.md says what causes a knockdown, how long it lasts, how a character gets up, whether it is vulnerable to a finisher, or how it differs from stagger. Health-and-wounds.md says there is "no collapsed state in between".
-- Conflicts with: Health-and-wounds.md "There is no collapsed state in between"
-- Suggest: Add a Knockdown and Stagger section to Melee-combat.md (trigger as momentum against brace, duration, get-up action, what it breaks) and reconcile the "no collapsed state" line to mean no downed-and-reviveable state.
 
 **MV8. Head and limb damage numbers do not compose** (Medium, reported)
 - File: [Health-and-wounds.md](Health-and-wounds.md) "The Head"; [Health-and-wounds (Technical).md](<Health-and-wounds (Technical).md>) section 7
@@ -880,13 +677,6 @@ Strong work in this area:
 - Conflicts with: Actions.md "The secondary button, the right mouse button, raises the guard"
 - Suggest: Add a thrust input (a modifier or third button) to `FActionInput` and say the guard's angle comes from the view direction at the moment of contact.
 
-**MV20. Inventory and Movement disagree on the immovable boundary; crouch and sprint wording slips** (Low, reported)
-- File: [Inventory.md](Inventory.md) "Weight And Strength Mechanics"; [Movement.md](Movement.md) "Stamina" and "Noise"
-- Quote: "unable to move at half again the capacity" (Inventory.md)
-- Problem: Inventory's table says "Up to half over: recovering gaits only", so at exactly 1,5 times capacity the body moves, while its text and Movement.md say it cannot move at 1,5; the tech tier uses "first tier whose limit is not below the load", so 1,5 still moves. Movement.md says "A person's only recovering gait is the walk" while its own table gives the crouch the Recovering role. Noise text says a sprint carries "twice" the jog's 15 m, but the table gives 35 m.
-- Conflicts with: Movement.md table row "Crouch | Recovering"
-- Suggest: Make the immovable limit strictly "at or above 1,5", say a person has two recovering gaits (walk and crouch), and write the sprint noise as "about 35 metres".
-
 **MV21. Unverified Unreal Engine claims** (Low, reported)
 - File: [Movement (Technical).md](<Movement (Technical).md>) "Research Baseline", sections 4.2, 8
 - Quote: "in Unreal Engine 5.8 the control rotation stored in a saved move is overwritten with the live view after every replay"
@@ -900,34 +690,6 @@ Strong work in this area:
 - Health-and-wounds.md: attribution of bleed and fall deaths to the last untreated wounder closes the "flee and die" full-loot escape cleanly and ties to the bounty rule.
 
 ### Taming, riding and flight
-
-**TF1. A sheltered slave bond never loses pressure, so slave bonding becomes permanent** (High, confirmed)
-- File: [Taming-and-control.md](Taming-and-control.md), sections "Slave Bonding" and "Bonds While Away"; [Taming-and-control (Technical).md](<Taming-and-control (Technical).md>), sections 4.1 and 4.3 (Settle)
-- Quote: "it holds only as long as the handler keeps the pressure on" (Slave Bonding) versus "A sheltered creature keeps its bond exactly as it was" (Bonds While Away)
-- Problem: Held "freezes the bond exactly, online or not", and Settle only decays pressure when `CareState != Held`. A coerced dragon parked in a stocked hall keeps its full pressure indefinitely, so the method's core trade-off (constant pressure, or convert to trust over 20 days of care) is skipped by stabling the animal. The spec contradicts itself here and the guide copies it.
-- Conflicts with: the same files, see the two quotes.
-- Suggest: say that Held freezes trust and parental bonds only; a slave bond decays pressure everywhere except the owner's active coercion, or Held slows it by a stated fraction. Add a validation case.
-
-**TF2. Any owned creature can be trust-stolen, and the rule that should stop it is undefined** (High, confirmed)
-- File: [Taming-and-control (Technical).md](<Taming-and-control (Technical).md>), section 6.4 and section 9 (case 5)
-- Quote: "Anyone else starts a new `FTamingAttempt` from zero by any method the species allows, provided no attempt on the creature is active"
-- Problem: Nothing compares the thief's progress to the owner's bond or presence. A thief who feeds a creature in an unguarded paddock for a few weeks replaces the record and ends the owner's claim, even if the owner is online and Tended at 1,0. Validation case 5 says the owner's care "overtakes" the stranger, but no mechanism does that. The parental bond, "the strongest control of all", then has no protective value.
-- Conflicts with: Creature-riding.md, "When the Rider Falls": "A killer can never simply take a mount over."
-- Suggest: define the contest. Either an attempt on an owned creature cannot complete while the owner's strength exceeds a threshold, or the attempt only gains while the bond is in the disobedient band or below. Say it in Taming-and-control.md too, which is silent on stealing from living owners.
-
-**TF3. The Royal Dragon, the launch's flying mount, has no way to be acquired** (High, confirmed)
-- File: [Flight.md](Flight.md), "Flying Mounts"; [Launch-scope.md](Launch-scope.md), "Systems at Launch"; [Creatures/Royal-dragon.md](Creatures/Royal-dragon.md), "Gameplay Role"
-- Quote: "Taming is the gate in every case, through the methods of [Taming and Control]" (Flight.md)
-- Problem: The Royal Dragon file calls it "closer to an alliance with a dangerous intelligence than ownership", which no method implements. Launch ships slave, trust and "parental bonding of found young" only, and breeding waits. No file says the dragon has found eggs or young, a trust route or a slave route, or how a taming attempt works on a creature that judges, spares and "may ignore weak attackers". Neither guide has a per-species table of allowed methods (`Methods` is only a generic map).
-- Conflicts with: Launch-scope.md: "Flight ships with the wing-rig and the Royal Dragon".
-- Suggest: add a species method matrix (Royal Dragon, Highland Dragon egg-only, Leviathan calf-only, Titan Turtle, Wolf, horse, buffalo) in Taming-and-control.md, and write the Royal Dragon's launch route as settled design.
-
-**TF4. A homing mount carries a dead rider's cargo out of full loot** (High, confirmed)
-- File: [Creature-riding.md](Creature-riding.md), "When the Rider Falls"; [Creature-riding (Technical).md](<Creature-riding (Technical).md>), sections 9.1 and 10
-- Quote: "A mount that bolts or heads home carries its cargo out of the fight with it" (spec); "the horse takes the homing outcome whatever its bond, walks to its home stable" (guide)
-- Problem: Valuables hung on a goods saddle or saddlebags survive the rider's death whenever the mount lives, so a non-mage gets near-death-proof storage, against the stated trade in Saddles-and-carriages.md. For a hired horse it is deterministic (homing "whatever its bond"), and nothing says where the rider's saddlebag contents end up: the stable's roster, the owner, or anyone at the stable.
-- Conflicts with: Saddles-and-carriages.md: "everything they carry is exposed"; Death-and-loss full-loot intent.
-- Suggest: a mount that homes drops its packs at the body or at the first threat, or the contents go to a lootable bundle at the stable that only the hirer's next visit can claim. State the hired-horse case explicitly.
 
 **TF5. An anchored leviathan with a heavy deck can drain its reserve while the keeper is away** (Medium, reported)
 - File: [Flight (Technical).md](<Flight (Technical).md>), sections 11.2 and 11.4; [Flight.md](Flight.md), "Mana-Borne Flight"
@@ -963,29 +725,11 @@ Strong work in this area:
 - Conflicts with: Creatures/Flying-leviathan.md, "Young and Adult"; Flight (Technical).md section 5.5 (Held only for an anchored adult).
 - Suggest: a growth-stage table on the species asset (size, mass, launch type, needs per stage) and a rule for how a calf is kept while its keeper is offline.
 
-**TF10. The horse, the archetype mount, has no creature file and is not in the launch list** (Medium, confirmed)
-- File: [Launch-scope.md](Launch-scope.md), "Creatures at Launch"; [Creature-riding.md](Creature-riding.md), "Kinds of Mount"; [Saddles-and-carriages.md](Saddles-and-carriages.md)
-- Quote: "The horse is the archetype: wild horses run the [Plains]" (Creature-riding.md)
-- Problem: Hired horses, taming from plains herds, every carriage team and the whole launch riding game depend on a horse, but `Creatures/` has no horse entry, and the "about a dozen" launch species do not include one. A builder has no size, temperament, diet, comfort band or strength for the species the numbers are built around.
-- Suggest: write `Creatures/Horse.md` (model entry, Plains) and add it to the launch list.
-
 **TF11. The guide contradicts itself on whether wild creatures are persistent individuals** (Medium, reported)
 - File: [Taming-and-control (Technical).md](<Taming-and-control (Technical).md>), sections 2.2, 3.3 and 8.1
 - Quote: "as every wild creature is a persistent individual under Populations and Spawning" versus "Wild creatures are not, until a handler starts taming one"
 - Problem: Section 3.3 relies on a stored `BornAt` for the parental window "the same for every finder", while 8.1 keeps herds as Mass entities with no record until the first care act, and the record comment says found young store "their estimated birth time". If birth time is estimated at promotion, the window is not fixed and can be gamed or re-rolled.
 - Suggest: store a deterministic `BornAt` in the Mass entity (or derive it from spawn time), and say so in both sections.
-
-**TF12. No tame budget is defined in the taming documents** (Medium, reported)
-- File: [Taming-and-control.md](Taming-and-control.md) and [Taming-and-control (Technical).md](<Taming-and-control (Technical).md>) (absence); [Populations-and-spawning.md](Populations-and-spawning.md)
-- Quote: "a limit per player and per guild alongside the upkeep" (Populations-and-spawning.md)
-- Problem: Populations hands the limit to Taming and Control and lists "the tame budget per player and per guild" as a setting, but neither taming file defines it, and the guide's record and 8.2 server budget have no field for it. Without it, stables of unlimited creatures freeze bonds and cost the server actors.
-- Suggest: add a "Keeping Many Creatures" paragraph to the spec and an `FTameBudget` check to the guide, with size-class weighting (a dragon counts for more than a rabbit).
-
-**TF13. Bonds of lapsed owners never end, so tamed creatures leave the wild forever** (Medium, reported)
-- File: [Taming-and-control.md](Taming-and-control.md), "Bonds While Away"; [Taming-and-control (Technical).md](<Taming-and-control (Technical).md>), section 4.4
-- Quote: "it never breaks entirely while the owner is offline"
-- Problem: The offline floor holds indefinitely, and Populations says "A tamed creature leaves the wild count altogether". In a subscription game, lapsed accounts leave permanently bonded creatures at the floor that no one can reclaim except by killing or slave-bonding them, and the wild never regains the slot.
-- Suggest: add a long-absence rule (after a server-set number of weeks offline the bond releases and the creature rejoins the wild count) and a catch-up event for it.
 
 **TF14. Carriage terrain rules differ between spec and guide, and "several times" is unquantified** (Medium, reported)
 - File: [Saddles-and-carriages.md](Saddles-and-carriages.md), "Roads, Terrain, and Bridges"; [Creature-riding (Technical).md](<Creature-riding (Technical).md>), section 7.4
@@ -999,12 +743,6 @@ Strong work in this area:
 - Problem: The storage carriage is said to carry "far more than any saddle", and its confinement to roads is what keeps it from erasing distance. If a pack buffalo already carries more than a cartload anywhere, the carriage's advantage and its road cost both disappear.
 - Conflicts with: Saddles-and-carriages.md: "It carries far more than any saddle".
 - Suggest: cap the buffalo's load below a one-horse cart, or restate the carriage's edge as per-team volume.
-
-**TF16. The wing-rig has no limits on launch height, glide ratio or reuse** (Medium, reported)
-- File: [Flight (Technical).md](<Flight (Technical).md>), section 9; [Flight.md](Flight.md), "Gliding"
-- Quote: "enters `RigGlide` with the flyer's airspeed and their current height as the launch altitude"
-- Problem: Free distance equals launch height times glide ratio, and neither the rig's ratio nor any launch-height or reuse limit is given. A rider can unbuckle at a flyer's ceiling and glide tens of kilometres, a chain of player-built towers gives repeatable one-way travel, and a glider can cross a wall into a base. Whether the Building System caps height is not referenced.
-- Suggest: give the rig a glide ratio and a launch-altitude cap, check the building height ceiling, and state the tower case.
 
 **TF17. Egg ownership is described two ways and a bystander can take a hatchling** (Medium, reported)
 - File: [Taming-and-control (Technical).md](<Taming-and-control (Technical).md>), section 3.3
@@ -1059,6 +797,22 @@ Strong work in this area:
 - The whole-document read found that reputation was named as the restraint on player killing while being the least specified system. This was settled on 11 November 2026: reputation is standing with NPC factions only, moved by witnessed acts toward their people, and players answer one another with bounties.
 - SV3, CR2 and TF18 reported passages that still described the old reputation model in the server documents, the Flying Leviathan entry and the hired-horse rule. They were rewritten on 11 November 2026.
 - CR3 reported "one Kraken per region" as a contradiction with the one-square-kilometre server region. It is rejected: the [Glossary](Glossary.md) defines that second, gameplay sense of "region". What remains open is the size of a singleton creature's territory and how a killed one is replaced.
+
+## Settled in the design session of 11 November 2026
+
+These findings were decided with the design's author and written into the documents the same day. Each line gives the decision.
+
+- **Release and world (W2, SV2, SV7, BS1, BS3 in part, CR9, TF10).** There is no hard launch: closed tests, then early access in waves, with wipes that reset world and characters until a declared day begins the persistent world. The world is one map of about 80 by 80 kilometres per cluster, opened area by area, with unfinished ground closed. Until multi-server handoff holds, each map runs on one server under a cap, with no time dilation. The Ancient Forest joins the first release in place of the Tundra, and the Red Deer, the Horse and the Treant join the first-release species.
+- **Money (decided alongside).** The subscription is the only thing ever sold. There is no store of any kind, and early access costs a reduced price.
+- **Offline raids (W3).** They stay fully open with no timers. A piece has health, repair restores a set amount per action, and only the piece being struck cannot be repaired.
+- **Veteran edge (W4) and Item Box (W5).** Both stay as written by decision. A later brake on veterans, or periodic wipes, is parked in the design backlog.
+- **Dungeons (W8).** Great dungeons have several thresholds, and a dungeon sends the creatures of the surrounding country at anyone who lingers at its doors.
+- **Doors (BD2).** Inside a claim, doors, gates, hatches, shutters and containers open only for those with access. There are no locks or keys.
+- **Lured creatures (CR6) and siege magic (BS6).** Luring a creature at a base is intended siege play with stated rules. Casting draws down the mana level of the ground, and the two siege spells consume a charged mana crystal per cast.
+- **Magic (BS4, BS5, BS7, BS8, BS9).** A new Mana Recovery stat; every spell file states how it is cast; foundation spells have no cooldown and an advanced spell may carry a recovery period; advanced spells state what unlocks them.
+- **Combat (MV1, MV6, MV7, MV20, CR1).** Blocking follows the physical model. A knockdown lasts about two seconds and still allows a guard. Under lag the attacker's view decides the hit and the defender's own screen decides the guard. Perception resists charm and glamour.
+- **Taming and mounts (TF1, TF2, TF3, TF4, TF12, TF13, TF16, CR4).** Shelter does not hold a slave bond, and a coerced creature can be chained or penned. An owned creature can be won away only when neglected, in two stages. A Royal Dragon mount comes only from an egg. A panicking mount sheds its packs along its flight, by its kind and its steadiness. There is no count on tamed creatures, bonds of an owner absent for eight weeks release, and a confined creature can starve. A wing-rig descends at a constant angle and costs stamina. A Sandworm casts up a swallowed player's corpse.
+- **Voice and consistency (W12 in part, BS2, BS13, BS14, CR10, CR13, CR14, CR18, AR20).** Combat Skills, Thunder, Nature Growth, Dungeons, the race files, eleven creature story hooks and several single sentences were rewritten. The README pillars are still in the older voice.
 
 ## Resolving a finding
 

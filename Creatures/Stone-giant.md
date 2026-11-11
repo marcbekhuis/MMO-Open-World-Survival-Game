@@ -10,7 +10,7 @@ A giant's size is a measure of its age and its appetite. The larger and older it
 
 ## What Provokes a Giant
 
-A giant roaming undisturbed ignores players and walks on. It turns hostile in three cases: when its crystals are threatened, when something climbs it, and when it is hungry and meets a player carrying crystals. The third is the trap for miners, since the same mana crystals they haul out of the mountain are what a hungry giant smells from far away. A giant in that state comes straight for the carrier.
+A giant roaming undisturbed ignores players and walks on. It turns hostile in three cases: when its crystals are threatened, when something climbs it, and when it is hungry and meets a player carrying crystals. The third is the trap for miners, since the same mana crystals they haul out of the mountain are what a hungry giant smells from far away. A giant in that state comes straight for the carrier, and a crystal trail laid toward a base brings it to the walls; that is an attack by [Damage and Siege](../Building-system.md#damage-and-siege), kept up only for as long as attackers present keep the crystals coming.
 
 The attacks a hostile giant uses are the same at every tier, scaled to its size: a stomp that crushes whatever is beneath the foot, a sweep of the arm that clears a ledge, boulders torn from its own body and hurled, and a shockwave struck into the ground that throws everything nearby off its feet. The tell is grinding stone and crystals that flare bright in the seams, which gives anyone within sight a moment to run or take cover before the blow lands. The tier files describe which of these dominates at each size.
 

@@ -26,7 +26,7 @@ A dead Bamboo Spider yields its venom glands for alchemy and poisons, light and 
 
 ## Story Hook
 
-A bamboo-cutter's camp keeps losing workers to the deep groves, always the ones who went in alone and always without a sound. The survivors have started marking suspect stalks with strips of red cloth, and a player who follows the trail of markers into the heart of the grove finds both the spider that has been feeding there and the grim, practical map the cutters made of a hunter they could never quite see.
+A bamboo-cutter's camp keeps losing workers to the deep groves, always the ones who went in alone and always without a sound. The survivors have started tying strips of red cloth to stalks that do not sway with their neighbours, and the trail of markers leads to bundles of wrapped bodies hung above head height, though the camp's overseer still sends crews in for the straight, heavy culms that only the oldest groves grow. A player who follows the markers finds the spider's hunting ground mapped more carefully than anything the overseer has ever written down. The players can burn the grove to force the spider out at the cost of the camp's livelihood, go in after it with long blades and bows, or cut the camp off from the deep stalks and let the overseer answer for the lives already spent.
 
 See also: [Creatures index](../Creatures.md) and the [Bamboo Jungle](../Biomes/Bamboo-jungle.md) it hunts.
 

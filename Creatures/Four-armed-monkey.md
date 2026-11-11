@@ -26,7 +26,7 @@ Through [Trust Bonding](../Taming-and-control.md) an individual can become a sma
 
 ## Story Hook
 
-A jungle guide asks players to help free a troop of Four-Armed Monkeys from poacher snares before the canopy goes quiet for good. At first it seems like a small mercy job, but the trapped troop has stopped warning the area below, and a [Paralyzing Dragon](paralyzing-dragon.md) has begun using that silence to hunt along a busy gathering route.
+A jungle guide asks players to help free a troop of Four-Armed Monkeys from poacher snares before the canopy goes quiet for good. It sounds like a small mercy job until the guide mentions that the troop has not chattered over the gathering route for days, and that two foragers have since gone missing on the ground beneath it. Half-eaten fruit lies untouched below the branches, and a faint metallic taste hangs in the air near the first snare line, where the poachers' own tracks end. The players can cut the troop free first and trust the monkeys to raise the alarm again, hunt the [Paralyzing Dragon](paralyzing-dragon.md) that the silence has let in, or close the route to gatherers and leave the poachers to the jungle.
 
 See also: [Creatures index](../Creatures.md), the [Jungle](../Biomes/Jungle.md) it inhabits, [Birds](Birds.md) for the other half of the warning system, [Taming and Control](../Taming-and-control.md) for trust-bonded companions, [Crafting](../Crafting.md) for its minor material uses, and the [Paralyzing Dragon](paralyzing-dragon.md) whose presence its silence can reveal.
 

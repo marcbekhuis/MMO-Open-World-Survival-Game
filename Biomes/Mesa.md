@@ -1,6 +1,6 @@
 # Mesa
 
-The Mesa forms a rugged borderland around the desert regions, defined by towering plateaus, steep cliffs, dry basins, and deep canyons. It is not as scorching or as barren as the deepest [Scorching Desert](Scorching-desert.md), but limited water and sparse vegetation still make travel demanding, and the broken terrain turns every journey into a question of which route through the rock is passable. It should read as an opportunity-rich frontier: harder than the plains, kinder than the dunes, and worth the risk for what its stone holds.
+The Mesa forms a rugged borderland around the desert regions, defined by towering plateaus, steep cliffs, dry basins, and deep canyons. It is not as scorching or as barren as the deepest [Scorching Desert](Scorching-desert.md), but limited water and sparse vegetation still make travel demanding, and the broken terrain turns every journey into a question of which route through the rock is passable. It is an opportunity-rich frontier: harder than the plains, kinder than the dunes, and worth the risk for what its stone holds.
 
 ## Terrain and Atmosphere
 

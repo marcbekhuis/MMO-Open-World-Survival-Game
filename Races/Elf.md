@@ -1,6 +1,6 @@
 # Elf
 
-Elves are the agile, precise, and magically gifted people of the ancient forests, drawn to the places where the world's force runs closest to the surface. An elf begins quicker and more perceptive than the other races, suited to ranged combat, stealth, and the careful reading of terrain, and stands nearer to magic than anyone else at the start. What they give up for that closeness is raw physical mass: an elf will not out-muscle a dwarf, and an elf caught in a straight melee against a heavier foe is fighting on the wrong terms.
+Elves are the agile, precise, and magically gifted people of the ancient forests, drawn to the places where the world's force runs closest to the surface. An elf begins quicker and more perceptive than the other races, suited to ranged combat, stealth, and the careful reading of terrain, and stands nearer to magic than anyone else at the start. What they give up for that closeness is a head start in raw physical mass: a new elf will not out-muscle a new dwarf, and an elf caught in a straight melee against a heavier foe is fighting on the wrong terms until they have invested in standing there.
 
 ## Strengths and Playstyle
 
@@ -8,11 +8,11 @@ The elven lean is toward agility, precision, stealth, ranged combat, and magical
 
 ## Closeness to Magic
 
-Where dwarves bind magic into objects, elves channel it directly. Their affinity is cultural as much as innate, sharpened by living among the leyline-rich and the primeval, and elven settlements are built around that relationship: the nature-magic sanctuaries and quiet libraries of [Elven Settlements](../Structures/Elven-settlements.md) are where much of the world's casting tradition is kept and taught. An elf's path through [Magic](../Magic.md) opens faster and reaches further than another race's, which makes the race the natural choice for a player who wants spellcasting to be the spine of their character rather than a side discipline.
+Where dwarves bind magic into objects, elves channel it directly. Their affinity is cultural as much as innate, sharpened by living among the leyline-rich and the primeval, and elven settlements are built around that relationship: the nature-magic sanctuaries and quiet libraries of [Elven Settlements](../Structures/Elven-settlements.md) are where much of the world's casting tradition is kept and taught. An elf begins with free steps in Mana, Handling, and Perception, so the early part of the path through [Magic](../Magic.md) opens sooner for them than for another race. It is a head start and nothing more: a dwarf or a human who invests in the same stats and skills closes the gap, which makes the race the natural choice for a player who wants spellcasting to be the spine of their character from the first hour rather than a side discipline.
 
 ## Homeland and Start
 
-Elves begin in one of the elven [great cities](../Structures/Great-cities.md), each a vertical forest-city woven through towering trees, with quiet routes leading into the deep woodland. Their homeland is the [Ancient Forest](../Biomes/Ancient-forest.md), and their realms are drawn outward toward the charged, primeval corners of the frontier described in [Setting and Lore](../Setting-and-lore.md). An elf who wants to play against type can build toward heavier combat with enough investment, trading some of the race's natural reach for staying power, though they will always have to work for the resilience a dwarf is simply born with.
+Elves begin in one of the elven [great cities](../Structures/Great-cities.md), each a vertical forest-city woven through towering trees, with quiet routes leading into the deep woodland. Their homeland is the [Ancient Forest](../Biomes/Ancient-forest.md), and their realms are drawn outward toward the charged, primeval corners of the frontier described in [Setting and Lore](../Setting-and-lore.md). An elf who wants to play against type can build toward heavier combat with enough investment, spending the same investment a dwarf would on Health and Carry Weight. A dwarf starts with free steps in those stats and an elf does not, so the elf pays for them in play; that gap narrows with every step earned, and a committed elf can stand as hardy as any dwarf.
 
 ## Continue Reading
 

@@ -4,6 +4,8 @@ Frostbind draws heat from a small patch of ground and locks moisture into graspi
 
 ## Gameplay Role
 
+Frostbind is a charged, one-handed spell under the [casting rules](../../../Magic.md#casting): the longer the caster gathers, the stronger the bind when they let go. They may walk while gathering, and plain damage does not break it.
+
 The spell first chills a visible area, then slows anyone who remains within it as ice gathers around boots, paws, or lower limbs. Targets that stand still too long become briefly rooted, but movement, jumping, heat, and deliberate strikes against the ice break the bind. Wet targets and waterlogged ground freeze faster, while dry sand and hot stone resist the effect.
 
 Frostbind is useful for protecting a retreat, holding a creature inside another spell's area, or making a narrow approach dangerous. It can also stabilise a small patch of shallow water long enough to cross or cool an overheated object, but it is not strong enough to create permanent bridges or preserve food indefinitely.

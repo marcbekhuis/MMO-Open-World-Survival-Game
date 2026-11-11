@@ -4,6 +4,8 @@ Water Lance compresses water into a narrow, forceful projectile. It is the found
 
 ## Gameplay Role
 
+Water Lance is a charged, one-handed spell under the [casting rules](../../../Magic.md#casting): the caster gathers it while holding the button and looses it by letting go. They may walk while gathering, and plain damage does not break it.
+
 The lance deals moderate damage and pushes light targets on a clean hit. It can stagger a climbing enemy, spoil an archer's aim, douse a burning ally, extinguish a small fire, or soak a target so later frost and lightning spells gain a stronger opening. Heavy creatures, braced shields, and anchored players resist the push, ensuring the spell creates opportunities rather than becoming a universal knockback.
 
 Water Lance draws more easily from rain, rivers, and saturated ground. A caster can still form it in a dry place, but doing so costs more mana because the spell must pull and condense scarce moisture from the air.
@@ -14,7 +16,7 @@ Pressure upgrades sharpen the lance for greater impact against armour, while vol
 
 ## Trade-Offs
 
-The spell is most efficient where water is abundant and least efficient in arid environments. Its push can scatter enemies away from an ally's area attack, and soaking a battlefield may make lightning dangerous to both sides. Higher pressure increases recoil and recovery time, so a careless caster can lose their own footing near cliffs or on unstable ground.
+The spell is most efficient where water is abundant and least efficient in arid environments. Its push can scatter enemies away from an ally's area attack, and soaking a battlefield may make lightning dangerous to both sides. Higher pressure increases recoil and gather time, so a careless caster can lose their own footing near cliffs or on unstable ground.
 
 ## Continue Reading
 

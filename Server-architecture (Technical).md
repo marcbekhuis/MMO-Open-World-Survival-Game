@@ -35,7 +35,7 @@ The migration boundary separates gameplay rules and durable data from their engi
 
 ## 1. Architecture Overview
 
-The target architecture divides the game world into **1 km × 1 km simulation regions**, each a full vertical column, with every dungeon a separate domain. Each region is owned by a **Cluster Unit Server** (a headless UE5 dedicated server process), which may own one region, many, or every region in the world, and a busy region can be split into quarters or height bands owned by different servers. A **Master Server** (non-UE, purpose-built) sits above the cluster and manages routing, the cluster clock, and load balancing over a transactional **world database**. Clients reach the cluster through a **gateway** that holds one connection per player for the whole session.
+The target architecture divides the game world, one seamless map of about 80 × 80 km per cluster (6 400 regions), into **1 km × 1 km simulation regions**, each a full vertical column, with every dungeon a separate domain. Each region is owned by a **Cluster Unit Server** (a headless UE5 dedicated server process), which may own one region, many, or every region in the world, and a busy region can be split into quarters or height bands owned by different servers. A **Master Server** (non-UE, purpose-built) sits above the cluster and manages routing, the cluster clock, and load balancing over a transactional **world database**. Clients reach the cluster through a **gateway** that holds one connection per player for the whole session.
 
 ```
    Clients ── one connection each ──▶ ┌───────────────────────────────┐
@@ -848,7 +848,7 @@ Unreal's `AWorldSettings::TimeDilation` is a replicated property that scales the
 
 ### 11.3 Degradation Order and Admission
 
-The stressed and emergency profiles of [Server Settings](Server-settings.md#hotspot-workloads-and-degradation) shed work in this order: cosmetic effects and ambient life, then the update rate of low-priority AI, then the replication rate of distant entities, then time dilation down to its floor. Only at the floor does the region stop admitting arrivals, which uses the same travel-limit enforcement and holographic wall as an unavailable region (section 7.5), with its own message. City-guard AI, attack warnings, the presence of every hostile within weapon range, and persistence are exempt from shedding at every stage.
+The stressed and emergency profiles of [Server Settings](Server-settings.md#hotspot-workloads-and-degradation) shed work in this order: cosmetic effects and ambient life, then the update rate of low-priority AI, then the replication rate of distant entities, then time dilation down to its floor. A single-server map has no time dilation, because dilation is per process and its one process owns every region; its order ends at shedding and then at admission control, and the same holds for any region that cannot be given a free server. Only at the floor (or, without dilation, once shedding is exhausted) does the region stop admitting arrivals, which uses the same travel-limit enforcement and holographic wall as an unavailable region (section 7.5), with its own message. City-guard AI, attack warnings, the presence of every hostile within weapon range, and persistence are exempt from shedding at every stage.
 
 ---
 
@@ -970,6 +970,10 @@ bEnableLargeWorldCoordinates=true
 ```
 
 This is enabled by default in UE5.1+ open world templates.
+
+### 13.6 Single-Server Maps
+
+Until multi-server handoff holds under load, each map runs on one Cluster Unit Server that owns every region of it. The 200–400 concurrent players that one process holds (section 13.1) are therefore the population cap of a single-server map, and when a map fills, another map is opened rather than the crowd spread across one map too large for its server. Such a map has no time dilation (section 11.2), so its overload order ends at shedding and admission control. During early access a wipe resets the world database for that map, characters included, and the wipes end on the declared day when the persistent world begins.
 
 ---
 

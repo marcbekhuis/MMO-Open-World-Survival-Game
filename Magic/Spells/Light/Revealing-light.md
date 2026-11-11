@@ -4,6 +4,8 @@ Revealing Light creates a slow-moving orb that illuminates a chosen area and rea
 
 ## Gameplay Role
 
+Revealing Light is a quick, one-handed spell under the [casting rules](../../../Magic.md#casting). The caster may walk while gathering, and plain damage does not break it.
+
 The orb follows the caster, remains at a marked point, or drifts forward along a simple path. Its steady light exposes footprints, disturbed dust, tripwires, fresh blood, and the shimmer of basic magical concealment within a limited radius. It does not identify what left a trace, see through solid cover, or automatically reveal a skilled hidden player; instead it makes subtle signs easier for an attentive group to read.
 
 The spell is valuable in caves, ruins, fog, and night travel, but that value cuts both ways. A floating light is visible from a distance, announces the group's route, and can become a lure for creatures or hostile players.

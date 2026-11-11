@@ -4,6 +4,8 @@ Static Field charges a small area with restless electrical potential. It is the 
 
 ## Gameplay Role
 
+Static Field is a quick, one-handed spell under the [casting rules](../../../Magic.md#casting). The caster may walk while gathering, and plain damage does not break it.
+
 The field appears as crawling sparks, lifted hair, and a rising crackle before it becomes active. A target crossing the area builds charge; rapid movement, metal armour, and wet conditions build it faster. At a threshold the charge discharges for light damage and a brief stumble, then resets. Standing still or leaving by the shortest route limits the danger, while grounded earth and insulating equipment drain charge more quickly.
 
 Static Field protects a doorway, discourages a charge, or makes a wet patch tactically dangerous. It combines well with knockback and slowing spells, but its warning signs and delayed trigger give opponents time to choose another route.

@@ -18,7 +18,7 @@ Every slime attacks by engulfing its target, and the corrosion that follows eats
 
 ## Taming and Steering
 
-No slime can be tamed, and none will accept a saddle or a bond of any kind from [Taming and Control](../Taming-and-control.md). What a player can do is steer it. A slime follows the scent of food, so a player who controls what it eats controls what it becomes, and a slime that has turned aggressive can be led by bait toward a chosen place. That makes a slime less a creature to hunt than a force to cultivate, and a risky one: the same tools that aim it at a rival's walls work just as well for a rival aiming it at yours.
+No slime can be tamed, and none will accept a saddle or a bond of any kind from [Taming and Control](../Taming-and-control.md). What a player can do is steer it. A slime follows the scent of food, so a player who controls what it eats controls what it becomes, and a slime that has turned aggressive can be led by bait toward a chosen place. That makes a slime less a creature to hunt than a force to cultivate, and a risky one: the same tools that aim it at a rival's walls work just as well for a rival aiming it at yours. A slime led at a base is a siege like any other under [Damage and Siege](../Building-system.md#damage-and-siege): the bait has to be kept up by attackers who are present, and the base answers with its layout and its guards.
 
 ## Habitat
 

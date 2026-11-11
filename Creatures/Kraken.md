@@ -28,7 +28,7 @@ Because it takes many players and several ships to bring one down, the Kraken wo
 
 ## Story Hook
 
-A coastal settlement asks players to salvage the drifted remains of a ship the Kraken took. The first expedition seems like ordinary salvage work, but the deeper clues turn up sounding records of the trench, damaged warning buoys, and a coming storm that will stir the creature out of its trench once more.
+A coastal settlement asks players to salvage the drifted remains of a ship the Kraken took. The wreck holds a captain's chart with the trench sounded again and again, and the warning buoys that should mark the water above it have been cut loose from their moorings, by hand and not by weather, by someone who wanted the short passage over the trench kept open. The glass is already falling, and laden ships ride at anchor above the trench, waiting for the tide. The players can warn the harbour and hold every hull in port until the storm passes, gather a fleet to meet the Kraken where it rises, or salvage what they can and be gone before the first swell.
 
 See also: [Creatures index](../Creatures.md), the [Deep Ocean](../Biomes/Deep-ocean.md) it rules, the [Coast](../Biomes/Coast.md) and its wreck fields, [Travel and Mounts](../Travel-and-mounts.md) for the ships it threatens, [Weather, Time, and Seasons](../Weather-time-and-seasons.md) for the storms that stir it, and [Raids](../Raids.md) for its world-event scale.
 

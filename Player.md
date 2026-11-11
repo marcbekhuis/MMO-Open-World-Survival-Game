@@ -24,10 +24,11 @@ Each level grants one stat point. Stats measure a character one capacity at a ti
 | **Melee Force** | The muscle behind every strike, how quickly a weapon starts and stops, in [Melee Combat](Melee-combat.md#strength-stamina-and-technique) |
 | **Speed** | The top speed of every gait, with each point giving less than the one before |
 | **Handling** | Acceleration, turning at speed, the cost of a sprint, and how fast the arms can move a light weapon |
-| **Mana** | The size of the mana pool and how quickly it refills, in [Magic](Magic.md) |
+| **Mana** | The size of the mana pool and how quickly mana is gathered into a spell, in [Magic](Magic.md#casting) |
+| **Mana Recovery** | How quickly the pool refills from the caster's own reserves, wherever they stand, in [Magic](Magic.md#casting) |
 | **Spell Power** | The force of every spell a character casts, and which spells they can cast at all |
 | **Fortitude** | Resistance to cold, heat, illness, poison, and the daze of a blow to the head |
-| **Perception** | How far a character hears faint sounds and how readily they pick out tracks, blood trails, and hidden things |
+| **Perception** | How far a character hears faint sounds and how readily they pick out tracks, blood trails, and hidden things, and how well they see through glamour and resist charm |
 
 Points are spent one step at a time, and a stat's next step costs more the higher it already stands. The first twenty steps in any stat cost one point each, the next twenty cost two, the twenty after that three, and so on, one point more for every twenty steps. No stat has a highest value, but every step is dearer than the last, so spreading points is efficient and specialising is a deliberate, expensive choice. A character of level 80 who puts every point into Melee Force reaches 46 steps in it; the same 80 points spread as 40 steps of Melee Force and 20 of Stamina buy 60 steps in all. Speed is the one stat whose effect also thins out: each point raises top speed by less than the one before, so no amount of investment takes a character much beyond a fifth faster than they began.
 

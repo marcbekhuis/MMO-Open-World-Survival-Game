@@ -4,6 +4,8 @@ Gust releases a short, directional blast of air from the caster. It is the found
 
 ## Gameplay Role
 
+Gust is a quick, one-handed spell under the [casting rules](../../../Magic.md#casting). The caster may walk while gathering, and plain damage does not break it.
+
 At close range the blast pushes light enemies, deflects smoke and gas, scatters loose debris, and disrupts unbraced aim. Cast downward at the right moment, it can soften a short fall or give a jump extra reach. Heavy targets, firm footing, walls, and shields reduce its force, and it cannot fling an opponent from full stability without substantial investment and a favourable position.
 
 Gust is strongest when the caster reads the terrain. It can clear sight through smoke, fan an existing fire, move a drifting hazard away from an ally, or punish someone fighting too close to a ledge. Because it affects the world in front of the caster, careless use can spread flame or contamination just as easily as it clears them.

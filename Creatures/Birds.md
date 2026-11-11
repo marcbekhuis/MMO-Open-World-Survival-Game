@@ -26,7 +26,7 @@ Birds are small game. Hunters can take them with a bow or a thrown weapon for a 
 
 ## Story Hook
 
-A frontier scout teaches new arrivals a single lesson before anything else: watch the birds, not the road. The players who take it to heart find that a flock breaking from a distant ridge has saved more lives than any blade, and the ones who ignore it learn the same lesson the harder way, on a quiet path that the birds had already abandoned.
+A frontier scout teaches new arrivals a single lesson before anything else: watch the birds, not the road. Caravans have been vanishing from one stretch of trail where the songbirds sit unbothered in the branches and no crow circles overhead, a calm that looks like safety and that the scout no longer trusts. Someone is lying very still along that ridge, still enough that the flocks have stopped lifting, and the ones who learn it first are the travellers who do not come back. The players can crash through the thicket on purpose to flush the birds and find out who is waiting, send word to the next caravans and turn them onto another road, or wait out the night and take the ambushers when they move.
 
 See also: [Creatures index](../Creatures.md), [Four-Armed Monkey](Four-armed-monkey.md) for the other half of the warning system, and the [Forest](../Biomes/Forest.md), [Plains](../Biomes/Plains.md), [Jungle](../Biomes/Jungle.md), [Ancient Forest](../Biomes/Ancient-forest.md), and [Coast](../Biomes/Coast.md) it fills.
 

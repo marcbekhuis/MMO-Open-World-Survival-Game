@@ -14,15 +14,15 @@ Skills define active and passive abilities learned through use, training, and in
 
 ## Progression Model
 
-Skills improve through repeated use, dedicated training resources, and occasional milestone choices. A player should feel steady progress from ordinary play, but deeper specialization should require intention. Broadly, early ranks unlock reliability, middle ranks unlock new actions or recipes, and high ranks unlock specializations that change how the player approaches a role.
+Skills improve through repeated use and dedicated training resources. Ordinary play brings steady progress, while deeper specialisation takes intention. Broadly, early ranks bring reliability, middle ranks open new actions or recipes, and high ranks open specialisations that change how a player approaches a role.
 
 Skill ranks have no ceiling and no shared limit. Each rank asks for more practice than the one before, on the same slowing curve as character levels in [Player Progression](Player.md#experience-and-levelling), so the first ranks come quickly and mastery takes a long time. A character can practise every skill in the game, and the only thing that stops them mastering everything is the time it would take; the ranks a character holds are the record of how they actually spent it, which is what the requirements of weapons and spells read.
 
-Unlock cadence should be readable rather than rigid. A skill can offer small benefits frequently, such as improved yield or reduced stamina cost, while saving major branch choices for meaningful thresholds. This lets players experiment early before committing to a long-term identity.
+Unlocks arrive at a readable pace rather than a rigid one. A skill offers small benefits often, such as improved yield or reduced stamina cost, and keeps its larger steps for meaningful ranks. Players can experiment early before settling into a long-term identity.
 
 ## Design Notes
 
-No single skill family should be mandatory for all players. Combat specialists need ways to survive and contribute economically, crafters need routes into dangerous materials through trade or group play, and explorers need tools that make information valuable. The best version of the skill system creates interdependence without making solo play feel empty.
+No single skill family is mandatory for every player. Combat specialists have ways to survive and contribute economically, crafters reach dangerous materials through trade or group play, and explorers carry information that others value. The system creates interdependence without leaving solo play empty.
 
 ## Continue Reading
 

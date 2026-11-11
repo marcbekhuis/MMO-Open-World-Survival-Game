@@ -4,7 +4,7 @@ Humans are the adaptable baseline of the world, strong at nothing by birth and c
 
 ## Strengths and Playstyle
 
-A human's balanced spread across the attributes in [Player Progression](../Player.md) supports melee, magic, crafting, trade, or any hybrid of them without penalty. Where a dwarf or elf reaches their natural specialisation quickly and cheaply, a human can reach any specialisation given more time and more investment, and can just as easily build the kind of cross-trained character that the other races find awkward. The cost is that a human is rarely the best in the world at the thing they choose; the reward is that they are never shut out of it, and that a human who commits fully can still stand among the finest in any single discipline. The race suits players who want their identity to come entirely from how they play rather than from where they started.
+A human's balanced spread across the attributes in [Player Progression](../Player.md) supports melee, magic, crafting, trade, or any hybrid of them without penalty. Where a dwarf or elf reaches their natural specialisation quickly and cheaply, a human can reach any specialisation given more time and more investment, and can just as easily build the kind of cross-trained character that the other races find awkward. The cost is that a human has no free starting steps to lean on in the thing they choose; the reward is that they are never shut out of it, and that a human who commits fully can stand among the finest in any single discipline. The race suits players who want their identity to come entirely from how they play rather than from where they started.
 
 ## A Culture of Adaptation
 

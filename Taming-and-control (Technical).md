@@ -205,6 +205,7 @@ struct FTamedCreatureRecord
     FVector RestPoint;             // where it was told to stay, and where its shelter is evaluated
     FPlacedObjectRef HomeShelterAnchor;   // the piece its last good shelter was evaluated against, for TravellingHome
     FShelterResult LastShelter;    // section 5
+    bool bRestrained = false;      // chained to a tether post or shut in a barred pen at a base (3.2); set and cleared by the restraint placeable
     float Satiety = 1.f;           // the only food meter; the riding guide reads it. "Not hungry" for Tended means Satiety above zero
 };
 ```
@@ -225,11 +226,13 @@ The [Gameplay Ability System](https://dev.epicgames.com/documentation/unreal-eng
 
 Trust bonding begins with a wild creature and a `FTamingAttempt`. Each care act — feeding it from its diet, treating a wound, keeping it company while it eats — adds progress, and `GainPerCareDayCap` limits each day's total, so trust cannot be won in one long sitting however much food a player brings. Danger subtracts: damage taken and fear spikes suffered in the handler's company (7.3) cost progress, which is how keeping it out of needless danger becomes a rule. The taming and handling skills of [Skills](Skills.md) strengthen the bond through one hook: a skill multiplier on the progress and strength a care act adds, and on the pressure a coercive act adds (3.2), read from the handler's skill when the act is recorded and never stored on the bond. At full progress the attempt becomes a `FBondRecord` with method `Trust`, and the same care events go on raising strength toward the ceiling under the same cap while neglect lowers it.
 
-A creature carries at most one `FTamingAttempt`, and starting an attempt on a creature that already holds an active one is refused whoever asks, which is how one handler's weeks of care cannot be raced. An attempt is abandoned once `AttemptIdleDays` pass without a care or coercive act, and from then its progress falls by `AttemptDecayPerDay`; the decay is a closed-form step applied at the next settle, like the bond's. When progress reaches zero the attempt is dropped. If the creature had no bond, its record is deleted and it rejoins its herd as a Mass entity (8.1), free to be tamed by anyone; if it was owned, only the attempt is dropped and the old bond stays in force (6.4). Slave attempts complete or lapse within their short window and are dropped the same way. Reference values: two idle days, a decay of 0,1 a day.
+A creature carries at most one `FTamingAttempt`, and starting an attempt on a creature that already holds an active one is refused whoever asks, which is how one handler's weeks of care cannot be raced. An attempt is abandoned once `AttemptIdleDays` pass without a care or coercive act, and from then its progress falls by `AttemptDecayPerDay`; the decay is a closed-form step applied at the next settle, like the bond's. When progress reaches zero the attempt is dropped. If the creature had no bond, its record is deleted and it rejoins its herd as a Mass entity (8.1), free to be tamed by anyone; if it was owned, only the attempt is dropped and the old bond stays in force (6.4). An attempt on an owned creature is accepted only while its bond strength is below the `Disobedient` band threshold (4.2) and is ended the moment the owner's care lifts the strength back above it (6.4). Slave attempts complete or lapse within their short window and are dropped the same way. Reference values: two idle days, a decay of 0,1 a day.
 
 ### 3.2 Slave Bonding
 
-Slave bonding replaces care with pressure. A coercive act raises `Pressure`, which wears off at `PressureDecayPerHour` unless refreshed, and for a slave bond the strength everything else reads is the pressure itself, capped by the ceiling. The attempt completes in a short window rather than over days, which makes the method the easiest. When pressure falls below the break threshold while the owner is online, control slips, the record is cleared, and the creature's nature decides what follows: a skittish creature flees, a defiant one turns on its handler, a predatory one attacks to kill. Shelter and the offline floor apply to pressure as to any bond.
+Slave bonding replaces care with pressure. A coercive act raises `Pressure`, which wears off at `PressureDecayPerHour` unless refreshed, and for a slave bond the strength everything else reads is the pressure itself, capped by the ceiling. The attempt completes in a short window rather than over days, which makes the method the easiest. When pressure falls below the break threshold, whether the owner is online or away, control slips, the record is cleared, and the creature's nature decides what follows: a skittish creature flees, a defiant one turns on its handler, a predatory one attacks to kill. Neither shelter nor the offline floor applies to pressure: it decays in every care state, sheltered or not, until none is left.
+
+A coerced creature can be restrained at a base, chained to a tether post or shut in a barred pen, both placeables of the [shelter rules](Building-system.md#shelter-for-creatures). Restraining sets `bRestrained` on the creature's record. A restrained creature whose pressure has run out keeps its record at zero pressure instead of slipping: it cannot flee and cannot reach anyone to attack, stays where it is held, and attacks anyone who comes within its reach. The handler works the pressure back up by coercive acts, a step at a time, and nothing is restored for free. Raiders can free, kill or re-coerce a restrained creature (6.1, 6.2); freeing it clears `bRestrained`, and if its pressure is already spent it slips at once.
 
 A slave bond can become a trust bond. While the bond is Tended and the owner applies no coercion, each care act adds to `ConversionProgress`, scaled by the same skill multiplier as other care and limited to `ConversionPerCareDay` a day; any coercive act resets it to zero. At full progress the record's method becomes `Trust`: `Pressure` is cleared, strength becomes the greater of its current value and the trust method's `StartStrength`, and from then on the bond follows the trust rules, including neglect decay and the daily care cap. The reference value of 0,05 a day makes the change take twenty days of care. A species whose slave tuning leaves `ConversionPerCareDay` at zero cannot be converted.
 
@@ -247,11 +250,11 @@ Once formed, a parental bond follows the same care rules as the others. A raised
 
 ### 4.1 Care States
 
-At every moment a bond is in one of three care states. **Tended**: the owner is online, the creature is in their company — following, ridden, or resting within a short companion radius — and it is fed, meaning its `Satiety` is above zero, which is how the specification's proper feeding is implemented; the bond does not decay, and care raises it. **Held**: the creature rests in a shelter that meets all four needs with a trough stocked for its diet (section 5), or it is an anchored leviathan with stocked deck troughs (5.5); the bond is frozen exactly, online or not. **Neglected**: everything else, including a creature left in a field while its owner rides elsewhere and a sheltered one whose trough has run dry; the bond decays at the method's neglect rate. Slave bonds are the one exception inside Tended, since company alone does not stop pressure wearing off.
+At every moment a bond is in one of three care states. **Tended**: the owner is online, the creature is in their company — following, ridden, or resting within a short companion radius — and it is fed, meaning its `Satiety` is above zero, which is how the specification's proper feeding is implemented; the bond does not decay, and care raises it. **Held**: the creature rests in a shelter that meets all four needs with a trough stocked for its diet (section 5), or it is an anchored leviathan with stocked deck troughs (5.5); the trust or parental bond is frozen exactly, online or not; a slave bond is never frozen, as the next paragraph says. **Neglected**: everything else, including a creature left in a field while its owner rides elsewhere and a sheltered one whose trough has run dry; the bond decays at the method's neglect rate. Slave bonds are the exception to all three: pressure decays in every care state, since neither company nor shelter stops it wearing off, and the care state of a slave bond only gates conversion (3.2).
 
 ### 4.2 Bands
 
-Above `Hesitant` a creature is willing; below it, it answers late and refuses sooner; below `Disobedient` it openly disobeys; below `Break`, reachable only while the owner is online, the bond breaks. The riding guide's refusal check reads the strength itself, while the brain reacts to band changes, which `UBondComponent` broadcasts when a settle crosses one.
+Above `Hesitant` a creature is willing; below it, it answers late and refuses sooner; below `Disobedient` it openly disobeys; below `Break` the bond breaks, which for trust and parental bonds is reachable only while the owner is online and for a slave bond happens whether the owner is online or away, unless the creature is restrained. The riding guide's refusal check reads the strength itself, while the brain reacts to band changes, which `UBondComponent` broadcasts when a settle crosses one.
 
 ### 4.3 Settling
 
@@ -289,22 +292,21 @@ void FBondRules::Settle(FTamedCreatureRecord& Creature, const UCreatureSpeciesDa
         const double Days = (StepEnd - Bond.SettledAt) / 86400.0;
         const float Floor = FMath::Min(Bond.Strength, Bands.OfflineFloor);   // the floor stops decay; it never raises a bond
 
-        if (Bond.Method == EBondMethod::Slave && Bond.CareState != ECareState::Held)
+        if (Bond.Method == EBondMethod::Slave)
         {
+            // Pressure decays in every care state and online or not: no held freeze, no offline floor.
             Bond.Pressure = FMath::Max(0.f, Bond.Pressure - Tuning.PressureDecayPerHour * float(Days * 24.0));
             Bond.Strength = FMath::Min(Bond.Pressure, Tuning.Ceiling);
         }
-        else if (Bond.CareState == ECareState::Neglected)
+        else
         {
-            Bond.Strength -= Tuning.NeglectPerDay * float(Days);
-        }
-
-        if (!Bond.bOwnerOnline)
-        {
-            Bond.Strength = FMath::Max(Bond.Strength, Floor);   // never breaks while the owner is away
-            if (Bond.Method == EBondMethod::Slave)
+            if (Bond.CareState == ECareState::Neglected)
             {
-                Bond.Pressure = Bond.Strength;
+                Bond.Strength -= Tuning.NeglectPerDay * float(Days);
+            }
+            if (!Bond.bOwnerOnline)
+            {
+                Bond.Strength = FMath::Max(Bond.Strength, Floor);   // trust and parental bonds never break while the owner is away
             }
         }
 
@@ -315,7 +317,10 @@ void FBondRules::Settle(FTamedCreatureRecord& Creature, const UCreatureSpeciesDa
         }
     }
 
-    if (Bond.bOwnerOnline && Bond.Strength < Bands.Break)
+    // Trust and parental bonds break only while the owner is online; a slave bond breaks whenever its pressure is spent,
+    // unless the creature is restrained, in which case the record stays at zero pressure and the creature stays held.
+    const bool bCanBreak = Bond.Method == EBondMethod::Slave ? !Creature.bRestrained : Bond.bOwnerOnline;
+    if (bCanBreak && Bond.Strength < Bands.Break)
     {
         BreakBond(Creature, Species);   // clears the record and hands the creature to its wild behaviour, see 7.2
     }
@@ -328,7 +333,7 @@ Decay is linear because the specification describes a slow, steady slide from he
 // The server UTC time at which Creature's strength first falls below Threshold, assuming no further events and
 // using the care state, trough ledger, and neglect or pressure-decay rate that apply now. A held bond with a
 // stocked trough counts from the trough's run-dry time. Returns TNumericLimits<double>::Max() when the
-// threshold is never reached, for instance because it lies below the offline floor of an owner who is away.
+// threshold is never reached, for instance because it lies below the offline floor of an owner who is away (a slave bond has no floor).
 double FBondRules::TimeToReachBand(const FTamedCreatureRecord& Creature, const UCreatureSpeciesData& Species,
                                    float Threshold, const FTroughLedger* Trough);
 ```
@@ -337,7 +342,11 @@ The settle is deterministic, so a creature unloaded for a week and one simulated
 
 ### 4.4 Owners Offline
 
-The offline floor is the specification's promise that a returning player finds their creature disobedient but not gone. It lives in the settle rather than a timer, so it holds alike for a lapsed shelter, a hillside, and a loose mount. Login and logout each settle every creature the owner holds, so no interval mixes online and offline rules, and login settles run against the persisted records without loading the creatures' cells.
+The offline floor is the specification's promise that a returning player finds their trust or parental creature disobedient but not gone. It excludes slave bonds, whose pressure keeps draining while the owner is away and ends in a slip unless the creature is restrained. It lives in the settle rather than a timer, so it holds alike for a lapsed shelter, a hillside, and a loose mount. Login and logout each settle every creature the owner holds, so no interval mixes online and offline rules, and login settles run against the persisted records without loading the creatures' cells.
+
+Absence has a limit. When a character's `LastSeenAt` lies further back than the server's absence release, eight weeks by default and a server setting, the next settle releases every trust and parental bond they hold: each record is cleared and the creature's brain returns to wild behaviour where it stands, counting toward the wild population again (8.4). Slave bonds need no release, since their pressure has long since drained.
+
+Starvation is independent of bonds and of the owner's presence. A creature that cannot reach food for itself, because it is restrained, penned or enclosed, and whose trough ledger (5.3) shows no food, accrues hunger from the moment `Satiety` reaches zero: it weakens, then loses health, then dies after the species' `StarvationDays`, ten by default, a per-species server setting. The span is applied in closed form at the settle like every other interval, so it gives the same result whether the cell was loaded or not, and a restrained slave-bonded creature starves on the same clock. A creature free to range is not starved by the clock; it feeds itself poorly and is neglected instead.
 
 ## 5. Shelter Evaluation
 
@@ -416,7 +425,7 @@ When a rider dies, the [riding guide](<Creature-riding (Technical).md>) decides 
 
 ### 6.4 Reclaiming versus Taming Anew
 
-Its owner reclaims a loose creature by tending it: care raises the existing record's strength from wherever neglect left it, and the creature follows again as soon as its band allows. Anyone else starts a new `FTamingAttempt` from zero by any method the species allows, provided no attempt on the creature is active (3.1). The old bond stays in force while the stranger works, and only a completed attempt replaces it, so trust is a slow way to steal a mount and coercion the quick but unreliable one. A mount left unsheltered when its owner logs out falls under the same rules: it can be killed, or tamed by a stranger while its bond sits at the offline floor.
+Its owner reclaims a loose creature by tending it: care raises the existing record's strength from wherever neglect left it, and the creature follows again as soon as its band allows. Anyone else may start a new `FTamingAttempt` by any method the species allows, provided no attempt on the creature is active (3.1) and the owner's bond strength is below the `Disobedient` threshold (4.2); a cared-for creature, including one held steady in a stocked shelter, refuses every attempt except the coercion of a raid (6.2). The contest runs in two stages. In the first, the stranger's care acts lower the owner's bond strength, by the rate the care states of 4.1 give a neglected bond plus the stranger's own care, and the owner's care raises it as ever; if the strength climbs back above `Disobedient`, the attempt is dropped. Only once the owner's strength has reached zero is the old record cleared and the stranger's attempt begins, with progress rising from zero by the rules of the method used (3.1, 3.2). A completed attempt replaces the old record, so trust is a slow way to steal a mount and coercion the quick but unreliable one. A mount left unsheltered when its owner logs out falls under the same rules: it can be killed, or contested by a stranger once its bond has sunk below `Disobedient`, which the offline floor lies beneath.
 
 ## 7. Creature AI Architecture
 
@@ -553,9 +562,11 @@ Prototyping should demonstrate each of the following before the system is consid
 
 - A creature in a stocked shelter whose owner logs off for a real week has exactly the strength it had at logout when the owner returns, and the trough holds what a week of drawing leaves.
 - A shelter whose trough runs dry on the third day of a week's absence yields a creature that held for three days and decayed for four, reaching the same strength whether its cell stayed loaded or was unloaded throughout.
-- No creature whose owner is offline ever falls below the offline floor, whatever its method, shelter, or activity, and a returning owner finds every creature still bonded to them.
+- No trust or parental creature whose owner is offline ever falls below the offline floor, whatever its shelter or activity, and a returning owner finds each of them still bonded to them.
+- A slave-bonded creature in a stocked shelter loses pressure at the same rate as one in an open field, online or offline. Unrestrained, it slips when the pressure is spent, with its owner away or not; restrained, it holds still at zero pressure, cannot flee or reach anyone, attacks whoever enters its reach, and only coercive acts by the returning handler raise its pressure again.
 - A raider breaking a barn's roof starts the bonds of the creatures inside decaying from that moment, and a raider who coerces a sheltered creature leaves with a slave bond while the old owner's record is gone.
-- A loose mount whose rider died is reclaimed by its owner from its frayed strength, while a stranger starting a trust taming on the same animal begins from zero and is overtaken by the owner's care.
+- A loose mount whose rider died is reclaimed by its owner from its frayed strength, while a stranger starting a trust taming on the same animal can only begin once its bond has sunk below `Disobedient`, wears the old bond to zero before their own begins from zero, and loses the attempt if the owner's care lifts the bond back above `Disobedient` in time. A cared-for creature refuses the attempt outright.
+- A trust or parental bond whose owner has been absent past the release period is cleared, and the creature stands wild and counted in the wild population; a penned creature with an empty trough weakens, loses health and dies on the species' span, with its owner online or away.
 - A trust taming cannot be completed in a single sitting with unlimited food, because the daily cap holds.
 - A second handler's attempt on a creature that already has an active one is refused, an attempt left idle past `AttemptIdleDays` decays to nothing, and the creature it leaves behind rejoins its herd.
 - A slave bond tended for the conversion period becomes a trust bond, and a single coercive act during that period sends the conversion back to zero.

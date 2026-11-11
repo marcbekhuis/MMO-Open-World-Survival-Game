@@ -30,7 +30,7 @@ Its rewards support jungle progression. Glands from the jaw can feed poison craf
 
 ## Story Hook
 
-A gathering party returns from the jungle carrying one survivor who cannot move or speak, his armour filmed with green residue and claw marks cut only after he fell. The trail back to the attack site is strangely clean, except for birds watching from too high in the canopy and a patch of undergrowth where the air still tastes metallic. The players who follow it find a Paralyzing Dragon using an overgrown shrine as a hunting lane, gassing the entrances one by one and dragging victims into the roots below the altar.
+A gathering party returns from the jungle carrying one survivor who cannot move or speak, his armour filmed with green residue and claw marks cut only after he fell. The trail back to the attack site is strangely clean, except for birds watching from too high in the canopy and a patch of undergrowth where the air still tastes metallic. It leads to an overgrown shrine whose entrances are silent and whose roots hold what the dragon has dragged below, while the buyer who hired the party is already hiring another to go the same way. The players can go in prepared with filters and antidotes to end the hunt in its own lane, lure the dragon out into open ground where its gas thins, or turn the next party back and let the shrine keep what is inside.
 
 See also: [Creatures index](../Creatures.md), the [Jungle](../Biomes/Jungle.md) it hunts, the [Four-Armed Monkey](Four-armed-monkey.md) whose sudden silence gives it away, and [Crafting](../Crafting.md) for the poisons, remedies, and light gear its remains can support.
 

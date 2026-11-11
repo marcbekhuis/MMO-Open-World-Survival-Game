@@ -18,7 +18,7 @@ The system-area gaps identified during the content-and-tone session have now bee
 
 - **Validate the building asset budgets (8 November 2026).** The geometry, material-slot, texture-memory, collision, and frame-time allowances in [Building System (Technical)](<Building-system (Technical).md#10-rendering-replication-and-persistence>) are provisional. Measure them against a stated number of visible building pieces and the [Hotspot Workloads and Degradation](Server-settings.md#hotspot-workloads-and-degradation) scenarios before adopting them.
 
-- **Confirm the provisional kit dimensions (8 November 2026).** The kit specification in [Building System (Technical)](<Building-system (Technical).md>) marks the doorway, door clearance, window opening, stair, and roof pitch provisional. The stair of fifteen 0,20-metre rises over a 3-metre run needs a movement and headroom test before the dimensions become canon.
+- **Confirm the provisional kit dimensions (8 November 2026).** The kit specification in [Building System (Technical)](<Building-system (Technical).md>) marks the doorway, double doorway, door clearance, window openings, stair, and roof dimensions provisional. The stair of fifteen 0,20-metre rises over a 3-metre run needs a movement and headroom test before the dimensions become canon.
 
 ## Open questions
 
@@ -28,6 +28,7 @@ Questions awaiting the user's direction before the design can commit. Phrase eac
 
 Choices intentionally left open for now, each with a short note on why, so a later session does not reopen them by accident or mistake them for settled.
 
+- **Periodic wipes after release, and a brake on veterans (11 November 2026).** Levels, stats and skills stay uncapped, and nothing bounds the edge a veteran builds over a newcomer. Two answers were named and left open: a penalty or rebalance for late-game characters, and a periodic wipe of the persistent world, for example once a year. The second would change what [Launch Scope](Launch-scope.md#a-staged-release) now says, that wipes end when the persistent world begins, so it is a decision to take deliberately, not in passing.
 - **Substances stay flavour-only.** Alcohol and narcotics are world texture, not a mechanical subsystem, per [Content and Tone](Content-and-tone.md). A future pass could give intoxication real buffs, debuffs, or an addiction loop, but that is a deliberate decision to revisit, not a gap to fill in passing.
 - **The flying-mount roster waits for the bestiary.** [Flight](Flight.md) names only the [Flying Leviathan](Creatures/Flying-leviathan.md), the [Royal Dragon](Creatures/Royal-dragon.md), and the egg-raised [Highland Dragon](Creatures/Highland-dragon.md) as flyers, all apex-tier. Adding a mid-tier working flyer (a giant cliff bird, a lesser wyvern, or both) was proposed on 11 October 2026 and deferred by the user until the creature list is further along.
 - **Disease is a hazard, not a standing meter.** [Survival](Survival.md) treats illness and wounds as conditions the world inflicts and the player treats (with the [Swamp](Biomes/Swamp.md) as the signature source) rather than as a fourth survival bar alongside food, fatigue, and exposure. Promoting disease to a full subsystem with its own progression, immunity, and cures is a deliberate future choice, left open rather than assumed.

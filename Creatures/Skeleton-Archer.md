@@ -16,7 +16,7 @@ The archer holds its ledge until someone approaches, then moves to another, and 
 
 ## Story Hook
 
-Deep in one dungeon, a gallery of archers stands ranked along a balcony above a hall with no visible stair, loosing at anything that enters and never running short of arrows. The way up is the puzzle, and the players who solve it find that the archers were guarding the route rather than the room, and that whatever lies beyond the balcony was worth posting a wall of the dead to keep the living from reaching.
+Deep in one dungeon, a gallery of archers stands ranked along a balcony above a hall with no visible stair, loosing at anything that enters and never running short of arrows. A delving crew sells a map of the place with the balcony marked as empty, and the dark stains on the stone beneath each post say the crew cannot have stood in that hall for long. The archers are guarding the route rather than the room, and whatever lies beyond the balcony was worth posting a wall of the dead to keep the living from reaching. The players can find the way up and clear the balcony, cross the hall from pillar to pillar and leave the archers at their posts, or turn back and sell the truth about the crew's map.
 
 See also: [Creatures index](../Creatures.md), the [Skeleton Knight](Skeleton-Knight.md) that fights beside it, and the [Dungeons](../Structures/Dungeons.md) that bind them.
 

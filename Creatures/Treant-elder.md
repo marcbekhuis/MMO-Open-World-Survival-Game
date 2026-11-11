@@ -16,7 +16,7 @@ There is no reliable way to win that fight, and the way to survive it is to stay
 
 ## Story Hook
 
-A guild's careless fire has burned a corner of the Ancient Forest, and a grove that stood quiet for generations has started to move. The nearest canopy settlement asks the players to lead the guild out of the wood before the elder that has woken turns the ground around the roots of their tree-homes, and warn that a forest which loses one of its oldest will not forgive how it was done.
+A guild's careless fire has burned a corner of the Ancient Forest, and a grove that stood quiet for generations has started to move. Leaves are falling in a wide ring around one trunk that is not a trunk, the ground hums underfoot, and the guild's camp lies within the burning edge, its leaders still arguing over whether the fire was theirs. The nearest canopy settlement asks the players to act before the elder that has woken turns the ground beneath the roots of their tree-homes. The players can lead the guild out of the wood, fight the fire itself to take away the reason the grove is moving, or help the settlement leave and stay clear of the elder entirely.
 
 See also: [Creatures index](../Creatures.md), the [Treant](Treant.md) hub, the [Treant Sapling](Treant-sapling.md), the [Treant Guardian](Treant-guardian.md), and the [Ancient Forest](../Biomes/Ancient-forest.md).
 

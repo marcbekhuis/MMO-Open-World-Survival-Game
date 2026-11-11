@@ -56,7 +56,7 @@ The design should support cooperation without making it mandatory for every acti
 
 The game targets Unreal Engine 5 and assumes a distributed server model designed for a seamless persistent world. The conceptual networking model lives in [Server Architecture](Server-architecture.md), while implementation-oriented notes live separately in [Server Architecture (Technical)](<Server-architecture (Technical).md>). Rendering and synchronization decisions should stay aligned with [Dynamic Culling & Render Distance](Dynamic-culling-and-render-distance.md), especially for fast-moving creatures, flying entities, and large outdoor spaces. What ships first, what follows, and how the launch falls back to one server per world if multi-server handoff is not ready are set out in [Launch Scope](Launch-scope.md).
 
-The game is funded by a single subscription, with no box price and nothing that affects power ever offered for sale, and it is built for PC first with consoles kept within reach for later. The full reasoning, including the strict no-pay-to-win stance, is set out in [Monetization and Platforms](Monetization.md).
+The game is funded by a single subscription, with no box price and no store of any kind: the subscription is the only thing ever sold, and it is built for PC first with consoles kept within reach for later. The full reasoning, including the refusal to sell anything else, is set out in [Monetization and Platforms](Monetization.md).
 
 ## Documentation Index
 

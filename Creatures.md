@@ -12,6 +12,7 @@ Creatures define the living pressure of the world. They are enemies, resources, 
 - [Golden goblin](Creatures/Golden-goblin.md)
 - [Green goblin](Creatures/Green-goblin.md)
 - [Highland dragon](Creatures/Highland-dragon.md)
+- [Horse](Creatures/Horse.md)
 - [Kraken](Creatures/Kraken.md)
 - [Large buffalo](Creatures/Large-buffalo.md)
 - [Mermaid](Creatures/Mermaid.md)

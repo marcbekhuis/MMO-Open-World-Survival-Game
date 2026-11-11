@@ -28,7 +28,7 @@ Treants are found chiefly in the [Ancient Forest](../Biomes/Ancient-forest.md), 
 
 ## Story Hook
 
-Legend holds that a single sapling grew from a rune-seed planted by a long-dead druid. Over generations it learned to remember the names of those who tended it, and it became the first treant. Villagers still leave small tokens at the base of the oldest groves in hope of earning the forest's favour, and a player who leaves the same token finds that the guardians of that grove let them pass where others are turned back.
+A timber crew has set up at the edge of a grove in the old forest, and the nearest settlement has begun to notice what follows them: timber that creaks without wind, branches closed across the path behind the crew's wagons, and a shape among the trunks that was not there the day before. The crew's leader has been paid for a full season of hardwood and does not mean to leave early. Treants judge what is done to the forest and not who does it, so the ladder of warnings climbs for anyone who keeps felling, and the settlement's elders know that the cost falls on whoever is standing nearest when it reaches the top. The players can stop the felling before the Saplings come down out of the branches, walk the crew out through the closing paths before the Guardians arrive, or leave the crew to its choice and warn the settlement to keep clear.
 
 See also: [Creatures index](../Creatures.md), the [Ancient Forest](../Biomes/Ancient-forest.md), and the three tiers: [Treant Sapling](Treant-sapling.md), [Treant Guardian](Treant-guardian.md) and [Treant Elder](Treant-elder.md).
 

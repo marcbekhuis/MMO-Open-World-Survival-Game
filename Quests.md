@@ -26,11 +26,11 @@ Rewards scale with difficulty, distance, risk, and social consequence.
 
 | Reward Type | Examples |
 |---|---|
-| **Experience** | XP for leveling and progression |
+| **Experience** | XP for levelling and progression |
 | **Currency** | Gold or coin for trading and purchasing |
 | **Equipment** | Weapons, armour, accessories |
 | **Materials** | Crafting components and resources |
-| **Unlocks** | Rare abilities, cosmetics, mounts |
+| **Unlocks** | Rare abilities, dyes, finishes, clothing |
 | **Reputation** | Faction standing and NPC relationships |
 
 ## Dynamic Quest Availability

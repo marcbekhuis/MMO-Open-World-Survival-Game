@@ -4,6 +4,8 @@ Flame Wall raises a short line of sustained fire across the ground. It is the fo
 
 ## Gameplay Role
 
+Flame Wall is a quick, one-handed spell under the [casting rules](../../../Magic.md#casting). The caster may walk while gathering, and plain damage does not break it.
+
 The wall appears after a brief flare along its chosen line, giving attentive players time to step clear before the flames rise. Crossing it deals damage and applies a short burn, while creatures that fear fire may hesitate or change course. The spell is strongest across doors, bridges, passages, and the edge of an allied formation, but opponents can wait out its short duration, go around it, leap narrow sections, or use water magic to cut a temporary gap.
 
 Flame Wall also changes the environment. It can ignite prepared oil and dry vegetation, provide momentary warmth, and cast enough light to reveal movement nearby. These uses are intentionally temporary so the spell supports survival and ambush play without replacing campfires, tools, or construction.

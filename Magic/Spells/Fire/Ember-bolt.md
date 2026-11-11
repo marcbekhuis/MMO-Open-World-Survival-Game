@@ -4,13 +4,15 @@ Ember Bolt is the foundation fire spell: a compact flame launched in a straight 
 
 ## Gameplay Role
 
+Ember Bolt is a quick, one-handed spell under the [casting rules](../../../Magic.md#casting): it flies the moment it is full and begins gathering again while the button is held. The caster may walk while gathering, and plain damage does not break it.
+
 The bolt deals modest immediate damage and briefly ignites targets or materials that can burn. Repeated hits can keep a foe under pressure, deny the easy use of cloth, oil, dry brush, or wooden cover, and force an opponent to decide whether to fight through the flames or disengage to extinguish them. Armour, shields, water, and a well-timed dodge all provide readable counterplay, while rain and saturated ground shorten the spell's lingering effect.
 
 Its utility matters outside a duel. Ember Bolt can light prepared fires at range, burn away light obstructions, and trigger flammable objects without requiring the caster to stand beside them. It cannot set major structures ablaze by itself; siege-scale destruction belongs to heavier magic and dedicated raiding tools.
 
 ## Upgrade Directions
 
-A caster can shape Ember Bolt toward rapid casting, a heavier impact, or more persistent ignition. Rapid casting lowers recovery time but weakens each bolt. Cinder shot concentrates heat into a slower projectile that is better against armour. Clinging embers sacrifice direct damage for a longer burn, while firestarter improves interaction with prepared fuels and environmental objects.
+A caster can shape Ember Bolt toward rapid casting, a heavier impact, or more persistent ignition. Rapid casting shortens the gather time but weakens each bolt. Cinder shot concentrates heat into a slower projectile that is better against armour. Clinging embers sacrifice direct damage for a longer burn, while firestarter improves interaction with prepared fuels and environmental objects.
 
 ## Trade-Offs
 

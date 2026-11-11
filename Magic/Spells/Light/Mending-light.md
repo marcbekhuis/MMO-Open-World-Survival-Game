@@ -4,13 +4,15 @@ Mending Light channels restorative magic into one nearby target. It is the found
 
 ## Gameplay Role
 
-The caster maintains a visible link for a short time, restoring health gradually and slowing the worsening of ordinary wounds. Movement, distance, line of sight, or a strong hit can break the channel, so using it in combat requires cover and protection. It cannot replace treatment for severe injuries, disease, poison, exposure, hunger, or fatigue; those remain problems for survival knowledge, crafted supplies, and proper rest.
+Mending Light is a quick, one-handed spell under the [casting rules](../../../Magic.md#casting). The caster must stand still while it gathers, and plain damage breaks the gathering.
+
+The caster maintains a visible link for a short time, restoring health gradually and slowing the worsening of ordinary wounds. Movement, distance, line of sight, or any blow can break the channel, so using it in combat requires cover and protection. It cannot replace treatment for severe injuries, disease, poison, exposure, hunger, or fatigue; those remain problems for survival knowledge, crafted supplies, and proper rest.
 
 Mending Light is most effective after immediate danger has passed or when a group creates a safe window for it. It gives light casters a clear support role while preserving the value of preparation and non-magical healers.
 
 ## Upgrade Directions
 
-Upgrades can improve the healing rate, mana efficiency, channel range, or resistance to interruption. Stabilising light reduces bleeding and buys more time for treatment. Shared radiance divides a weaker heal between two nearby targets, while swift mend delivers a smaller amount immediately and places the spell on a longer cooldown.
+Upgrades can improve the healing rate, mana efficiency, channel range, or resistance to interruption. Stabilising light reduces bleeding and buys more time for treatment. Shared radiance divides a weaker heal between two nearby targets, while swift mend delivers a smaller amount at once for a shorter gather, at the price of a higher mana cost per point restored.
 
 ## Trade-Offs
 

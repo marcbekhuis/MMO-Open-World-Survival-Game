@@ -4,7 +4,7 @@ A player's race is the first decision a character makes and the one that colours
 
 ## What a Race Decides, and What It Does Not
 
-Choosing a race shapes a character's early attributes and affinities, the city they first wake in, and the cultural frame the world reads them through. A dwarf begins hardier and more at home at a forge; an elf begins quicker and closer to the world's magic; a human begins balanced and unspecialised, free to lean in any direction. These are starting tendencies, not ceilings. The progression system in [Player Progression](Player.md) is built so that stats and skills earned in play matter far more over a character's life than the race they were born to, which is why a dwarven mage, an elven smith, or a human master of any one craft is a real and viable build rather than a novelty. Race gives a head start down one road; it never closes the others.
+Choosing a race shapes a character's early attributes and affinities, the city they first wake in, and how they look. No creature, price, or system treats a character differently for their race; what differs is the starting city, the look, and the free starting steps. A dwarf begins hardier and more at home at a forge; an elf begins quicker and closer to the world's magic; a human begins balanced and unspecialised, free to lean in any direction. These are starting tendencies, not ceilings. The progression system in [Player Progression](Player.md) is built so that stats and skills earned in play matter far more over a character's life than the race they were born to, which is why a dwarven mage, an elven smith, or a human master of any one craft is a real and viable build rather than a novelty. Race gives a head start down one road; it never closes the others.
 
 Because identity here is earned through play rather than picked from a menu, race is deliberately not a class. There are no classes at all, as the start is laid out in [New Player Experience](New-player-experience.md). Two characters of the same race can grow into a frontier scout and a city financier and have almost nothing mechanically in common by the time they are established.
 
@@ -16,7 +16,7 @@ Each playable race is a people divided among several realms, and those realms ar
 
 - [Human](Races/Human.md) — the adaptable baseline, strong at nothing by birth and capable of anything with time.
 - [Elf](Races/Elf.md) — agile, precise, and close to the world's magic, at the cost of raw physical strength.
-- [Dwarf](Races/Dwarf.md) — resilient and forge-bred, weak in raw magic but unmatched at arming themselves against it.
+- [Dwarf](Races/Dwarf.md) — resilient and forge-bred, light on starting magic but heir to a tradition of arming themselves against it.
 
 ## Continue Reading
 

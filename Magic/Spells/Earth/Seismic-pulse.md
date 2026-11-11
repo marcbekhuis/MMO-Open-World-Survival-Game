@@ -4,6 +4,8 @@ Seismic Pulse drives a compact shock through the ground around the caster. It is
 
 ## Gameplay Role
 
+Seismic Pulse is a quick, one-handed spell under the [casting rules](../../../Magic.md#casting). The caster must stand still while it gathers, and plain damage does not break it.
+
 The pulse unsettles nearby enemies, breaking fragile actions and briefly staggering targets that are moving, charging, or poorly braced. It can stop a rush, create room around a surrounded caster, and expose cracked floors, loose stone, buried hollows, or unstable tunnel sections. Large creatures and shielded players may resist the stagger but still receive the warning tremor.
 
 The spell travels through connected solid ground. It is strong on rock and packed earth, weaker through mud or constructed floors, and unable to reach airborne targets or enemies separated by open water. This makes positioning part of the spell rather than a cosmetic concern.

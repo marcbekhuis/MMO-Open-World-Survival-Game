@@ -94,6 +94,12 @@ This glossary defines the recurring archetype terms the design relies on, so the
 
 ## Conflict, loss, and economy
 
+**Early access** — the staged release that follows the closed tests. Players are admitted in waves under a population cap, at a reduced subscription price, and the world can still be wiped. It ends on the declared day the persistent world begins. See [Launch Scope](Launch-scope.md#a-staged-release).
+
+**Knockdown** — being thrown to the ground by a blow or a body whose momentum beats the target's stance. For about two seconds a knocked-down character cannot strike, cast or ready an item, but can raise a guard and roll aside. A stagger is the lesser result of the same contest. See [Melee combat](Melee-combat.md#stagger-and-knockdown).
+
+**Wipe** — a reset of a world during early access. A wipe resets everything, the world and every character with its levels and skills. Once the persistent world begins there are no more wipes. See [Launch Scope](Launch-scope.md#a-staged-release).
+
 **Safe city** — a great city held by NPC guards strong enough to suppress player aggression within its bounds, serving as a haven for respawn, trade, crafting, and training. See [Conflict and PvP](Conflict-and-pvp.md).
 
 **Full loot** — the rule that a player killed by another player leaves a corpse the victor may strip entirely, equipped gear included. See [Death and loss](Death-and-loss.md).
@@ -135,6 +141,10 @@ This glossary defines the recurring archetype terms the design relies on, so the
 **Breath** — the short clock that runs only underwater and in the thin air above the highest peaks and floating islands, shown on the HUD only while it drains. When it runs out the character passes out, which means drowning underwater and falling in the air. Flying creatures hold out in thin air far longer than riders. See [Survival](Survival.md#breath) and [Flight](Flight.md#weather-and-altitude).
 
 ## Creatures and magic
+
+**Steadiness** — a value every creature carries for life, low at first and rising each time it comes through a fight. A steady creature is less likely to bolt from fright and, when its rider dies, less likely to panic and shed its packs along its flight. See [Creature riding](Creature-riding.md#when-the-rider-falls).
+
+**Mana Recovery** — the stat that sets how quickly a caster's pool refills from their own reserves, wherever they stand. The land multiplies it: a leyline speeds it, and ground whose mana level has been drawn down by heavy casting slows it, to nothing where the ground is drained. See [Magic](Magic.md#casting) and [Player progression](Player.md#stat-point-allocation).
 
 **Elder beast / mythic creature** — one of the primordial creatures older than any realm, born with the world rather than salvaged from its collapse, such as the Stone Giant, the Titan Turtle, and the Royal Dragon. They are treated as pieces of the world's own myth rather than monsters to be farmed, and the great mythic creatures such as the Kraken and the Flying Leviathan are counted among the wild's own powers. See [Setting and lore](Setting-and-lore.md), [Stone Giant](Creatures/Stone-giant.md), and [Titan Turtle](Creatures/Titan-turtle.md).
 
